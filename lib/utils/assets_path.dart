@@ -8,4 +8,6 @@ class AssetPath {
   static const String clockImage = '$_basePath/Clock.png';
   static const String basilEditOutline = '$_basePath/basil_edit_outline.png';
   static const String profileImage = '$_basePath/profile_image.png';
+  static const String rectangel = '$_basePath/Rectangle 46.png';
+  static const String hotelImage = '$_basePath/hotel_image.png';
 }

@@ -1,6 +1,8 @@
 import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/auth.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/event_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/explore_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/splash_creen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +22,7 @@ class Managmentapp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           theme: themeData(),
-          home: HomeScreen(),
+          home: ExploreScreen(),
 
         );
       },
