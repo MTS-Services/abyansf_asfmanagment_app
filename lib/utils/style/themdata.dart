@@ -1,4 +1,5 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:flutter/material.dart';
 
 ThemeData themeData() {
@@ -12,6 +13,13 @@ ThemeData themeData() {
         shadowColor: const Color(0x99C7AE6A),
         elevation: 10,
       ),
+    ),
+    textTheme: TextTheme(
+      titleLarge: TextStyle(
+        fontSize: AppStyles.fontXXL,
+        fontWeight: AppStyles.weightBold,
+        color: AppColors.blackColor,
+      )
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
