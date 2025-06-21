@@ -1,4 +1,4 @@
-import 'package:abyansf_asfmanagment_app/utils/themdata.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/auth.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/splash_creen/splash_screen.dart';
