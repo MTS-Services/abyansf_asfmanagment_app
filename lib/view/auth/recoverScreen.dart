@@ -6,8 +6,8 @@ import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/verificationScreen.dart';
 import 'package:flutter/material.dart';
 
-class Signupscreen extends StatelessWidget {
-  const Signupscreen({super.key});
+class Recoverscreen extends StatelessWidget {
+  const Recoverscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class Signupscreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Request an account',
+              'Recover Password',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.blackColor,
@@ -29,15 +29,15 @@ class Signupscreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'Get started with your access in\njust a few steps.',
+              'Enter the Email Address that you used when\nregister to recover your password, You will receive a\nVerification code.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 18),
+              style: TextStyle(
+                color: AppColors.greyColor,
+                fontSize: 15,
+                fontFamily: "inter",
+              ),
             ),
             SizedBox(height: AppStyles.heightM),
-            TextFormField(),
-            SizedBox(height: 20),
-            TextFormField(),
-            SizedBox(height: 20),
             TextFormField(),
 
             SizedBox(height: 20),
@@ -59,10 +59,10 @@ class Signupscreen extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
                     child: const Text(
-                      'Send request',
+                      'Submit',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 18,
 
                         fontWeight: FontWeight.w500,
                       ),
@@ -71,32 +71,8 @@ class Signupscreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+
             // text button //
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Already have an account?",
-                  style: TextStyle(fontSize: AppStyles.fontL),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
-                    );
-                  },
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Color(0xffAD8945),
-                      fontSize: AppStyles.fontL,
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),
