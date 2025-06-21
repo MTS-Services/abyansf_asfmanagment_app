@@ -15,12 +15,11 @@ class Managmentapp extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child){
+      builder: (context, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           theme: themeData(),
-          home: LoginScreen(),
-
+          home: Auth(),
         );
       },
     );

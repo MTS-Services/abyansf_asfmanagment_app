@@ -1,8 +1,9 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:flutter/material.dart';
 
-ThemeData themeData(){
+ThemeData themeData() {
   return ThemeData(
+    fontFamily: "PlayfairDisplay",
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFFC7AE6A), // Laser-300
