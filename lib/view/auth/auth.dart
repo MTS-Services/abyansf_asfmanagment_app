@@ -29,18 +29,44 @@ class Auth extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: GridView.count(
-                shrinkWrap: true,
-                crossAxisCount: 3,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
-                physics: const NeverScrollableScrollPhysics(),
-                children: imagePaths.map((path) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(4),
-                    child: Image.asset(path, fit: BoxFit.cover),
-                  );
-                }).toList(),
+              child: Stack(
+                children: [
+                  GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: imagePaths.map((path) {
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(path, fit: BoxFit.cover),
+                      );
+                    }).toList(),
+                  ),
+
+                  // Gradient overlay //
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: 400,
+                    child: IgnorePointer(
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color.fromARGB(0, 255, 255, 255),
+                              Colors.white,
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
 
@@ -54,7 +80,7 @@ class Auth extends StatelessWidget {
                 style: TextStyle(
                   color: AppColors.blackColor,
                   fontSize: 30,
-                  fontWeight: AppStyles.weightMedium,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
