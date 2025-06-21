@@ -6,12 +6,5 @@ import 'app_bindings.dart';
 import 'managmentApp.dart';
 
 void main() {
-  runApp(
-    GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialBinding: AppBindings(), // ✅ এটা আগে executed হবে
-      theme: themeData(),
-      home:  ManagmentApp(),
-    ),
-  );
+  runApp( ManagmentApp());
 }

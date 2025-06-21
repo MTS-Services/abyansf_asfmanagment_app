@@ -40,20 +40,20 @@ class ProfileScreen extends StatelessWidget {
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  CircleAvatar(backgroundImage: AssetImage(AssetPath.profileImage),radius: 40,),
+                  CircleAvatar(backgroundImage: AssetImage(AssetPath.profileImage),radius: 40,backgroundColor: Colors.white,),
                    Positioned(
                      bottom: 5,
                      right: 5,
                      child: InkWell(
                        onTap: ()=>_imagePickerController.pickImage(),
                        child: Container(
-                         width: 30,
-                         height: 30,
+                         width: 20,
+                         height: 20,
                          decoration: BoxDecoration(
                              shape: BoxShape.circle,
                              color: Colors.white,
                          ),
-                         child: Icon(Icons.camera_alt_outlined),
+                         child: Icon(Icons.camera_alt_outlined,size: 13),
 
                        ),
                      ),
