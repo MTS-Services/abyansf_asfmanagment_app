@@ -4,47 +4,59 @@ import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/image_picker_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+
+import '../../../utils/common/custom_app_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   final ImagePickerController _imagePickerController =
       Get.find<ImagePickerController>();
   final List<Map<String, dynamic>> items = [
     {
-      'leading': SvgPicture.asset(AssetPath.solarCalendar,height: 20,width: 20,),
-      'title': Text('Booking History',style: AppTextStyle.regular16,),
+      'leading': SvgPicture.asset(
+        AssetPath.solarCalendar,
+        height: 20,
+        width: 20,
+      ),
+      'title': Text('Booking History', style: AppTextStyle.regular16),
       'trailing': Icon(Icons.arrow_forward_ios),
-      'route': Scaffold(body: Container(color: Colors.red,),),
+      'route': Scaffold(body: Container(color: Colors.red)),
     },
     {
       'leading': SvgPicture.asset(AssetPath.solarSettings),
-      'title': Text('Account settings',style: AppTextStyle.regular16,),
+      'title': Text('Account settings', style: AppTextStyle.regular16),
       'trailing': Icon(Icons.arrow_forward_ios),
-      'route': Scaffold(body: Container(color: Colors.yellow,),),
+      'route': Scaffold(body: Container(color: Colors.yellow)),
     },
     {
-      'leading': SvgPicture.asset(AssetPath.solarCalendar,height: 20,width: 20,),
-      'title': Text('Invite your friend',style: AppTextStyle.regular16,),
+      'leading': SvgPicture.asset(
+        AssetPath.solarCalendar,
+        height: 20,
+        width: 20,
+      ),
+      'title': Text('Invite your friend', style: AppTextStyle.regular16),
       'trailing': Icon(Icons.arrow_forward_ios),
-      'route': Scaffold(body: Container(color: Colors.yellow,),),
+      'route': Scaffold(body: Container(color: Colors.yellow)),
     },
     {
       'leading': SvgPicture.asset(AssetPath.privacyPolicy),
-      'title': Text('Privacy & policy',style: AppTextStyle.regular16,),
+      'title': Text('Privacy & policy', style: AppTextStyle.regular16),
       'trailing': Icon(Icons.arrow_forward_ios),
-      'route': Scaffold(body: Container(color: Colors.yellow,),),
+      'route': Scaffold(body: Container(color: Colors.yellow)),
     },
     {
-      'leading': Icon(Icons.logout,color: AppColors.red,),
-      'title': Text('Log Out',style: TextStyle(
-        color: AppColors.red,
-        fontSize: 16,
-        fontFamily: 'Playfair Display',
-        fontWeight: FontWeight.w500,
-      ),),
+      'leading': Icon(Icons.logout, color: AppColors.red),
+      'title': Text(
+        'Log Out',
+        style: TextStyle(
+          color: AppColors.red,
+          fontSize: 16,
+          fontFamily: 'Playfair Display',
+          fontWeight: FontWeight.w500,
+        ),
+      ),
       'trailing': Icon(Icons.arrow_forward_ios),
-      'route': Scaffold(body: Container(color: Colors.yellow,),),
+      'route': Scaffold(body: Container(color: Colors.yellow)),
     },
   ];
 
@@ -58,23 +70,9 @@ class ProfileScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 30),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.greyBackgroundColor,
-                          ),
-                          child: Icon(Icons.keyboard_arrow_left_outlined),
-                        ),
-                        Text('My Profile', style: AppTextStyle.bold24),
-                        SizedBox(),
-                        Image.asset(AssetPath.basilEditOutline),
-                      ],
-                    ),
+                  CustomAppBar(
+                    title: 'My Profile',
+                    action: Image.asset(AssetPath.basilEditOutline,height: 24,width: 24,),
                   ),
                   Row(
                     children: [
@@ -98,7 +96,10 @@ class ProfileScreen extends StatelessWidget {
                                   shape: BoxShape.circle,
                                   color: Colors.white,
                                 ),
-                                child: Icon(Icons.camera_alt_outlined, size: 13),
+                                child: Icon(
+                                  Icons.camera_alt_outlined,
+                                  size: 13,
+                                ),
                               ),
                             ),
                           ),
@@ -149,7 +150,7 @@ class ProfileScreen extends StatelessWidget {
                     leading: item['leading'],
                     title: item['title'],
                     trailing: item['trailing'],
-                    onTap: (){
+                    onTap: () {
                       Get.to(() => item['route']);
                     },
                   );
@@ -162,8 +163,6 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-
 
 Widget _infoRow(IconData icon, String text) {
   return Row(

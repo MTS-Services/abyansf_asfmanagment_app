@@ -13,6 +13,12 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
+int currentIndex = 0;
+final List<String> images = [
+  AssetPath.splashScreen1,
+  AssetPath.splashScreen2,
+  AssetPath.splashScreen3,
+];
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
@@ -67,8 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 10),
+
               CarouselSlider.builder(
-                itemCount: 5,
+                itemCount: images.length,
                 itemBuilder: (context, index, realIndex) {
                   return GestureDetector(
                     onTap: (){
@@ -79,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
-                          image: AssetImage(AssetPath.hotelImage),
+                          image: AssetImage(images[index]),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -156,14 +163,55 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 options: CarouselOptions(
-                  height: 216,
+                  height: 230,
                   enlargeCenterPage: true,
-                  autoPlay: false,
+                  autoPlay: true,
                   aspectRatio: 16 / 9,
                   autoPlayInterval: const Duration(seconds: 3),
                   viewportFraction: 0.8,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      currentIndex = index;
+                    });
+                  },
                 ),
               ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(images.length, (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              currentIndex = index;
+                            });
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(2),
+                            child: Container(
+                              width: currentIndex == index ? 16 : 5,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                color: currentIndex == index
+                                    ? AppColors.primaryColor
+                                    : Colors.red,
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                ],
+              ),
+
+
 
               const SizedBox(height: 20),
               Row(
