@@ -30,31 +30,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: (index) => setState(() => _selectedIndex = index),
-        showUnselectedLabels: true,
-        selectedItemColor: AppColors.primaryDeepColor,
-        unselectedItemColor: Colors.black,
-        items: [
-          _bottomNavItem(AssetPath.navHome, 'Home', 0),
-          _bottomNavItem(AssetPath.navEvents, 'Events', 1),
-          _bottomNavItem(AssetPath.navExplore, 'Explore', 2),
-          _bottomNavItem(AssetPath.navConcierge, 'Concierge', 3),
-          _bottomNavItem(AssetPath.navProfile, 'Profile', 4),
-        ],
-      ),
+      bottomNavigationBar: Container(
+      )
     );
   }
-
-  BottomNavigationBarItem _bottomNavItem(String assetPath, String label, int index){
-    return BottomNavigationBarItem(icon: SvgPicture.asset(assetPath,height: 24,width: 24,
-    colorFilter: ColorFilter.mode(
-      _selectedIndex == index ? AppColors.primaryDeepColor : Colors.black,
-      BlendMode.srcIn
-    ),
-    ),label: label,);
-  }
-
-
 }
