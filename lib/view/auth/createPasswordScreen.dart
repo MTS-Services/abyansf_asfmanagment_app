@@ -1,13 +1,12 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/verificationScreen.dart';
 import 'package:flutter/material.dart';
 
-class Signupscreen extends StatelessWidget {
-  const Signupscreen({super.key});
+class Createpasswordscreen extends StatelessWidget {
+  const Createpasswordscreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class Signupscreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Request an account',
+              'Create New Password',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.blackColor,
@@ -29,41 +28,36 @@ class Signupscreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'Get started with your access in\njust a few steps.',
+              'Type and confirm a secure new password for your amount',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 18),
+
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 16,
+                fontFamily: "Inter",
+              ),
             ),
             SizedBox(height: AppStyles.heightM),
             TextFormField(),
             SizedBox(height: 20),
             TextFormField(),
             SizedBox(height: 20),
-            TextFormField(),
 
-            SizedBox(height: 20),
-            // login button //
             Row(
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => VerificationScreen(),
-                        ),
-                      );
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
                     child: const Text(
-                      'Send request',
+                      'Save',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
-
+                        fontFamily: 'Playfair Display',
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -71,32 +65,8 @@ class Signupscreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+
             // text button //
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Already have an account?",
-                  style: TextStyle(fontSize: AppStyles.fontL),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
-                    );
-                  },
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Color(0xffAD8945),
-                      fontSize: AppStyles.fontL,
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),

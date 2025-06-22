@@ -1,31 +1,19 @@
-import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/auth.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/main_screen/event_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/main_screen/explore_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/splash_creen/splash_screen.dart';
+import 'package:abyansf_asfmanagment_app/utils/common/custom_bottom_bar.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
-class Managmentapp extends StatelessWidget {
-  const Managmentapp({super.key});
+
+class ManagmentApp extends StatelessWidget {
+  const ManagmentApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child){
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: themeData(),
-          home: ExploreScreen(),
-
-        );
-      },
+      builder: (context, child) => CustomBottomBar(),
     );
   }
 }
