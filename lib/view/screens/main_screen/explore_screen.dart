@@ -1,3 +1,7 @@
+import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_grid_item.dart';
 import 'package:flutter/material.dart';
 
 class ExploreScreen extends StatelessWidget {
@@ -7,9 +11,9 @@ class ExploreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -18,34 +22,35 @@ class ExploreScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 8),
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 6, // Add your desired item count
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 12,
-                    mainAxisSpacing: 12,
-                    childAspectRatio: 1, // optional tuning
-                  ),
-                  itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: Colors.indigoAccent,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      height: 169,
-                      width: 169,
-                      child: Center(
-                        child: Text(
-                          'Item ${index + 1}',
-                          style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                    );
-                  },
+                CustomGridItem(),
+                const SizedBox(height: 10,),
+                Text(
+                  'Travel',
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 8),
+                CustomGridItem(),
+                const SizedBox(height: 10,),
+                Text(
+                  'Entertainment',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                CustomGridItem(),
+                const SizedBox(height: 10,),
+                Text(
+                  'Professional',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                CustomGridItem(),
+                const SizedBox(height: 10,),
+                Text(
+                  'Trips & expedition',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                CustomGridItem(),
               ],
             ),
           ),
@@ -54,3 +59,5 @@ class ExploreScreen extends StatelessWidget {
     );
   }
 }
+
+
