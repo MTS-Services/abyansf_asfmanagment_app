@@ -158,12 +158,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 options: CarouselOptions(
                   height: 216,
                   enlargeCenterPage: true,
-                  autoPlay: true,
+                  autoPlay: false,
                   aspectRatio: 16 / 9,
                   autoPlayInterval: const Duration(seconds: 3),
                   viewportFraction: 0.8,
                 ),
               ),
+
               const SizedBox(height: 20),
               Row(
                 children: [
@@ -196,5 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
 
 

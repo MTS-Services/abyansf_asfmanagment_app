@@ -21,5 +21,8 @@ class AssetPath {
   static const String navEvents = '$_basePath/nav_events.svg';
   static const String navConcierge = '$_basePath/nav_concierge.svg';
   static const String diningImage = '$_basePath/dining_image.png';
+  static const String rectangle49 = '$_basePath/Rectangle 49.png';
+  static const String rectangle50 = '$_basePath/Rectangle 50.png';
+  static const String frameImage = '$_basePath/Frame 126.png';
 
 }
