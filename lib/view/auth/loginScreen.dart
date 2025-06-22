@@ -1,6 +1,5 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:flutter/material.dart';
