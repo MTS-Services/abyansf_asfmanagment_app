@@ -24,5 +24,9 @@ class AssetPath {
   static const String rectangle49 = '$_basePath/Rectangle 49.png';
   static const String rectangle50 = '$_basePath/Rectangle 50.png';
   static const String frameImage = '$_basePath/Frame 126.png';
+  static const String image = '$_basePath/image11.png';
+  static const String image12 = '$_basePath/image12.png';
+  static const String image13 = '$_basePath/image13.png';
+  static const String image14 = '$_basePath/image14.png';
 
 }

@@ -1,17 +1,19 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/venu_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-class BeachClubScreen extends StatefulWidget {
-  const BeachClubScreen({super.key});
+
+class DesertActivitiesScreen extends StatefulWidget {
+  const DesertActivitiesScreen({super.key});
 
   @override
-  State<BeachClubScreen> createState() => _BeachClubScreenState();
+  State<DesertActivitiesScreen> createState() => _DesertActivitiesScreenState();
 }
 
-class _BeachClubScreenState extends State<BeachClubScreen> {
+class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class _BeachClubScreenState extends State<BeachClubScreen> {
             SizedBox(
               height: 96,
               width: double.infinity,
-              child: Image.asset(AssetPath.rectangle49, fit: BoxFit.cover),
+              child: Image.asset(AssetPath.image, fit: BoxFit.cover),
             ),
             const SizedBox(height: 25),
             Padding(
@@ -33,8 +35,8 @@ class _BeachClubScreenState extends State<BeachClubScreen> {
                   Text('Pools', style: Theme.of(context).textTheme.titleLarge),
                   const SizedBox(height: 12),
                   VenueCard(
-                    imagePath: AssetPath.rectangle49,
-                    title: "Aura Sky Pool",
+                    imagePath: AssetPath.image12,
+                    title: "Camel Camp",
                     location: "Jumeirah Beach Residence",
                     personIcon: AssetPath.personImage,
                     clockIcon: AssetPath.clockImage,
@@ -42,14 +44,30 @@ class _BeachClubScreenState extends State<BeachClubScreen> {
                     height: 167,
                   ),
                   const SizedBox(height: 30),
-                  Text('Beach', style: Theme.of(context).textTheme.titleLarge),
+                  Row(
+                    children: [
+                      Text(
+                        'Beach',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      Spacer(),
+                      Text(
+                        'See all',
+                        style: TextStyle(
+                          fontWeight: AppStyles.weightMedium,
+                          fontSize: AppStyles.fontL,
+                          color: AppColors.primaryColor.withAlpha(160),
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 12),
                   CarouselSlider.builder(
-                    itemCount: images.length,
+                    itemCount: 3,
                     itemBuilder: (context, index, realIndex) {
                       return VenueCard(
-                        imagePath: AssetPath.frameImage,
-                        title: 'Lusery Dinner Venues',
+                        imagePath: AssetPath.image13,
+                        title: 'Single Buggy Ride',
                         location: 'Jumeirah Beach Residence',
                         personIcon: AssetPath.personImage,
                         clockIcon: AssetPath.clockImage,
@@ -103,7 +121,6 @@ class _BeachClubScreenState extends State<BeachClubScreen> {
                       ),
                     ],
                   ),
-
                 ],
               ),
             ),

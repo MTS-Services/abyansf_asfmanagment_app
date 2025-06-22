@@ -34,7 +34,6 @@ class CustomGridItem extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.indigoAccent,
                 ),
               ),
             ),
