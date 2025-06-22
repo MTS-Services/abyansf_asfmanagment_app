@@ -17,7 +17,7 @@ class ExploreScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8,),
               SizedBox(
-                height: 280,
+                height: 169,
                 width: MediaQuery.of(context).size.width,
                 child: GridView.builder(
                   scrollDirection: Axis.horizontal,

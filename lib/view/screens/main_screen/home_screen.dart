@@ -156,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 options: CarouselOptions(
-                  height: 230,
+                  height: 216,
                   enlargeCenterPage: true,
                   autoPlay: true,
                   aspectRatio: 16 / 9,

@@ -71,9 +71,9 @@ class CustomEventWidget extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: AppStyles.weightRegular,
                       fontSize: AppStyles.fontXXL,
-                      color: AppColors.lightLaserColor.withAlpha(160),
+                      color: AppColors.secondaryColor.withAlpha(160),
                       decoration: TextDecoration.underline,
-                      decorationColor: AppColors.lightLaserColor.withAlpha(160),
+                      decorationColor: AppColors.secondaryColor.withAlpha(160),
                       decorationThickness: 1.0,
                       height: 1.4,
                     ),
