@@ -1,6 +1,8 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/booking_history.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/invite_friend_show_log.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/image_picker_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
       ),
       'title': Text('Booking History', style: AppTextStyle.regular16),
       'trailing': Icon(Icons.arrow_forward_ios),
-      'route': Scaffold(body: Container(color: Colors.red)),
+      'route': () => BookingHistory(), //not working
     },
     {
       'leading': SvgPicture.asset(AssetPath.solarSettings),
@@ -36,7 +38,9 @@ class ProfileScreen extends StatelessWidget {
       ),
       'title': Text('Invite your friend', style: AppTextStyle.regular16),
       'trailing': Icon(Icons.arrow_forward_ios),
-      'route': Scaffold(body: Container(color: Colors.yellow)),
+      'onTap': (BuildContext context) {
+        InviteFriendShowLog.show(context);
+      },
     },
     {
       'leading': SvgPicture.asset(AssetPath.privacyPolicy),
@@ -151,7 +155,11 @@ class ProfileScreen extends StatelessWidget {
                     title: item['title'],
                     trailing: item['trailing'],
                     onTap: () {
-                      Get.to(() => item['route']);
+                      if (item.containsKey('onTap')) {
+                        item['onTap'](context);
+                      } else {
+                        Get.to(item['route']); // ✅ because it's now a function
+                      }
                     },
                   );
                 },
