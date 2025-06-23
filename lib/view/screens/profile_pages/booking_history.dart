@@ -1,4 +1,5 @@
 import 'package:abyansf_asfmanagment_app/utils/common/custom_app_bar.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:flutter/material.dart';
 
 class BookingHistory extends StatelessWidget {
@@ -7,11 +8,14 @@ class BookingHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          CustomAppBar(title: 'Booking History'),
-          
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            CustomAppBar(title: 'Booking History'),
+            CustomEventWidget(),
+            CustomEventWidget(),
+          ],
+        ),
       ),
     );
   }

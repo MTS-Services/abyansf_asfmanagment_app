@@ -20,6 +20,7 @@ class AssetPath {
   static const String navExplore = '$_basePath/nav_explore.svg';
   static const String navEvents = '$_basePath/nav_events.svg';
   static const String navConcierge = '$_basePath/nav_concierge.svg';
+  static const String lsiconUserCrowd = '$_basePath/lsicon_user-crowd-outline.svg';
   static const String diningImage = '$_basePath/dining_image.png';
   static const String rectangle49 = '$_basePath/Rectangle 49.png';
   static const String rectangle50 = '$_basePath/Rectangle 50.png';
@@ -28,5 +29,6 @@ class AssetPath {
   static const String image12 = '$_basePath/image12.png';
   static const String image13 = '$_basePath/image13.png';
   static const String image14 = '$_basePath/image14.png';
+  static const String bookingIndImage = '$_basePath/Booking_ind_image.svg.png';
 
 }

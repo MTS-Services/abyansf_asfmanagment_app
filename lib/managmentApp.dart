@@ -1,5 +1,6 @@
 import 'package:abyansf_asfmanagment_app/utils/common/custom_bottom_bar.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/booking_history_individual_page.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/edit_profile.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/profile_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/beach_club_screen.dart';
@@ -18,7 +19,7 @@ class ManagmentApp extends StatelessWidget {
       designSize: Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => WellnessScreen(),
+      builder: (context, child) => ProfileScreen(),
     );
   }
 }
