@@ -39,7 +39,6 @@ class CustomAppBar extends StatelessWidget {
           )
               : const SizedBox(width: 40),
           Text(title, style: AppTextStyle.bold24),
-          SizedBox(),
           action ?? const SizedBox(width: 40),
         ],
       ),

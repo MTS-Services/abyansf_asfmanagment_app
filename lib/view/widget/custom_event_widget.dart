@@ -4,9 +4,7 @@ import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:flutter/material.dart';
 
 class CustomEventWidget extends StatelessWidget {
-  const CustomEventWidget({
-    super.key,
-  });
+  const CustomEventWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +13,7 @@ class CustomEventWidget extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 120,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-        ),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
         child: Padding(
           padding: const EdgeInsets.all(14),
           child: Row(
@@ -28,10 +24,7 @@ class CustomEventWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Image.asset(
-                  AssetPath.rectangel,
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset(AssetPath.rectangel, fit: BoxFit.cover),
               ),
               const SizedBox(width: 20),
               Column(
@@ -47,20 +40,47 @@ class CustomEventWidget extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.location_on,size: 16,color: AppColors.lightWhite6,),
-                      const SizedBox(width: 4,),
-                      Text('Dubai',style: TextStyle(fontSize: AppStyles.fontS,fontWeight: AppStyles.weightRegular,color: AppColors.lightWhite6),),
+                      Icon(
+                        Icons.location_on,
+                        size: 16,
+                        color: AppColors.lightWhite6,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        'Dubai',
+                        style: TextStyle(
+                          fontSize: AppStyles.fontS,
+                          fontWeight: AppStyles.weightRegular,
+                          color: AppColors.lightWhite6,
+                        ),
+                      ),
                     ],
                   ),
                   Spacer(),
                   Row(
                     children: [
-                      Text('Attendance?',style: TextStyle(fontSize: AppStyles.fontM,fontWeight: AppStyles.weightRegular,color: AppColors.lightWhite6),),
-                      const SizedBox(width: 8,),
-                      InkWell(onTap: (){}, child: Text('Skip',style: TextStyle(color: AppColors.primaryColor,fontSize: AppStyles.fontM,fontWeight: AppStyles.weightRegular),))
+                      Text(
+                        'Attendance?',
+                        style: TextStyle(
+                          fontSize: AppStyles.fontM,
+                          fontWeight: AppStyles.weightRegular,
+                          color: AppColors.lightWhite6,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      InkWell(
+                        onTap: () {},
+                        child: Text(
+                          'Skip',
+                          style: TextStyle(
+                            color: AppColors.primaryColor,
+                            fontSize: AppStyles.fontM,
+                            fontWeight: AppStyles.weightRegular,
+                          ),
+                        ),
+                      ),
                     ],
-                  )
-
+                  ),
                 ],
               ),
               Spacer(),
@@ -78,12 +98,24 @@ class CustomEventWidget extends StatelessWidget {
                       height: 1.4,
                     ),
                   ),
-                  Text('Sunday',style: TextStyle(fontSize: AppStyles.fontM,fontWeight: AppStyles.weightRegular,color: AppColors.lightWhite6),),
-                  Text('11 jun',style: TextStyle(fontSize: AppStyles.fontM,fontWeight: AppStyles.weightRegular,color: AppColors.lightWhite6),),
-
-
+                  Text(
+                    'Sunday',
+                    style: TextStyle(
+                      fontSize: AppStyles.fontM,
+                      fontWeight: AppStyles.weightRegular,
+                      color: AppColors.lightWhite6,
+                    ),
+                  ),
+                  Text(
+                    '11 jun',
+                    style: TextStyle(
+                      fontSize: AppStyles.fontM,
+                      fontWeight: AppStyles.weightRegular,
+                      color: AppColors.lightWhite6,
+                    ),
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
