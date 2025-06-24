@@ -19,7 +19,14 @@ class AssetPath {
   static const String navHome = '$_basePath/nav_home.svg';
   static const String navExplore = '$_basePath/nav_explore.svg';
   static const String navEvents = '$_basePath/nav_events.svg';
+  static const String plusIcons = '$_basePath/plus_icon.svg';
+  static const String minusIcons = '$_basePath/minus_icon.svg';
   static const String navConcierge = '$_basePath/nav_concierge.svg';
+  static const String icSharpFacebook = '$_basePath/ic_sharp-facebook.svg';
+  static const String riMessengerFill = '$_basePath/ri_messenger-fill.svg';
+  static const String riWhatsappFill = '$_basePath/ri_whatsapp-fill.svg';
+  static const String icRoundEmail = '$_basePath/ic_round-email.svg';
+  static const String solarCopyOutline = '$_basePath/solar_copy_outline.svg'; 
   static const String lsiconUserCrowd = '$_basePath/lsicon_user-crowd-outline.svg';
   static const String diningImage = '$_basePath/dining_image.png';
   static const String rectangle49 = '$_basePath/Rectangle 49.png';
@@ -29,6 +36,7 @@ class AssetPath {
   static const String image12 = '$_basePath/image12.png';
   static const String image13 = '$_basePath/image13.png';
   static const String image14 = '$_basePath/image14.png';
-  static const String bookingIndImage = '$_basePath/Booking_ind_image.svg.png';
+  static const String OrderPlaceImage = '$_basePath/order_place_image.png';
+  static const String bookingIndImage = '$_basePath/Booking_ind_image.png';
 
 }

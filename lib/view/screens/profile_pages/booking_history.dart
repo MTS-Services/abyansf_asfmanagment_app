@@ -10,70 +10,73 @@ class BookingHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            CustomAppBar(title: 'Booking History'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(10),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)
-                          )
-                      ),
-                      child: Text('All', style: AppTextStyle.regular16,)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(10),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)
-                          )
-                      ),
-                      child: Text('Past', style: AppTextStyle.regular16,)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(10),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)
-                          )
-                      ),
-                      child: Text('Active', style: AppTextStyle.regular16,)),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.all(10),
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50)
-                          )
-                      ),
-                      child: Text('Cancel', style: AppTextStyle.regular16,)),
-                ),
-              ],
-            ),
-            ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return CustomEventWidget();
-                }),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              CustomAppBar(title: 'Booking History'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.all(10),
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50)
+                            )
+                        ),
+                        child: Text('All', style: AppTextStyle.regular16,)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.all(10),
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50)
+                            )
+                        ),
+                        child: Text('Past', style: AppTextStyle.regular16,)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.all(10),
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50)
+                            )
+                        ),
+                        child: Text('Active', style: AppTextStyle.regular16,)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.all(10),
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50)
+                            )
+                        ),
+                        child: Text('Cancel', style: AppTextStyle.regular16,)),
+                  ),
+                ],
+              ),
+              ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return CustomEventWidget();
+                  }),
+            ],
+          ),
         ),
       ),
     );
