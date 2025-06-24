@@ -1,5 +1,6 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 ThemeData themeData() {
@@ -7,19 +8,31 @@ ThemeData themeData() {
     fontFamily: "PlayfairDisplay",
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFFC7AE6A), // Laser-300
+        textStyle: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 16,
+          fontFamily: 'PlayfairDisplay',
+        ),
+        foregroundColor: Colors.black,
+        backgroundColor: const Color(0xFFC7AE6A),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         shadowColor: const Color(0x99C7AE6A),
         elevation: 10,
       ),
     ),
+
     textTheme: TextTheme(
       titleLarge: TextStyle(
         fontSize: AppStyles.fontXXL,
         fontWeight: AppStyles.weightBold,
         color: AppColors.blackColor,
-      )
+      ),
+      bodyMedium:  TextStyle(
+        fontWeight: AppStyles.weightMedium,
+        fontSize: AppStyles.fontL,
+        color: AppColors.primaryColor,
+      ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,

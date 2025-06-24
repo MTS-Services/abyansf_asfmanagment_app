@@ -1,12 +1,13 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/main_screen/booking_history_page.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/venu_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../view_models/controller/carousel_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,6 +22,7 @@ final List<String> images = [
   AssetPath.splashScreen2,
   AssetPath.splashScreen3,
 ];
+final CarouselSliderControllers _carouselSliderController = Get.put(CarouselSliderControllers());
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
@@ -79,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (context, index, realIndex) {
                     return GestureDetector(
                       onTap: () {
-                        Get.off(BookingHistoryPage());
+
                       },
                       child: VenueCard(
                         imagePath: images[index],
@@ -151,11 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {},
                       child: Text(
                         'See all',
-                        style: TextStyle(
-                          fontWeight: AppStyles.weightMedium,
-                          fontSize: AppStyles.fontL,
-                          color: AppColors.primaryColor.withAlpha(160),
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium
                       ),
                     ),
                   ],

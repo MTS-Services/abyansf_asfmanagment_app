@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 class VenueCard extends StatelessWidget {
   final String imagePath;
-  final String title;
-  final String location;
-  final String personIcon;
-  final String clockIcon;
+  final String? title;
+  final String? location;
+  final String? personIcon;
+  final String? clockIcon;
   final double? height;
   final double? width;
 
   const VenueCard({
     super.key,
     required this.imagePath,
-    required this.title,
-    required this.location,
-    required this.personIcon,
-    required this.clockIcon,
+    this.title,
+    this.location,
+    this.personIcon,
+    this.clockIcon,
     this.height = 216,
     this.width = 296,
   });
@@ -36,7 +36,7 @@ class VenueCard extends StatelessWidget {
           children: [
             const Spacer(),
             Text(
-              title,
+              title ?? '',
               style: const TextStyle(
                 fontSize: 20, // replace with AppStyles.fontXL if needed
                 fontWeight: FontWeight.bold, // AppStyles.weightBold
@@ -46,13 +46,13 @@ class VenueCard extends StatelessWidget {
             const SizedBox(height: 6),
             Row(
               children: [
-                const Icon(
+               location!=null ? const Icon(
                   Icons.location_on,
                   size: 16,
                   color: Colors.white, // AppColors.lightWhite6
-                ),
+                ): SizedBox(),
                 Text(
-                  location,
+                  location?? '',
                   style: const TextStyle(
                     fontSize: 12, // AppStyles.fontS
                     fontWeight: FontWeight.bold, // AppStyles.weightBold
@@ -60,9 +60,9 @@ class VenueCard extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                _iconContainer(personIcon),
+               personIcon != null? _iconContainer(personIcon?? ''):SizedBox(),
                 const SizedBox(width: 5),
-                _iconContainer(clockIcon),
+               clockIcon != null? _iconContainer(clockIcon?? ''): SizedBox(),
               ],
             ),
             const SizedBox(height: 10),

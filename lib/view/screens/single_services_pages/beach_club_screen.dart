@@ -1,9 +1,11 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/single_beach_club_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/venu_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 class BeachClubScreen extends StatefulWidget {
   const BeachClubScreen({super.key});
 
@@ -44,29 +46,37 @@ class _BeachClubScreenState extends State<BeachClubScreen> {
                   const SizedBox(height: 30),
                   Text('Beach', style: Theme.of(context).textTheme.titleLarge),
                   const SizedBox(height: 12),
-                  CarouselSlider.builder(
-                    itemCount: images.length,
-                    itemBuilder: (context, index, realIndex) {
-                      return VenueCard(
-                        imagePath: AssetPath.frameImage,
-                        title: 'Lusery Dinner Venues',
-                        location: 'Jumeirah Beach Residence',
-                        personIcon: AssetPath.personImage,
-                        clockIcon: AssetPath.clockImage,
-                      );
+                  GestureDetector(
+                    onTap: (){
+                      Get.off(SingleBeachClubScreen());
                     },
-                    options: CarouselOptions(
-                      height: 220,
-                      enlargeCenterPage: true,
-                      autoPlay: false,
-                      aspectRatio: 16 / 9,
-                      autoPlayInterval: const Duration(seconds: 3),
-                      viewportFraction: 0.8,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          currentIndex = index;
-                        });
+                    child: CarouselSlider.builder(
+                      itemCount: images.length,
+                      itemBuilder: (context, index, realIndex) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: VenueCard(
+                            imagePath: AssetPath.frameImage,
+                            title: 'Lusery Dinner Venues',
+                            location: 'Jumeirah Beach Residence',
+                            personIcon: AssetPath.personImage,
+                            clockIcon: AssetPath.clockImage,
+                          ),
+                        );
                       },
+                      options: CarouselOptions(
+                        height: 220,
+                        enlargeCenterPage: false,
+                        autoPlay: false,
+                        aspectRatio: 16 / 9,
+                        autoPlayInterval: const Duration(seconds: 3),
+                        viewportFraction: 0.8,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            currentIndex = index;
+                          });
+                        },
+                      ),
                     ),
                   ),
 
