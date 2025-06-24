@@ -40,7 +40,7 @@ class AssetPath {
   static const String drinkImage = '$_basePath/drink_image.png';
   static const String otherImage = '$_basePath/other_image.png';
   static const String image34 = '$_basePath/image 34.png';
-  static const String image14 = '$_basePath/image14.png';
+  static const String image15 = '$_basePath/image14.png';
   static const String OrderPlaceImage = '$_basePath/order_place_image.png';
   static const String bookingIndImage = '$_basePath/Booking_ind_image.png';
 

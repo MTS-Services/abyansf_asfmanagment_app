@@ -221,18 +221,46 @@ class SingleBeachClubScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    "Hours",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  const SizedBox(height: 16),
-
-
+                  Text("Hours", style: Theme.of(context).textTheme.titleLarge),
+                  const SizedBox(height: 10),
+                  dayTimeRow("Wednesday", "09:00 PM - 03:00 AM"),
+                  dayTimeRow("Thursday", "09:00 PM - 03:00 AM"),
+                  dayTimeRow("Friday", "09:00 PM - 03:00 AM"),
+                  dayTimeRow("Saturday", "09:00 PM - 03:00 AM"),
+                  dayTimeRow("Sunday", "09:00 PM - 03:00 AM"),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget dayTimeRow(String day, String time) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        children: [
+          Text(
+            day,
+            style: TextStyle(
+              fontSize: AppStyles.fontS,
+              fontWeight: AppStyles.weightRegular,
+              color: AppColors.blackColor,
+            ),
+          ),
+          Spacer(),
+          Text(
+            time,
+            style: TextStyle(
+              fontSize: AppStyles.fontS,
+              fontWeight: AppStyles.weightRegular,
+              color: AppColors.blackColor,
+            ),
+          ),
+        ],
       ),
     );
   }

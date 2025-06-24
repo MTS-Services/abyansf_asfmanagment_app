@@ -40,7 +40,7 @@ class ChatBubble extends StatelessWidget {
               ),
               Positioned(
                 bottom: 0,
-                right: 9,
+                right: 0,
                 child: Icon(
                   Icons.check_rounded,
                   size: 16,
