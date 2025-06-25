@@ -2,6 +2,7 @@ import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/venu_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,9 @@ final List<String> images = [
   AssetPath.splashScreen2,
   AssetPath.splashScreen3,
 ];
-final CarouselSliderControllers _carouselSliderController = Get.put(CarouselSliderControllers());
+final CarouselSliderControllers _carouselSliderController = Get.put(
+  CarouselSliderControllers(),
+);
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
@@ -35,7 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
+                HomeAppBar(),
+                const SizedBox(height: 10,),
                 Text('Services', style: Theme.of(context).textTheme.titleLarge),
                 const SizedBox(height: 7),
                 SizedBox(
@@ -75,14 +79,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 13),
-
+        
                 CarouselSlider.builder(
                   itemCount: images.length,
                   itemBuilder: (context, index, realIndex) {
                     return GestureDetector(
-                      onTap: () {
-
-                      },
+                      onTap: () {},
                       child: VenueCard(
                         imagePath: images[index],
                         title: 'Lusery Dinner Venues',
@@ -94,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   options: CarouselOptions(
                     height: 220,
-                    enlargeCenterPage: true,
+                    enlargeCenterPage: false,
                     autoPlay: false,
                     aspectRatio: 16 / 9,
                     autoPlayInterval: const Duration(seconds: 3),
@@ -106,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                 ),
-
+        
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -140,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-
+        
                 const SizedBox(height: 20),
                 Row(
                   children: [
@@ -153,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {},
                       child: Text(
                         'See all',
-                        style: Theme.of(context).textTheme.bodyMedium
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
                   ],
@@ -174,3 +176,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+

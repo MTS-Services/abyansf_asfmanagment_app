@@ -230,6 +230,41 @@ class SingleBeachClubScreen extends StatelessWidget {
                   dayTimeRow("Saturday", "09:00 PM - 03:00 AM"),
                   dayTimeRow("Sunday", "09:00 PM - 03:00 AM"),
                   const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text('Cancel'),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.white,
+                              shadowColor: Colors.transparent,
+                              shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: AppColors.lightLaserColor,
+                                  ),
+                                  borderRadius: BorderRadiusGeometry.circular(4)
+                              )
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: ElevatedButton(onPressed: (){},
+                          style: ElevatedButton.styleFrom(
+                              shadowColor: Colors.transparent
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Request'),
+                              SizedBox(width: 10),
+                              Icon(Icons.arrow_circle_right_outlined)
+                            ],
+                          ),),
+                      )
+                    ],
+                  ),
                 ],
               ),
             ),
