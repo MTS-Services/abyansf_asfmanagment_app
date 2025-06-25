@@ -1,8 +1,6 @@
-import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils/style/appColor.dart';
 
 class EventScreen extends StatelessWidget {
   const EventScreen({super.key});
@@ -19,31 +17,34 @@ class EventScreen extends StatelessWidget {
               children: [
                 Text(
                   'Upcoming Event',
-                  style:Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(height: 10),
                 ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 5,
-                    itemBuilder: (context,index){
-                      return CustomEventWidget();
-                    }),
-                const SizedBox(height: 10,),
+
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return CustomEventWidget();
+                  },
+                ),
+                const SizedBox(height: 10),
                 Text(
                   'past Event',
-                  style:Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(height: 10),
                 ListView.builder(
                   shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 6,
-                    itemBuilder: (context,index){
-                      return CustomEventWidget();
-                    }),
-
-
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 6,
+                  itemBuilder: (context, index) {
+                    return CustomEventWidget(
+                      status: true,
+                    );
+                  },
+                ),
               ],
             ),
           ),

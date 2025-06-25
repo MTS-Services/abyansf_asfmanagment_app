@@ -2,6 +2,7 @@ import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/card_container.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/day_time_row.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/venu_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -234,33 +235,6 @@ class SingleBeachClubScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget dayTimeRow(String day, String time) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 3),
-      child: Row(
-        children: [
-          Text(
-            day,
-            style: TextStyle(
-              fontSize: AppStyles.fontS,
-              fontWeight: AppStyles.weightRegular,
-              color: AppColors.blackColor,
-            ),
-          ),
-          Spacer(),
-          Text(
-            time,
-            style: TextStyle(
-              fontSize: AppStyles.fontS,
-              fontWeight: AppStyles.weightRegular,
-              color: AppColors.blackColor,
-            ),
-          ),
-        ],
       ),
     );
   }

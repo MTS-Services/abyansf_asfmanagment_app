@@ -4,7 +4,9 @@ import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:flutter/material.dart';
 
 class CustomEventWidget extends StatelessWidget {
-  const CustomEventWidget({super.key});
+  final bool status;
+
+  const CustomEventWidget({super.key, this.status = false});
 
   @override
   Widget build(BuildContext context) {
@@ -30,70 +32,111 @@ class CustomEventWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Breakfast',
-                    style: TextStyle(
-                      fontSize: AppStyles.fontL,
-                      fontWeight: AppStyles.weightBold,
-                      color: AppColors.lightWhite6,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        size: 16,
-                        color: AppColors.lightWhite6,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        'Dubai',
+                  if (status)
+                    RichText(
+                      text: TextSpan(
+                        text: 'Status:',
                         style: TextStyle(
-                          fontSize: AppStyles.fontS,
+                          fontSize: AppStyles.fontXL,
                           fontWeight: AppStyles.weightRegular,
                           color: AppColors.lightWhite6,
                         ),
+                        children: const <TextSpan>[
+                          TextSpan(
+                            text: ' Cancel',
+                            style: TextStyle(
+                              fontSize: AppStyles.fontXL,
+                              fontWeight: AppStyles.weightRegular,
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  if (status) Spacer(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Breakfast',
+                        style: TextStyle(
+                          fontSize: AppStyles.fontL,
+                          fontWeight: AppStyles.weightBold,
+                          color: AppColors.lightWhite6,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on,
+                            size: 16,
+                            color: AppColors.lightWhite6,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            'Dubai',
+                            style: TextStyle(
+                              fontSize: AppStyles.fontS,
+                              fontWeight: AppStyles.weightRegular,
+                              color: AppColors.lightWhite6,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  Spacer(),
-                  Row(
-                    children: [
-                      Text(
-                        'Attendance?',
-                        style: TextStyle(
-                          fontSize: AppStyles.fontM,
-                          fontWeight: AppStyles.weightRegular,
-                          color: AppColors.lightWhite6,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      InkWell(
-                        onTap: () {},
-                        child: Text(
-                          'Skip',
+
+                  // For status == true, push everything above to top/middle
+                  if (status) Spacer(),
+
+                  // 🟦 Attendance Section — only if status == false, and push to bottom
+                  if (!status) ...[
+                    Spacer(), // Push attendance row to bottom
+                    Row(
+                      children: [
+                        Text(
+                          'Attendance?',
                           style: TextStyle(
-                            color: AppColors.primaryColor,
                             fontSize: AppStyles.fontM,
                             fontWeight: AppStyles.weightRegular,
+                            color: AppColors.lightWhite6,
                           ),
                         ),
-                      ),
-                    ],
-                  ),
+                        const SizedBox(width: 8),
+                        InkWell(
+                          onTap: () {},
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                              color: AppColors.primaryColor,
+                              fontSize: AppStyles.fontM,
+                              fontWeight: AppStyles.weightRegular,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ],
               ),
+
               Spacer(),
+
               Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: status
+                    ? MainAxisAlignment.end
+                    : MainAxisAlignment.start,
                 children: [
                   Text(
                     '9.20',
                     style: TextStyle(
                       fontWeight: AppStyles.weightRegular,
                       fontSize: AppStyles.fontXXL,
-                      color: AppColors.secondaryColor.withAlpha(160),
+                      color: AppColors.lightLaserColor,
                       decoration: TextDecoration.underline,
-                      decorationColor: AppColors.secondaryColor.withAlpha(160),
+                      decorationColor: AppColors.lightLaserColor,
                       decorationThickness: 1.0,
                       height: 1.4,
                     ),
