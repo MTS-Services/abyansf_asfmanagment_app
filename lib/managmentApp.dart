@@ -22,7 +22,7 @@ class ManagmentApp extends StatelessWidget {
       designSize: Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => OrderPlace(),
+      builder: (context, child) => CustomBottomBar(),
     );
   }
 }
