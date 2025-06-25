@@ -17,7 +17,7 @@ class PrivacyPolicy extends StatelessWidget {
               spacing: 10,
               children: [
                 CustomAppBar(title: 'Privacy & Policy'),
-                Text('Privacy & Policy', style: AppTextStyle.bold32),
+                Text('Privacy & Policy', style: AppTextStyle.bold30),
                 Text(
                   'Updated on 5 may 2025',
                   style: TextStyle(

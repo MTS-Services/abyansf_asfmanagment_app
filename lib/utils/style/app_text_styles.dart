@@ -14,15 +14,15 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.w700,
   );
 
-  static TextStyle get regular32 => TextStyle(
+  static TextStyle get regular30 => TextStyle(
     fontFamily: 'PlayfairDisplay',
-    fontSize: 32.sp,
+    fontSize: 30.sp,
     fontWeight: FontWeight.w400,
   );
 
-  static TextStyle get bold32 => TextStyle(
+  static TextStyle get bold30 => TextStyle(
     fontFamily: 'PlayfairDisplay',
-    fontSize: 32.sp,
+    fontSize: 30.sp,
     fontWeight: FontWeight.w600,
   );
 

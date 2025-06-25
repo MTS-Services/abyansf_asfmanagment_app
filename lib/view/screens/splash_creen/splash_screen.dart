@@ -60,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Text(
                 'Elevate Your World.',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.bold32
+                style: AppTextStyle.bold30
               ),
               SizedBox(height: 5),
               SizedBox(
