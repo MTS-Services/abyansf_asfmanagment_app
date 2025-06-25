@@ -1,6 +1,11 @@
 import 'dart:async';
 
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/auth.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../../utils/assets_path.dart';
 import '../../../utils/style/appColor.dart';
 
@@ -55,12 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Text(
                 'Elevate Your World.',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontFamily: 'Playfair Display',
-                  fontWeight: FontWeight.w600,
-                ),
+                style: AppTextStyle.bold32
               ),
               SizedBox(height: 5),
               SizedBox(
@@ -69,7 +69,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   'Supercars that turn heads. Yachts that rule the seas.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: const Color(0xFFF5F5F5),
+                    color: AppColors.lightWhite5,
                     fontSize: 16,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w400,
@@ -84,14 +84,10 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Text(
                       'Skip',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: const Color(0xFFC7AE6A) /* Laser-300 */,
-                        fontSize: 16,
-                        fontFamily: 'Playfair Display',
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: AppTextStyle.bold16,
                     ),
-                    onTap: () {},
+                    onTap: () => Get.to(()=> Auth())
+
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -132,7 +128,15 @@ class _SplashScreenState extends State<SplashScreen> {
                         color: Colors.white,
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      if (currentIndex == images.length - 1) {
+                        Get.to(() => Auth());
+                      } else {
+                        setState(() {
+                          currentIndex++;
+                        });
+                      }
+                    },
                   ),
                 ],
               ),

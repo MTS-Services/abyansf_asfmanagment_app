@@ -3,6 +3,7 @@ import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class Createpasswordscreen extends StatelessWidget {
@@ -47,7 +48,7 @@ class Createpasswordscreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => HomeScreen(),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),

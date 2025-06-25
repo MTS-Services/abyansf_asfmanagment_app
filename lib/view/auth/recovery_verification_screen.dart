@@ -1,4 +1,4 @@
-import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/createPasswordScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,19 +6,19 @@ import 'dart:async';
 
 import 'package:get/get_core/src/get_main.dart';
 
-class VerificationScreen extends StatefulWidget {
-  const VerificationScreen({super.key});
+class RecoveryVerificationScreen extends StatefulWidget {
+  RecoveryVerificationScreen({super.key});
 
   @override
-  State<VerificationScreen> createState() => _VerificationPageState();
+  State<RecoveryVerificationScreen> createState() => _RecoveryVerificationScreenPageState();
 }
 
-class _VerificationPageState extends State<VerificationScreen>
+class _RecoveryVerificationScreenPageState extends State<RecoveryVerificationScreen>
     with SingleTickerProviderStateMixin {
   final List<FocusNode> _focusNodes = List.generate(4, (_) => FocusNode());
   final List<TextEditingController> _controllers = List.generate(
     4,
-    (_) => TextEditingController(),
+        (_) => TextEditingController(),
   );
 
   Timer? _timer;
@@ -117,13 +117,13 @@ class _VerificationPageState extends State<VerificationScreen>
         ),
         boxShadow: _focusNodes[index].hasFocus
             ? [
-                BoxShadow(
-                  color: goldColor.withOpacity(0.2),
-                  blurRadius: 8,
-                  spreadRadius: 1,
-                  offset: const Offset(0, 2),
-                ),
-              ]
+          BoxShadow(
+            color: goldColor.withOpacity(0.2),
+            blurRadius: 8,
+            spreadRadius: 1,
+            offset: const Offset(0, 2),
+          ),
+        ]
             : [],
       ),
       child: TextField(
@@ -195,7 +195,7 @@ class _VerificationPageState extends State<VerificationScreen>
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed:(){
-                    Get.to(()=>LoginScreen());
+                    Get.to(()=>Createpasswordscreen());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: goldColor,
@@ -207,21 +207,21 @@ class _VerificationPageState extends State<VerificationScreen>
                   ),
                   child: _isVerifying
                       ? const SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(
-                            color: Colors.white,
-                            strokeWidth: 2,
-                          ),
-                        )
+                    height: 20,
+                    width: 20,
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                      strokeWidth: 2,
+                    ),
+                  )
                       : const Text(
-                          'Confirm',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            fontFamily: 'Inter',
-                          ),
-                        ),
+                    'Confirm',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontFamily: 'Inter',
+                    ),
+                  ),
                 ),
               ),
 
@@ -238,9 +238,9 @@ class _VerificationPageState extends State<VerificationScreen>
                   GestureDetector(
                     onTap: _start == 0
                         ? () {
-                            startTimer();
-                            // Add resend logic here
-                          }
+                      startTimer();
+                      // Add resend logic here
+                    }
                         : null,
                     child: Text(
                       "Resend",

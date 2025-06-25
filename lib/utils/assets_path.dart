@@ -26,7 +26,7 @@ class AssetPath {
   static const String riMessengerFill = '$_basePath/ri_messenger-fill.svg';
   static const String riWhatsappFill = '$_basePath/ri_whatsapp-fill.svg';
   static const String icRoundEmail = '$_basePath/ic_round-email.svg';
-  static const String solarCopyOutline = '$_basePath/solar_copy_outline.svg'; 
+  static const String solarCopyOutline = '$_basePath/solar_copy_outline.svg';
   static const String lsiconUserCrowd = '$_basePath/lsicon_user-crowd-outline.svg';
   static const String diningImage = '$_basePath/dining_image.png';
   static const String rectangle49 = '$_basePath/Rectangle 49.png';
@@ -35,7 +35,12 @@ class AssetPath {
   static const String image = '$_basePath/image11.png';
   static const String image12 = '$_basePath/image12.png';
   static const String image13 = '$_basePath/image13.png';
-  static const String image14 = '$_basePath/image14.png';
+  static const String image14 = '$_basePath/Rectangle 52.png';
+  static const String priorityImage = '$_basePath/priority_image.png';
+  static const String drinkImage = '$_basePath/drink_image.png';
+  static const String otherImage = '$_basePath/other_image.png';
+  static const String image34 = '$_basePath/image 34.png';
+  static const String image15 = '$_basePath/image14.png';
   static const String OrderPlaceImage = '$_basePath/order_place_image.png';
   static const String bookingIndImage = '$_basePath/Booking_ind_image.png';
 

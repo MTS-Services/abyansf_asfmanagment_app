@@ -4,6 +4,7 @@ import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/event_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/explore_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +25,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   final List<Widget> _pages = [
     HomeScreen(),
     EventScreen(),
-    Center(child: Text('Explore')),
-    Center(child: Text('Concierge')),
+    ExploreScreen(),
+    Center(child: Text('Coming Soon')),
     ProfileScreen(),
   ];
   final List<String> label = ['Home', 'Events', 'Explore', 'Concierge', 'Profile'];

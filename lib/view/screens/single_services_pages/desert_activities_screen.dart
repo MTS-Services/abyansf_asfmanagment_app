@@ -53,11 +53,7 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                       Spacer(),
                       Text(
                         'See all',
-                        style: TextStyle(
-                          fontWeight: AppStyles.weightMedium,
-                          fontSize: AppStyles.fontL,
-                          color: AppColors.primaryColor.withAlpha(160),
-                        ),
+                        style:Theme.of(context).textTheme.bodyMedium
                       ),
                     ],
                   ),
@@ -75,7 +71,7 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                     },
                     options: CarouselOptions(
                       height: 220,
-                      enlargeCenterPage: true,
+                      enlargeCenterPage: false,
                       autoPlay: false,
                       aspectRatio: 16 / 9,
                       autoPlayInterval: const Duration(seconds: 3),
