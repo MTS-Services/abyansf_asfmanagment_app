@@ -1,9 +1,10 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
-import 'package:abyansf_asfmanagment_app/view/widget/venu_card.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 HomeAppBar(),
                 const SizedBox(height: 10,),
-                Text('Services', style: Theme.of(context).textTheme.titleLarge),
+                Text('Services', style: AppTextStyle.bold24),
                 const SizedBox(height: 7),
                 SizedBox(
                   height: 145,
@@ -62,11 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(height: 6),
                             Text(
                               'Name',
-                              style: TextStyle(
-                                fontSize: AppStyles.fontM,
-                                fontWeight: AppStyles.weightBold,
-                                color: AppColors.blackColor,
-                              ),
+                              style: AppTextStyle.bold14,
                             ),
                           ],
                         ),
@@ -76,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Text(
                   'Highlight',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: AppTextStyle.bold24,
                 ),
                 const SizedBox(height: 13),
         
@@ -85,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (context, index, realIndex) {
                     return GestureDetector(
                       onTap: () {},
-                      child: VenueCard(
+                      child: CarouselContainer(
                         imagePath: images[index],
                         title: 'Lusery Dinner Venues',
                         location: 'Jumeirah Beach Residence',
@@ -100,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     autoPlay: false,
                     aspectRatio: 16 / 9,
                     autoPlayInterval: const Duration(seconds: 3),
-                    viewportFraction: 0.8,
+                    viewportFraction: 0.83,
                     onPageChanged: (index, reason) {
                       setState(() {
                         currentIndex = index;
@@ -142,20 +139,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-        
                 const SizedBox(height: 20),
                 Row(
                   children: [
                     Text(
                       'Member Event',
-                      style: Theme.of(context).textTheme.titleLarge,
+                      style: AppTextStyle.bold24,
                     ),
                     Spacer(),
                     TextButton(
                       onPressed: () {},
                       child: Text(
                         'See all',
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style:TextStyle(
+                          fontFamily: "Playfair Display",
+                        fontWeight: AppStyles.weightMedium,
+                        fontSize: AppStyles.fontL,
+                        color: AppColors.primaryColor,
+                      ),
                       ),
                     ),
                   ],

@@ -1,8 +1,9 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/widget/venu_card.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -26,15 +27,15 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
               width: double.infinity,
               child: Image.asset(AssetPath.image, fit: BoxFit.cover),
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Pools', style: Theme.of(context).textTheme.titleLarge),
+                  Text('Pools', style: AppTextStyle.bold24),
                   const SizedBox(height: 12),
-                  VenueCard(
+                  CarouselContainer(
                     imagePath: AssetPath.image12,
                     title: "Camel Camp",
                     location: "Jumeirah Beach Residence",
@@ -48,12 +49,16 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                     children: [
                       Text(
                         'Beach',
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
+                        style: AppTextStyle.bold24),
                       Spacer(),
                       Text(
                         'See all',
-                        style:Theme.of(context).textTheme.bodyMedium
+                        style:TextStyle(
+                          fontFamily: "Inter",
+                        fontWeight: AppStyles.weightMedium,
+                        fontSize: AppStyles.fontL,
+                        color: AppColors.primaryColor,
+                      ),
                       ),
                     ],
                   ),
@@ -61,7 +66,7 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                   CarouselSlider.builder(
                     itemCount: 3,
                     itemBuilder: (context, index, realIndex) {
-                      return VenueCard(
+                      return CarouselContainer(
                         imagePath: AssetPath.image13,
                         title: 'Single Buggy Ride',
                         location: 'Jumeirah Beach Residence',
@@ -75,7 +80,7 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                       autoPlay: false,
                       aspectRatio: 16 / 9,
                       autoPlayInterval: const Duration(seconds: 3),
-                      viewportFraction: 0.8,
+                      viewportFraction: 0.83,
                       onPageChanged: (index, reason) {
                         setState(() {
                           currentIndex = index;

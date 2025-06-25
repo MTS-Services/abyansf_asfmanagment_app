@@ -1,12 +1,11 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomGridItem extends StatelessWidget {
-  const CustomGridItem({
-    super.key,
-  });
+  const CustomGridItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +36,7 @@ class CustomGridItem extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
-              'Dinning',
-              style: TextStyle(
-                fontSize: AppStyles.fontL,
-                fontWeight: AppStyles.weightMedium,
-                color: AppColors.blackColor,
-              ),
-            ),
+            Text('Dinning', style: AppTextStyle.bold16),
           ],
         );
       },

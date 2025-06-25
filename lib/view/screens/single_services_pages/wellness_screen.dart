@@ -1,7 +1,7 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/widget/venu_card.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,7 @@ class _WellnessScreenState extends State<WellnessScreen> {
             children: [
               Text('Gyms', style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 12),
-              VenueCard(
+              CarouselContainer(
                 imagePath: AssetPath.image14,
                 title: "Fitness Gyms",
                 location: "Down town Residence",

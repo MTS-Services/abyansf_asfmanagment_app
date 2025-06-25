@@ -35,7 +35,7 @@ abstract class AppTextStyle {
   static TextStyle get bold24 => TextStyle(
     fontFamily: 'PlayfairDisplay',
     fontSize: 24.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle get regular20 => TextStyle(

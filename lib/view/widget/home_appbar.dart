@@ -78,14 +78,14 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 */
 
-
 import 'package:flutter/material.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTitle;
-   HomeAppBar({super.key, this.showTitle = false});
+
+  HomeAppBar({super.key, this.showTitle = false});
 
   @override
   Widget build(BuildContext context) {
@@ -97,82 +97,80 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: showTitle
             ? [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Hi, Mirable",
-                style: TextStyle(
-                  fontSize: AppStyles.fontXL,
-                  fontWeight: AppStyles.weightMedium,
-                  color: AppColors.blackColor,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Hi, Mirable",
+                      style: TextStyle(
+                        fontSize: AppStyles.fontXL,
+                        fontWeight: AppStyles.weightMedium,
+                        fontFamily: "Inter",
+                        color: AppColors.blackColor,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      "Find the amazing event near you",
+                      style: TextStyle(
+                        fontFamily: "Inter",
+                        fontSize: AppStyles.fontM,
+                        fontWeight: AppStyles.weightRegular,
+                        color: AppColors.blackColor,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              const SizedBox(height: 2,),
-              Text(
-                "Find the amazing event near you",
-                style: TextStyle(
-                  fontSize: AppStyles.fontM,
-                  fontWeight: AppStyles.weightRegular,
-                  color: AppColors.blackColor,
-                ),
-              ),
-            ],
-          ),
-          const Icon(Icons.notification_add),
-
-        ]
+                const Icon(Icons.notification_add),
+              ]
             : [
-          Row(
-
-            children: [
-
-              const CircleAvatar(radius: 22),
-              const SizedBox(width: 8),
-              Text(
-                "Hi, Mirable",
-                style: TextStyle(
-                  fontSize: AppStyles.fontL,
-                  fontWeight: AppStyles.weightRegular,
-                  color: AppColors.blackColor,
+                Row(
+                  children: [
+                    const CircleAvatar(radius: 22),
+                    const SizedBox(width: 8),
+                    Text(
+                      "Hi, Mirable",
+                      style: TextStyle(
+                        fontSize: AppStyles.fontL,
+                        fontWeight: AppStyles.weightRegular,
+                        color: AppColors.blackColor,
+                        fontFamily: "Inter",
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-          Container(
-            height: 39,
-            width: 91,
-            decoration: BoxDecoration(
-              color: AppColors.greyColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.location_on,
-                  size: 16,
-                  color: AppColors.lightWhite6,
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  'Dubai',
-                  style: TextStyle(
-                    fontSize: AppStyles.fontS,
-                    fontWeight: AppStyles.weightRegular,
-                    color: AppColors.lightWhite6,
+                Container(
+                  height: 39,
+                  width: 91,
+                  decoration: BoxDecoration(
+                    color: AppColors.greyColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.location_on,
+                        size: 16,
+                        color: AppColors.lightWhite6,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        'Dubai',
+                        style: TextStyle(
+                          fontFamily:"Inter",
+                          fontSize: AppStyles.fontS,
+                          fontWeight: AppStyles.weightRegular,
+                          color: AppColors.lightWhite6,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+
+                Icon(Icons.notification_add),
               ],
-            ),
-          ),
-
-
-          Icon(Icons.notification_add),
-
-        ],
       ),
-
     );
   }
 
