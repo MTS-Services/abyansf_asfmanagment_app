@@ -21,19 +21,14 @@ ThemeData themeData() {
         elevation: 10,
       ),
     ),
-
-    textTheme: TextTheme(
+    /*textTheme: TextTheme(
       titleLarge: TextStyle(
         fontSize: AppStyles.fontXXL,
         fontWeight: AppStyles.weightBold,
         color: AppColors.blackColor,
       ),
-      bodyMedium:  TextStyle(
-        fontWeight: AppStyles.weightMedium,
-        fontSize: AppStyles.fontL,
-        color: AppColors.primaryColor,
-      ),
-    ),
+    ),*/
+
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.secondaryColor,

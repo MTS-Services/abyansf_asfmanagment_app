@@ -1,4 +1,6 @@
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -8,23 +10,25 @@ class EventScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                HomeAppBar(showTitle: true,),
+                const SizedBox(height: 15,),
                 Text(
                   'Upcoming Event',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: AppTextStyle.bold24,
                 ),
                 const SizedBox(height: 10),
                 ListView.builder(
 
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: 5,
+                  itemCount: 4,
                   itemBuilder: (context, index) {
                     return CustomEventWidget();
                   },
@@ -32,7 +36,7 @@ class EventScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 Text(
                   'past Event',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: AppTextStyle.bold24,
                 ),
                 const SizedBox(height: 10),
                 ListView.builder(

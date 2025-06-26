@@ -1,9 +1,10 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/card_container.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/day_time_row.dart';
-import 'package:abyansf_asfmanagment_app/view/widget/venu_card.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -46,12 +47,8 @@ class SingleBeachClubScreen extends StatelessWidget {
                         children: [
                           Text(
                             'Eva beach',
-                            style: TextStyle(
-                              fontSize: AppStyles.fontXXL,
-                              fontWeight: AppStyles.weightBold,
-                              color: AppColors.blackColor,
+                            style: AppTextStyle.bold20
                             ),
-                          ),
                           const SizedBox(height: 8),
                           Row(
                             children: [
@@ -64,6 +61,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                               Text(
                                 "Jumeirah Beach Residence",
                                 style: TextStyle(
+                                  fontFamily: "Inter",
                                   fontSize: AppStyles.fontXS,
                                   fontWeight: AppStyles.weightRegular,
                                   color: AppColors.blackColor,
@@ -97,14 +95,19 @@ class SingleBeachClubScreen extends StatelessWidget {
                     children: [
                       Text(
                         "Photos",
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: AppTextStyle.bold24,
                       ),
                       Spacer(),
                       InkWell(
                         onTap: () {},
                         child: Text(
                           'See all',
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: TextStyle(
+                            fontFamily: "Playfair Display",
+                            fontWeight: AppStyles.weightMedium,
+                            fontSize: AppStyles.fontL,
+                            color: AppColors.primaryColor,
+                          ),
                         ),
                       ),
                     ],
@@ -113,7 +116,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                   CarouselSlider.builder(
                     itemCount: 3,
                     itemBuilder: (context, index, realIndex) {
-                      return VenueCard(
+                      return CarouselContainer(
                         width: 146,
                         imagePath: AssetPath.image14,
                       );
@@ -178,10 +181,10 @@ class SingleBeachClubScreen extends StatelessWidget {
                       ],
                     );
                   }),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 7),
                   Text(
                     "Member Privileges",
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: AppTextStyle.bold24,
                   ),
                   const SizedBox(height: 10),
                   Row(
@@ -202,27 +205,29 @@ class SingleBeachClubScreen extends StatelessWidget {
                   Text(
                     "Drink on arrival and  appetizer",
                     style: TextStyle(
+                      fontFamily: "Inter",
                       fontSize: AppStyles.fontS,
                       fontWeight: AppStyles.weightRegular,
                       color: AppColors.blackColor,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 12),
                   Text(
                     "Description",
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: AppTextStyle.bold24,
                   ),
                   const SizedBox(height: 10),
                   Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indusLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indusLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indusLorem Ipsum is simply dummy text of the printing and type",
                     style: TextStyle(
+                      fontFamily: "Inter",
                       fontSize: AppStyles.fontM,
                       fontWeight: AppStyles.weightRegular,
                       color: AppColors.blackColor,
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Text("Hours", style: Theme.of(context).textTheme.titleLarge),
+                  Text("Hours", style: AppTextStyle.bold24,),
                   const SizedBox(height: 10),
                   dayTimeRow("Wednesday", "09:00 PM - 03:00 AM"),
                   dayTimeRow("Thursday", "09:00 PM - 03:00 AM"),
@@ -230,6 +235,41 @@ class SingleBeachClubScreen extends StatelessWidget {
                   dayTimeRow("Saturday", "09:00 PM - 03:00 AM"),
                   dayTimeRow("Sunday", "09:00 PM - 03:00 AM"),
                   const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text('Cancel'),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.white,
+                              shadowColor: Colors.transparent,
+                              shape: RoundedRectangleBorder(
+                                  side: BorderSide(
+                                    color: AppColors.lightLaserColor,
+                                  ),
+                                  borderRadius: BorderRadiusGeometry.circular(4)
+                              )
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: ElevatedButton(onPressed: (){},
+                          style: ElevatedButton.styleFrom(
+                              shadowColor: Colors.transparent
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Request'),
+                              SizedBox(width: 10),
+                              Icon(Icons.arrow_circle_right_outlined)
+                            ],
+                          ),),
+                      )
+                    ],
+                  ),
                 ],
               ),
             ),

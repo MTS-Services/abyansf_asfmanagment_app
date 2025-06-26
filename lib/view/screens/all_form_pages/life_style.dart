@@ -16,111 +16,113 @@ class LifeStyle extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CustomAppBar(title: 'Dining'),
-              Text('Name', style: AppTextStyle.bold16),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: 'Enter your full name',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppColors.lightLaserColor,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomAppBar(title: 'Dining'),
+                Text('Name', style: AppTextStyle.bold16),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Enter your full name',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: AppColors.lightLaserColor,
+                        ),
                       ),
+                      fillColor: AppColors.white,
                     ),
-                    fillColor: AppColors.white,
                   ),
                 ),
-              ),
-              Text('Email', style: AppTextStyle.bold16),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: 'Enter your email',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppColors.lightLaserColor,
+                Text('Email', style: AppTextStyle.bold16),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Enter your email',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: AppColors.lightLaserColor,
+                        ),
                       ),
+                      fillColor: AppColors.white,
                     ),
-                    fillColor: AppColors.white,
                   ),
                 ),
-              ),
-              Text('Contacts', style: AppTextStyle.bold16),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: 'Enter your WhatsApp number',
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: AppColors.lightLaserColor,
+                Text('Contacts', style: AppTextStyle.bold16),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Enter your WhatsApp number',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: AppColors.lightLaserColor,
+                        ),
                       ),
+                      fillColor: AppColors.white,
                     ),
-                    fillColor: AppColors.white,
                   ),
                 ),
-              ),
-              Text('Date of reservation', style: AppTextStyle.bold16),
-              Row(
-                children: [
-                  CustomDatePicker(),
-                ],
-              ),
-              Text('Time', style: AppTextStyle.bold16),
-              Row(
-                children: [
-                  CustomDatePicker(),
-                ],
-              ),
-              Text('Number of guest', style: AppTextStyle.bold16),
-              Row(
-                children: [
-                  IncreaseAndDecrease(type: 'Adults'),
-                  SizedBox(width: 10),
-                  IncreaseAndDecrease(type: 'Children'),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Cancel'),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.white,
-                          shadowColor: Colors.transparent,
-                          shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                color: AppColors.lightLaserColor,
-                              ),
-                              borderRadius: BorderRadiusGeometry.circular(4)
-                          )
+                Text('Date of reservation', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    CustomDatePicker(),
+                  ],
+                ),
+                Text('Time', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    CustomDatePicker(),
+                  ],
+                ),
+                Text('Number of guest', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    IncreaseAndDecrease(type: 'Adults'),
+                    SizedBox(width: 10),
+                    IncreaseAndDecrease(type: 'Children'),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Cancel'),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.white,
+                            shadowColor: Colors.transparent,
+                            shape: RoundedRectangleBorder(
+                                side: BorderSide(
+                                  color: AppColors.lightLaserColor,
+                                ),
+                                borderRadius: BorderRadiusGeometry.circular(4)
+                            )
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: ElevatedButton(onPressed: (){},
-                      style: ElevatedButton.styleFrom(
-                          shadowColor: Colors.transparent
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Request'),
-                          SizedBox(width: 10),
-                          Icon(Icons.arrow_circle_right_outlined)
-                        ],
-                      ),),
-                  )
-                ],
-              ),
-            ],
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: ElevatedButton(onPressed: (){},
+                        style: ElevatedButton.styleFrom(
+                            shadowColor: Colors.transparent
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Request'),
+                            SizedBox(width: 10),
+                            Icon(Icons.arrow_circle_right_outlined)
+                          ],
+                        ),),
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

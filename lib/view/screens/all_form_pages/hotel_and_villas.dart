@@ -36,10 +36,10 @@ class _HotelAndVillasState extends State<HotelAndVillas> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomAppBar(title: 'Hotel & Villas'),
-                const SizedBox(height: 10),
                 Text('Type of accommodation', style: AppTextStyle.bold16),
                 CustomDropdown(type: type, hint: 'Select accommodation'),
                 Text('Location', style: AppTextStyle.bold16),
+                SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: TextFormField(

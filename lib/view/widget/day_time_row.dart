@@ -10,6 +10,7 @@ Widget dayTimeRow(String day, String time) {
         Text(
           day,
           style: TextStyle(
+            fontFamily: "Inter",
             fontSize: AppStyles.fontS,
             fontWeight: AppStyles.weightRegular,
             color: AppColors.blackColor,
@@ -19,6 +20,7 @@ Widget dayTimeRow(String day, String time) {
         Text(
           time,
           style: TextStyle(
+            fontFamily: "Inter",
             fontSize: AppStyles.fontS,
             fontWeight: AppStyles.weightRegular,
             color: AppColors.blackColor,

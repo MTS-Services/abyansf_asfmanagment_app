@@ -26,7 +26,7 @@ class CustomDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: DropdownButtonHideUnderline(
           child: DropdownButton2<String>(
             isExpanded: true,

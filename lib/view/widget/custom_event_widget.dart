@@ -37,6 +37,7 @@ class CustomEventWidget extends StatelessWidget {
                       text: TextSpan(
                         text: 'Status:',
                         style: TextStyle(
+                          fontFamily: "Inter",
                           fontSize: AppStyles.fontXL,
                           fontWeight: AppStyles.weightRegular,
                           color: AppColors.lightWhite6,
@@ -45,6 +46,7 @@ class CustomEventWidget extends StatelessWidget {
                           TextSpan(
                             text: ' Cancel',
                             style: TextStyle(
+                              fontFamily: "Inter",
                               fontSize: AppStyles.fontXL,
                               fontWeight: AppStyles.weightRegular,
                               color: AppColors.primaryColor,
@@ -60,6 +62,7 @@ class CustomEventWidget extends StatelessWidget {
                       Text(
                         'Breakfast',
                         style: TextStyle(
+                          fontFamily: "Playfair Display",
                           fontSize: AppStyles.fontL,
                           fontWeight: AppStyles.weightBold,
                           color: AppColors.lightWhite6,
@@ -77,6 +80,7 @@ class CustomEventWidget extends StatelessWidget {
                           Text(
                             'Dubai',
                             style: TextStyle(
+                              fontFamily: "Inter",
                               fontSize: AppStyles.fontS,
                               fontWeight: AppStyles.weightRegular,
                               color: AppColors.lightWhite6,
@@ -86,19 +90,17 @@ class CustomEventWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-
-                  // For status == true, push everything above to top/middle
                   if (status) Spacer(),
 
-                  // 🟦 Attendance Section — only if status == false, and push to bottom
                   if (!status) ...[
-                    Spacer(), // Push attendance row to bottom
+                    Spacer(),
                     Row(
                       children: [
                         Text(
                           'Attendance?',
                           style: TextStyle(
-                            fontSize: AppStyles.fontM,
+                            fontFamily: "Inter",
+                            fontSize: AppStyles.fontS,
                             fontWeight: AppStyles.weightRegular,
                             color: AppColors.lightWhite6,
                           ),
@@ -109,8 +111,9 @@ class CustomEventWidget extends StatelessWidget {
                           child: Text(
                             'Skip',
                             style: TextStyle(
+                              fontFamily: "Inter",
                               color: AppColors.primaryColor,
-                              fontSize: AppStyles.fontM,
+                              fontSize: AppStyles.fontS,
                               fontWeight: AppStyles.weightRegular,
                             ),
                           ),
@@ -130,10 +133,11 @@ class CustomEventWidget extends StatelessWidget {
                     : MainAxisAlignment.start,
                 children: [
                   Text(
-                    '9.20',
+                    '9.20 AM',
                     style: TextStyle(
+                      fontFamily: "Inter",
                       fontWeight: AppStyles.weightRegular,
-                      fontSize: AppStyles.fontXXL,
+                      fontSize: AppStyles.fontM,
                       color: AppColors.lightLaserColor,
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.lightLaserColor,
@@ -144,7 +148,8 @@ class CustomEventWidget extends StatelessWidget {
                   Text(
                     'Sunday',
                     style: TextStyle(
-                      fontSize: AppStyles.fontM,
+                      fontFamily: "Inter",
+                      fontSize: AppStyles.fontXS,
                       fontWeight: AppStyles.weightRegular,
                       color: AppColors.lightWhite6,
                     ),
@@ -152,7 +157,8 @@ class CustomEventWidget extends StatelessWidget {
                   Text(
                     '11 jun',
                     style: TextStyle(
-                      fontSize: AppStyles.fontM,
+                      fontFamily: "Inter",
+                      fontSize: AppStyles.fontXS,
                       fontWeight: AppStyles.weightRegular,
                       color: AppColors.lightWhite6,
                     ),

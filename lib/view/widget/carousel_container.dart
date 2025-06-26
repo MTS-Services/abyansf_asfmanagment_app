@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class VenueCard extends StatelessWidget {
+class CarouselContainer extends StatelessWidget {
   final String imagePath;
   final String? title;
   final String? location;
@@ -9,7 +9,7 @@ class VenueCard extends StatelessWidget {
   final double? height;
   final double? width;
 
-  const VenueCard({
+  const CarouselContainer({
     super.key,
     required this.imagePath,
     this.title,
@@ -38,6 +38,7 @@ class VenueCard extends StatelessWidget {
             Text(
               title ?? '',
               style: const TextStyle(
+                fontFamily: "Playfair Display",
                 fontSize: 20, // replace with AppStyles.fontXL if needed
                 fontWeight: FontWeight.bold, // AppStyles.weightBold
                 color: Colors.white, // AppColors.lightWhite6
@@ -54,6 +55,7 @@ class VenueCard extends StatelessWidget {
                 Text(
                   location?? '',
                   style: const TextStyle(
+                    fontFamily: "Inter",
                     fontSize: 12, // AppStyles.fontS
                     fontWeight: FontWeight.bold, // AppStyles.weightBold
                     color: Colors.white70, // AppColors.lightWhite9
