@@ -11,7 +11,7 @@ abstract class AppTextStyle {
   static TextStyle get bold40 => TextStyle(
     fontFamily: 'PlayfairDisplay',
     fontSize: 40.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle get regular30 => TextStyle(
@@ -35,7 +35,7 @@ abstract class AppTextStyle {
   static TextStyle get bold24 => TextStyle(
     fontFamily: 'PlayfairDisplay',
     fontSize: 24.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle get regular20 => TextStyle(
@@ -47,13 +47,13 @@ abstract class AppTextStyle {
   static TextStyle get bold20 => TextStyle(
     fontFamily: 'PlayfairDisplay',
     fontSize: 20.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle get regular16 => TextStyle(
     fontFamily: 'PlayfairDisplay',
     fontSize: 16.sp,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w400,
   );
 
   static TextStyle get bold16 => TextStyle(
@@ -71,7 +71,7 @@ abstract class AppTextStyle {
   static TextStyle get bold14 => TextStyle(
     fontFamily: 'PlayfairDisplay',
     fontSize: 14.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle get regular12 => TextStyle(
@@ -83,7 +83,7 @@ abstract class AppTextStyle {
   static TextStyle get bold12 => TextStyle(
     fontFamily: 'PlayfairDisplay',
     fontSize: 12.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle get regular10 => TextStyle(
@@ -95,6 +95,6 @@ abstract class AppTextStyle {
   static TextStyle get bold10 => TextStyle(
     fontFamily: 'PlayfairDisplay',
     fontSize: 10.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
   );
 }

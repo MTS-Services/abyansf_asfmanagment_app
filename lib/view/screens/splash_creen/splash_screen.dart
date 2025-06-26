@@ -84,7 +84,10 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: Text(
                       'Skip',
                       textAlign: TextAlign.center,
-                      style: AppTextStyle.bold16,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: AppColors.primaryColor
+                      ),
                     ),
                     onTap: () => Get.to(()=> Auth())
 

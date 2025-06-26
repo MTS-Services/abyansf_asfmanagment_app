@@ -59,9 +59,9 @@ class _HotelAndVillasState extends State<HotelAndVillas> {
                 Text('Date', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    CustomDatePicker(labelText: 'Check in',),
+                    CustomDatePicker(labelText: 'Check in'),
                     SizedBox(width: 10),
-                    CustomDatePicker(labelText: 'Check out',),
+                    CustomDatePicker(labelText: 'Check out'),
                   ],
                 ),
                 Text('Number of guest', style: AppTextStyle.bold16),
@@ -98,29 +98,29 @@ class _HotelAndVillasState extends State<HotelAndVillas> {
                           backgroundColor: AppColors.white,
                           shadowColor: Colors.transparent,
                           shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              color: AppColors.lightLaserColor,
-                            ),
-                            borderRadius: BorderRadiusGeometry.circular(4) 
-                          )
+                            side: BorderSide(color: AppColors.lightLaserColor),
+                            borderRadius: BorderRadiusGeometry.circular(4),
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
                     Expanded(
-                      child: ElevatedButton(onPressed: (){},
+                      child: ElevatedButton(
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          shadowColor: Colors.transparent
+                          shadowColor: Colors.transparent,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text('Request'),
                             SizedBox(width: 10),
-                            Icon(Icons.arrow_circle_right_outlined)
+                            Icon(Icons.arrow_circle_right_outlined),
                           ],
-                        ),),
-                    )
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

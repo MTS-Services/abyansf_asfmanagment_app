@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ExploreScreen extends StatelessWidget {
-  const ExploreScreen({super.key});
-
+  ExploreScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +23,7 @@ class ExploreScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 8),
-                InkWell(
-                  onTap: (){
-                    Get.to(LifeStyle());
-                  },
-                    child: CustomGridItem()),
+                CustomGridItem(),
                 const SizedBox(height: 10,),
                 Text(
                   'Travel',
