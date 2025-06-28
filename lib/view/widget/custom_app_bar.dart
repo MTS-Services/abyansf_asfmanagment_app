@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import '../assets_path.dart';
-import '../style/appColor.dart';
-import '../style/app_text_styles.dart';
+import '../../utils/style/appColor.dart';
+import '../../utils/style/app_text_styles.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback? onBackTap;
-  final Widget? action; // edit icon or any custom widget
+  final Widget? action;
   final bool showBack;
 
   const CustomAppBar({
@@ -19,8 +18,9 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30),
+    return Container(
+      padding: const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 8),
+      color: Colors.transparent,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -28,8 +28,8 @@ class CustomAppBar extends StatelessWidget {
               ? GestureDetector(
             onTap: onBackTap ?? () => Navigator.pop(context),
             child: Container(
-              height: 24,
-              width: 24,
+              height: 32,
+              width: 32,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: AppColors.greyBackgroundColor,
@@ -44,4 +44,7 @@ class CustomAppBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 16);
 }

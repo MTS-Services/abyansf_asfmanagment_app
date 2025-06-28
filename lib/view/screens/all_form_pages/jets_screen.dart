@@ -1,55 +1,66 @@
-import 'package:abyansf_asfmanagment_app/utils/common/custom_app_bar.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 
-import '../../../utils/style/appColor.dart';
 import '../../../utils/style/app_text_styles.dart';
 import '../../widget/increase_and_decrease.dart';
 
-class LifeStyle extends StatelessWidget {
-  const LifeStyle({super.key});
+class JetsScreen extends StatelessWidget {
+  JetsScreen({super.key});
+
+  List<String> trip = ['One-way', 'Round trip'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(title: 'Dining'),
-                Text('Name', style: AppTextStyle.bold16),
-                Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 16),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Enter your full name',
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: AppColors.lightLaserColor,
-                        ),
+                CustomAppBar(title: 'Jets'),
+                Text('Trip type', style: AppTextStyle.bold16),
+                CustomDropdown(type: trip, hint: 'Round/One-way trip'),
+                Text('Destination', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomDropdown(
+                        type: trip,
+                        hint: 'Start Point',
+                        labelText: 'From',
                       ),
-                      fillColor: AppColors.white,
                     ),
-                  ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: CustomDropdown(
+                        type: trip,
+                        hint: 'Start Point',
+                        labelText: 'To',
+                      ),
+                    ),
+                  ],
                 ),
-                Text('Email', style: AppTextStyle.bold16),
-                Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 16),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Enter your email',
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: AppColors.lightLaserColor,
-                        ),
-                      ),
-                      fillColor: AppColors.white,
-                    ),
-                  ),
+                Text('Destination', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    Expanded(child: CustomDatePicker(labelText: 'From',)),
+                    SizedBox(width: 10),
+                    Expanded(child: CustomDatePicker(labelText:'To',)),
+                  ],
+                ),
+                Text('Number of guest', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    IncreaseAndDecrease(type: 'Adults'),
+                    SizedBox(width: 10),
+                    IncreaseAndDecrease(type: 'Children'),
+                  ],
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
                 Padding(
@@ -66,26 +77,7 @@ class LifeStyle extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text('Date of reservation', style: AppTextStyle.bold16),
-                Row(
-                  children: [
-                    CustomDatePicker(),
-                  ],
-                ),
-                Text('Time', style: AppTextStyle.bold16),
-                Row(
-                  children: [
-                    CustomDatePicker(),
-                  ],
-                ),
-                Text('Number of guest', style: AppTextStyle.bold16),
-                Row(
-                  children: [
-                    IncreaseAndDecrease(type: 'Adults'),
-                    SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children'),
-                  ],
-                ),
+                SizedBox(height: 10,),
                 Row(
                   children: [
                     Expanded(

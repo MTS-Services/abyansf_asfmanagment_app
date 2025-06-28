@@ -7,14 +7,11 @@ import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-class BeachClubScreen extends StatefulWidget {
+
+import '../../../view_models/controller/carousel_controller.dart';
+class BeachClubScreen extends StatelessWidget {
   const BeachClubScreen({super.key});
 
-  @override
-  State<BeachClubScreen> createState() => _BeachClubScreenState();
-}
-
-class _BeachClubScreenState extends State<BeachClubScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,9 +71,7 @@ class _BeachClubScreenState extends State<BeachClubScreen> {
                         autoPlayInterval: const Duration(seconds: 3),
                         viewportFraction: 0.83,
                         onPageChanged: (index, reason) {
-                          setState(() {
-                            currentIndex = index;
-                          });
+                          _carouselSliderController.currentIndex.value = index;
                         },
                       ),
                     ),
@@ -92,20 +87,18 @@ class _BeachClubScreenState extends State<BeachClubScreen> {
                           children: List.generate(images.length, (index) {
                             return GestureDetector(
                               onTap: () {
-                                setState(() {
-                                  currentIndex = index;
-                                });
+                              _carouselSliderController.currentIndex.value;
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(2),
                                 child: Container(
-                                  width: currentIndex == index ? 16 : 5,
+                                  width:  _carouselSliderController.currentIndex == index ? 16 : 5,
                                   height: 4,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
-                                    color: currentIndex == index
+                                    color:  _carouselSliderController.currentIndex == index
                                         ? AppColors.primaryColor
-                                        : Colors.red,
+                                        : AppColors.lightGrey,
                                   ),
                                 ),
                               ),
@@ -125,3 +118,4 @@ class _BeachClubScreenState extends State<BeachClubScreen> {
     );
   }
 }
+final CarouselSliderControllers _carouselSliderController = Get.find();

@@ -1,126 +1,33 @@
-import 'package:abyansf_asfmanagment_app/view/auth/createPasswordScreen.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'dart:async';
-
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../utils/style/appColor.dart';
+import '../../view_models/controller/recovery_verification_controller.dart';
 
-class RecoveryVerificationScreen extends StatefulWidget {
+class RecoveryVerificationScreen extends StatelessWidget {
   RecoveryVerificationScreen({super.key});
 
-  @override
-  State<RecoveryVerificationScreen> createState() => _RecoveryVerificationScreenPageState();
-}
-
-class _RecoveryVerificationScreenPageState extends State<RecoveryVerificationScreen>
-    with SingleTickerProviderStateMixin {
-  final List<FocusNode> _focusNodes = List.generate(4, (_) => FocusNode());
-  final List<TextEditingController> _controllers = List.generate(
-    4,
-        (_) => TextEditingController(),
-  );
-
-  Timer? _timer;
-  int _start = 59;
-  bool _hasError = false;
-  bool _isVerifying = true;
-
-  final Color goldColor = const Color(0xFFD1B47F);
-
-  @override
-  void initState() {
-    super.initState();
-    startTimer();
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    for (var controller in _controllers) {
-      controller.dispose();
-    }
-    super.dispose();
-  }
-
-  void startTimer() {
-    setState(() {
-      _start = 59;
-    });
-
-    _timer?.cancel();
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (_start == 0) {
-        timer.cancel();
-      } else {
-        setState(() => _start--);
-      }
-    });
-  }
-
-  void _onChanged(String value, int index) {
-    if (value.isNotEmpty && index < 3) {
-      FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
-    } else if (value.isEmpty && index > 0) {
-      FocusScope.of(context).requestFocus(_focusNodes[index - 1]);
-    }
-  }
-
-  Future<void> _verifyCode() async {
-    setState(() {
-      _isVerifying = true;
-      _hasError = false;
-    });
-
-    final enteredCode = _controllers
-        .map((controller) => controller.text)
-        .join();
-
-    await Future.delayed(const Duration(seconds: 2)); // simulate API delay
-
-    const correctCode = '1234';
-
-    if (enteredCode == correctCode) {
-      // Success
-      setState(() {
-        _isVerifying = false;
-      });
-
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('Verification successful!')));
-    } else {
-      // Error
-      setState(() {
-        _hasError = true;
-        _isVerifying = false;
-      });
-    }
-  }
-
+  final RecoveryVerificationController _controller = Get.find();
   Widget _buildOtpBox(int index) {
-    return AnimatedContainer(
+    return Obx(() => AnimatedContainer(
       duration: const Duration(milliseconds: 200),
-      curve: Curves.easeInOut,
       width: 60,
       height: 60,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: _hasError
+          color: _controller.hasError.value
               ? Colors.red
-              : _focusNodes[index].hasFocus
-              ? goldColor
+              : _controller.focusNodes[index].hasFocus
+              ? _controller.goldColor
               : Colors.grey.shade300,
           width: 2,
         ),
-        boxShadow: _focusNodes[index].hasFocus
+        boxShadow: _controller.focusNodes[index].hasFocus
             ? [
           BoxShadow(
-            color: goldColor.withOpacity(0.2),
+            color: _controller.goldColor.withOpacity(0.2),
             blurRadius: 8,
             spreadRadius: 1,
             offset: const Offset(0, 2),
@@ -129,19 +36,19 @@ class _RecoveryVerificationScreenPageState extends State<RecoveryVerificationScr
             : [],
       ),
       child: TextField(
-        controller: _controllers[index],
-        focusNode: _focusNodes[index],
+        controller: _controller.controllers[index],
+        focusNode: _controller.focusNodes[index],
         maxLength: 1,
         textAlign: TextAlign.center,
         keyboardType: TextInputType.number,
         style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        onChanged: (value) => _onChanged(value, index),
+        onChanged: (value) => _controller.onChanged(value, index),
         decoration: const InputDecoration(
           counterText: "",
           border: InputBorder.none,
         ),
       ),
-    );
+    ));
   }
 
   @override
@@ -156,58 +63,54 @@ class _RecoveryVerificationScreenPageState extends State<RecoveryVerificationScr
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 60),
-              const Text(
-                "Verification",
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'PlayfairDisplay',
-                ),
-              ),
+              const Text("Verification",
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'PlayfairDisplay')),
               const SizedBox(height: 10),
-              const Text(
-                "We sent Verification code to your email",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontFamily: 'Inter',
-                  color: Colors.black54,
-                ),
-              ),
+              const Text("We sent Verification code to your email",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Inter',
+                      color: Colors.black54)),
               const SizedBox(height: 40),
 
-              // OTP Input
+              // OTP Inputs
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(4, _buildOtpBox),
               ),
 
-              if (_hasError)
-                Padding(
-                  padding: const EdgeInsets.only(top: 12),
-                  child: Text(
-                    'Incorrect code. Please try again.',
-                    style: TextStyle(color: Colors.red.shade400, fontSize: 14),
-                  ),
+              Obx(() => _controller.hasError.value
+                  ? Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: Text(
+                  'Incorrect code. Please try again.',
+                  style: TextStyle(
+                      color: Colors.red.shade400, fontSize: 14),
                 ),
+              )
+                  : const SizedBox()),
 
               const SizedBox(height: 40),
 
               // Confirm Button
-              SizedBox(
+              Obx(() => SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed:(){
-                    Get.to(()=>Createpasswordscreen());
-                  },
+                  onPressed: _controller.isVerifying.value
+                      ? null
+                      : _controller.verifyCode,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: goldColor,
+                    backgroundColor: _controller.goldColor,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
                     ),
                     elevation: 4,
                   ),
-                  child: _isVerifying
+                  child: _controller.isVerifying.value
                       ? const SizedBox(
                     height: 20,
                     width: 20,
@@ -216,56 +119,46 @@ class _RecoveryVerificationScreenPageState extends State<RecoveryVerificationScr
                       strokeWidth: 2,
                     ),
                   )
-                      : const Text(
-                    'Confirm',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontFamily: 'Inter',
-                    ),
-                  ),
+                      : const Text('Confirm',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontFamily: 'Inter')),
                 ),
-              ),
+              )),
 
               const SizedBox(height: 20),
 
               // Resend Link
-              Row(
+              Obx(() => Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    "Didn't receive a code? ",
-                    style: TextStyle(fontFamily: 'Inter'),
-                  ),
+                  const Text("Didn't receive a code? ",
+                      style: TextStyle(fontFamily: 'Inter')),
                   GestureDetector(
-                    onTap: _start == 0
-                        ? () {
-                      startTimer();
-                      // Add resend logic here
-                    }
+                    onTap: _controller.start.value == 0
+                        ? _controller.startTimer
                         : null,
-                    child: Text(
-                      "Resend",
-                      style: TextStyle(
-                        color: goldColor,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Inter',
-                      ),
-                    ),
+                    child: Text("Resend",
+                        style: TextStyle(
+                            color: _controller.goldColor,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Inter')),
                   ),
                 ],
-              ),
+              )),
 
               const SizedBox(height: 10),
 
-              Text(
-                '00:${_start.toString().padLeft(2, '0')} sec',
+              // Timer
+              Obx(() => Text(
+                '00:${_controller.start.value.toString().padLeft(2, '0')} sec',
                 style: TextStyle(
-                  color: goldColor,
+                  color: _controller.goldColor,
                   fontSize: 16,
                   fontFamily: 'Inter',
                 ),
-              ),
+              )),
             ],
           ),
         ),

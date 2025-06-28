@@ -1,25 +1,54 @@
-/*
 import 'package:flutter/material.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final bool? showName;
-  const HomeAppBar({super.key,  this.showName});
+  final bool showTitle;
+
+  const HomeAppBar({super.key, this.showTitle = false});
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      titleSpacing: 0,
-      automaticallyImplyLeading: false,
-      title: Row(
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      color: AppColors.white,
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: showTitle
+            ? [
+          // Left: Greeting with Subtitle
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Hi, Mirable",
+                style: TextStyle(
+                  fontSize: AppStyles.fontXL,
+                  fontWeight: AppStyles.weightMedium,
+                  fontFamily: "Inter",
+                  color: AppColors.blackColor,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                "Find the amazing event near you",
+                style: TextStyle(
+                  fontSize: AppStyles.fontM,
+                  fontWeight: AppStyles.weightRegular,
+                  fontFamily: "Inter",
+                  color: AppColors.blackColor,
+                ),
+              ),
+            ],
+          ),
+          // Right: Notification Icon
+          const Icon(Icons.notification_add),
+        ]
+            : [
           // Left: Avatar + Greeting
           Row(
             children: [
-              const SizedBox(width: 16),
               const CircleAvatar(radius: 22),
               const SizedBox(width: 8),
               Text(
@@ -27,13 +56,14 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                 style: TextStyle(
                   fontSize: AppStyles.fontL,
                   fontWeight: AppStyles.weightRegular,
+                  fontFamily: "Inter",
                   color: AppColors.blackColor,
                 ),
               ),
             ],
           ),
 
-          // Middle: Location
+          // Middle: Location Chip
           Container(
             height: 39,
             width: 91,
@@ -55,6 +85,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                   style: TextStyle(
                     fontSize: AppStyles.fontS,
                     fontWeight: AppStyles.weightRegular,
+                    fontFamily: "Inter",
                     color: AppColors.lightWhite6,
                   ),
                 ),
@@ -63,117 +94,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
 
           // Right: Notification Icon
-          IconButton(
-            icon: const Icon(Icons.notification_add),
-            onPressed: () {},
-            color: AppColors.blackColor,
-          ),
+          const Icon(Icons.notification_add),
         ],
       ),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-}
-*/
-
-import 'package:flutter/material.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
-
-class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final bool showTitle;
-
-  HomeAppBar({super.key, this.showTitle = false});
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      titleSpacing: 0,
-      automaticallyImplyLeading: true,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: showTitle
-            ? [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Hi, Mirable",
-                      style: TextStyle(
-                        fontSize: AppStyles.fontXL,
-                        fontWeight: AppStyles.weightMedium,
-                        fontFamily: "Inter",
-                        color: AppColors.blackColor,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      "Find the amazing event near you",
-                      style: TextStyle(
-                        fontFamily: "Inter",
-                        fontSize: AppStyles.fontM,
-                        fontWeight: AppStyles.weightRegular,
-                        color: AppColors.blackColor,
-                      ),
-                    ),
-                  ],
-                ),
-                const Icon(Icons.notification_add),
-              ]
-            : [
-                Row(
-                  children: [
-                    const CircleAvatar(radius: 22),
-                    const SizedBox(width: 8),
-                    Text(
-                      "Hi, Mirable",
-                      style: TextStyle(
-                        fontSize: AppStyles.fontL,
-                        fontWeight: AppStyles.weightRegular,
-                        color: AppColors.blackColor,
-                        fontFamily: "Inter",
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: 39,
-                  width: 91,
-                  decoration: BoxDecoration(
-                    color: AppColors.greyColor,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        size: 16,
-                        color: AppColors.lightWhite6,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        'Dubai',
-                        style: TextStyle(
-                          fontFamily:"Inter",
-                          fontSize: AppStyles.fontS,
-                          fontWeight: AppStyles.weightRegular,
-                          color: AppColors.lightWhite6,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                Icon(Icons.notification_add),
-              ],
-      ),
-    );
-  }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 10);
 }

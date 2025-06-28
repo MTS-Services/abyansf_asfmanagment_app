@@ -1,16 +1,19 @@
-import 'package:abyansf_asfmanagment_app/utils/common/custom_app_bar.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/style/app_text_styles.dart';
-import '../../widget/increase_and_decrease.dart';
 
-class Jets extends StatelessWidget {
-  Jets({super.key});
+class YachtRequesrFormScreen extends StatelessWidget {
+  YachtRequesrFormScreen({super.key});
 
-  List<String> trip = ['One-way', 'Round trip'];
+  List<String> size = [
+    'Big',
+    'Medium'
+    'Small'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -23,44 +26,33 @@ class Jets extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(title: 'Jets'),
-                Text('Trip type', style: AppTextStyle.bold16),
-                CustomDropdown(type: trip, hint: 'Round/One-way trip'),
-                Text('Destination', style: AppTextStyle.bold16),
+                CustomAppBar(title: 'Yacht'),
+                Text('Size of Yacht', style: AppTextStyle.bold16),
+                CustomDropdown(type: size, hint: 'Yacht type'),
+                Text('Time & duration', style: AppTextStyle.bold16),
+                CustomDropdown(type: size, hint: 'Select duration for booking yecht'),
+                Text('Date', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    Expanded(
-                      child: CustomDropdown(
-                        type: trip,
-                        hint: 'Start Point',
-                        labelText: 'From',
-                      ),
-                    ),
+                    CustomDatePicker(labelText: 'From',),
                     SizedBox(width: 10),
-                    Expanded(
-                      child: CustomDropdown(
-                        type: trip,
-                        hint: 'Start Point',
-                        labelText: 'To',
-                      ),
-                    ),
+                    CustomDatePicker(labelText:'To',),
                   ],
                 ),
-                Text('Destination', style: AppTextStyle.bold16),
-                Row(
-                  children: [
-                    Expanded(child: CustomDatePicker(labelText: 'From',)),
-                    SizedBox(width: 10),
-                    Expanded(child: CustomDatePicker(labelText:'To',)),
-                  ],
-                ),
-                Text('Number of guest', style: AppTextStyle.bold16),
-                Row(
-                  children: [
-                    IncreaseAndDecrease(type: 'Adults'),
-                    SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children'),
-                  ],
+                Text('Number of People', style: AppTextStyle.bold16),
+                Padding(
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Please enter here how many people are going',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: AppColors.lightLaserColor,
+                        ),
+                      ),
+                      fillColor: AppColors.white,
+                    ),
+                  ),
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
                 Padding(
@@ -77,7 +69,7 @@ class Jets extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10),
                 Row(
                   children: [
                     Expanded(
@@ -113,7 +105,6 @@ class Jets extends StatelessWidget {
                     )
                   ],
                 ),
-
               ],
             ),
           ),

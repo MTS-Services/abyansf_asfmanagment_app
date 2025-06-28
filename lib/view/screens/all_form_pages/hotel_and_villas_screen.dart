@@ -1,5 +1,5 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
-import 'package:abyansf_asfmanagment_app/utils/common/custom_app_bar.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
@@ -8,15 +8,11 @@ import 'package:flutter/material.dart';
 import '../../widget/custom_drop_down.dart';
 import '../../widget/increase_and_decrease.dart';
 
-class HotelAndVillas extends StatefulWidget {
-  HotelAndVillas({super.key});
+class HotelAndVillasScreen extends StatelessWidget {
+  HotelAndVillasScreen({super.key});
 
-  @override
-  State<HotelAndVillas> createState() => _HotelAndVillasState();
-}
-
-class _HotelAndVillasState extends State<HotelAndVillas> {
   final List<String> type = ['Ac', 'NonAc', 'Premium'];
+
   int adults = 1;
 
   @override
@@ -87,7 +83,6 @@ class _HotelAndVillasState extends State<HotelAndVillas> {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: Text('Cancel'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.white,
                           shadowColor: Colors.transparent,
@@ -96,6 +91,7 @@ class _HotelAndVillasState extends State<HotelAndVillas> {
                             borderRadius: BorderRadiusGeometry.circular(4),
                           ),
                         ),
+                        child: Text('Cancel'),
                       ),
                     ),
                     SizedBox(width: 10),

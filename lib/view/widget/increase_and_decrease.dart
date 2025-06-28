@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../utils/assets_path.dart';
 import '../../utils/style/appColor.dart';
+import '../../view_models/controller/counter_controller.dart';
 
 class IncreaseAndDecrease extends StatelessWidget {
   IncreaseAndDecrease({super.key, required this.type});
@@ -60,16 +61,3 @@ class IncreaseAndDecrease extends StatelessWidget {
   }
 }
 
-class CounterController extends GetxController {
-  var minus = 0.obs;
-
-  void decrease() {
-    if(minus != 0){
-      minus--;
-    }
-  }
-
-  void increase() {
-    minus++;
-  }
-}
