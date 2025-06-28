@@ -16,6 +16,7 @@ class _WellnessScreenState extends State<WellnessScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),

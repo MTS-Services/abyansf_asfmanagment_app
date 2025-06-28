@@ -41,7 +41,7 @@ class YachtRequesrForm extends StatelessWidget {
                 ),
                 Text('Number of People', style: AppTextStyle.bold16),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
                   child: TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Please enter here how many people are going',
@@ -56,7 +56,7 @@ class YachtRequesrForm extends StatelessWidget {
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
                   child: TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Enter your WhatsApp number',

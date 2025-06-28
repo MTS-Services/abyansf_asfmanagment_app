@@ -3,12 +3,7 @@ import 'package:abyansf_asfmanagment_app/utils/common/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 import '../../widget/custom_drop_down.dart';
 import '../../widget/increase_and_decrease.dart';
@@ -31,7 +26,7 @@ class _HotelAndVillasState extends State<HotelAndVillas> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -39,9 +34,8 @@ class _HotelAndVillasState extends State<HotelAndVillas> {
                 Text('Type of accommodation', style: AppTextStyle.bold16),
                 CustomDropdown(type: type, hint: 'Select accommodation'),
                 Text('Location', style: AppTextStyle.bold16),
-                SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
                   child: TextFormField(
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
@@ -74,7 +68,7 @@ class _HotelAndVillasState extends State<HotelAndVillas> {
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
                   child: TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Enter your WhatsApp number',
@@ -123,6 +117,7 @@ class _HotelAndVillasState extends State<HotelAndVillas> {
                     ),
                   ],
                 ),
+                SizedBox(height: 20     ,)
               ],
             ),
           ),

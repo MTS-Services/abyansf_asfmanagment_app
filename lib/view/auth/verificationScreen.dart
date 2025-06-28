@@ -6,6 +6,8 @@ import 'dart:async';
 
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../utils/style/appColor.dart';
+
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
 
@@ -145,7 +147,7 @@ class _VerificationPageState extends State<VerificationScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),

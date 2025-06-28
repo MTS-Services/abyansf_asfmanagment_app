@@ -28,7 +28,6 @@ ThemeData themeData() {
         color: AppColors.blackColor,
       ),
     ),*/
-
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.secondaryColor,

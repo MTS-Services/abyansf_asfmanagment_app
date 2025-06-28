@@ -8,6 +8,7 @@ class MessageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10 , vertical: 10),
         child: Column(

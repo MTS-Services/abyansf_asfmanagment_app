@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
@@ -43,9 +43,13 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: AppStyles.heightM),
-                TextFormField(maxLines: 1),
+                TextFormField(maxLines: 1,decoration: InputDecoration(
+                  hintText: 'Email'
+                ),),
                 SizedBox(height: 20),
-                TextFormField(),
+                TextFormField(maxLines: 1,decoration: InputDecoration(
+                    hintText: 'Password'  
+                ),),
                 SizedBox(height: 20),
             
                 // text button //

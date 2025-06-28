@@ -23,7 +23,7 @@ class LifeStyle extends StatelessWidget {
                 CustomAppBar(title: 'Dining'),
                 Text('Name', style: AppTextStyle.bold16),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
                   child: TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Enter your full name',
@@ -38,7 +38,7 @@ class LifeStyle extends StatelessWidget {
                 ),
                 Text('Email', style: AppTextStyle.bold16),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
                   child: TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Enter your email',
@@ -53,7 +53,7 @@ class LifeStyle extends StatelessWidget {
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
                   child: TextFormField(
                     decoration: InputDecoration(
                       hintText: 'Enter your WhatsApp number',

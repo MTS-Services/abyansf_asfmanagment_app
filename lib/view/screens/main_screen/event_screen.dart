@@ -3,6 +3,8 @@ import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/style/appColor.dart';
+
 
 class EventScreen extends StatelessWidget {
   const EventScreen({super.key});
@@ -10,6 +12,7 @@ class EventScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SafeArea(

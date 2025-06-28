@@ -16,7 +16,7 @@ class IncreaseAndDecrease extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.only(top: 10, bottom: 20),
         child: Container(
           height: 48,
           padding: EdgeInsets.symmetric(horizontal: 12),
