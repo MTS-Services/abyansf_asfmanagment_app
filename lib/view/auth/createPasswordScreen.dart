@@ -6,8 +6,8 @@ import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
-class Createpasswordscreen extends StatelessWidget {
-  const Createpasswordscreen({super.key});
+class CreatePasswordScreen extends StatelessWidget {
+  const CreatePasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +39,17 @@ class Createpasswordscreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: AppStyles.heightM),
-            TextFormField(),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Name'
+              ),
+            ),
             SizedBox(height: 20),
-            TextFormField(),
+            TextFormField(
+              decoration: InputDecoration(
+                  hintText: 'Email'
+              ),
+            ),
             SizedBox(height: 20),
 
             Row(

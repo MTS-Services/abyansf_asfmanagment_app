@@ -2,15 +2,14 @@ import 'dart:core';
 
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/event_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/explore_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
+import '../screens/profile_screen/profile_screen.dart';
+
 
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({super.key});
@@ -26,15 +25,13 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     HomeScreen(),
     EventScreen(),
     ExploreScreen(),
-    Center(child: Text('Coming Soon')),
     ProfileScreen(),
   ];
-  final List<String> label = ['Home', 'Events', 'Explore', 'Concierge', 'Profile'];
+  final List<String> label = ['Home', 'Events', 'Explore',  'Profile'];
   final List<String> icons = [
     AssetPath.navHome,
     AssetPath.navEvents,
     AssetPath.navExplore,
-    AssetPath.navConcierge,
     AssetPath.navProfile,
   ];
 
@@ -43,7 +40,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 21),
+        padding: EdgeInsets.symmetric(horizontal: 25,vertical: 25),
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.only(

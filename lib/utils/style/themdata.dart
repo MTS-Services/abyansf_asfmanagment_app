@@ -30,6 +30,13 @@ ThemeData themeData() {
     ),*/
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
+      hintStyle: TextStyle(
+        color:AppColors.hintTextColor,
+        fontSize: 14,
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.w400,
+        height: 1.50,
+      ),
       fillColor: AppColors.secondaryColor,
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),

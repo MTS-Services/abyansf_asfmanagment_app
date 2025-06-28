@@ -1,61 +1,55 @@
-import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
-import 'package:abyansf_asfmanagment_app/utils/common/custom_app_bar.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
-import '../../widget/custom_drop_down.dart';
+import '../../../utils/style/appColor.dart';
+import '../../../utils/style/app_text_styles.dart';
 import '../../widget/increase_and_decrease.dart';
 
-class SuperCar extends StatefulWidget {
-  SuperCar({super.key});
-
-  @override
-  State<SuperCar> createState() => _SuperCarState();
-}
-
-class _SuperCarState extends State<SuperCar> {
-  final List<String> type = ['Ac', 'NonAc', 'Premium'];
-  int adults = 1;
+class LifeStyleScreen extends StatelessWidget {
+  const LifeStyleScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(title: 'Super car'),
-                const SizedBox(height: 10),
-                Text('Car type', style: AppTextStyle.bold16),
-                CustomDropdown(type: type, hint: 'Select car model'),
-                Text('Time & duration', style: AppTextStyle.bold16),
-                CustomDropdown(type: type, hint: 'Select duration for booking Car'),
-                Text('Date', style: AppTextStyle.bold16),
-                Row(
-                  children: [
-                    CustomDatePicker(labelText: 'Start',),
-                    SizedBox(width: 10),
-                    CustomDatePicker(labelText: 'From',),
-                  ],
+                CustomAppBar(title: 'Dining'),
+                Text('Name', style: AppTextStyle.bold16),
+                Padding(
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Enter your full name',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: AppColors.lightLaserColor,
+                        ),
+                      ),
+                      fillColor: AppColors.white,
+                    ),
+                  ),
                 ),
-                Text('Number of guest', style: AppTextStyle.bold16),
-                Row(
-                  children: [
-                    IncreaseAndDecrease(type: 'Adults'),
-                    SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children'),
-                  ],
+                Text('Email', style: AppTextStyle.bold16),
+                Padding(
+                  padding: const EdgeInsets.only(top: 12, bottom: 16),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: 'Enter your email',
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: AppColors.lightLaserColor,
+                        ),
+                      ),
+                      fillColor: AppColors.white,
+                    ),
+                  ),
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
                 Padding(
@@ -71,6 +65,26 @@ class _SuperCarState extends State<SuperCar> {
                       fillColor: AppColors.white,
                     ),
                   ),
+                ),
+                Text('Date of reservation', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    CustomDatePicker(),
+                  ],
+                ),
+                Text('Time', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    CustomDatePicker(),
+                  ],
+                ),
+                Text('Number of guest', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    IncreaseAndDecrease(type: 'Adults'),
+                    SizedBox(width: 10),
+                    IncreaseAndDecrease(type: 'Children'),
+                  ],
                 ),
                 Row(
                   children: [

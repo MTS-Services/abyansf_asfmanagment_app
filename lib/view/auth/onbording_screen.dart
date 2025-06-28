@@ -6,8 +6,8 @@ import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-class Auth extends StatelessWidget {
-  Auth({super.key});
+class OnbordingScreen extends StatelessWidget {
+  OnbordingScreen({super.key});
 
   final List<String> imagePaths = [
     "assets/images/image 1.png",
@@ -140,7 +140,7 @@ class Auth extends StatelessWidget {
                   const SizedBox(width: 10),
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () => Get.to(() => Signupscreen()),
+                      onPressed: () => Get.to(() => SignupScreen()),
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         backgroundColor: Colors.white,

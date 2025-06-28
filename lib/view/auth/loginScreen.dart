@@ -1,4 +1,4 @@
-import 'package:abyansf_asfmanagment_app/utils/common/custom_bottom_bar.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_bottom_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                 // text button //
                 TextButton(
                   onPressed: () {
-                    Get.to(() => Recoverscreen());
+                    Get.to(() => RecoverScreen());
                   },
                   child: Text(
                     "Forgot your password?",
@@ -106,7 +106,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Signupscreen()),
+                          MaterialPageRoute(builder: (context) => SignupScreen()),
                         );
                       },
                       child: Text(

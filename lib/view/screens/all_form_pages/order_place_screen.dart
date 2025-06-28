@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/style/appColor.dart';
 
-class OrderPlace extends StatelessWidget {
-  const OrderPlace({super.key});
+class OrderPlaceScreen extends StatelessWidget {
+  const OrderPlaceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

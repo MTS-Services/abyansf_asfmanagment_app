@@ -1,20 +1,19 @@
-import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/booking_history.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/edit_profile.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/invite_friend_show_log.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/profile_pages/privacy_policy.dart';
-import 'package:abyansf_asfmanagment_app/view_models/controller/image_picker_controller.dart';
+      import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/privacy_policy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
-import '../../../utils/common/custom_app_bar.dart';
+import '../../../utils/assets_path.dart';
+import '../../widget/custom_app_bar.dart';
+import '../../../utils/style/appColor.dart';
+import '../../../utils/style/app_text_styles.dart';
+import '../../../view_models/controller/image_picker_controller.dart';
+import 'booking_history_screen.dart';
+import 'edit_profile.dart';
+import 'invite_friend_show_log.dart';
 
 class ProfileScreen extends StatelessWidget {
   final ImagePickerController _imagePickerController =
-      Get.find<ImagePickerController>();
+      Get.find();
   final List<Map<String, dynamic>> items = [
     {
       'leading': SvgPicture.asset(

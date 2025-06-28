@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-class Recoverscreen extends StatelessWidget {
-  const Recoverscreen({super.key});
+class RecoverScreen extends StatelessWidget {
+  const RecoverScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,11 @@ class Recoverscreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: AppStyles.heightM),
-            TextFormField(),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Email'
+              ),
+            ),
 
             SizedBox(height: 20),
             // login button //

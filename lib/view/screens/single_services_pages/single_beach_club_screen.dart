@@ -14,11 +14,7 @@ import '../../../view_models/controller/carousel_controller.dart';
 class SingleBeachClubScreen extends StatelessWidget {
   SingleBeachClubScreen({super.key});
 
-  final CarouselSliderControllers _carouselSliderController = Get.put(
-    CarouselSliderControllers(),
-  );
-
-  @override
+  final CarouselSliderControllers _carouselSliderController = Get.find();
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -169,9 +165,8 @@ class SingleBeachClubScreen extends StatelessWidget {
                                                   .currentIndex
                                                   .value ==
                                               index
-                                          ? Colors
-                                                .blue // Active color
-                                          : Colors.red, // Inactive color
+                                          ? AppColors.primaryColor// Active color
+                                          : AppColors.lightGrey, // Inactive color
                                     ),
                                   ),
                                 ),

@@ -6,6 +6,10 @@ import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.da
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../../view_models/controller/carousel_controller.dart';
 
 class DesertActivitiesScreen extends StatefulWidget {
   const DesertActivitiesScreen({super.key});
@@ -13,8 +17,8 @@ class DesertActivitiesScreen extends StatefulWidget {
   @override
   State<DesertActivitiesScreen> createState() => _DesertActivitiesScreenState();
 }
-
 class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
+  final CarouselSliderControllers _carouselSliderController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,9 +87,7 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                       autoPlayInterval: const Duration(seconds: 3),
                       viewportFraction: 0.83,
                       onPageChanged: (index, reason) {
-                        setState(() {
-                          currentIndex = index;
-                        });
+                       _carouselSliderController.currentIndex.value = index;
                       },
                     ),
                   ),
@@ -100,20 +102,18 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                           children: List.generate(images.length, (index) {
                             return GestureDetector(
                               onTap: () {
-                                setState(() {
-                                  currentIndex = index;
-                                });
+                               _carouselSliderController.currentIndex.value;
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(2),
                                 child: Container(
-                                  width: currentIndex == index ? 16 : 5,
+                                  width:  _carouselSliderController.currentIndex == index ? 16 : 5,
                                   height: 4,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
-                                    color: currentIndex == index
+                                    color:  _carouselSliderController.currentIndex == index
                                         ? AppColors.primaryColor
-                                        : Colors.red,
+                                        : AppColors.lightGrey,
                                   ),
                                 ),
                               ),

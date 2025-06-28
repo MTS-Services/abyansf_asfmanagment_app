@@ -1,19 +1,24 @@
-import 'package:abyansf_asfmanagment_app/utils/common/custom_app_bar.dart';
+import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
-import 'package:abyansf_asfmanagment_app/view/widget/custom_drop_down.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
-import '../../../utils/style/app_text_styles.dart';
+import '../../widget/custom_drop_down.dart';
+import '../../widget/increase_and_decrease.dart';
 
-class YachtRequesrForm extends StatelessWidget {
-  YachtRequesrForm({super.key});
+class SuperCarScreen extends StatelessWidget {
+  SuperCarScreen({super.key});
 
-  List<String> size = [
-    'Big',
-    'Medium'
-    'Small'
-  ];
+  final List<String> type = ['Ac', 'NonAc', 'Premium'];
+
+  int adults = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -26,33 +31,27 @@ class YachtRequesrForm extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(title: 'Yacht'),
-                Text('Size of Yacht', style: AppTextStyle.bold16),
-                CustomDropdown(type: size, hint: 'Yacht type'),
+                CustomAppBar(title: 'Super car'),
+                const SizedBox(height: 10),
+                Text('Car type', style: AppTextStyle.bold16),
+                CustomDropdown(type: type, hint: 'Select car model'),
                 Text('Time & duration', style: AppTextStyle.bold16),
-                CustomDropdown(type: size, hint: 'Select duration for booking yecht'),
+                CustomDropdown(type: type, hint: 'Select duration for booking Car'),
                 Text('Date', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    CustomDatePicker(labelText: 'From',),
+                    CustomDatePicker(labelText: 'Start',),
                     SizedBox(width: 10),
-                    CustomDatePicker(labelText:'To',),
+                    CustomDatePicker(labelText: 'From',),
                   ],
                 ),
-                Text('Number of People', style: AppTextStyle.bold16),
-                Padding(
-                  padding: const EdgeInsets.only(top: 12, bottom: 16),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Please enter here how many people are going',
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: AppColors.lightLaserColor,
-                        ),
-                      ),
-                      fillColor: AppColors.white,
-                    ),
-                  ),
+                Text('Number of guest', style: AppTextStyle.bold16),
+                Row(
+                  children: [
+                    IncreaseAndDecrease(type: 'Adults'),
+                    SizedBox(width: 10),
+                    IncreaseAndDecrease(type: 'Children'),
+                  ],
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
                 Padding(
@@ -69,7 +68,6 @@ class YachtRequesrForm extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
                 Row(
                   children: [
                     Expanded(

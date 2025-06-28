@@ -6,9 +6,8 @@ import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/verificationScreen.dart';
 import 'package:flutter/material.dart';
 
-class Signupscreen extends StatelessWidget {
-  const Signupscreen({super.key});
-
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,14 +30,26 @@ class Signupscreen extends StatelessWidget {
             Text(
               'Get started with your access in\njust a few steps.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 18),
+              style: TextStyle(color: Colors.black, fontSize: 18 , fontFamily: 'Inter'),
             ),
             SizedBox(height: AppStyles.heightM),
-            TextFormField(),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Name'
+              ),
+            ),
             SizedBox(height: 20),
-            TextFormField(),
+            TextFormField(
+              decoration: InputDecoration(
+                  hintText: 'Email'
+              ),
+            ),
             SizedBox(height: 20),
-            TextFormField(),
+            TextFormField(
+              decoration: InputDecoration(
+                  hintText: 'Whats app  Number'
+              ),
+            ),
 
             SizedBox(height: 20),
             // login button //
@@ -78,7 +89,7 @@ class Signupscreen extends StatelessWidget {
               children: [
                 Text(
                   "Already have an account?",
-                  style: TextStyle(fontSize: AppStyles.fontL),
+                  style: TextStyle(fontSize: AppStyles.fontL, fontFamily: 'Inter'),
                 ),
                 TextButton(
                   onPressed: () {
