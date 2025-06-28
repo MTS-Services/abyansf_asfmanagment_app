@@ -75,7 +75,7 @@ class BookingHistory extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: 3,
                   itemBuilder: (context, index) {
-                    return CustomEventWidget();
+                    return CustomEventWidget(status: true);
                   }),
             ],
           ),
