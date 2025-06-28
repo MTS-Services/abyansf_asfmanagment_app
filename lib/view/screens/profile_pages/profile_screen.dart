@@ -80,9 +80,12 @@ class ProfileScreen extends StatelessWidget {
                   CustomAppBar(
                     title: 'My Profile',
                     // action: InkWell(onTap:  Get.to(),child: Image.asset(AssetPath.basilEditOutline,height: 24,width: 24,)),
-                    action: IconButton(onPressed: () {
-                      Get.to(EditProfile());
-                    } , icon: Image.asset(AssetPath.basilEditOutline)),
+                    action: IconButton(
+                      onPressed: () {
+                        Get.to(EditProfile());
+                      },
+                      icon: Image.asset(AssetPath.basilEditOutline),
+                    ),
                   ),
                   Row(
                     children: [

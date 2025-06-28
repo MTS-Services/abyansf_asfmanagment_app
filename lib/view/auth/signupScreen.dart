@@ -50,7 +50,7 @@ class Signupscreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => VerificationScreen(),
+                          builder: (context) => Verificationscreen(),
                         ),
                       );
                     },
