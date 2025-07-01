@@ -1,4 +1,5 @@
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/individual_booking_history.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/booking_history_individual_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
@@ -37,7 +38,7 @@ class EventScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: (){
-                        Get.to(BookingHistoryIndividualPage());
+                        Get.to(IndividualBookingHistory());
                       },
                       child: CustomEventWidget());
                   },
@@ -55,7 +56,7 @@ class EventScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: (){
-                        Get.to(BookingHistoryIndividualPage());
+                        Get.to(IndividualBookingHistory());
                       },
                       child: CustomEventWidget(
                         status: true,

@@ -2,6 +2,7 @@ import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/menu_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/card_container.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/day_time_row.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
@@ -72,20 +73,18 @@ class SingleBeachClubScreen extends StatelessWidget {
                       SizedBox(
                         width: 100,
                         child: ElevatedButton(
-                          onPressed: () {},
-                          child: InkWell(
-                            onTap: (){//Get.to()
+                          onPressed: () {
+                            Get.to(MenuScreen());
                             },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Menu"),
-                                Icon(
-                                  Icons.arrow_circle_right_outlined,
-                                  color: AppColors.blackColor,
-                                ),
-                              ],
-                            ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Menu"),
+                              Icon(
+                                Icons.arrow_circle_right_outlined,
+                                color: AppColors.blackColor,
+                              ),
+                            ],
                           ),
                         ),
                       ),

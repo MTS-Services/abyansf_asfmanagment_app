@@ -9,7 +9,7 @@ import 'package:abyansf_asfmanagment_app/view_models/controller/image_picker_con
 class AppBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ImagePickerController>(() => ImagePickerController());
+    Get.put(ImagePickerController());
     Get.put(DateController());
     Get.put(CarouselSliderControllers());
     Get.put(CounterController());

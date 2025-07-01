@@ -7,7 +7,6 @@ import 'managmentApp.dart';
 void main() {
   runApp(
       GetMaterialApp(
-
         debugShowCheckedModeBanner: false,
         initialBinding: AppBindings(),
         theme: themeData(),

@@ -7,8 +7,8 @@ import 'package:abyansf_asfmanagment_app/view/widget/individual_booking_widget.d
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class BookingHistoryIndividualPage extends StatelessWidget {
-  const BookingHistoryIndividualPage({super.key});
+class IndividualBookingHistory extends StatelessWidget {
+  const IndividualBookingHistory({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class BookingHistoryIndividualPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
-            child: IndividualBookingWidget(),
+            child: IndividualBookingWidget(status: true,),
           ),
         ),
       ),
