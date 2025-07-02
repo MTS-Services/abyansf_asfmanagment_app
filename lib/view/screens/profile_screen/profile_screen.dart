@@ -50,15 +50,14 @@ class ProfileScreen extends StatelessWidget {
       'route': PrivacyPolicy(),
     },
     {
-      'leading': Icon(Icons.logout, color: AppColors.red),
+      'leading': Icon(Icons.logout,color: AppColors.red,),
       'title': Text(
         'Log Out',
         style: TextStyle(
-          color: AppColors.red,
           fontSize: 16,
-          fontFamily: 'Playfair Display',
-          fontWeight: FontWeight.w500,
-        ),
+          color: AppColors.red
+
+        )
       ),
       'trailing': Icon(Icons.arrow_forward_ios),
       'route': Scaffold(body: Container(color: Colors.yellow)),
