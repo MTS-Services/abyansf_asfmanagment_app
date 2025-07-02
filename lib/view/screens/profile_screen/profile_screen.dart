@@ -1,4 +1,5 @@
-      import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/privacy_policy.dart';
+      import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/privacy_policy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -60,7 +61,7 @@ class ProfileScreen extends StatelessWidget {
         )
       ),
       'trailing': Icon(Icons.arrow_forward_ios),
-      'route': Scaffold(body: Container(color: Colors.yellow)),
+      'route': LoginScreen(),
     },
   ];
 

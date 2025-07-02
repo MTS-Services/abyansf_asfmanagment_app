@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 
 ThemeData themeData() {
   return ThemeData(
-    fontFamily: "PlayfairDisplay",
+    fontFamily: "Inter",
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         textStyle: TextStyle(
           fontWeight: FontWeight.w700,
           fontSize: 16,
-          fontFamily: 'PlayfairDisplay',
+          fontFamily: 'Inter',
         ),
         foregroundColor: Colors.black,
         backgroundColor: const Color(0xFFC7AE6A),
