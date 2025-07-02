@@ -1,4 +1,5 @@
 
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../utils/style/appColor.dart';
@@ -63,11 +64,8 @@ class RecoveryVerificationScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 60),
-              const Text("Verification",
-                  style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'PlayfairDisplay')),
+               Text("Verification",
+                  style: AppTextStyle.bold28),
               const SizedBox(height: 10),
               const Text("We sent Verification code to your email",
                   style: TextStyle(

@@ -58,14 +58,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             backgroundImage: AssetImage(AssetPath.splashScreen1),
                           ),
                           const SizedBox(height: 6),
-                          Text('Name', style: AppTextStyle.bold14),
+                          Text('Name', style: AppTextStyle.bold14.copyWith(fontFamily: 'Inter')),
                         ],
                       ),
                     );
                   },
                 ),
               ),
-              const SizedBox(height: 20),
               Text('Highlight', style: AppTextStyle.bold24),
               const SizedBox(height: 13),
 
