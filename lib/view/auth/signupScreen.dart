@@ -1,5 +1,6 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
@@ -20,11 +21,7 @@ class SignupScreen extends StatelessWidget {
             Text(
               'Request an account',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: AppColors.blackColor,
-                fontSize: 40,
-                fontWeight: AppStyles.weightBold,
-              ),
+              style: AppTextStyle.bold40,
             ),
             SizedBox(height: 20),
             Text(

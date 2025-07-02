@@ -1,5 +1,6 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
@@ -21,11 +22,7 @@ class CreatePasswordScreen extends StatelessWidget {
             Text(
               'Create New Password',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: AppColors.blackColor,
-                fontSize: 40,
-                fontWeight: AppStyles.weightBold,
-              ),
+              style: AppTextStyle.bold40
             ),
             SizedBox(height: 20),
             Text(
@@ -61,14 +58,9 @@ class CreatePasswordScreen extends StatelessWidget {
                       backgroundColor: AppColors.primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    child: const Text(
+                    child:  Text(
                       'Save',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: '§',
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: AppTextStyle.bold16,
                     ),
                   ),
                 ),

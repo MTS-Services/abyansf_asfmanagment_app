@@ -1,3 +1,4 @@
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:flutter/material.dart';
@@ -80,11 +81,7 @@ class OnbordingScreen extends StatelessWidget {
               child: Text(
                 'Your World. Curated for Luxury.',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.blackColor,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: AppTextStyle.bold30
               ),
             ),
 
