@@ -113,6 +113,7 @@ class IndividualBookingWidget extends StatelessWidget {
             color: AppColors.lightBlackColor,
           ),
         ),
+        SizedBox(height: 10),
         if (status) ...[
           Row(
             children: [
@@ -154,7 +155,7 @@ class IndividualBookingWidget extends StatelessWidget {
             ),
           ),
         ],
-
+        SizedBox(height: 10),
         Text('Upcoming Event', style: AppTextStyle.bold24),
         CustomEventWidget(),
         CustomEventWidget(),

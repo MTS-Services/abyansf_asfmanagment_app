@@ -39,7 +39,9 @@ class SingleBeachClubScreen extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.back();
+                        },
                         icon: CircleAvatar(
                           backgroundColor: Colors.white70.withAlpha(80),
                           child: Icon(Icons.arrow_back_outlined),

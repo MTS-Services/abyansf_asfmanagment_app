@@ -65,8 +65,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                 children: [
                   SvgPicture.asset(
                     icons[index],
-                    width: 24,
-                    height: 24,
+                    width: 26,
+                    height: 26,
                     colorFilter: ColorFilter.mode(
                       isSelected
                           ? AppColors.primaryDeepColor
@@ -78,8 +78,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                   Text(
                     label[index],
                     style: TextStyle(
-                      color: const Color(0xFF1A1A1A),
-                      fontSize: 8,
+                      color: isSelected ? AppColors.primaryDeepColor : AppColors.blackColor,
+                      fontSize: 10,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
                     ),
