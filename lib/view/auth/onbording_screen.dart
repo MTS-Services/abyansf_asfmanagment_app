@@ -4,6 +4,7 @@ import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -29,8 +30,6 @@ class OnbordingScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 16),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Stack(
@@ -85,7 +84,7 @@ class OnbordingScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 20),
+            Spacer(),
 
             // Description
             SizedBox(
@@ -95,16 +94,15 @@ class OnbordingScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: AppColors.greyColor,
-                  fontSize: 16,
+                  fontSize: 14,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
 
-            const SizedBox(height: 20),
+           Spacer(),
 
-            // Buttons //
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
@@ -162,24 +160,24 @@ class OnbordingScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 20),
+            Spacer(),
 
             // Terms and Conditions
             SizedBox(
-              width: 343,
+              width: 343.r,
               child: Text(
                 'By Continuing, you agree to L’invite’s terms of services and acknowledge you’ve read our privacy policy',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Color(0xFF4F4F4F),
-                  fontSize: 14,
+                  fontSize: 10,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
 
-            const SizedBox(height: 40),
+            SizedBox(height: 30.h),
           ],
         ),
       ),

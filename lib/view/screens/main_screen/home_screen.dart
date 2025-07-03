@@ -2,6 +2,7 @@ import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/event_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/individual_booking_history.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/booking_history_individual_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 145,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10,
+                  itemCount: 6,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8),
@@ -76,12 +77,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: CarouselSlider.builder(
                   itemCount: images.length,
                   itemBuilder: (context, index, realIndex) {
-                    return CarouselContainer(
-                      imagePath: images[index],
-                      title: 'Luxury Dinner Venues',
-                      location: 'Jumeirah Beach Residence',
-                      personIcon: AssetPath.personImage,
-                      clockIcon: AssetPath.clockImage,
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 7),
+                      child: CarouselContainer(
+                        imagePath: images[index],
+                        title: 'Luxury Dinner Venues',
+                        location: 'Jumeirah Beach Residence',
+                        personIcon: AssetPath.personImage,
+                        clockIcon: AssetPath.clockImage,
+                      ),
                     );
                   },
                   options: CarouselOptions(
@@ -98,7 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
              SizedBox(height: 8),
-              /// Carousel Indicator
               Obx(() {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -124,7 +127,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text('Member Event', style: AppTextStyle.bold24),
                   const Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(EventScreen());
+                    },
                     child: Text(
                       'See all',
                       style: TextStyle(
@@ -138,7 +143,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
 
-              /// Event List
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
