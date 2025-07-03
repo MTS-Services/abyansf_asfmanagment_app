@@ -33,11 +33,7 @@ class LoginScreen extends StatelessWidget {
                   'Welcome back you’ve\nbeen missed!',
                   textAlign: TextAlign.center,
             
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontFamily: "Inter",
-                  ),
+                  style: AppTextStyle.interRegular18
                 ),
                 SizedBox(height: AppStyles.heightM),
                 TextFormField(maxLines: 1,decoration: InputDecoration(
@@ -45,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                 ),),
                 SizedBox(height: 20),
                 TextFormField(maxLines: 1,decoration: InputDecoration(
-                    hintText: 'Password'  
+                    hintText: 'Password',suffixIcon: Icon(Icons.visibility_off_outlined)
                 ),),
                 SizedBox(height: 20),
             
@@ -56,11 +52,7 @@ class LoginScreen extends StatelessWidget {
                   },
                   child: Text(
                     "Forgot your password?",
-                    style: TextStyle(
-                      color: Color(0xffAD8945),
-                      fontSize: AppStyles.fontL,
-                      fontFamily: "inter",
-                    ),
+                    style: AppTextStyle.interBold14.copyWith(color: AppColors.primaryDeepColor)
                   ),
                 ),
                 SizedBox(height: 20),
@@ -74,14 +66,9 @@ class LoginScreen extends StatelessWidget {
                           backgroundColor: AppColors.primaryColor,
                           padding: const EdgeInsets.symmetric(vertical: 14),
                         ),
-                        child: const Text(
+                        child:  Text(
                           'Login',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontFamily: 'Playfair Display',
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: AppTextStyle.bold16.copyWith(color: AppColors.white)
                         ),
                       ),
                     ),
@@ -94,11 +81,7 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Don't have an account?",
-                      style: TextStyle(
-                        fontSize: AppStyles.fontM.sp,
-                        letterSpacing: 0.01,
-                        fontFamily: "inter",
-                      ),
+                      style: AppTextStyle.interRegular12
                     ),
                     const SizedBox(width: 4,),
                     InkWell(
@@ -110,14 +93,7 @@ class LoginScreen extends StatelessWidget {
                       },
                       child: Text(
                         "Request an account",
-                        style: TextStyle(
-                          color: Color(0xffAD8945),
-                          letterSpacing: 0.01,
-                         // fontSize: AppStyles.fontM.sp,
-                          fontSize: 15,
-
-                          fontFamily: "inter",
-                        ),
+                        style: AppTextStyle.interRegular12.copyWith(color: AppColors.primaryDeepColor)
                       ),
                     ),
                   ],

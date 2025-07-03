@@ -6,16 +6,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ThemeData themeData() {
   return ThemeData(
-    fontFamily: "Inter",
+    fontFamily: "PlayfairDisplay",
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         textStyle: TextStyle(
           fontWeight: FontWeight.w700,
           fontSize: 16,
-          fontFamily: 'Inter',
+          fontFamily: 'PlayfairDisplay',
         ),
-        foregroundColor: Colors.black,
-        backgroundColor: const Color(0xFFC7AE6A),
+        foregroundColor: AppColors.blackColor,
+        backgroundColor: AppColors.primaryColor,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         shadowColor: const Color(0x99C7AE6A),

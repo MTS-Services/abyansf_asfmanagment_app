@@ -4,7 +4,7 @@ import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/verificationScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/number_verification_screen.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -58,7 +58,7 @@ class SignupScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Verificationscreen(),
+                          builder: (context) => NumberVerificationScreen(),
                         ),
                       );
                     },
@@ -66,14 +66,9 @@ class SignupScreen extends StatelessWidget {
                       backgroundColor: AppColors.primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    child: const Text(
+                    child:  Text(
                       'Send request',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: AppTextStyle.bold16.copyWith(color: AppColors.white)
                     ),
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomEventWidget extends StatelessWidget {
@@ -134,34 +135,26 @@ class CustomEventWidget extends StatelessWidget {
                 children: [
                   Text(
                     '9.20 AM',
-                    style: TextStyle(
+                    style: AppTextStyle.interRegular14.copyWith(
                       fontFamily: "Inter",
-                      fontWeight: AppStyles.weightRegular,
-                      fontSize: AppStyles.fontM,
                       color: AppColors.lightLaserColor,
                       decoration: TextDecoration.underline,
                       decorationColor: AppColors.lightLaserColor,
                       decorationThickness: 1.0,
                       height: 1.4,
-                    ),
+                    )
                   ),
                   Text(
                     'Sunday',
-                    style: TextStyle(
-                      fontFamily: "Inter",
-                      fontSize: AppStyles.fontXS,
-                      fontWeight: AppStyles.weightRegular,
+                    style: AppTextStyle.interRegular10.copyWith(
                       color: AppColors.lightWhite6,
-                    ),
+                    )
                   ),
                   Text(
                     '11 jun',
-                    style: TextStyle(
-                      fontFamily: "Inter",
-                      fontSize: AppStyles.fontXS,
-                      fontWeight: AppStyles.weightRegular,
+                    style: AppTextStyle.interRegular10.copyWith(
                       color: AppColors.lightWhite6,
-                    ),
+                    )
                   ),
                 ],
               ),

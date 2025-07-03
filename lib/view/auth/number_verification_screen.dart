@@ -4,8 +4,8 @@ import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-class Verificationscreen extends StatelessWidget {
-  const Verificationscreen({super.key});
+class NumberVerificationScreen extends StatelessWidget {
+  const NumberVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +23,7 @@ class Verificationscreen extends StatelessWidget {
               Text(
                 'We sent Verification code to your Email address',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.blackColor,
-                  fontSize: 12,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w400,
-                ),
+                style: AppTextStyle.interRegular12
               ),
 
               Padding(
@@ -48,9 +43,6 @@ class Verificationscreen extends StatelessWidget {
                     inactiveColor: AppColors.lightGreyBorder,     // default
                     selectedColor: AppColors.lightGreyBorder,     // when selected
                     activeColor: AppColors.lightGreyBorder,
-
-
-
                     inactiveFillColor: AppColors.white,
                     selectedFillColor: AppColors.white,
                     disabledColor: AppColors.greyBackgroundColor,
@@ -74,9 +66,7 @@ class Verificationscreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
-                    () => LoginScreen();
-                  },
+                  onPressed: () {},
                   child: Text('Confirm'),
                 ),
               ),
@@ -95,21 +85,11 @@ class Verificationscreen extends StatelessWidget {
                     ),
                     TextSpan(
                       text: ' ',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: AppTextStyle.interRegular16
                     ),
                     TextSpan(
                       text: 'Resend',
-                      style: TextStyle(
-                        color: const Color(0xFFAD8945),
-                        fontSize: 16,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: AppTextStyle.interBold16.copyWith(color: AppColors.primaryColor)
                     ),
                   ],
                 ),
@@ -120,12 +100,7 @@ class Verificationscreen extends StatelessWidget {
                 child: Text(
                   '00:59 sec',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: const Color(0xFFC7AE6A) /* Laser-300 */,
-                    fontSize: 16,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: AppTextStyle.interRegular16.copyWith(color: AppColors.primaryColor)
                 ),
               ),
             ],

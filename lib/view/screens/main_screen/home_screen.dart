@@ -132,12 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Text(
                       'See all',
-                      style: TextStyle(
-                        fontFamily: "Playfair Display",
-                        fontWeight: AppStyles.weightMedium,
-                        fontSize: AppStyles.fontL,
-                        color: AppColors.primaryColor,
-                      ),
+                      style: AppTextStyle.bold16.copyWith(color: AppColors.primaryColor)
                     ),
                   ),
                 ],

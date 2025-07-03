@@ -35,7 +35,7 @@ class CustomDatePicker extends StatelessWidget {
                         labelText!,
                         style: TextStyle(
                           color: AppColors.primaryDeepColor,
-                          fontSize: 8,
+                          fontSize: 10,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
                         ),

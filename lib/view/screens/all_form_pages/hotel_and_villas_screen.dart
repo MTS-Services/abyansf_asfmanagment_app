@@ -4,7 +4,10 @@ import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../../../view_models/controller/counter_controller.dart';
 import '../../widget/custom_drop_down.dart';
 import '../../widget/increase_and_decrease.dart';
 
@@ -14,7 +17,8 @@ class HotelAndVillasScreen extends StatelessWidget {
   final List<String> type = ['Ac', 'NonAc', 'Premium'];
 
   int adults = 1;
-
+  final adultController = Get.put(CounterController(), tag: 'hotel_adults');
+  final childrenController = Get.put(CounterController(), tag: 'hotel_children');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +43,7 @@ class HotelAndVillasScreen extends StatelessWidget {
                           color: AppColors.lightLaserColor,
                         ),
                       ),
-                      hintText: 'Dubai',
+                      hintText: 'Address',
                       fillColor: AppColors.white,
                     ),
                   ),
@@ -57,9 +61,9 @@ class HotelAndVillasScreen extends StatelessWidget {
                 Text('Number of guest', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    IncreaseAndDecrease(type: 'Adults'),
+                    IncreaseAndDecrease(type: 'Adults', counter: adultController,),
                     SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children'),
+                    IncreaseAndDecrease(type: 'Children', counter: childrenController,),
                   ],
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),

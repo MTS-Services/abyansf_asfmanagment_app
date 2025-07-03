@@ -1,3 +1,4 @@
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../utils/style/appColor.dart';
@@ -61,12 +62,9 @@ class SplashScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () => Get.to(() => OnbordingScreen()),
-                    child: const Text(
+                    child:  Text(
                       'Skip',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: AppColors.primaryColor,
-                      ),
+                      style: AppTextStyle.bold16.copyWith(color: AppColors.primaryColor)
                     ),
                   ),
                   Padding(

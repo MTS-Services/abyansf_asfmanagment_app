@@ -1,11 +1,7 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/recovery_verification_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/verificationScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/gmail_verification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -29,7 +25,7 @@ class RecoverScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              'Enter the Email Address that you used when\nregister to recover your password, You will receive a\nVerification code.',
+              'Enter the Email Address that you used when register to recover your password, You will receive a Verification code.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.greyColor,
@@ -51,20 +47,15 @@ class RecoverScreen extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.to(() => RecoveryVerificationScreen());
+                      Get.to(() => GmailVerificationScreen());
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    child: const Text(
+                    child:  Text(
                       'Submit',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: AppTextStyle.bold18.copyWith(color: AppColors.white)
                     ),
                   ),
                 ),

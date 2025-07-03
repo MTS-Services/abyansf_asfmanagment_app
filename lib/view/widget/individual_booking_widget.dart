@@ -18,7 +18,7 @@ class IndividualBookingWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 10,
       children: [
-        CustomAppBar(title: 'Booking History'),
+        CustomAppBar(title: status ? 'Event details' : 'Booking History'),
         Container(
           width: double.infinity,
           height: 228,
@@ -34,27 +34,20 @@ class IndividualBookingWidget extends StatelessWidget {
 
         Row(
           children: [
-            Text(
-              '09 May Saturday',
-              style: AppTextStyle.interRegular12
-            ),
+            Text('09 May Saturday', style: AppTextStyle.interRegular12),
             Spacer(),
 
-            Text(
-              '09:20PM',
-                style: AppTextStyle.interRegular12
-            ),
+            Text('09:20PM', style: AppTextStyle.interRegular12),
             if (!status) ...[
               Spacer(),
-              Text(
-                'Status:',
-                  style: AppTextStyle.interRegular12
-              ),
+              Text('Status:', style: AppTextStyle.interRegular12),
               const SizedBox(width: 10),
               Text(
                 'Confirmed',
                 textAlign: TextAlign.center,
-                  style: AppTextStyle.interRegular14.copyWith(color: Color(0xFF00A600))
+                style: AppTextStyle.interRegular14.copyWith(
+                  color: Color(0xFF00A600),
+                ),
               ),
             ],
           ],
@@ -83,9 +76,11 @@ class IndividualBookingWidget extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 6),
-                     Text(
+                    Text(
                       'Abu dhabi',
-                        style: AppTextStyle.interRegular12.copyWith(color: AppColors.lightLaserColor)
+                      style: AppTextStyle.interRegular12.copyWith(
+                        color: AppColors.lightLaserColor,
+                      ),
                     ),
                   ],
                 ),
@@ -94,47 +89,52 @@ class IndividualBookingWidget extends StatelessWidget {
             Row(
               children: [
                 SvgPicture.asset(AssetPath.lsiconUserCrowd),
-                Text(
-                  'Max: 4',
-                    style: AppTextStyle.interRegular12
-                ),
+                Text('Max: 4', style: AppTextStyle.interRegular12),
               ],
             ),
           ],
         ),
         Text('About This Event', style: AppTextStyle.bold20),
-                Text(
-                      'Luxury Dinners is an exclusive culinary experience designed for those who appreciate the finer things in life. Set in breathtaking venues and curated by renowned chefs, each event offers an unforgettable evening of gourmet cuisine, refined ambiance, and exceptional service.\nWhether it’s a private celebration, a corporate gathering, or a romantic evening, Luxury Dinners blends sophistication with sensory delight — delivering not just a meal, but a memory.\n\nWhat to Expect:\n',
-                  style: AppTextStyle.interRegular16.copyWith(color: AppColors.lightBlackColor),
-                ),
-                Text(' Multi-course fine dining menu\n Expertly paired wines and beverages\n Live entertainment or ambient music\n Elegant table settings and décor\n Intimate gatherings with curated guest lists\n',
-                  style: AppTextStyle.interRegular16.copyWith(color: AppColors.lightBlackColor),
-
-                ),
-                Text(
-                      '\nEvery detail is carefully crafted to ensure a seamless and indulgent experience from the moment you arrive.',
-                  style: AppTextStyle.interRegular16.copyWith(color: AppColors.lightBlackColor),
-
-                ),
+        Text(
+          'Luxury Dinners is an exclusive culinary experience designed for those who appreciate the finer things in life. Set in breathtaking venues and curated by renowned chefs, each event offers an unforgettable evening of gourmet cuisine, refined ambiance, and exceptional service.\nWhether it’s a private celebration, a corporate gathering, or a romantic evening, Luxury Dinners blends sophistication with sensory delight — delivering not just a meal, but a memory.\n\nWhat to Expect:\n',
+          style: AppTextStyle.interRegular16.copyWith(
+            color: AppColors.lightBlackColor,
+          ),
+        ),
+        Text(
+          ' Multi-course fine dining menu\n Expertly paired wines and beverages\n Live entertainment or ambient music\n Elegant table settings and décor\n Intimate gatherings with curated guest lists\n',
+          style: AppTextStyle.interRegular16.copyWith(
+            color: AppColors.lightBlackColor,
+          ),
+        ),
+        Text(
+          '\nEvery detail is carefully crafted to ensure a seamless and indulgent experience from the moment you arrive.',
+          style: AppTextStyle.interRegular16.copyWith(
+            color: AppColors.lightBlackColor,
+          ),
+        ),
         if (status) ...[
           Row(
             children: [
               InkWell(
-                onTap: (){
-                },
-                child: Text("Skip",style: TextStyle(fontWeight: AppStyles.weightMedium,
-                    fontFamily: "Playfair Display",fontSize: AppStyles.fontXL,color: AppColors.primaryColor),),
+                onTap: () {},
+                child: Text(
+                  "Skip",
+                  style: AppTextStyle.bold20.copyWith(
+                    color: AppColors.primaryDeepColor,
+                  ),
+                ),
               ),
               Spacer(),
               SizedBox(
-                height: 48,
+                height: 44,
                 width: 151,
                 child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Attendence",
-                    style: AppTextStyle.bold16
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.only(bottom: 0.9)
                   ),
+                  onPressed: () {},
+                  child: Text("Attendence", style: AppTextStyle.bold16.copyWith(color: AppColors.blackColor)),
                 ),
               ),
             ],
@@ -145,7 +145,7 @@ class IndividualBookingWidget extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(),
-              child: Text('Cancel this event',style: AppTextStyle.bold16),
+              child: Text('Cancel this event', style: AppTextStyle.bold16),
             ),
           ),
         ],

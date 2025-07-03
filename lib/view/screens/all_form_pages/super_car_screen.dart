@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+import '../../../view_models/controller/counter_controller.dart';
 import '../../widget/custom_drop_down.dart';
 import '../../widget/increase_and_decrease.dart';
 
@@ -19,6 +20,8 @@ class SuperCarScreen extends StatelessWidget {
   final List<String> type = ['Ac', 'NonAc', 'Premium'];
 
   int adults = 1;
+  final adultController = Get.put(CounterController(), tag: 'super_adults');
+  final childrenController = Get.put(CounterController(), tag: 'super_children');
 
   @override
   Widget build(BuildContext context) {
@@ -48,9 +51,9 @@ class SuperCarScreen extends StatelessWidget {
                 Text('Number of guest', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    IncreaseAndDecrease(type: 'Adults'),
+                    IncreaseAndDecrease(type: 'Adults', counter: adultController,),
                     SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children'),
+                    IncreaseAndDecrease(type: 'Children', counter: childrenController,),
                   ],
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),

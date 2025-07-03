@@ -5,7 +5,10 @@ import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class CreatePasswordScreen extends StatelessWidget {
   const CreatePasswordScreen({super.key});
@@ -29,11 +32,7 @@ class CreatePasswordScreen extends StatelessWidget {
               'Type and confirm a secure new password for your amount',
               textAlign: TextAlign.center,
 
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontFamily: "Inter",
-              ),
+              style: AppTextStyle.interRegular16
             ),
             SizedBox(height: AppStyles.heightM),
             TextFormField(
@@ -53,7 +52,9 @@ class CreatePasswordScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () => HomeScreen(),
+                    onPressed: () {
+                      Get.to(()=> CustomBottomBar());
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),

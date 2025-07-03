@@ -74,30 +74,19 @@ class OnbordingScreen extends StatelessWidget {
             ),
 
             const Spacer(),
-
-            SizedBox(
-              width: 353,
-              child: Text(
-                'Your World. Curated for Luxury.',
-                textAlign: TextAlign.center,
-                style: AppTextStyle.bold30
-              ),
+            Text(
+              'Your World. Curated for Luxury.',
+              textAlign: TextAlign.center,
+              style: AppTextStyle.bold28.copyWith()
             ),
-
             Spacer(),
-
             // Description
-            SizedBox(
-              width: 353,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 'Supercars, yachts, travel, entertainment, lifestyle, and more exclusively tailored to your standards.',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.greyColor,
-                  fontSize: 14,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w400,
-                ),
+                style: AppTextStyle.interRegular16.copyWith(color: AppColors.greyColor),
               ),
             ),
 
@@ -121,14 +110,9 @@ class OnbordingScreen extends StatelessWidget {
                         backgroundColor: AppColors.primaryColor,
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
-                      child: const Text(
+                      child: Text(
                         'Login',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontFamily: 'Playfair Display',
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: AppTextStyle.bold16.copyWith(color: AppColors.white)
                       ),
                     ),
                   ),
@@ -147,12 +131,7 @@ class OnbordingScreen extends StatelessWidget {
                       ),
                       child: Text(
                         'Register',
-                        style: TextStyle(
-                          color: AppColors.primaryColor,
-                          fontSize: 16,
-                          fontFamily: 'Playfair Display',
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: AppTextStyle.bold16.copyWith(color: AppColors.blackColor)
                       ),
                     ),
                   ),
@@ -168,12 +147,7 @@ class OnbordingScreen extends StatelessWidget {
               child: Text(
                 'By Continuing, you agree to L’invite’s terms of services and acknowledge you’ve read our privacy policy',
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Color(0xFF4F4F4F),
-                  fontSize: 10,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w400,
-                ),
+                style: AppTextStyle.interRegular10.copyWith(color: AppColors.textColor)
               ),
             ),
 

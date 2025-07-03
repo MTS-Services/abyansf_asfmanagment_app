@@ -7,11 +7,14 @@ import '../../utils/style/appColor.dart';
 import '../../view_models/controller/counter_controller.dart';
 
 class IncreaseAndDecrease extends StatelessWidget {
-  IncreaseAndDecrease({super.key, required this.type});
-
-  final CounterController counter = Get.put(CounterController());
-
   final String type;
+  final CounterController counter;
+
+  const IncreaseAndDecrease({
+    super.key,
+    required this.type,
+    required this.counter,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,6 @@ class IncreaseAndDecrease extends StatelessWidget {
             children: [
               Text(
                 type,
-                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: const Color(0xFF6D6D6D),
                   fontSize: 12,
@@ -39,18 +41,18 @@ class IncreaseAndDecrease extends StatelessWidget {
                 ),
               ),
               Row(
-                spacing: 10,
                 children: [
                   GestureDetector(
+                    onTap: counter.decrease,
                     child: SvgPicture.asset(AssetPath.minusIcons),
-                    onTap: () {
-                      counter.decrease();
-                    },
                   ),
-                  Obx(()=>Text(counter.minus.toString()),),
-                  GestureDetector(onTap: (){
-                    counter.increase();
-                  },child: SvgPicture.asset(AssetPath.plusIcons)),
+                  SizedBox(width: 10),
+                  Obx(() => Text(counter.minus.toString())),
+                  SizedBox(width: 10),
+                  GestureDetector(
+                    onTap: counter.increase,
+                    child: SvgPicture.asset(AssetPath.plusIcons),
+                  ),
                 ],
               ),
             ],
@@ -60,4 +62,3 @@ class IncreaseAndDecrease extends StatelessWidget {
     );
   }
 }
-

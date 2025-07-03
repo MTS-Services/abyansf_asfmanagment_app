@@ -22,15 +22,28 @@ class SingleBeachClubScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              height: 290,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(AssetPath.frameImage),
-                  fit: BoxFit.cover,
-                ),
-              ),
+            Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 290,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(AssetPath.frameImage),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 40,left: 10),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                        child: IconButton(
+                        onPressed: (){}, icon: CircleAvatar(
+                          backgroundColor: Colors.white70.withAlpha(80),
+                            child: Icon(Icons.arrow_back_outlined)))),
+                  )
+                 ),
+              ],
             ),
             const SizedBox(height: 4),
             Padding(
@@ -226,7 +239,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text('Cancel'),
+                          child: Text('Enquire'),
                           style: ElevatedButton.styleFrom(
                               backgroundColor: AppColors.white,
                               shadowColor: Colors.transparent,
@@ -248,7 +261,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('Request'),
+                              Text('Reserve'),
                               SizedBox(width: 10),
                               Icon(Icons.arrow_circle_right_outlined)
                             ],

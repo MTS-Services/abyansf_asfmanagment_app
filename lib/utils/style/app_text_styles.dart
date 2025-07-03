@@ -181,6 +181,18 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.w500,
   );
 
+  static TextStyle get interRegular18 => TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle get interBold18 => TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+  );
+
   static TextStyle get interRegular16 => TextStyle(
     fontFamily: 'Inter',
     fontSize: 16.sp,

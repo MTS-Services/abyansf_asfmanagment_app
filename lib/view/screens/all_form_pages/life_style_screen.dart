@@ -1,13 +1,20 @@
 import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../utils/style/appColor.dart';
 import '../../../utils/style/app_text_styles.dart';
+import '../../../view_models/controller/counter_controller.dart';
 import '../../widget/increase_and_decrease.dart';
 
 class LifeStyleScreen extends StatelessWidget {
-  const LifeStyleScreen({super.key});
+  LifeStyleScreen({super.key});
+
+  int adults = 1;
+  final adultController = Get.put(CounterController(), tag: 'life_adults');
+  final childrenController = Get.put(CounterController(), tag: 'life_children');
 
   @override
   Widget build(BuildContext context) {
@@ -81,9 +88,9 @@ class LifeStyleScreen extends StatelessWidget {
                 Text('Number of guest', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    IncreaseAndDecrease(type: 'Adults'),
+                    IncreaseAndDecrease(type: 'Adults', counter: adultController,),
                     SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children'),
+                    IncreaseAndDecrease(type: 'Children', counter: childrenController,),
                   ],
                 ),
                 Row(
