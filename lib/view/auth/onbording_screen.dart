@@ -30,7 +30,6 @@ class OnbordingScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 16),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Stack(

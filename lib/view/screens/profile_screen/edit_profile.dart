@@ -2,6 +2,7 @@ import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EditProfile extends StatefulWidget {
   EditProfile({super.key});
@@ -37,7 +38,8 @@ class _EditProfileState extends State<EditProfile> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: TextFormField(
-                    decoration: InputDecoration(hintText: 'Mirable Lily'),
+                    decoration: InputDecoration(hintText: 'Mirable Lily',
+                      ),
                   ),
                 ),
                 Text(

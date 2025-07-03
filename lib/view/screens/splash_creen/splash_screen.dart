@@ -16,10 +16,17 @@ class SplashScreen extends StatelessWidget {
       body: Stack(
         children: [
           Obx(() => Positioned.fill(
-            child: Image.asset(
-              controller.images[controller.currentIndex.value],
-              fit: BoxFit.cover,
-            ),
+            child:
+              Transform.rotate(
+                angle: 0, // রেডিয়ানে, উদাহরণ: -0.2 ≈ -11.5°
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: Image.asset(
+                    controller.images[controller.currentIndex.value],
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              )
           )),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,

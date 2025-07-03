@@ -97,19 +97,6 @@ class SingleBeachClubScreen extends StatelessWidget {
                         "Photos",
                         style: AppTextStyle.bold24,
                       ),
-                      Spacer(),
-                      InkWell(
-                        onTap: () {},
-                        child: Text(
-                          'See all',
-                          style: TextStyle(
-                            fontFamily: "Playfair Display",
-                            fontWeight: AppStyles.weightMedium,
-                            fontSize: AppStyles.fontL,
-                            color: AppColors.primaryColor,
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                   const SizedBox(height: 15),

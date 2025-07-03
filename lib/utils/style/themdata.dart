@@ -2,6 +2,7 @@ import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 ThemeData themeData() {
   return ThemeData(
@@ -21,18 +22,11 @@ ThemeData themeData() {
         elevation: 10,
       ),
     ),
-    /*textTheme: TextTheme(
-      titleLarge: TextStyle(
-        fontSize: AppStyles.fontXXL,
-        fontWeight: AppStyles.weightBold,
-        color: AppColors.blackColor,
-      ),
-    ),*/
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       hintStyle: TextStyle(
-        color:AppColors.hintTextColor,
-        fontSize: 14,
+        color: AppColors.hintTextColor,
+        fontSize: 14.sp,
         fontFamily: 'Inter',
         fontWeight: FontWeight.w400,
         height: 1.50,

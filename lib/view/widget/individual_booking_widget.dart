@@ -36,46 +36,25 @@ class IndividualBookingWidget extends StatelessWidget {
           children: [
             Text(
               '09 May Saturday',
-              style: TextStyle(
-                color: const Color(0xFF333333),
-                fontSize: 12,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w500,
-              ),
+              style: AppTextStyle.interRegular12
             ),
             Spacer(),
 
             Text(
               '09:20PM',
-              style: TextStyle(
-                color: const Color(0xFF333333),
-                fontSize: 12,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w500,
-              ),
+                style: AppTextStyle.interRegular12
             ),
             if (!status) ...[
               Spacer(),
               Text(
                 'Status:',
-                style: TextStyle(
-                  color: const Color(0xFF333333),
-                  fontSize: 12,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w500,
-                ),
+                  style: AppTextStyle.interRegular12
               ),
               const SizedBox(width: 10),
               Text(
                 'Confirmed',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: const Color(0xFF00A600),
-                  fontSize: 14,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w400,
-                  height: 1.50,
-                ),
+                  style: AppTextStyle.interRegular14.copyWith(color: Color(0xFF00A600))
               ),
             ],
           ],
@@ -96,22 +75,17 @@ class IndividualBookingWidget extends StatelessWidget {
                     Container(
                       width: 20,
                       height: 20,
+                      decoration: const BoxDecoration(),
                       child: Icon(
                         Icons.location_on,
                         size: 20,
                         color: AppColors.lightLaserColor,
                       ),
-                      decoration: const BoxDecoration(),
                     ),
                     const SizedBox(width: 6),
-                    const Text(
+                     Text(
                       'Abu dhabi',
-                      style: TextStyle(
-                        color: AppColors.lightLaserColor,
-                        fontSize: 12,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                      ),
+                        style: AppTextStyle.interRegular12.copyWith(color: AppColors.lightLaserColor)
                     ),
                   ],
                 ),
@@ -122,57 +96,26 @@ class IndividualBookingWidget extends StatelessWidget {
                 SvgPicture.asset(AssetPath.lsiconUserCrowd),
                 Text(
                   'Max: 4',
-                  style: TextStyle(
-                    color: const Color(0xFF2E2E2E),
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                  ),
+                    style: AppTextStyle.interRegular12
                 ),
               ],
             ),
           ],
         ),
         Text('About This Event', style: AppTextStyle.bold20),
-        SizedBox(
-          width: 353,
-          child: Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text:
+                Text(
                       'Luxury Dinners is an exclusive culinary experience designed for those who appreciate the finer things in life. Set in breathtaking venues and curated by renowned chefs, each event offers an unforgettable evening of gourmet cuisine, refined ambiance, and exceptional service.\nWhether it’s a private celebration, a corporate gathering, or a romantic evening, Luxury Dinners blends sophistication with sensory delight — delivering not just a meal, but a memory.\n\nWhat to Expect:\n',
-                  style: TextStyle(
-                    color: const Color(0xFF4F4F4F) /* Woodsmoke-700 */,
-                    fontSize: 16,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: AppTextStyle.interRegular16.copyWith(color: AppColors.lightBlackColor),
                 ),
-                TextSpan(
-                  text:
-                      ' Multi-course fine dining menu\n Expertly paired wines and beverages\n Live entertainment or ambient music\n Elegant table settings and décor\n Intimate gatherings with curated guest lists\n',
-                  style: TextStyle(
-                    color: const Color(0xFF4F4F4F) /* Woodsmoke-700 */,
-                    fontSize: 16,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                  ),
+                Text(' Multi-course fine dining menu\n Expertly paired wines and beverages\n Live entertainment or ambient music\n Elegant table settings and décor\n Intimate gatherings with curated guest lists\n',
+                  style: AppTextStyle.interRegular16.copyWith(color: AppColors.lightBlackColor),
+
                 ),
-                TextSpan(
-                  text:
+                Text(
                       '\nEvery detail is carefully crafted to ensure a seamless and indulgent experience from the moment you arrive.',
-                  style: TextStyle(
-                    color: const Color(0xFF4F4F4F) /* Woodsmoke-700 */,
-                    fontSize: 16,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: AppTextStyle.interRegular16.copyWith(color: AppColors.lightBlackColor),
+
                 ),
-              ],
-            ),
-          ),
-        ),
         if (status) ...[
           Row(
             children: [
@@ -190,12 +133,7 @@ class IndividualBookingWidget extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     "Attendence",
-                    style: TextStyle(
-                      color: AppColors.blackColor,
-                      fontSize: AppStyles.fontL,
-                      fontWeight: AppStyles.weightMedium,
-                      fontFamily: "Playfair Display"
-                    ),
+                    style: AppTextStyle.bold16
                   ),
                 ),
               ),
@@ -207,7 +145,7 @@ class IndividualBookingWidget extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(),
-              child: Text('Cancel this event'),
+              child: Text('Cancel this event',style: AppTextStyle.bold16),
             ),
           ),
         ],
