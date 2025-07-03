@@ -5,7 +5,6 @@ import '../../../utils/style/appColor.dart';
 import '../../../view_models/controller/splash_screen.dart';
 import '../../auth/onbording_screen.dart';
 
-
 class SplashScreen extends StatelessWidget {
   final SplashController controller = Get.put(SplashController());
 
@@ -16,9 +15,9 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Obx(() => Positioned.fill(
-            child:
-              Transform.rotate(
+          Obx(
+            () => Positioned.fill(
+              child: Transform.rotate(
                 angle: 0, // রেডিয়ানে, উদাহরণ: -0.2 ≈ -11.5°
                 child: AspectRatio(
                   aspectRatio: 1,
@@ -27,8 +26,9 @@ class SplashScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-              )
-          )),
+              ),
+            ),
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -62,37 +62,40 @@ class SplashScreen extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () => Get.to(() => OnbordingScreen()),
-                    child:  Text(
+                    child: Text(
                       'Skip',
-                      style: AppTextStyle.bold16.copyWith(color: AppColors.primaryColor)
+                      style: AppTextStyle.bold16.copyWith(
+                        color: AppColors.primaryColor,
+                      ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Obx(() => Row(
-                      children: List.generate(
-                        controller.images.length,
-                            (index) => GestureDetector(
-                          onTap: () => controller.onDotTap(index),
-                          child: Padding(
-                            padding: const EdgeInsets.all(2),
-                            child: Container(
-                              width: controller.currentIndex.value == index
-                                  ? 16
-                                  : 5,
-                              height: 4,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                                color:
-                                controller.currentIndex.value == index
-                                    ? AppColors.primaryColor
-                                    : Colors.white,
+                    child: Obx(
+                      () => Row(
+                        children: List.generate(
+                          controller.images.length,
+                          (index) => GestureDetector(
+                            onTap: () => controller.onDotTap(index),
+                            child: Padding(
+                              padding: const EdgeInsets.all(2),
+                              child: Container(
+                                width: controller.currentIndex.value == index
+                                    ? 16
+                                    : 5,
+                                height: 4,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30),
+                                  color: controller.currentIndex.value == index
+                                      ? AppColors.primaryColor
+                                      : Colors.white,
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-                    )),
+                    ),
                   ),
                   GestureDetector(
                     onTap: controller.onNext,

@@ -26,17 +26,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           showBack
               ? GestureDetector(
-            onTap: onBackTap ?? () => Navigator.pop(context),
-            child: Container(
-              height: 32,
-              width: 32,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColors.greyBackgroundColor,
-              ),
-              child: const Icon(Icons.keyboard_arrow_left_outlined),
-            ),
-          )
+                  onTap: onBackTap ?? () => Navigator.pop(context),
+                  child: Container(
+                    height: 32,
+                    width: 32,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.greyBackgroundColor,
+                    ),
+                    child: const Icon(Icons.keyboard_arrow_left_outlined),
+                  ),
+                )
               : const SizedBox(width: 40),
           Text(title, style: AppTextStyle.bold24),
           action ?? const SizedBox(width: 40),

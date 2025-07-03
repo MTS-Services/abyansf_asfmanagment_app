@@ -131,10 +131,15 @@ class IndividualBookingWidget extends StatelessWidget {
                 width: 151,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.only(bottom: 0.9)
+                    padding: EdgeInsets.only(bottom: 0.9),
                   ),
                   onPressed: () {},
-                  child: Text("Attendence", style: AppTextStyle.bold16.copyWith(color: AppColors.blackColor)),
+                  child: Text(
+                    "Attendence",
+                    style: AppTextStyle.bold16.copyWith(
+                      color: AppColors.blackColor,
+                    ),
+                  ),
                 ),
               ),
             ],

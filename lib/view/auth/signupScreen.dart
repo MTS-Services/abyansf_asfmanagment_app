@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,25 +28,19 @@ class SignupScreen extends StatelessWidget {
             Text(
               'Get started with your access in\njust a few steps.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 18 , fontFamily: 'Inter'),
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontFamily: 'Inter',
+              ),
             ),
             SizedBox(height: AppStyles.heightM),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: 'Name'
-              ),
-            ),
+            TextFormField(decoration: InputDecoration(hintText: 'Name')),
+            SizedBox(height: 20),
+            TextFormField(decoration: InputDecoration(hintText: 'Email')),
             SizedBox(height: 20),
             TextFormField(
-              decoration: InputDecoration(
-                  hintText: 'Email'
-              ),
-            ),
-            SizedBox(height: 20),
-            TextFormField(
-              decoration: InputDecoration(
-                  hintText: 'Whats app  Number'
-              ),
+              decoration: InputDecoration(hintText: 'Whats app  Number'),
             ),
 
             SizedBox(height: 20),
@@ -66,9 +61,11 @@ class SignupScreen extends StatelessWidget {
                       backgroundColor: AppColors.primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    child:  Text(
+                    child: Text(
                       'Send request',
-                      style: AppTextStyle.bold16.copyWith(color: AppColors.white)
+                      style: AppTextStyle.bold16.copyWith(
+                        color: AppColors.white,
+                      ),
                     ),
                   ),
                 ),
@@ -81,7 +78,10 @@ class SignupScreen extends StatelessWidget {
               children: [
                 Text(
                   "Already have an account?",
-                  style: TextStyle(fontSize: AppStyles.fontL, fontFamily: 'Inter'),
+                  style: TextStyle(
+                    fontSize: AppStyles.fontL,
+                    fontFamily: 'Inter',
+                  ),
                 ),
                 TextButton(
                   onPressed: () {

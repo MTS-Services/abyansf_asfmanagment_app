@@ -21,7 +21,10 @@ class SuperCarScreen extends StatelessWidget {
 
   int adults = 1;
   final adultController = Get.put(CounterController(), tag: 'super_adults');
-  final childrenController = Get.put(CounterController(), tag: 'super_children');
+  final childrenController = Get.put(
+    CounterController(),
+    tag: 'super_children',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -39,21 +42,30 @@ class SuperCarScreen extends StatelessWidget {
                 Text('Car type', style: AppTextStyle.bold16),
                 CustomDropdown(type: type, hint: 'Select car model'),
                 Text('Time & duration', style: AppTextStyle.bold16),
-                CustomDropdown(type: type, hint: 'Select duration for booking Car'),
+                CustomDropdown(
+                  type: type,
+                  hint: 'Select duration for booking Car',
+                ),
                 Text('Date', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    CustomDatePicker(labelText: 'Start',),
+                    CustomDatePicker(labelText: 'Start'),
                     SizedBox(width: 10),
-                    CustomDatePicker(labelText: 'From',),
+                    CustomDatePicker(labelText: 'From'),
                   ],
                 ),
                 Text('Number of guest', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    IncreaseAndDecrease(type: 'Adults', counter: adultController,),
+                    IncreaseAndDecrease(
+                      type: 'Adults',
+                      counter: adultController,
+                    ),
                     SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children', counter: childrenController,),
+                    IncreaseAndDecrease(
+                      type: 'Children',
+                      counter: childrenController,
+                    ),
                   ],
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
@@ -78,32 +90,32 @@ class SuperCarScreen extends StatelessWidget {
                         onPressed: () {},
                         child: Text('Cancel'),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.white,
-                            shadowColor: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  color: AppColors.lightLaserColor,
-                                ),
-                                borderRadius: BorderRadiusGeometry.circular(4)
-                            )
+                          backgroundColor: AppColors.white,
+                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(color: AppColors.lightLaserColor),
+                            borderRadius: BorderRadiusGeometry.circular(4),
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
                     Expanded(
-                      child: ElevatedButton(onPressed: (){},
+                      child: ElevatedButton(
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            shadowColor: Colors.transparent
+                          shadowColor: Colors.transparent,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text('Request'),
                             SizedBox(width: 10),
-                            Icon(Icons.arrow_circle_right_outlined)
+                            Icon(Icons.arrow_circle_right_outlined),
                           ],
-                        ),),
-                    )
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

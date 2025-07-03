@@ -17,13 +17,9 @@ class BookingHistoryIndividualPage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child: IndividualBookingWidget(),
-          ),
+          child: SingleChildScrollView(child: IndividualBookingWidget()),
         ),
       ),
     );
   }
 }
-
-

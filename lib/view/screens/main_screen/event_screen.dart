@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 
 import '../../../utils/style/appColor.dart';
 
-
 class EventScreen extends StatelessWidget {
   const EventScreen({super.key});
 
@@ -23,31 +22,25 @@ class EventScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HomeAppBar(showTitle: true,),
-                const SizedBox(height: 15,),
-                Text(
-                  'Upcoming Event',
-                  style: AppTextStyle.bold24,
-                ),
+                HomeAppBar(showTitle: true),
+                const SizedBox(height: 15),
+                Text('Upcoming Event', style: AppTextStyle.bold24),
                 const SizedBox(height: 10),
                 ListView.builder(
-
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: 4,
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: (){
+                      onTap: () {
                         Get.to(IndividualBookingHistory());
                       },
-                      child: CustomEventWidget());
+                      child: CustomEventWidget(),
+                    );
                   },
                 ),
                 const SizedBox(height: 10),
-                Text(
-                  'past Event',
-                  style: AppTextStyle.bold24,
-                ),
+                Text('past Event', style: AppTextStyle.bold24),
                 const SizedBox(height: 10),
                 ListView.builder(
                   shrinkWrap: true,
@@ -55,12 +48,10 @@ class EventScreen extends StatelessWidget {
                   itemCount: 6,
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: (){
+                      onTap: () {
                         Get.to(IndividualBookingHistory());
                       },
-                      child: CustomEventWidget(
-                        status: true,
-                      ),
+                      child: CustomEventWidget(status: true),
                     );
                   },
                 ),

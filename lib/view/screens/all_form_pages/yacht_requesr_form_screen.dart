@@ -12,7 +12,7 @@ class YachtRequesrFormScreen extends StatelessWidget {
   List<String> size = [
     'Big',
     'Medium'
-    'Small'
+        'Small',
   ];
 
   @override
@@ -30,13 +30,16 @@ class YachtRequesrFormScreen extends StatelessWidget {
                 Text('Size of Yacht', style: AppTextStyle.bold16),
                 CustomDropdown(type: size, hint: 'Yacht type'),
                 Text('Time & duration', style: AppTextStyle.bold16),
-                CustomDropdown(type: size, hint: 'Select duration for booking yecht'),
+                CustomDropdown(
+                  type: size,
+                  hint: 'Select duration for booking yecht',
+                ),
                 Text('Date', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    CustomDatePicker(labelText: 'From',),
+                    CustomDatePicker(labelText: 'From'),
                     SizedBox(width: 10),
-                    CustomDatePicker(labelText:'To',),
+                    CustomDatePicker(labelText: 'To'),
                   ],
                 ),
                 Text('Number of People', style: AppTextStyle.bold16),
@@ -77,32 +80,32 @@ class YachtRequesrFormScreen extends StatelessWidget {
                         onPressed: () {},
                         child: Text('Cancel'),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.white,
-                            shadowColor: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  color: AppColors.lightLaserColor,
-                                ),
-                                borderRadius: BorderRadiusGeometry.circular(4)
-                            )
+                          backgroundColor: AppColors.white,
+                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(color: AppColors.lightLaserColor),
+                            borderRadius: BorderRadiusGeometry.circular(4),
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
                     Expanded(
-                      child: ElevatedButton(onPressed: (){},
+                      child: ElevatedButton(
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            shadowColor: Colors.transparent
+                          shadowColor: Colors.transparent,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text('Request'),
                             SizedBox(width: 10),
-                            Icon(Icons.arrow_circle_right_outlined)
+                            Icon(Icons.arrow_circle_right_outlined),
                           ],
-                        ),),
-                    )
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

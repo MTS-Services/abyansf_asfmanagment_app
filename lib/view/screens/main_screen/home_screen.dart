@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               HomeAppBar(),
+              HomeAppBar(),
               const SizedBox(height: 10),
               Text('Services', style: AppTextStyle.bold24),
               const SizedBox(height: 7),
@@ -56,10 +56,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           const CircleAvatar(
                             radius: 40,
-                            backgroundImage: AssetImage(AssetPath.splashScreen1),
+                            backgroundImage: AssetImage(
+                              AssetPath.splashScreen1,
+                            ),
                           ),
                           const SizedBox(height: 6),
-                          Text('Name', style: AppTextStyle.bold14.copyWith(fontFamily: 'Inter')),
+                          Text(
+                            'Name',
+                            style: AppTextStyle.bold14.copyWith(
+                              fontFamily: 'Inter',
+                            ),
+                          ),
                         ],
                       ),
                     );
@@ -71,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               /// Carousel Section
               InkWell(
-                onTap: (){
+                onTap: () {
                   Get.to(IndividualBookingHistory());
                 },
                 child: CarouselSlider.builder(
@@ -101,12 +108,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-             SizedBox(height: 8),
+              SizedBox(height: 8),
               Obx(() {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(images.length, (index) {
-                    final isActive = _carouselSliderController.currentIndex.value == index;
+                    final isActive =
+                        _carouselSliderController.currentIndex.value == index;
                     return AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       margin: const EdgeInsets.symmetric(horizontal: 4),
@@ -114,7 +122,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 6,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: isActive ?AppColors.primaryColor : AppColors.lightGrey,
+                        color: isActive
+                            ? AppColors.primaryColor
+                            : AppColors.lightGrey,
                       ),
                     );
                   }),
@@ -132,7 +142,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Text(
                       'See all',
-                      style: AppTextStyle.bold16.copyWith(color: AppColors.primaryColor)
+                      style: AppTextStyle.bold16.copyWith(
+                        color: AppColors.primaryColor,
+                      ),
                     ),
                   ),
                 ],
@@ -143,10 +155,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: 2,
                 itemBuilder: (context, index) => InkWell(
-                  onTap: (){
+                  onTap: () {
                     Get.to(IndividualBookingHistory());
                   },
-                    child: const CustomEventWidget()),
+                  child: const CustomEventWidget(),
+                ),
               ),
             ],
           ),

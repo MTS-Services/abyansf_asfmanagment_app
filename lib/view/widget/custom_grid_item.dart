@@ -11,12 +11,11 @@ import 'package:get/get_core/src/get_main.dart';
 
 class CustomGridItem extends StatelessWidget {
   final List<Widget> targetScreens;
+
   const CustomGridItem({super.key, required this.targetScreens});
 
   @override
   Widget build(BuildContext context) {
-
-
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),

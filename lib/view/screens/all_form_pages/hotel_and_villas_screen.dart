@@ -18,7 +18,11 @@ class HotelAndVillasScreen extends StatelessWidget {
 
   int adults = 1;
   final adultController = Get.put(CounterController(), tag: 'hotel_adults');
-  final childrenController = Get.put(CounterController(), tag: 'hotel_children');
+  final childrenController = Get.put(
+    CounterController(),
+    tag: 'hotel_children',
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,9 +65,15 @@ class HotelAndVillasScreen extends StatelessWidget {
                 Text('Number of guest', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    IncreaseAndDecrease(type: 'Adults', counter: adultController,),
+                    IncreaseAndDecrease(
+                      type: 'Adults',
+                      counter: adultController,
+                    ),
                     SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children', counter: childrenController,),
+                    IncreaseAndDecrease(
+                      type: 'Children',
+                      counter: childrenController,
+                    ),
                   ],
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
@@ -117,7 +127,7 @@ class HotelAndVillasScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20     ,)
+                SizedBox(height: 20),
               ],
             ),
           ),

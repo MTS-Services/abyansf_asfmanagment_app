@@ -77,7 +77,7 @@ class OnbordingScreen extends StatelessWidget {
             Text(
               'Your World. Curated for Luxury.',
               textAlign: TextAlign.center,
-              style: AppTextStyle.bold28.copyWith()
+              style: AppTextStyle.bold28.copyWith(),
             ),
             Spacer(),
             // Description
@@ -86,11 +86,13 @@ class OnbordingScreen extends StatelessWidget {
               child: Text(
                 'Supercars, yachts, travel, entertainment, lifestyle, and more exclusively tailored to your standards.',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.interRegular16.copyWith(color: AppColors.greyColor),
+                style: AppTextStyle.interRegular16.copyWith(
+                  color: AppColors.greyColor,
+                ),
               ),
             ),
 
-           Spacer(),
+            Spacer(),
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -112,7 +114,9 @@ class OnbordingScreen extends StatelessWidget {
                       ),
                       child: Text(
                         'Login',
-                        style: AppTextStyle.bold16.copyWith(color: AppColors.white)
+                        style: AppTextStyle.bold16.copyWith(
+                          color: AppColors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -131,7 +135,9 @@ class OnbordingScreen extends StatelessWidget {
                       ),
                       child: Text(
                         'Register',
-                        style: AppTextStyle.bold16.copyWith(color: AppColors.blackColor)
+                        style: AppTextStyle.bold16.copyWith(
+                          color: AppColors.blackColor,
+                        ),
                       ),
                     ),
                   ),
@@ -147,7 +153,9 @@ class OnbordingScreen extends StatelessWidget {
               child: Text(
                 'By Continuing, you agree to L’invite’s terms of services and acknowledge you’ve read our privacy policy',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.interRegular10.copyWith(color: AppColors.textColor)
+                style: AppTextStyle.interRegular10.copyWith(
+                  color: AppColors.textColor,
+                ),
               ),
             ),
 

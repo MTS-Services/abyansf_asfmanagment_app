@@ -74,23 +74,21 @@ class LifeStyleScreen extends StatelessWidget {
                   ),
                 ),
                 Text('Date of reservation', style: AppTextStyle.bold16),
-                Row(
-                  children: [
-                    CustomDatePicker(),
-                  ],
-                ),
+                Row(children: [CustomDatePicker()]),
                 Text('Time', style: AppTextStyle.bold16),
-                Row(
-                  children: [
-                    CustomDatePicker(),
-                  ],
-                ),
+                Row(children: [CustomDatePicker()]),
                 Text('Number of guest', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    IncreaseAndDecrease(type: 'Adults', counter: adultController,),
+                    IncreaseAndDecrease(
+                      type: 'Adults',
+                      counter: adultController,
+                    ),
                     SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children', counter: childrenController,),
+                    IncreaseAndDecrease(
+                      type: 'Children',
+                      counter: childrenController,
+                    ),
                   ],
                 ),
                 Row(
@@ -100,32 +98,32 @@ class LifeStyleScreen extends StatelessWidget {
                         onPressed: () {},
                         child: Text('Cancel'),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.white,
-                            shadowColor: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  color: AppColors.lightLaserColor,
-                                ),
-                                borderRadius: BorderRadiusGeometry.circular(4)
-                            )
+                          backgroundColor: AppColors.white,
+                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(color: AppColors.lightLaserColor),
+                            borderRadius: BorderRadiusGeometry.circular(4),
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
                     Expanded(
-                      child: ElevatedButton(onPressed: (){},
+                      child: ElevatedButton(
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            shadowColor: Colors.transparent
+                          shadowColor: Colors.transparent,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text('Request'),
                             SizedBox(width: 10),
-                            Icon(Icons.arrow_circle_right_outlined)
+                            Icon(Icons.arrow_circle_right_outlined),
                           ],
-                        ),),
-                    )
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

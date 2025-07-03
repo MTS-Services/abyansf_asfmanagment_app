@@ -20,11 +20,7 @@ class OrderPlaceScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Center(
-                    child: Image.asset(
-                      AssetPath.OrderPlaceImage,
-                    ),
-                  ),
+                  Center(child: Image.asset(AssetPath.OrderPlaceImage)),
                 ],
               ),
 
@@ -33,7 +29,10 @@ class OrderPlaceScreen extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Text('Your Request is in Process',style: AppTextStyle.bold24,),
+                      Text(
+                        'Your Request is in Process',
+                        style: AppTextStyle.bold24,
+                      ),
                       SizedBox(height: 10),
                       Text(
                         'Thank you, you will receive a confirmation shortly.',
@@ -56,32 +55,34 @@ class OrderPlaceScreen extends StatelessWidget {
                           onPressed: () {},
                           child: Text('Cancel'),
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.white,
-                              shadowColor: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color: AppColors.lightLaserColor,
-                                  ),
-                                  borderRadius: BorderRadiusGeometry.circular(4)
-                              )
+                            backgroundColor: AppColors.white,
+                            shadowColor: Colors.transparent,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                color: AppColors.lightLaserColor,
+                              ),
+                              borderRadius: BorderRadiusGeometry.circular(4),
+                            ),
                           ),
                         ),
                       ),
                       SizedBox(width: 10),
                       Expanded(
-                        child: ElevatedButton(onPressed: (){},
+                        child: ElevatedButton(
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              shadowColor: Colors.transparent
+                            shadowColor: Colors.transparent,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('Request'),
                               SizedBox(width: 10),
-                              Icon(Icons.arrow_circle_right_outlined)
+                              Icon(Icons.arrow_circle_right_outlined),
                             ],
-                          ),),
-                      )
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ],

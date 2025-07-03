@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../view_models/controller/carousel_controller.dart';
+
 class BeachClubScreen extends StatelessWidget {
   const BeachClubScreen({super.key});
 
@@ -46,7 +47,7 @@ class BeachClubScreen extends StatelessWidget {
                   Text('Beach', style: AppTextStyle.bold24),
                   const SizedBox(height: 12),
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Get.off(SingleBeachClubScreen());
                     },
                     child: CarouselSlider.builder(
@@ -87,16 +88,23 @@ class BeachClubScreen extends StatelessWidget {
                           children: List.generate(images.length, (index) {
                             return GestureDetector(
                               onTap: () {
-                              _carouselSliderController.currentIndex.value;
+                                _carouselSliderController.currentIndex.value;
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(2),
                                 child: Container(
-                                  width:  _carouselSliderController.currentIndex == index ? 16 : 5,
+                                  width:
+                                      _carouselSliderController.currentIndex ==
+                                          index
+                                      ? 16
+                                      : 5,
                                   height: 4,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
-                                    color:  _carouselSliderController.currentIndex == index
+                                    color:
+                                        _carouselSliderController
+                                                .currentIndex ==
+                                            index
                                         ? AppColors.primaryColor
                                         : AppColors.lightGrey,
                                   ),
@@ -108,7 +116,6 @@ class BeachClubScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-
                 ],
               ),
             ),
@@ -118,4 +125,5 @@ class BeachClubScreen extends StatelessWidget {
     );
   }
 }
+
 final CarouselSliderControllers _carouselSliderController = Get.find();

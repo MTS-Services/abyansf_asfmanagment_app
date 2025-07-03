@@ -1,4 +1,4 @@
-      import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/privacy_policy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,8 +14,7 @@ import 'edit_profile.dart';
 import 'invite_friend_show_log.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final ImagePickerController _imagePickerController =
-      Get.find();
+  final ImagePickerController _imagePickerController = Get.find();
   final List<Map<String, dynamic>> items = [
     {
       'leading': SvgPicture.asset(
@@ -23,13 +22,19 @@ class ProfileScreen extends StatelessWidget {
         height: 20,
         width: 20,
       ),
-      'title': Text('Booking History', style: AppTextStyle.regular16.copyWith(color: AppColors.blackColor)),
+      'title': Text(
+        'Booking History',
+        style: AppTextStyle.regular16.copyWith(color: AppColors.blackColor),
+      ),
       'trailing': Icon(Icons.arrow_forward_ios),
       'route': BookingHistory(),
     },
     {
       'leading': SvgPicture.asset(AssetPath.solarSettings),
-      'title': Text('Account settings', style: AppTextStyle.regular16.copyWith(color: AppColors.blackColor)),
+      'title': Text(
+        'Account settings',
+        style: AppTextStyle.regular16.copyWith(color: AppColors.blackColor),
+      ),
       'trailing': Icon(Icons.arrow_forward_ios),
       'route': EditProfile(),
     },
@@ -39,7 +44,10 @@ class ProfileScreen extends StatelessWidget {
         height: 20,
         width: 20,
       ),
-      'title': Text('Invite your friend', style: AppTextStyle.regular16.copyWith(color: AppColors.blackColor)),
+      'title': Text(
+        'Invite your friend',
+        style: AppTextStyle.regular16.copyWith(color: AppColors.blackColor),
+      ),
       'trailing': Icon(Icons.arrow_forward_ios),
       'onTap': (BuildContext context) {
         InviteFriendShowLog.show(context);
@@ -47,19 +55,18 @@ class ProfileScreen extends StatelessWidget {
     },
     {
       'leading': SvgPicture.asset(AssetPath.privacyPolicy),
-      'title': Text('Privacy & policy', style: AppTextStyle.regular16.copyWith(color: Colors.black)),
+      'title': Text(
+        'Privacy & policy',
+        style: AppTextStyle.regular16.copyWith(color: Colors.black),
+      ),
       'trailing': Icon(Icons.arrow_forward_ios),
       'route': PrivacyPolicy(),
     },
     {
-      'leading': Icon(Icons.logout,color: AppColors.red,),
+      'leading': Icon(Icons.logout, color: AppColors.red),
       'title': Text(
         'Log Out',
-        style: TextStyle(
-          fontSize: 16,
-          color: AppColors.red
-
-        )
+        style: TextStyle(fontSize: 16, color: AppColors.red),
       ),
       'trailing': Icon(Icons.arrow_forward_ios),
       'route': LoginScreen(),
@@ -96,7 +103,9 @@ class ProfileScreen extends StatelessWidget {
                             alignment: Alignment.center,
                             children: [
                               CircleAvatar(
-                                backgroundImage: AssetImage(AssetPath.profileImage),
+                                backgroundImage: AssetImage(
+                                  AssetPath.profileImage,
+                                ),
                                 radius: 34,
                                 backgroundColor: Colors.white,
                               ),
@@ -104,7 +113,8 @@ class ProfileScreen extends StatelessWidget {
                                 bottom: 5,
                                 right: 5,
                                 child: InkWell(
-                                  onTap: () => _imagePickerController.pickImage(),
+                                  onTap: () =>
+                                      _imagePickerController.pickImage(),
                                   child: Container(
                                     width: 20,
                                     height: 20,
@@ -128,22 +138,34 @@ class ProfileScreen extends StatelessWidget {
                               Text('Mirable Lily', style: AppTextStyle.bold20),
                               Row(
                                 children: [
-                                  Center(child: Text('mirable123', style: AppTextStyle.regular12)),
+                                  Center(
+                                    child: Text(
+                                      'mirable123',
+                                      style: AppTextStyle.regular12,
+                                    ),
+                                  ),
                                   SizedBox(width: 10),
                                   Chip(
                                     label: Text(
                                       'Premium',
-                                      style: AppTextStyle.interBold10, // Your custom text style
+                                      style: AppTextStyle
+                                          .interBold10, // Your custom text style
                                     ),
-                                    backgroundColor: const Color(0xFFC7AE6A), // Background color
-                                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h), // Responsive padding using ScreenUtil
+                                    backgroundColor: const Color(0xFFC7AE6A),
+                                    // Background color
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 8.w,
+                                      vertical: 4.h,
+                                    ),
+                                    // Responsive padding using ScreenUtil
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10.r), // Responsive border radius using ScreenUtil
+                                      borderRadius: BorderRadius.circular(
+                                        10.r,
+                                      ), // Responsive border radius using ScreenUtil
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
-
                             ],
                           ),
                           SizedBox(width: 5),
@@ -151,12 +173,28 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 20),
-                    Row(children: [Icon(Icons.phone),Text('(319) 555-0115',style: AppTextStyle.interRegular16,)],),
+                    Row(
+                      children: [
+                        Icon(Icons.phone),
+                        Text(
+                          '(319) 555-0115',
+                          style: AppTextStyle.interRegular16,
+                        ),
+                      ],
+                    ),
                     SizedBox(height: 12),
-                    Row(children: [Icon(Icons.email),Text('mirable@gmail.com',style: AppTextStyle.interRegular16,)],),
+                    Row(
+                      children: [
+                        Icon(Icons.email),
+                        Text(
+                          'mirable@gmail.com',
+                          style: AppTextStyle.interRegular16,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
-              ),
+              ), 
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),

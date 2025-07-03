@@ -121,6 +121,7 @@ abstract class AppTextStyle {
     fontSize: 10.sp,
     fontWeight: FontWeight.w500,
   );
+
   static TextStyle get interRegular40 => TextStyle(
     fontFamily: 'Inter',
     fontSize: 40.sp,

@@ -17,7 +17,7 @@ class ChatBubble extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 4),
           constraints: const BoxConstraints(maxWidth: 250),
           decoration: BoxDecoration(
-            color: isMe ? AppColors.primaryColor: Colors.grey.shade500,
+            color: isMe ? AppColors.primaryColor : Colors.grey.shade500,
             borderRadius: BorderRadius.only(
               topLeft: const Radius.circular(16),
               topRight: const Radius.circular(16),
@@ -48,8 +48,7 @@ class ChatBubble extends StatelessWidget {
                 ),
               ),
             ],
-          )
-          ,
+          ),
         ),
       ],
     );

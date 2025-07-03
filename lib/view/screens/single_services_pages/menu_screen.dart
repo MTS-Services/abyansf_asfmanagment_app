@@ -18,10 +18,10 @@ class MenuScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16),
               child: CustomAppBar(title: 'Menu'),
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(height: 30),
             SizedBox(
               width: MediaQuery.of(context).size.width,
-              child: Image.asset(AssetPath.menuImage,fit: BoxFit.cover,)
+              child: Image.asset(AssetPath.menuImage, fit: BoxFit.cover),
             ),
             //SizedBox(height: 50,)
           ],

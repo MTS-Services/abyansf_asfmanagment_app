@@ -27,9 +27,8 @@ class ExploreScreen extends StatelessWidget {
     SuperCarScreen(),
   ];
 
-
-
   ExploreScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,43 +40,29 @@ class ExploreScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomAppBar(title: "Explore" , showBack: false,),
-                Text(
-                  'LifeStyles',
-                  style: AppTextStyle.bold24,
-                ),
+                CustomAppBar(title: "Explore", showBack: false),
+                Text('LifeStyles', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     Get.to(BeachClubScreen());
                   },
-                  child: CustomGridItem(targetScreens: lifeStyle)),
-                const SizedBox(height: 10,),
-                Text(
-                  'Travel',
-                  style: AppTextStyle.bold24,
+                  child: CustomGridItem(targetScreens: lifeStyle),
                 ),
+                const SizedBox(height: 10),
+                Text('Travel', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
                 CustomGridItem(targetScreens: travel),
-                const SizedBox(height: 10,),
-                Text(
-                  'Entertainment',
-                  style: AppTextStyle.bold24,
-                ),
+                const SizedBox(height: 10),
+                Text('Entertainment', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
                 CustomGridItem(targetScreens: travel),
-                const SizedBox(height: 10,),
-                Text(
-                  'Professional',
-                  style: AppTextStyle.bold24,
-                ),
+                const SizedBox(height: 10),
+                Text('Professional', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
                 CustomGridItem(targetScreens: travel),
-                const SizedBox(height: 10,),
-                Text(
-                  'Trips & expedition',
-                  style: AppTextStyle.bold24,
-                ),
+                const SizedBox(height: 10),
+                Text('Trips & expedition', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
                 CustomGridItem(targetScreens: travel),
               ],
@@ -88,5 +73,3 @@ class ExploreScreen extends StatelessWidget {
     );
   }
 }
-
-

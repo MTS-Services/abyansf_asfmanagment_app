@@ -49,13 +49,15 @@ class CarouselContainer extends StatelessWidget {
             const SizedBox(height: 6),
             Row(
               children: [
-               location!=null ? const Icon(
-                  Icons.location_on,
-                  size: 16,
-                  color: Colors.white, // AppColors.lightWhite6
-                ): SizedBox(),
+                location != null
+                    ? const Icon(
+                        Icons.location_on,
+                        size: 16,
+                        color: Colors.white, // AppColors.lightWhite6
+                      )
+                    : SizedBox(),
                 Text(
-                  location?? '',
+                  location ?? '',
                   style: const TextStyle(
                     fontFamily: "Inter",
                     fontSize: AppStyles.fontXS,
@@ -65,20 +67,21 @@ class CarouselContainer extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-               personIcon != null? _iconContainer(personIcon?? ''):SizedBox(),
-                 SizedBox(width: 4.w,),
-               clockIcon != null? _iconContainer(clockIcon?? ''): SizedBox(),
-
-
+                personIcon != null
+                    ? _iconContainer(personIcon ?? '')
+                    : SizedBox(),
+                SizedBox(width: 4.w),
+                clockIcon != null
+                    ? _iconContainer(clockIcon ?? '')
+                    : SizedBox(),
               ],
             ),
-           const SizedBox(height: 10),
+            const SizedBox(height: 10),
           ],
         ),
       ),
     );
   }
-
 
   Widget _iconContainer(String asset) {
     return Container(

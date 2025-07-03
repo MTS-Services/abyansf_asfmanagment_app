@@ -24,66 +24,76 @@ class BookingHistory extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Padding(
-                    padding:  EdgeInsets.all(8.r),
-                    child: ElevatedButton(onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.all(8.r),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50.r)
-                            )
+                    padding: EdgeInsets.all(8.r),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(8.r),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50.r),
                         ),
-                        child: Text('All', style: AppTextStyle.regular14,)),
+                      ),
+                      child: Text('All', style: AppTextStyle.regular14),
+                    ),
                   ),
                   Padding(
-                    padding:  EdgeInsets.all(8.r),
-                    child: ElevatedButton(onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.all(8.r),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50.r)
-                            )
+                    padding: EdgeInsets.all(8.r),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(8.r),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50.r),
                         ),
-                        child: Text('Past', style: AppTextStyle.regular14,)),
+                      ),
+                      child: Text('Past', style: AppTextStyle.regular14),
+                    ),
                   ),
                   Padding(
-                    padding:  EdgeInsets.all(8.r),
-                    child: ElevatedButton(onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.all(8.r),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50.r)
-                            )
+                    padding: EdgeInsets.all(8.r),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(8.r),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50.r),
                         ),
-                        child: Text('Active', style: AppTextStyle.regular14,)),
+                      ),
+                      child: Text('Active', style: AppTextStyle.regular14),
+                    ),
                   ),
                   Padding(
-                    padding:  EdgeInsets.all(8.r),
-                    child: ElevatedButton(onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.all(8.r),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50.r)
-                            )
+                    padding: EdgeInsets.all(8.r),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(8.r),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50.r),
                         ),
-                        child: Text('Cancel', style: AppTextStyle.regular14,)),
+                      ),
+                      child: Text('Cancel', style: AppTextStyle.regular14),
+                    ),
                   ),
                 ],
               ),
               ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: (){
-                        Get.to(BookingHistoryIndividualPage());
-                      },
-                        child: CustomEventWidget(status: true));
-                  }),
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Get.to(BookingHistoryIndividualPage());
+                    },
+                    child: CustomEventWidget(status: true),
+                  );
+                },
+              ),
             ],
           ),
         ),

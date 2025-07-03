@@ -10,7 +10,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../screens/profile_screen/profile_screen.dart';
 
-
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({super.key});
 
@@ -27,7 +26,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     ExploreScreen(),
     ProfileScreen(),
   ];
-  final List<String> label = ['Home', 'Events', 'Explore',  'Profile'];
+  final List<String> label = ['Home', 'Events', 'Explore', 'Profile'];
   final List<String> icons = [
     AssetPath.navHome,
     AssetPath.navEvents,
@@ -40,48 +39,57 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 25,vertical: 25),
+        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(24),
             topRight: Radius.circular(24),
           ),
-          boxShadow: [BoxShadow(
-            color: Colors.black,
-            offset: Offset(0, 10),
-            blurRadius: 25
-          )],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+              offset: Offset(0, 10),
+              blurRadius: 25,
+            ),
+          ],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(icons.length, (index){
+          children: List.generate(icons.length, (index) {
             final isSelected = _selectedIndex == index;
             return GestureDetector(
               onTap: () => setState(() => _selectedIndex = index),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SvgPicture.asset(icons[index],
-                  width: 24,
-                  height: 24,
-                  colorFilter: ColorFilter.mode(
-                    isSelected ? AppColors.primaryDeepColor : AppColors.blackColor,
-                    BlendMode.srcIn,
-                  ),),
+                  SvgPicture.asset(
+                    icons[index],
+                    width: 24,
+                    height: 24,
+                    colorFilter: ColorFilter.mode(
+                      isSelected
+                          ? AppColors.primaryDeepColor
+                          : AppColors.blackColor,
+                      BlendMode.srcIn,
+                    ),
+                  ),
                   SizedBox(height: 4),
-                  Text(label[index], style: TextStyle(
-                    color: const Color(0xFF1A1A1A),
-                    fontSize: 8,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                  ),)
+                  Text(
+                    label[index],
+                    style: TextStyle(
+                      color: const Color(0xFF1A1A1A),
+                      fontSize: 8,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
                 ],
               ),
             );
           }),
         ),
-      )
+      ),
     );
   }
 }

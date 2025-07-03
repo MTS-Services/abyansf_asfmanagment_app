@@ -23,7 +23,7 @@ class NumberVerificationScreen extends StatelessWidget {
               Text(
                 'We sent Verification code to your Email address',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.interRegular12
+                style: AppTextStyle.interRegular12,
               ),
 
               Padding(
@@ -40,8 +40,10 @@ class NumberVerificationScreen extends StatelessWidget {
                     fieldWidth: 60,
                     activeFillColor: Colors.white,
                     errorBorderColor: AppColors.red,
-                    inactiveColor: AppColors.lightGreyBorder,     // default
-                    selectedColor: AppColors.lightGreyBorder,     // when selected
+                    inactiveColor: AppColors.lightGreyBorder,
+                    // default
+                    selectedColor: AppColors.lightGreyBorder,
+                    // when selected
                     activeColor: AppColors.lightGreyBorder,
                     inactiveFillColor: AppColors.white,
                     selectedFillColor: AppColors.white,
@@ -54,21 +56,18 @@ class NumberVerificationScreen extends StatelessWidget {
                   onCompleted: (v) {
                     print("Completed");
                   },
-                  onChanged: (value) {
-                  },
+                  onChanged: (value) {},
                   beforeTextPaste: (text) {
                     print("Allowing to paste $text");
                     return true;
-                  }, appContext: context,
+                  },
+                  appContext: context,
                 ),
               ),
 
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Confirm'),
-                ),
+                child: ElevatedButton(onPressed: () {}, child: Text('Confirm')),
               ),
 
               Text.rich(
@@ -83,13 +82,12 @@ class NumberVerificationScreen extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    TextSpan(
-                      text: ' ',
-                      style: AppTextStyle.interRegular16
-                    ),
+                    TextSpan(text: ' ', style: AppTextStyle.interRegular16),
                     TextSpan(
                       text: 'Resend',
-                      style: AppTextStyle.interBold16.copyWith(color: AppColors.primaryColor)
+                      style: AppTextStyle.interBold16.copyWith(
+                        color: AppColors.primaryColor,
+                      ),
                     ),
                   ],
                 ),
@@ -100,7 +98,9 @@ class NumberVerificationScreen extends StatelessWidget {
                 child: Text(
                   '00:59 sec',
                   textAlign: TextAlign.center,
-                  style: AppTextStyle.interRegular16.copyWith(color: AppColors.primaryColor)
+                  style: AppTextStyle.interRegular16.copyWith(
+                    color: AppColors.primaryColor,
+                  ),
                 ),
               ),
             ],

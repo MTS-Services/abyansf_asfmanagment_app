@@ -16,6 +16,7 @@ class SingleBeachClubScreen extends StatelessWidget {
   SingleBeachClubScreen({super.key});
 
   final CarouselSliderControllers _carouselSliderController = Get.find();
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -34,15 +35,19 @@ class SingleBeachClubScreen extends StatelessWidget {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 40,left: 10),
+                    padding: const EdgeInsets.only(top: 40, left: 10),
                     child: Align(
                       alignment: Alignment.topLeft,
-                        child: IconButton(
-                        onPressed: (){}, icon: CircleAvatar(
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: CircleAvatar(
                           backgroundColor: Colors.white70.withAlpha(80),
-                            child: Icon(Icons.arrow_back_outlined)))),
-                  )
-                 ),
+                          child: Icon(Icons.arrow_back_outlined),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 4),
@@ -56,10 +61,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Eva beach',
-                            style: AppTextStyle.bold20
-                            ),
+                          Text('Eva beach', style: AppTextStyle.bold20),
                           const SizedBox(height: 8),
                           Row(
                             children: [
@@ -88,13 +90,20 @@ class SingleBeachClubScreen extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {
                             Get.to(MenuScreen());
-                            },
+                          },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Menu", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500)),
+                              Text(
+                                "Menu",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
                               Icon(
-                                Icons.arrow_circle_right_outlined,size: 20,
+                                Icons.arrow_circle_right_outlined,
+                                size: 20,
                                 color: AppColors.blackColor,
                               ),
                             ],
@@ -104,14 +113,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 18),
-                  Row(
-                    children: [
-                      Text(
-                        "Photos",
-                        style: AppTextStyle.bold24,
-                      ),
-                    ],
-                  ),
+                  Row(children: [Text("Photos", style: AppTextStyle.bold24)]),
                   const SizedBox(height: 15),
                   CarouselSlider.builder(
                     itemCount: 3,
@@ -168,8 +170,10 @@ class SingleBeachClubScreen extends StatelessWidget {
                                                   .currentIndex
                                                   .value ==
                                               index
-                                          ? AppColors.primaryColor// Active color
-                                          : AppColors.lightGrey, // Inactive color
+                                          ? AppColors
+                                                .primaryColor // Active color
+                                          : AppColors
+                                                .lightGrey, // Inactive color
                                     ),
                                   ),
                                 ),
@@ -181,10 +185,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                     );
                   }),
                   const SizedBox(height: 7),
-                  Text(
-                    "Member Privileges",
-                    style: AppTextStyle.bold24,
-                  ),
+                  Text("Member Privileges", style: AppTextStyle.bold24),
                   const SizedBox(height: 10),
                   Row(
                     spacing: 10,
@@ -211,10 +212,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  Text(
-                    "Description",
-                    style: AppTextStyle.bold24,
-                  ),
+                  Text("Description", style: AppTextStyle.bold24),
                   const SizedBox(height: 10),
                   Text(
                     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indusLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indusLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indusLorem Ipsum is simply dummy text of the printing and type",
@@ -226,7 +224,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Text("Hours", style: AppTextStyle.bold24,),
+                  Text("Hours", style: AppTextStyle.bold24),
                   const SizedBox(height: 10),
                   dayTimeRow("Wednesday", "09:00 PM - 03:00 AM"),
                   dayTimeRow("Thursday", "09:00 PM - 03:00 AM"),
@@ -241,32 +239,34 @@ class SingleBeachClubScreen extends StatelessWidget {
                           onPressed: () {},
                           child: Text('Enquire'),
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.white,
-                              shadowColor: Colors.transparent,
-                              shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color: AppColors.lightLaserColor,
-                                  ),
-                                  borderRadius: BorderRadiusGeometry.circular(4)
-                              )
+                            backgroundColor: AppColors.white,
+                            shadowColor: Colors.transparent,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                color: AppColors.lightLaserColor,
+                              ),
+                              borderRadius: BorderRadiusGeometry.circular(4),
+                            ),
                           ),
                         ),
                       ),
                       SizedBox(width: 10),
                       Expanded(
-                        child: ElevatedButton(onPressed: (){},
+                        child: ElevatedButton(
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              shadowColor: Colors.transparent
+                            shadowColor: Colors.transparent,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('Reserve'),
                               SizedBox(width: 10),
-                              Icon(Icons.arrow_circle_right_outlined)
+                              Icon(Icons.arrow_circle_right_outlined),
                             ],
-                          ),),
-                      )
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ],

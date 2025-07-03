@@ -50,15 +50,15 @@ class InviteFriendShowLog {
                           height: 44,
                           width: 318,
                           decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.vertical(bottom: Radius.circular(7.25)),
+                            borderRadius: const BorderRadius.vertical(
+                              bottom: Radius.circular(7.25),
+                            ),
                             color: AppColors.primaryDeepColor,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SvgPicture.asset(
-                                AssetPath.solarCopyOutline,
-                              ),
+                              SvgPicture.asset(AssetPath.solarCopyOutline),
                               const SizedBox(width: 10),
                               const Text(
                                 'Copy',
@@ -68,12 +68,12 @@ class InviteFriendShowLog {
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w500,
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 const SizedBox(height: 20),
@@ -82,9 +82,7 @@ class InviteFriendShowLog {
                   height: 35,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(7.25),
-                    border: Border.all(
-                      color: AppColors.lightGreyBorder,
-                    ),
+                    border: Border.all(color: AppColors.lightGreyBorder),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +110,7 @@ class InviteFriendShowLog {
                     SvgPicture.asset(AssetPath.icSharpFacebook),
                     SvgPicture.asset(AssetPath.riMessengerFill),
                   ],
-                )
+                ),
               ],
             ),
           ),

@@ -25,27 +25,19 @@ class CreatePasswordScreen extends StatelessWidget {
             Text(
               'Create New Password',
               textAlign: TextAlign.center,
-              style: AppTextStyle.bold40
+              style: AppTextStyle.bold40,
             ),
             SizedBox(height: 20),
             Text(
               'Type and confirm a secure new password for your amount',
               textAlign: TextAlign.center,
 
-              style: AppTextStyle.interRegular16
+              style: AppTextStyle.interRegular16,
             ),
             SizedBox(height: AppStyles.heightM),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: 'Name'
-              ),
-            ),
+            TextFormField(decoration: InputDecoration(hintText: 'Name')),
             SizedBox(height: 20),
-            TextFormField(
-              decoration: InputDecoration(
-                  hintText: 'Email'
-              ),
-            ),
+            TextFormField(decoration: InputDecoration(hintText: 'Email')),
             SizedBox(height: 20),
 
             Row(
@@ -53,16 +45,13 @@ class CreatePasswordScreen extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.to(()=> CustomBottomBar());
+                      Get.to(() => CustomBottomBar());
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    child:  Text(
-                      'Save',
-                      style: AppTextStyle.bold16,
-                    ),
+                    child: Text('Save', style: AppTextStyle.bold16),
                   ),
                 ),
               ],

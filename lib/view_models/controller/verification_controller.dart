@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class VerificationController extends GetxController {
-  final List<TextEditingController> controllers = List.generate(4, (_) => TextEditingController());
+  final List<TextEditingController> controllers = List.generate(
+    4,
+    (_) => TextEditingController(),
+  );
   final List<FocusNode> focusNodes = List.generate(4, (_) => FocusNode());
 
   var timer;
@@ -61,9 +64,9 @@ class VerificationController extends GetxController {
     const correctCode = '1234';
     if (enteredCode == correctCode) {
       isVerifying.value = false;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Verification successful!')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Verification successful!')));
     } else {
       hasError.value = true;
       isVerifying.value = false;

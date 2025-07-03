@@ -56,17 +56,23 @@ class JetsScreen extends StatelessWidget {
                 Text('Destination', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    Expanded(child: CustomDatePicker(labelText: 'From',)),
+                    Expanded(child: CustomDatePicker(labelText: 'From')),
                     SizedBox(width: 10),
-                    Expanded(child: CustomDatePicker(labelText:'To',)),
+                    Expanded(child: CustomDatePicker(labelText: 'To')),
                   ],
                 ),
                 Text('Number of guest', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    IncreaseAndDecrease(type: 'Adults', counter: adultController,),
+                    IncreaseAndDecrease(
+                      type: 'Adults',
+                      counter: adultController,
+                    ),
                     SizedBox(width: 10),
-                    IncreaseAndDecrease(type: 'Children', counter: childrenController,),
+                    IncreaseAndDecrease(
+                      type: 'Children',
+                      counter: childrenController,
+                    ),
                   ],
                 ),
                 Text('Contacts', style: AppTextStyle.bold16),
@@ -84,7 +90,7 @@ class JetsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 10),
                 Row(
                   children: [
                     Expanded(
@@ -92,32 +98,32 @@ class JetsScreen extends StatelessWidget {
                         onPressed: () {},
                         child: Text('Cancel'),
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.white,
-                            shadowColor: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                                side: BorderSide(
-                                  color: AppColors.lightLaserColor,
-                                ),
-                                borderRadius: BorderRadiusGeometry.circular(4)
-                            )
+                          backgroundColor: AppColors.white,
+                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(color: AppColors.lightLaserColor),
+                            borderRadius: BorderRadiusGeometry.circular(4),
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
                     Expanded(
-                      child: ElevatedButton(onPressed: (){},
+                      child: ElevatedButton(
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            shadowColor: Colors.transparent
+                          shadowColor: Colors.transparent,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text('Request'),
                             SizedBox(width: 10),
-                            Icon(Icons.arrow_circle_right_outlined)
+                            Icon(Icons.arrow_circle_right_outlined),
                           ],
-                        ),),
-                    )
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

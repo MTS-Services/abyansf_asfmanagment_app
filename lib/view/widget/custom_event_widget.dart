@@ -142,19 +142,19 @@ class CustomEventWidget extends StatelessWidget {
                       decorationColor: AppColors.lightLaserColor,
                       decorationThickness: 1.0,
                       height: 1.4,
-                    )
+                    ),
                   ),
                   Text(
                     'Sunday',
                     style: AppTextStyle.interRegular10.copyWith(
                       color: AppColors.lightWhite6,
-                    )
+                    ),
                   ),
                   Text(
                     '11 jun',
                     style: AppTextStyle.interRegular10.copyWith(
                       color: AppColors.lightWhite6,
-                    )
+                    ),
                   ),
                 ],
               ),

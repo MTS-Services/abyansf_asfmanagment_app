@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 
 class RecoveryVerificationController extends GetxController {
   final List<FocusNode> focusNodes = List.generate(4, (_) => FocusNode());
-  final List<TextEditingController> controllers =
-  List.generate(4, (_) => TextEditingController());
+  final List<TextEditingController> controllers = List.generate(
+    4,
+    (_) => TextEditingController(),
+  );
 
   final goldColor = const Color(0xFFD1B47F);
 
@@ -52,9 +54,9 @@ class RecoveryVerificationController extends GetxController {
 
     if (enteredCode == correctCode) {
       isVerifying.value = false;
-      ScaffoldMessenger.of(Get.context!).showSnackBar(
-        const SnackBar(content: Text('Verification successful!')),
-      );
+      ScaffoldMessenger.of(
+        Get.context!,
+      ).showSnackBar(const SnackBar(content: Text('Verification successful!')));
       Get.toNamed('/create-password');
     } else {
       hasError.value = true;

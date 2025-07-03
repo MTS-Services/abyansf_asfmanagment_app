@@ -17,8 +17,10 @@ class DesertActivitiesScreen extends StatefulWidget {
   @override
   State<DesertActivitiesScreen> createState() => _DesertActivitiesScreenState();
 }
+
 class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
   final CarouselSliderControllers _carouselSliderController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,18 +54,16 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                   const SizedBox(height: 30),
                   Row(
                     children: [
-                      Text(
-                        'Beach',
-                        style: AppTextStyle.bold24),
+                      Text('Beach', style: AppTextStyle.bold24),
                       Spacer(),
                       Text(
                         'See all',
-                        style:TextStyle(
+                        style: TextStyle(
                           fontFamily: "Inter",
-                        fontWeight: AppStyles.weightMedium,
-                        fontSize: AppStyles.fontL,
-                        color: AppColors.primaryColor,
-                      ),
+                          fontWeight: AppStyles.weightMedium,
+                          fontSize: AppStyles.fontL,
+                          color: AppColors.primaryColor,
+                        ),
                       ),
                     ],
                   ),
@@ -87,7 +87,7 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                       autoPlayInterval: const Duration(seconds: 3),
                       viewportFraction: 0.83,
                       onPageChanged: (index, reason) {
-                       _carouselSliderController.currentIndex.value = index;
+                        _carouselSliderController.currentIndex.value = index;
                       },
                     ),
                   ),
@@ -102,16 +102,23 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                           children: List.generate(images.length, (index) {
                             return GestureDetector(
                               onTap: () {
-                               _carouselSliderController.currentIndex.value;
+                                _carouselSliderController.currentIndex.value;
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(2),
                                 child: Container(
-                                  width:  _carouselSliderController.currentIndex == index ? 16 : 5,
+                                  width:
+                                      _carouselSliderController.currentIndex ==
+                                          index
+                                      ? 16
+                                      : 5,
                                   height: 4,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
-                                    color:  _carouselSliderController.currentIndex == index
+                                    color:
+                                        _carouselSliderController
+                                                .currentIndex ==
+                                            index
                                         ? AppColors.primaryColor
                                         : AppColors.lightGrey,
                                   ),
