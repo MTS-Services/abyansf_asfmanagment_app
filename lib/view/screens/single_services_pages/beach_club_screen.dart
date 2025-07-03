@@ -65,11 +65,11 @@ class BeachClubScreen extends StatelessWidget {
                       },
                       options: CarouselOptions(
                         height: 220,
-                        enlargeCenterPage: false,
                         autoPlay: false,
+                        enlargeCenterPage: false,
                         aspectRatio: 16 / 9,
-                        autoPlayInterval: const Duration(seconds: 3),
                         viewportFraction: 0.83,
+                        autoPlayInterval: const Duration(seconds: 3),
                         onPageChanged: (index, reason) {
                           _carouselSliderController.currentIndex.value = index;
                         },

@@ -1,4 +1,6 @@
+import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarouselContainer extends StatelessWidget {
   final String imagePath;
@@ -30,7 +32,7 @@ class CarouselContainer extends StatelessWidget {
         image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 14),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -56,30 +58,34 @@ class CarouselContainer extends StatelessWidget {
                   location?? '',
                   style: const TextStyle(
                     fontFamily: "Inter",
-                    fontSize: 12, // AppStyles.fontS
-                    fontWeight: FontWeight.bold, // AppStyles.weightBold
-                    color: Colors.white70, // AppColors.lightWhite9
+                    fontSize: AppStyles.fontXS,
+                    fontWeight: AppStyles.weightRegular,
+                    letterSpacing: 0.1,
+                    color: Colors.white70,
                   ),
                 ),
                 const Spacer(),
                personIcon != null? _iconContainer(personIcon?? ''):SizedBox(),
-                const SizedBox(width: 5),
+                 SizedBox(width: 4.w,),
                clockIcon != null? _iconContainer(clockIcon?? ''): SizedBox(),
+
+
               ],
             ),
-            const SizedBox(height: 10),
+           const SizedBox(height: 10),
           ],
         ),
       ),
     );
   }
 
+
   Widget _iconContainer(String asset) {
     return Container(
-      height: 28,
-      width: 35.58,
+      height: 27,
+      width: 34,
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.white), // AppColors.primaryColor
+        border: Border.all(color: Colors.white),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Center(child: Image.asset(asset, scale: 4)),
