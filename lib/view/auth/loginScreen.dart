@@ -5,8 +5,8 @@ import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(15),
         child: SingleChildScrollView(
           child: SafeArea(
             child: Column(
@@ -95,12 +95,14 @@ class LoginScreen extends StatelessWidget {
                     Text(
                       "Don't have an account?",
                       style: TextStyle(
-                        fontSize: AppStyles.fontL,
+                        fontSize: AppStyles.fontM.sp,
+                        letterSpacing: 0.01,
                         fontFamily: "inter",
                       ),
                     ),
-                    TextButton(
-                      onPressed: () {
+                    const SizedBox(width: 4,),
+                    InkWell(
+                      onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => SignupScreen()),
@@ -110,7 +112,10 @@ class LoginScreen extends StatelessWidget {
                         "Request an account",
                         style: TextStyle(
                           color: Color(0xffAD8945),
-                          fontSize: AppStyles.fontL,
+                          letterSpacing: 0.01,
+                         // fontSize: AppStyles.fontM.sp,
+                          fontSize: 15,
+
                           fontFamily: "inter",
                         ),
                       ),

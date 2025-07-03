@@ -71,7 +71,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                       ),
                       Spacer(),
                       SizedBox(
-                        width: 100,
+                        width: 107,
                         child: ElevatedButton(
                           onPressed: () {
                             Get.to(MenuScreen());
@@ -79,9 +79,9 @@ class SingleBeachClubScreen extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Menu"),
+                              Text("Menu", style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500)),
                               Icon(
-                                Icons.arrow_circle_right_outlined,
+                                Icons.arrow_circle_right_outlined,size: 20,
                                 color: AppColors.blackColor,
                               ),
                             ],
@@ -114,7 +114,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                       autoPlay: false,
                       aspectRatio: 16 / 9,
                       autoPlayInterval: const Duration(seconds: 3),
-                      viewportFraction: 0.40,
+                      viewportFraction: 0.43,
                       enableInfiniteScroll: true,
                       onPageChanged: (index, reason) {
                         // Correctly update currentIndex when page changes
