@@ -31,72 +31,61 @@ class IndividualBookingWidget extends StatelessWidget {
             //   borderRadius: BorderRadius.circular(8),
           ),
         ),
-
         Row(
           children: [
             Text('09 May Saturday', style: AppTextStyle.interRegular12),
             Spacer(),
-
             Text('09:20PM', style: AppTextStyle.interRegular12),
             if (!status) ...[
               Spacer(),
               Text('Status:', style: AppTextStyle.interRegular12),
-              const SizedBox(width: 10),
               Text(
                 'Confirmed',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.interRegular14.copyWith(
+                style: AppTextStyle.interRegular12.copyWith(
                   color: Color(0xFF00A600),
                 ),
               ),
             ],
           ],
         ),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Luxury Dinner Venues', style: AppTextStyle.bold20),
-                const SizedBox(height: 3),
                 Row(
-                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Container(
-                      width: 20,
-                      height: 20,
-                      decoration: const BoxDecoration(),
-                      child: Icon(
-                        Icons.location_on,
-                        size: 20,
-                        color: AppColors.lightLaserColor,
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      'Abu dhabi',
-                      style: AppTextStyle.interRegular12.copyWith(
-                        color: AppColors.lightLaserColor,
-                      ),
-                    ),
+                    SvgPicture.asset(AssetPath.lsiconUserCrowd),
+                    Text('Max: 4', style: AppTextStyle.interRegular12),
                   ],
                 ),
-              ],
+          ],
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 20,
+              height: 20,
+              decoration: const BoxDecoration(),
+              child: Icon(
+                Icons.location_on,
+                size: 20,
+                color: AppColors.lightLaserColor,
+              ),
             ),
-            Row(
-              children: [
-                SvgPicture.asset(AssetPath.lsiconUserCrowd),
-                Text('Max: 4', style: AppTextStyle.interRegular12),
-              ],
+            const SizedBox(width: 6),
+            Text(
+              'Abu dhabi',
+              style: AppTextStyle.interRegular12.copyWith(
+                color: AppColors.lightLaserColor,
+              ),
             ),
           ],
         ),
         Text('About This Event', style: AppTextStyle.bold20),
         Text(
-          'Luxury Dinners is an exclusive culinary experience designed for those who appreciate the finer things in life. Set in breathtaking venues and curated by renowned chefs, each event offers an unforgettable evening of gourmet cuisine, refined ambiance, and exceptional service.\nWhether it’s a private celebration, a corporate gathering, or a romantic evening, Luxury Dinners blends sophistication with sensory delight — delivering not just a meal, but a memory.\n\nWhat to Expect:\n',
+          'Luxury Dinners is an exclusive culinary experience designed for those who appreciate the finer things in life. Set in breathtaking venues and curated by renowned chefs, each event offers an unforgettable evening of gourmet cuisine, refined ambiance, and exceptional service.\nWhether it’s a private celebration, a corporate gathering, or a romantic evening, Luxury Dinners blends sophistication with sensory delight — delivering not just a meal, but a memory.\n\nWhat to Expect:',
           style: AppTextStyle.interRegular16.copyWith(
             color: AppColors.lightBlackColor,
           ),
@@ -108,7 +97,7 @@ class IndividualBookingWidget extends StatelessWidget {
           ),
         ),
         Text(
-          '\nEvery detail is carefully crafted to ensure a seamless and indulgent experience from the moment you arrive.',
+          'Every detail is carefully crafted to ensure a seamless and indulgent experience from the moment you arrive.',
           style: AppTextStyle.interRegular16.copyWith(
             color: AppColors.lightBlackColor,
           ),

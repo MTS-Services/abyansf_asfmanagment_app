@@ -9,12 +9,13 @@ class CustomDatePicker extends StatelessWidget {
 
   CustomDatePicker({super.key, this.labelText});
 
-  final DateController date = Get.put(DateController());
+  // Create a local instance of DateController
+  final DateController date = DateController();
 
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => Expanded(
+          () => Expanded(
         child: Padding(
           padding: const EdgeInsets.only(top: 10, bottom: 20),
           child: GestureDetector(
