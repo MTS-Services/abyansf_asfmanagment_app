@@ -57,7 +57,7 @@ class HotelAndVillasScreen extends StatelessWidget {
                 Text('Date', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    CustomDatePicker(labelText: 'Check in'),
+                    CustomDatePicker(labelText: 'Check in',),
                     SizedBox(width: 10),
                     CustomDatePicker(labelText: 'Check out'),
                   ],
