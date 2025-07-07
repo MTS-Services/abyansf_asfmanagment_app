@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
     },
     {
       'leading': SvgPicture.asset(
-        AssetPath.solarCalendar,
+        AssetPath.inviteFriend,
         height: 20,
         width: 20,
       ),
@@ -175,7 +175,12 @@ class ProfileScreen extends StatelessWidget {
                     SizedBox(height: 20),
                     Row(
                       children: [
-                        Icon(Icons.phone),
+                        SvgPicture.asset(
+                          AssetPath.iconParkSolid,
+                          height: 20,
+                          width: 20,
+                        ),
+                        SizedBox(width: 10),
                         Text(
                           '(319) 555-0115',
                           style: AppTextStyle.interRegular16,
@@ -185,7 +190,12 @@ class ProfileScreen extends StatelessWidget {
                     SizedBox(height: 12),
                     Row(
                       children: [
-                        Icon(Icons.email),
+                        SvgPicture.asset(
+                          AssetPath.icRoundEmail,
+                          height: 20,
+                          width: 20,
+                        ),
+                        SizedBox(width: 10),
                         Text(
                           'mirable@gmail.com',
                           style: AppTextStyle.interRegular16,

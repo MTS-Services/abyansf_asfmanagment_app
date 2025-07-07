@@ -3,6 +3,8 @@ import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_drop_down.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../utils/style/app_text_styles.dart';
 
@@ -77,7 +79,9 @@ class YachtRequesrFormScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.back();
+                        },
                         child: Text('Cancel'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.white,

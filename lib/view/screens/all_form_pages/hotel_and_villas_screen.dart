@@ -96,7 +96,9 @@ class HotelAndVillasScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.back();
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.white,
                           shadowColor: Colors.transparent,

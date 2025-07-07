@@ -87,7 +87,7 @@ class InviteFriendShowLog {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset(AssetPath.icRoundEmail),
+                      SvgPicture.asset(AssetPath.icRoundEmailLight),
                       const SizedBox(width: 8),
                       const Text(
                         'Send by email',

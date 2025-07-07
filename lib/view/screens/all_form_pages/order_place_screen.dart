@@ -1,6 +1,10 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../utils/style/appColor.dart';
 
@@ -52,8 +56,9 @@ class OrderPlaceScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text('Cancel'),
+                          onPressed: () {
+                            () => HomeScreen();
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.white,
                             shadowColor: Colors.transparent,
@@ -64,19 +69,22 @@ class OrderPlaceScreen extends StatelessWidget {
                               borderRadius: BorderRadiusGeometry.circular(4),
                             ),
                           ),
+                          child: Text('Go To Home'),
                         ),
                       ),
                       SizedBox(width: 10),
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            () => ProfileScreen();
+                          },
                           style: ElevatedButton.styleFrom(
                             shadowColor: Colors.transparent,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('Request'),
+                              Text('Go To Profile'),
                               SizedBox(width: 10),
                               Icon(Icons.arrow_circle_right_outlined),
                             ],

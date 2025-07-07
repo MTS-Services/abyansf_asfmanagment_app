@@ -87,7 +87,9 @@ class SuperCarScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.back();
+                        },
                         child: Text('Cancel'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.white,
