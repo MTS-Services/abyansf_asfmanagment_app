@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 
+import '../../utils/assets_path.dart';
+
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTitle;
+  final ImageProvider<Object>? backGroundImage;
 
-  const HomeAppBar({super.key, this.showTitle = false});
+  const HomeAppBar({super.key, this.showTitle = false, this.backGroundImage});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                 // Left: Avatar + Greeting
                 Row(
                   children: [
-                    const CircleAvatar(radius: 22),
+
+                    CircleAvatar(radius: 22,
+                      backgroundImage: backGroundImage ?? const AssetImage(AssetPath.navProfile),
+                    ),
                     const SizedBox(width: 8),
                     Text(
                       "Hi, Mirable",

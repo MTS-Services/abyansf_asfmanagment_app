@@ -31,7 +31,7 @@ class CustomGridItem extends StatelessWidget {
         final item = gridItems[index];
         return GestureDetector(
           onTap: () {
-            Get.to(()=> item[index]);
+            Get.to(item['screen']);
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
