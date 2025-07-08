@@ -147,7 +147,7 @@ class ProfileScreen extends StatelessWidget {
                                   SizedBox(width: 10),
                                   Chip(
                                     label: Text(
-                                      'Premium',
+                                      'Private',
                                       style: AppTextStyle
                                           .interBold10, // Your custom text style
                                     ),

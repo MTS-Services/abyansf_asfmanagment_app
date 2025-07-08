@@ -25,6 +25,16 @@ final List<String> images = [
   AssetPath.splashScreen2,
   AssetPath.splashScreen3,
 ];
+final List<Map<String, String>> servicesNames = [
+  {'name': 'Super car', 'image': AssetPath.image12},
+  {'name': 'Yacht charter', 'image': AssetPath.image13},
+  {'name': 'Luxury Travel', 'image': AssetPath.image14},
+  {'name': 'Professional', 'image': AssetPath.image15},
+  {'name': 'Super car', 'image': AssetPath.image12},
+  {'name': 'Yacht charter', 'image': AssetPath.image13},
+  {'name': 'Luxury Travel', 'image': AssetPath.image14},
+  {'name': 'Professional', 'image': AssetPath.image15},
+];
 
 class _HomeScreenState extends State<HomeScreen> {
   final CarouselSliderControllers _carouselSliderController = Get.find();
@@ -47,22 +57,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 145,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 6,
+                  itemCount: servicesNames.length,
                   itemBuilder: (context, index) {
+                    final name = servicesNames[index]['name'] ?? '';
+                    final imagePath = servicesNames[index]['image'] ?? '';
                     return Padding(
                       padding: const EdgeInsets.all(8),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const CircleAvatar(
+                          CircleAvatar(
                             radius: 40,
-                            backgroundImage: AssetImage(
-                              AssetPath.splashScreen1,
-                            ),
+                            backgroundImage: AssetImage(imagePath),
                           ),
                           const SizedBox(height: 6),
                           Text(
-                            'Name',
+                            name,
                             style: AppTextStyle.bold14.copyWith(
                               fontFamily: 'Inter',
                             ),
