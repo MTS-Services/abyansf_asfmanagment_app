@@ -10,9 +10,10 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class CustomGridItem extends StatelessWidget {
-  final List<Widget> targetScreens;
 
-  const CustomGridItem({super.key, required this.targetScreens});
+  final List<Map<String, dynamic>> gridItems;
+
+  const CustomGridItem({super.key, required this.gridItems, });
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +28,10 @@ class CustomGridItem extends StatelessWidget {
         crossAxisSpacing: 14.0,
       ),
       itemBuilder: (context, index) {
+        final item = gridItems[index];
         return GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => targetScreens[index]),
-            );
+            Get.to(()=> item[index]);
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,14 +42,14 @@ class CustomGridItem extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(AssetPath.diningImage),
+                      image: AssetImage(item['image']),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
-              Text('Dinning', style: AppTextStyle.bold16),
+              Text(item['title'], style: AppTextStyle.bold16),
             ],
           ),
         );
