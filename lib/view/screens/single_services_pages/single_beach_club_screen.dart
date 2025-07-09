@@ -43,8 +43,9 @@ class SingleBeachClubScreen extends StatelessWidget {
                           Get.back();
                         },
                         icon: CircleAvatar(
-                          backgroundColor: Colors.white70.withAlpha(80),
-                          child: Icon(Icons.arrow_back_outlined),
+                          radius: 18,
+                          backgroundColor: Colors.white70.withAlpha(100),
+                          child: Icon(Icons.keyboard_arrow_left_outlined),
                         ),
                       ),
                     ),

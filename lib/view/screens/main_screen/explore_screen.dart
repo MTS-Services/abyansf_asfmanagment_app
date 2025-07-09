@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ExploreScreen extends StatelessWidget {
-  final  lifeStyle = [
+  final lifeStyle = [
     {
       'title': 'Dinning',
       'image': AssetPath.lifeStyle1,
@@ -36,7 +36,7 @@ class ExploreScreen extends StatelessWidget {
       'screen': BeachClubScreen(),
     },
   ];
-  final  travel = [
+  final travel = [
     {
       'title': 'Hotel & Villas',
       'image': AssetPath.travel1,
@@ -58,7 +58,7 @@ class ExploreScreen extends StatelessWidget {
       'screen': SuperCarScreen(),
     },
   ];
-  final  entertainMent = [
+  final entertainMent = [
     {
       'title': 'Hotel & Villas',
       'image': AssetPath.travel1,
@@ -90,7 +90,7 @@ class ExploreScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -101,24 +101,24 @@ class ExploreScreen extends StatelessWidget {
                   onTap: () {
                     Get.to(BeachClubScreen());
                   },
-                  child: CustomGridItem(gridItems: lifeStyle,),
+                  child: CustomGridItem(gridItems: lifeStyle),
                 ),
                 const SizedBox(height: 10),
                 Text('Travel', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
-                CustomGridItem(gridItems: travel,),
+                CustomGridItem(gridItems: travel),
                 const SizedBox(height: 10),
                 Text('Entertainment', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
-                CustomGridItem(gridItems: entertainMent,),
+                CustomGridItem(gridItems: entertainMent),
                 const SizedBox(height: 10),
                 Text('Professional', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
-                CustomGridItem(gridItems: lifeStyle,),
+                CustomGridItem(gridItems: lifeStyle),
                 const SizedBox(height: 10),
                 Text('Trips & expedition', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
-                CustomGridItem(gridItems: travel,),
+                CustomGridItem(gridItems: travel),
               ],
             ),
           ),

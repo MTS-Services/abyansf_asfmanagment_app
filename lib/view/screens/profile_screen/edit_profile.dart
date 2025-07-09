@@ -38,7 +38,7 @@ class _EditProfileState extends State<EditProfile> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: TextFormField(
-                    decoration: InputDecoration(hintText: 'Mirable Lily'),
+                    decoration: InputDecoration(hintText: 'Mirabel Lily'),
                   ),
                 ),
                 Text(

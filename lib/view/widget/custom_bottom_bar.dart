@@ -78,7 +78,9 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                   Text(
                     label[index],
                     style: TextStyle(
-                      color: isSelected ? AppColors.primaryDeepColor : AppColors.blackColor,
+                      color: isSelected
+                          ? AppColors.primaryDeepColor
+                          : AppColors.blackColor,
                       fontSize: 10,
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,

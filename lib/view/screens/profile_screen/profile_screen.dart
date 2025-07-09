@@ -126,12 +126,12 @@ class ProfileScreen extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Mirable Lily', style: AppTextStyle.bold20),
+                              Text('Mirabel Lily', style: AppTextStyle.bold20),
                               Row(
                                 children: [
                                   Center(
                                     child: Text(
-                                      'mirable123',
+                                      'mirabel123',
                                       style: AppTextStyle.regular12,
                                     ),
                                   ),
@@ -145,13 +145,13 @@ class ProfileScreen extends StatelessWidget {
                                     backgroundColor: const Color(0xFFC7AE6A),
                                     // Background color
                                     padding: EdgeInsets.symmetric(
-                                      horizontal: 8.w,
+                                      horizontal: 10.w,
                                       vertical: 4.h,
                                     ),
                                     // Responsive padding using ScreenUtil
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(
-                                        10.r,
+                                        25.r,
                                       ), // Responsive border radius using ScreenUtil
                                     ),
                                   ),
@@ -178,7 +178,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 15),
                     Row(
                       children: [
                         SvgPicture.asset(
@@ -188,14 +188,14 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         SizedBox(width: 10),
                         Text(
-                          'mirable@gmail.com',
+                          'mirabel@gmail.com',
                           style: AppTextStyle.interRegular16,
                         ),
                       ],
                     ),
                   ],
                 ),
-              ), 
+              ),
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),

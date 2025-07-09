@@ -125,7 +125,7 @@ class IndividualBookingWidget extends StatelessWidget {
                   ),
                   onPressed: () {},
                   child: Text(
-                    "Attendence",
+                    "Attendance",
                     style: AppTextStyle.bold16.copyWith(
                       color: AppColors.blackColor,
                     ),

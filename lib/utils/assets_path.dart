@@ -8,7 +8,7 @@ class AssetPath {
   static const String clockImage = '$_basePath/Clock.png';
   static const String basilEditOutline = '$_basePath/basil_edit_outline.png';
   static const String profileImage = '$_basePath/profile_image.png';
-  static const String rectangel = '$_basePath/Rectangle 46.png';
+  static const String rectAngel = '$_basePath/Rectangle 46.png';
   static const String hotelImage = '$_basePath/hotel_image.png';
   static const String phoneCall = '$_basePath/phone_call.svg';
   static const String solarCalendar = '$_basePath/solar_calendar_bold.svg';
@@ -28,7 +28,8 @@ class AssetPath {
   static const String riWhatsappFill = '$_basePath/ri_whatsapp-fill.svg';
   static const String icRoundEmailLight = '$_basePath/ic_round-email.svg';
   static const String icRoundEmail = '$_basePath/ic_round_email.svg';
-  static const String iconParkSolid = '$_basePath/icon_park_solid_phone_call.svg';
+  static const String iconParkSolid =
+      '$_basePath/icon_park_solid_phone_call.svg';
   static const String solarCopyOutline = '$_basePath/solar_copy_outline.svg';
   static const String lsiconUserCrowd =
       '$_basePath/lsicon_user-crowd-outline.svg';
@@ -61,5 +62,4 @@ class AssetPath {
   static const String entertainMent2 = '$_basePath/entertainment2.png';
   static const String entertainMent3 = '$_basePath/entertainment3.png';
   static const String entertainMent4 = '$_basePath/entertainment4.png';
-
 }

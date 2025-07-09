@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
           Obx(
             () => Positioned.fill(
               child: Transform.rotate(
-                angle: 0, // রেডিয়ানে, উদাহরণ: -0.2 ≈ -11.5°
+                angle: 0,
                 child: AspectRatio(
                   aspectRatio: 1,
                   child: Image.asset(

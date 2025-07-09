@@ -151,7 +151,7 @@ class OnbordingScreen extends StatelessWidget {
             SizedBox(
               width: 343.r,
               child: Text(
-                'By Continuing, you agree to L’invite’s terms of services and acknowledge you’ve read our privacy policy',
+                'By Continuing, you agree to invite’s terms of services and acknowledge you’ve read our privacy policy',
                 textAlign: TextAlign.center,
                 style: AppTextStyle.interRegular10.copyWith(
                   color: AppColors.textColor,

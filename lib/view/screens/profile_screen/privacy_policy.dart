@@ -29,7 +29,7 @@ class PrivacyPolicy extends StatelessWidget {
                 SizedBox(height: 10),
                 Text('Introduction', style: AppTextStyle.bold20),
                 Text(
-                  'Welcome to ASF MANEGMENT. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our mobile app and related services.',
+                  'Welcome to ASF MANAGEMENT. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use our mobile app and related services.',
                   style: AppTextStyle.interRegular12.copyWith(
                     color: AppColors.textColor,
                   ),

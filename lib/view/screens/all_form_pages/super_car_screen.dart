@@ -106,7 +106,7 @@ class SuperCarScreen extends StatelessWidget {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                           Get.to(()=>OrderPlaceScreen());
+                          Get.to(() => OrderPlaceScreen());
                         },
                         style: ElevatedButton.styleFrom(
                           shadowColor: Colors.transparent,

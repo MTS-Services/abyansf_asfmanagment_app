@@ -18,12 +18,10 @@ class IndividualBookingHistory extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
-            child: IndividualBookingWidget(status: true,),
+            child: IndividualBookingWidget(status: true),
           ),
         ),
       ),
     );
   }
 }
-
-

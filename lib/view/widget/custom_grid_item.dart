@@ -10,10 +10,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class CustomGridItem extends StatelessWidget {
-
   final List<Map<String, dynamic>> gridItems;
 
-  const CustomGridItem({super.key, required this.gridItems, });
+  const CustomGridItem({super.key, required this.gridItems});
 
   @override
   Widget build(BuildContext context) {

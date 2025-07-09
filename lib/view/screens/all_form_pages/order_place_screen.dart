@@ -57,7 +57,7 @@ class OrderPlaceScreen extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            Get.to(()=> HomeScreen());
+                            Get.to(() => HomeScreen());
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.white,
@@ -76,7 +76,7 @@ class OrderPlaceScreen extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            Get.to(() => ProfileScreen()); 
+                            Get.to(() => ProfileScreen());
                           },
                           style: ElevatedButton.styleFrom(
                             shadowColor: Colors.transparent,
@@ -86,7 +86,7 @@ class OrderPlaceScreen extends StatelessWidget {
                             children: [
                               Text('Go To Profile'),
                               SizedBox(width: 10),
-                              Icon(Icons.arrow_circle_right_outlined), 
+                              Icon(Icons.arrow_circle_right_outlined),
                             ],
                           ),
                         ),

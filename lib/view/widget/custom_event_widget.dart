@@ -27,7 +27,7 @@ class CustomEventWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Image.asset(AssetPath.rectangel, fit: BoxFit.cover),
+                child: Image.asset(AssetPath.rectAngel, fit: BoxFit.cover),
               ),
               const SizedBox(width: 20),
               Column(

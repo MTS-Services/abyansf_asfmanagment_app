@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../utils/assets_path.dart';
+import '../../utils/style/app_text_styles.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTitle;
+  final bool showBack;
   final ImageProvider<Object>? backGroundImage;
 
-  const HomeAppBar({super.key, this.showTitle = false, this.backGroundImage});
+  const HomeAppBar({
+    super.key,
+    this.showTitle = false,
+    this.backGroundImage,
+    this.showBack = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,27 +30,56 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: showTitle
             ? [
                 // Left: Greeting with Subtitle
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
                   children: [
-                    Text(
-                      "Hi, Mirable",
-                      style: TextStyle(
-                        fontSize: AppStyles.fontXL,
-                        fontWeight: AppStyles.weightMedium,
-                        fontFamily: "Inter",
-                        color: AppColors.blackColor,
+                    if (showBack)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: SizedBox(
+                          child: CircleAvatar(
+                            backgroundColor: Color(0x0A000000),
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.back();
+                              },
+                              child: Container(
+                                height: 32,
+                                width: 32,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppColors.greyBackgroundColor,
+                                ),
+                                child: const Icon(
+                                  Icons.keyboard_arrow_left_outlined,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      "Find the amazing event near you",
-                      style: TextStyle(
-                        fontSize: AppStyles.fontM,
-                        fontWeight: AppStyles.weightRegular,
-                        fontFamily: "Inter",
-                        color: AppColors.blackColor,
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Hi, Mirabel",
+                          style: TextStyle(
+                            fontSize: AppStyles.fontXL,
+                            fontWeight: AppStyles.weightMedium,
+                            fontFamily: "Inter",
+                            color: AppColors.blackColor,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          "Find the amazing event near you",
+                          style: TextStyle(
+                            fontSize: AppStyles.fontM,
+                            fontWeight: AppStyles.weightRegular,
+                            fontFamily: "Inter",
+                            color: AppColors.blackColor,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -52,13 +90,15 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                 // Left: Avatar + Greeting
                 Row(
                   children: [
-
-                    CircleAvatar(radius: 22,
-                      backgroundImage: backGroundImage ?? const AssetImage(AssetPath.navProfile),
+                    CircleAvatar(
+                      radius: 22,
+                      backgroundImage:
+                          backGroundImage ??
+                          const AssetImage(AssetPath.navProfile),
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      "Hi, Mirable",
+                      "Hi, Mirabel",
                       style: TextStyle(
                         fontSize: AppStyles.fontL,
                         fontWeight: AppStyles.weightRegular,

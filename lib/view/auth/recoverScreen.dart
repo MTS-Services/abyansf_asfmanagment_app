@@ -21,7 +21,7 @@ class RecoverScreen extends StatelessWidget {
             Text(
               'Recover Password',
               textAlign: TextAlign.center,
-              style: AppTextStyle.bold40
+              style: AppTextStyle.bold40,
             ),
             SizedBox(height: 20),
             Text(
@@ -34,11 +34,7 @@ class RecoverScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: AppStyles.heightM),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: 'Email'
-              ),
-            ),
+            TextFormField(decoration: InputDecoration(hintText: 'Email')),
 
             SizedBox(height: 20),
             // login button //
@@ -53,9 +49,11 @@ class RecoverScreen extends StatelessWidget {
                       backgroundColor: AppColors.primaryColor,
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    child:  Text(
+                    child: Text(
                       'Submit',
-                      style: AppTextStyle.bold18.copyWith(color: AppColors.white)
+                      style: AppTextStyle.bold18.copyWith(
+                        color: AppColors.white,
+                      ),
                     ),
                   ),
                 ),

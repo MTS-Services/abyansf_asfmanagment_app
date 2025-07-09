@@ -21,10 +21,36 @@ class BeachClubScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 96,
-              width: double.infinity,
-              child: Image.asset(AssetPath.rectangle49, fit: BoxFit.cover),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Stack(
+                children: [
+                  SizedBox(
+                    height: 96,
+                    width: double.infinity,
+                    child: Image.asset(
+                      AssetPath.rectangle49,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 5),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: CircleAvatar(
+                          radius: 18,
+                          backgroundColor: Colors.white70.withAlpha(100),
+                          child: Icon(Icons.keyboard_arrow_left_outlined),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 20),
             Padding(
@@ -48,7 +74,7 @@ class BeachClubScreen extends StatelessWidget {
                   const SizedBox(height: 12),
                   GestureDetector(
                     onTap: () {
-                      Get.off(SingleBeachClubScreen());
+                      Get.to(SingleBeachClubScreen());
                     },
                     child: CarouselSlider.builder(
                       itemCount: images.length,
@@ -57,7 +83,7 @@ class BeachClubScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(8),
                           child: CarouselContainer(
                             imagePath: AssetPath.frameImage,
-                            title: 'Lusery Dinner Venues',
+                            title: 'Eva beach',
                             location: 'Jumeirah Beach Residence',
                             personIcon: AssetPath.personImage,
                             clockIcon: AssetPath.clockImage,

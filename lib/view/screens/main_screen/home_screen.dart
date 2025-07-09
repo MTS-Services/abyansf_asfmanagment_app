@@ -49,9 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HomeAppBar(
-                backGroundImage: AssetImage(AssetPath.profileImage),
-              ),
+              HomeAppBar(backGroundImage: AssetImage(AssetPath.profileImage)),
               const SizedBox(height: 10),
               Text('Services', style: AppTextStyle.bold24),
               const SizedBox(height: 7),
@@ -150,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const Spacer(),
                   TextButton(
                     onPressed: () {
-                      Get.to(EventScreen());
+                      Get.to(() => EventScreen(showBack: true));
                     },
                     child: Text(
                       'See all',

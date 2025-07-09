@@ -1,6 +1,5 @@
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/individual_booking_history.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/booking_history_individual_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,9 @@ import 'package:get/get.dart';
 import '../../../utils/style/appColor.dart';
 
 class EventScreen extends StatelessWidget {
-  const EventScreen({super.key});
+  final bool showBack;
+
+  const EventScreen({super.key, this.showBack = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class EventScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HomeAppBar(showTitle: true),
+                HomeAppBar(showBack: showBack, showTitle: true),
                 const SizedBox(height: 15),
                 Text('Upcoming Event', style: AppTextStyle.bold24),
                 const SizedBox(height: 10),

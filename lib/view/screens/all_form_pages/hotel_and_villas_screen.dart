@@ -58,7 +58,7 @@ class HotelAndVillasScreen extends StatelessWidget {
                 Text('Date', style: AppTextStyle.bold16),
                 Row(
                   children: [
-                    CustomDatePicker(labelText: 'Check in',),
+                    CustomDatePicker(labelText: 'Check in'),
                     SizedBox(width: 10),
                     CustomDatePicker(labelText: 'Check out'),
                   ],
@@ -115,7 +115,7 @@ class HotelAndVillasScreen extends StatelessWidget {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.to(()=> OrderPlaceScreen());
+                          Get.to(() => OrderPlaceScreen());
                         },
                         style: ElevatedButton.styleFrom(
                           shadowColor: Colors.transparent,

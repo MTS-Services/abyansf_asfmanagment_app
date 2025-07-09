@@ -35,7 +35,7 @@ class YachtRequesrFormScreen extends StatelessWidget {
                 Text('Time & duration', style: AppTextStyle.bold16),
                 CustomDropdown(
                   type: size,
-                  hint: 'Select duration for booking yecht',
+                  hint: 'Select duration for booking yacht',
                 ),
                 Text('Date', style: AppTextStyle.bold16),
                 Row(
@@ -98,7 +98,7 @@ class YachtRequesrFormScreen extends StatelessWidget {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.to(()=>OrderPlaceScreen());
+                          Get.to(() => OrderPlaceScreen());
                         },
                         style: ElevatedButton.styleFrom(
                           shadowColor: Colors.transparent,
