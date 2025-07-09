@@ -1,3 +1,4 @@
+import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/order_place_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
 import 'package:flutter/material.dart';
@@ -112,7 +113,9 @@ class LifeStyleScreen extends StatelessWidget {
                     SizedBox(width: 10),
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(()=>OrderPlaceScreen());
+                        },
                         style: ElevatedButton.styleFrom(
                           shadowColor: Colors.transparent,
                         ),

@@ -30,15 +30,6 @@ class ProfileScreen extends StatelessWidget {
       'route': BookingHistory(),
     },
     {
-      'leading': SvgPicture.asset(AssetPath.solarSettings),
-      'title': Text(
-        'Account settings',
-        style: AppTextStyle.regular16.copyWith(color: AppColors.blackColor),
-      ),
-      'trailing': Icon(Icons.arrow_forward_ios),
-      'route': EditProfile(),
-    },
-    {
       'leading': SvgPicture.asset(
         AssetPath.inviteFriend,
         height: 20,
