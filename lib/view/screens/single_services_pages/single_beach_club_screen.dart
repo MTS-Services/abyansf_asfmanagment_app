@@ -27,7 +27,7 @@ class SingleBeachClubScreen extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 290,
+                  height: 250,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(AssetPath.frameImage),
@@ -45,7 +45,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                         icon: CircleAvatar(
                           radius: 18,
                           backgroundColor: Colors.white70.withAlpha(100),
-                          child: Icon(Icons.keyboard_arrow_left_outlined),
+                          child: Icon(Icons.keyboard_arrow_left_outlined, color: AppColors.blackColor,),
                         ),
                       ),
                     ),

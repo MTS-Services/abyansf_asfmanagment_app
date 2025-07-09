@@ -21,36 +21,33 @@ class BeachClubScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Stack(
-                children: [
-                  SizedBox(
-                    height: 96,
-                    width: double.infinity,
-                    child: Image.asset(
-                      AssetPath.rectangle49,
-                      fit: BoxFit.cover,
-                    ),
+            Stack(
+              children: [
+                SizedBox(
+                  height: 250,
+                  width: double.infinity,
+                  child: Image.asset(
+                    AssetPath.rectangle49,
+                    fit: BoxFit.cover,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: CircleAvatar(
-                          radius: 18,
-                          backgroundColor: Colors.white70.withAlpha(100),
-                          child: Icon(Icons.keyboard_arrow_left_outlined),
-                        ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: CircleAvatar(
+                        radius: 18,
+                        backgroundColor: Colors.white70.withAlpha(100),
+                        child: Icon(Icons.keyboard_arrow_left_outlined,color: AppColors.blackColor,),
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             const SizedBox(height: 20),
             Padding(
