@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../utils/assets_path.dart';
-import '../../utils/style/appColor.dart';
+import '../../utils/style/app_color.dart';
 import '../../view_models/controller/counter_controller.dart';
 
 class IncreaseAndDecrease extends StatelessWidget {

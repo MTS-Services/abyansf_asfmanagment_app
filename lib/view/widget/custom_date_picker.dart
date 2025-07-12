@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import '../../utils/style/appColor.dart';
+import '../../utils/style/app_color.dart';
 import '../../view_models/controller/date_controller.dart';
 
 class CustomDatePicker extends StatelessWidget {

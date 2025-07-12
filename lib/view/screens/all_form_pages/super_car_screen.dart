@@ -1,15 +1,10 @@
-import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/order_place_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 import '../../../view_models/controller/counter_controller.dart';
 import '../../widget/custom_drop_down.dart';
@@ -20,7 +15,7 @@ class SuperCarScreen extends StatelessWidget {
 
   final List<String> type = ['Ac', 'NonAc', 'Premium'];
 
-  int adults = 1;
+  final int adults = 1;
   final adultController = Get.put(CounterController(), tag: 'super_adults');
   final childrenController = Get.put(
     CounterController(),
@@ -91,7 +86,6 @@ class SuperCarScreen extends StatelessWidget {
                         onPressed: () {
                           Get.back();
                         },
-                        child: Text('Cancel'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.white,
                           shadowColor: Colors.transparent,
@@ -100,6 +94,7 @@ class SuperCarScreen extends StatelessWidget {
                             borderRadius: BorderRadiusGeometry.circular(4),
                           ),
                         ),
+                        child: Text('Cancel'),
                       ),
                     ),
                     SizedBox(width: 10),

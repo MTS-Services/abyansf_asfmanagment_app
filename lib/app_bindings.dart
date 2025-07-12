@@ -1,7 +1,9 @@
 import 'package:abyansf_asfmanagment_app/view_models/controller/carousel_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/counter_controller.dart';
+import 'package:abyansf_asfmanagment_app/view_models/controller/custom_bottom_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/date_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/recovery_verification_controller.dart';
+import 'package:abyansf_asfmanagment_app/view_models/controller/splash_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/verification_controller.dart';
 import 'package:get/get.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/image_picker_controller.dart';
@@ -15,5 +17,7 @@ class AppBindings extends Bindings {
     Get.put(CounterController());
     Get.put(RecoveryVerificationController());
     Get.put(VerificationController());
+    Get.put(SplashController());
+    Get.put(CustomBottomController());
   }
 }

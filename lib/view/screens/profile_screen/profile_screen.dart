@@ -1,4 +1,4 @@
-import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/login_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/privacy_policy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../utils/assets_path.dart';
 import '../../widget/custom_app_bar.dart';
-import '../../../utils/style/appColor.dart';
+import '../../../utils/style/app_color.dart';
 import '../../../utils/style/app_text_styles.dart';
 import '../../../view_models/controller/image_picker_controller.dart';
 import 'booking_history_screen.dart';

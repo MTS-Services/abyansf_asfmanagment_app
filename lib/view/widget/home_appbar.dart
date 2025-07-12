@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_style.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../utils/assets_path.dart';
-import '../../utils/style/app_text_styles.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTitle;

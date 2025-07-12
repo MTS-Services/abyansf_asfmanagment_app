@@ -46,7 +46,7 @@ class AssetPath {
   static const String otherImage = '$_basePath/other_image.png';
   static const String image34 = '$_basePath/image 34.png';
   static const String image15 = '$_basePath/image14.png';
-  static const String OrderPlaceImage = '$_basePath/order_place_image.png';
+  static const String orderPlaceImage = '$_basePath/order_place_image.png';
   static const String bookingIndImage = '$_basePath/Booking_ind_image.svg.png';
   static const String frame190 = '$_basePath/Frame 190.png';
   static const String menuImage = '$_basePath/menu_image.png';
@@ -62,4 +62,6 @@ class AssetPath {
   static const String entertainMent2 = '$_basePath/entertainment2.png';
   static const String entertainMent3 = '$_basePath/entertainment3.png';
   static const String entertainMent4 = '$_basePath/entertainment4.png';
+  static const String maskGroup = '$_basePath/mask_group.png';
+  static const String massage = '$_basePath/massage.png';
 }
