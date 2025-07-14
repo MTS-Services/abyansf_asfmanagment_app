@@ -9,12 +9,13 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTitle;
   final bool showBack;
   final ImageProvider<Object>? backGroundImage;
+  final Function()? onPressed;
 
   const HomeAppBar({
     super.key,
     this.showTitle = false,
     this.backGroundImage,
-    this.showBack = false,
+    this.showBack = false, this.onPressed,
   });
 
   @override
@@ -82,7 +83,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ],
                 ),
                 // Right: Notification Icon
-                const Icon(Icons.notification_add),
+          IconButton(icon: Icon(Icons.notification_add), onPressed: onPressed,),
               ]
             : [
                 // Left: Avatar + Greeting

@@ -3,6 +3,7 @@ import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/event_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/individual_booking_history.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/notification_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HomeAppBar(backGroundImage: AssetImage(AssetPath.profileImage)),
+              HomeAppBar(backGroundImage: AssetImage(AssetPath.profileImage),onPressed:(){Get.to(()=>NotificationScreen());}),
               const SizedBox(height: 10),
               Text('Services', style: AppTextStyle.bold24),
               const SizedBox(height: 7),

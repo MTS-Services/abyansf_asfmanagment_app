@@ -65,56 +65,56 @@ class ExploreScreen extends StatelessWidget {
   final entertainMent = [
     {
       'title': 'Desert activities',
-      'image': AssetPath.travel1,
+      'image': AssetPath.entertainMent1,
       'screen': DesertActivitiesScreen(),
     },
     {
       'title': 'Water sports',
-      'image': AssetPath.travel2,
+      'image': AssetPath.entertainMent2,
       'screen': WaterSportScreen(),
     },
     {
       'title': 'Helicopter tour',
-      'image': AssetPath.travel3,
+      'image': AssetPath.entertainMent3,
       'screen': Massage(),
     },
     {
       'title': 'City tour',
-      'image': AssetPath.travel4,
+      'image': AssetPath.entertainMent4,
       'screen': Massage(),
     },
   ];
   final professional = [
     {
       'title': 'VIP Chauffeur',
-      'image': AssetPath.travel1,
+      'image': AssetPath.professional1,
       'screen': Massage(),
     },
     {
       'title': 'Event Hostess and Models',
-      'image': AssetPath.travel2,
+      'image': AssetPath.entertainMent1,
       'screen': Massage(),
     },
     {
       'title': 'Personal Shoppers',
-      'image': AssetPath.travel3,
+      'image': AssetPath.professional3,
       'screen': Massage(),
     },
     {
       'title': 'Luxury Real Estate Consultant Luxury Real Estate Consultant',
-      'image': AssetPath.travel4,
+      'image': AssetPath.professional4,
       'screen': Massage(),
     },
   ];
   final tripsAndExpedition  = [
     {
       'title': 'Arctic Exploration',
-      'image': AssetPath.travel1,
+      'image': AssetPath.trips1,
       'screen': Massage(),
     },
     {
       'title': 'Africa Safari',
-      'image': AssetPath.travel2,
+      'image': AssetPath.trips2,
       'screen': Massage(),
     },
   ];

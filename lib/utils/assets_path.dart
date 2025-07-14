@@ -62,6 +62,11 @@ class AssetPath {
   static const String entertainMent2 = '$_basePath/entertainment2.png';
   static const String entertainMent3 = '$_basePath/entertainment3.png';
   static const String entertainMent4 = '$_basePath/entertainment4.png';
+  static const String professional1 = '$_basePath/professional1.png';
+  static const String professional3 = '$_basePath/professional3.png';
+  static const String professional4 = '$_basePath/professional4.png';
+  static const String trips1 = '$_basePath/trips1.png';
+  static const String trips2 = '$_basePath/trips2.png';
   static const String maskGroup = '$_basePath/mask_group.png';
   static const String massage = '$_basePath/massage.png';
 }
