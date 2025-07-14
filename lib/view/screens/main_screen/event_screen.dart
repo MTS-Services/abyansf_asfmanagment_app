@@ -1,5 +1,6 @@
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/individual_booking_history.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/notification_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,9 @@ class EventScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HomeAppBar(showBack: showBack, showTitle: true),
+                HomeAppBar(showBack: showBack, showTitle: true,onPressed: (){
+                  Get.to(()=>NotificationScreen());
+                },),
                 const SizedBox(height: 15),
                 Text('Upcoming Event', style: AppTextStyle.bold24),
                 const SizedBox(height: 10),

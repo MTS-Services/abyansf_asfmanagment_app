@@ -1,156 +1,161 @@
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({super.key});
+import '../../../view_models/controller/notification_controller.dart';
+
+class NotificationScreen extends GetView<NotificationController> {
+  NotificationScreen({super.key});
+
+  final List<Map<String, String>> notificationsList = [
+    {
+      'title': 'Reminder for your Night life',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '9min ago',
+    },
+    {
+      'title': 'Reminder for your Dinner',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '19min ago',
+    },
+    {
+      'title': 'Reminder for your Camel Camp',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '9min ago',
+    },
+    {
+      'title': 'Breakfast',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '08.07.2025',
+    },
+    {
+      'title': 'Reminder for your Yacht',
+      'subtitle': 'Looking forward to it',
+      'time': '07.07.2025',
+    },
+    {
+      'title': 'Luxury Diner Venues',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '05.07.2025',
+    },
+    {
+      'title': 'Reminder for your Camel Camp',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '9min ago',
+    },
+    {
+      'title': 'Breakfast',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '08.07.2025',
+    },
+    {
+      'title': 'Reminder for your Yacht',
+      'subtitle': 'Looking forward to it',
+      'time': '07.07.2025',
+    },
+    {
+      'title': 'Luxury Diner Venues',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '05.07.2025',
+    },
+    {
+      'title': 'Reminder for your Camel Camp',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '9min ago',
+    },
+    {
+      'title': 'Breakfast',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '08.07.2025',
+    },
+    {
+      'title': 'Reminder for your Yacht',
+      'subtitle': 'Looking forward to it',
+      'time': '07.07.2025',
+    },
+    {
+      'title': 'Luxury Diner Venues',
+      'subtitle': 'Learn more about managing account info and activity',
+      'time': '05.07.2025',
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          const SizedBox(height: 44),
-          // Top App Bar
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-            child: Row(
-              children: [
-                const Icon(Icons.arrow_back_ios_new, size: 24),
-                const SizedBox(width: 12),
-                const Text(
-                  'Notifications',
-                  style: TextStyle(
-                    color: Color(0xFF1A1A1A),
-                    fontSize: 20,
-                    fontFamily: 'Playfair Display',
-                    fontWeight: FontWeight.w600,
+      body: SafeArea(
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  CustomAppBar(title: 'Notification'),
+                  SizedBox(
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: notificationsList.length,
+                      itemBuilder: (context, index) {
+                        final notification = notificationsList[index];
+                        return Card(
+                          elevation: 20,
+                          color: AppColors.white,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            child: ListTile(
+                              title: Text(
+                                notification['title'] ?? '',
+                                style: AppTextStyle.bold16,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              subtitle: Text(
+                                notification['subtitle'] ?? '',
+                                style: AppTextStyle.regular12.copyWith(
+                                  color: AppColors.textColor,
+                                ),
+                              ),
+                              trailing: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    notification['time'] ?? '',
+                                    style: AppTextStyle.interRegular10,
+                                  ),
+                                  Container(
+                                    width: 12,
+                                    height: 12,
+                                    margin: const EdgeInsets.only(top: 4),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.primaryDeepColor,
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ),
+                                  SizedBox(),
+                                ],
+                              ),
+                              leading: CircleAvatar(
+                                backgroundColor: AppColors.secondaryColor,
+                                child: Icon(
+                                  Icons.notifications_outlined,
+                                  color: AppColors.primaryDeepColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-
-          // Notifications List
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              children: [
-                _notificationCard(
-                  title: 'Reminder for your Night life',
-                  subtitle: 'Learn more about managing account info and activity',
-                  time: '9min ago',
-                ),
-                _notificationCard(
-                  title: 'Reminder for your Dinner',
-                  subtitle: 'Learn more about managing account info and activity',
-                  time: '19min ago',
-                ),
-                _notificationCard(
-                  title: 'Reminder for your Camel Camp',
-                  subtitle: 'Learn more about managing account info and activity',
-                  time: '9min ago',
-                ),
-                _notificationCard(
-                  title: 'Reminder for your Yacht',
-                  subtitle: 'Looking forward to it',
-                  time: '9min ago',
-                ),
-                _notificationCard(
-                  title: 'Luxury Diner Venues',
-                  subtitle: 'Learn more about managing account info and activity',
-                  time: '14min ago',
-                ),
-                _notificationCard(
-                  title: 'Breakfast',
-                  subtitle: 'Learn more about managing account info and activity',
-                  time: '9min ago',
-                ),
-              ],
-            ),
-          ),
-
-          // Bottom Bar Indicator
-          Container(
-            margin: const EdgeInsets.only(bottom: 12, top: 10),
-            width: 134,
-            height: 5,
-            decoration: BoxDecoration(
-              color: const Color(0xFF888888),
-              borderRadius: BorderRadius.circular(100),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _notificationCard({
-    required String title,
-    required String subtitle,
-    required String time,
-  }) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: const Color(0x14000000),
-            blurRadius: 30,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 48,
-            height: 48,
-            decoration: BoxDecoration(
-              color: const Color(0xFFF8F6EE),
-              shape: BoxShape.circle,
-            ),
-            child: const Icon(Icons.notifications, color: Colors.black54),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontFamily: 'Playfair Display',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  subtitle,
-                  style: const TextStyle(
-                    color: Color(0xFF6D6D6D),
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  time,
-                  style: const TextStyle(
-                    color: Color(0xFF888888),
-                    fontSize: 10,
-                    fontFamily: 'Inter',
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

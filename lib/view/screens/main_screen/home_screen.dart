@@ -48,7 +48,12 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HomeAppBar(backGroundImage: AssetImage(AssetPath.profileImage),onPressed:(){Get.to(()=>NotificationScreen());}),
+              HomeAppBar(
+                backGroundImage: AssetImage(AssetPath.profileImage),
+                onPressed: () {
+                  Get.to(() => NotificationScreen());
+                },
+              ),
               const SizedBox(height: 10),
               Text('Services', style: AppTextStyle.bold24),
               const SizedBox(height: 7),

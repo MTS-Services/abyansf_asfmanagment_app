@@ -39,7 +39,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                             backgroundColor: Color(0x0A000000),
                             child: GestureDetector(
                               onTap: () {
-                                Get.back();
+                                Get.back(); 
                               },
                               child: Container(
                                 height: 32,
@@ -137,9 +137,8 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ],
                   ),
                 ),
-
                 // Right: Notification Icon
-                const Icon(Icons.notification_add),
+          IconButton(icon: Icon(Icons.notification_add), onPressed: onPressed,),
               ],
       ),
     );
