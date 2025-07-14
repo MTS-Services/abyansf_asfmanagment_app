@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/login_screen.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
@@ -15,7 +16,7 @@ class SplashController extends GetxController {
     if(currentIndex.value < images.length-1){
       currentIndex++;
     } else {
-      currentIndex.value = 0;
+      Get.to(LoginScreen());
     }
     update();
   }

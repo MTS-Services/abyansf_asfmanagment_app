@@ -7,7 +7,6 @@ import '../../auth/onbording_screen.dart';
 
 class SplashScreen extends GetView<SplashController>  {
   SplashScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
