@@ -1,11 +1,10 @@
 import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/order_place_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_drop_down.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../utils/style/app_text_styles.dart';
 import '../../../view_models/controller/counter_controller.dart';
@@ -16,7 +15,7 @@ class JetsScreen extends StatelessWidget {
 
   List<String> trip = ['One-way', 'Round trip'];
 
-  int adults = 1;
+  final int adults = 1;
   final adultController = Get.put(CounterController(), tag: 'jets_adults');
   final childrenController = Get.put(CounterController(), tag: 'jets_children');
 
@@ -99,7 +98,6 @@ class JetsScreen extends StatelessWidget {
                         onPressed: () {
                           Get.back();
                         },
-                        child: Text('Cancel'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.white,
                           shadowColor: Colors.transparent,
@@ -108,6 +106,7 @@ class JetsScreen extends StatelessWidget {
                             borderRadius: BorderRadiusGeometry.circular(4),
                           ),
                         ),
+                        child: Text('Cancel'),
                       ),
                     ),
                     SizedBox(width: 10),

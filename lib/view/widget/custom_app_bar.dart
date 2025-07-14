@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../utils/style/appColor.dart';
+import 'package:get/get.dart';
+import '../../utils/style/app_color.dart';
 import '../../utils/style/app_text_styles.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -26,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           showBack
               ? GestureDetector(
-                  onTap: onBackTap ?? () => Navigator.pop(context),
+                  onTap: onBackTap ?? () => Get.back(),
                   child: Container(
                     height: 32,
                     width: 32,

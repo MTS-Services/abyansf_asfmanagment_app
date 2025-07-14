@@ -5,7 +5,7 @@ import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../utils/style/appColor.dart';
+import '../../../utils/style/app_color.dart';
 
 class EventScreen extends StatelessWidget {
   final bool showBack;

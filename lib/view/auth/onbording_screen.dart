@@ -1,12 +1,10 @@
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/login_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/signup_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class OnbordingScreen extends StatelessWidget {
   OnbordingScreen({super.key});

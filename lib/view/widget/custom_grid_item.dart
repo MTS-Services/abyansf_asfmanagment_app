@@ -1,13 +1,7 @@
-import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/hotel_and_villas_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/jets_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/order_place_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class CustomGridItem extends StatelessWidget {
   final List<Map<String, dynamic>> gridItems;
@@ -19,12 +13,13 @@ class CustomGridItem extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 4,
+      itemCount: gridItems.length,
       // Add your desired item count
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisSpacing: 14.0,
+        mainAxisSpacing: 4.0,
         crossAxisSpacing: 14.0,
+        childAspectRatio: 0.72,
       ),
       itemBuilder: (context, index) {
         final item = gridItems[index];
@@ -35,20 +30,23 @@ class CustomGridItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Container(
-                  height: 169,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(item['image']),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+              SizedBox(
+                height: 169,
+                width: double.infinity,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(item['image'], fit: BoxFit.cover),
                 ),
               ),
-              Text(item['title'], style: AppTextStyle.bold16),
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Text(
+                  item['title'],
+                  style: AppTextStyle.bold16,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ],
           ),
         );

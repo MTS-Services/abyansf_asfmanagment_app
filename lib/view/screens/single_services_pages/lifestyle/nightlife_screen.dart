@@ -1,0 +1,155 @@
+import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/single_life_style/single_beach_club_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/single_life_style/single_nightlife_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../../view_models/controller/carousel_controller.dart';
+
+class NightlifeScreen extends StatelessWidget {
+  NightlifeScreen({super.key});
+  final List<String> multiImage =[
+    AssetPath.entertainMent1,
+    AssetPath.entertainMent2,
+    AssetPath.entertainMent3,
+    AssetPath.entertainMent4
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                SizedBox(
+                  height: 250,
+                  width: double.infinity,
+                  child: Image.asset(AssetPath.lifeStyle3, fit: BoxFit.cover),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 40, left: 10),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: CircleAvatar(
+                        radius: 18,
+                        backgroundColor: Colors.white70.withAlpha(100),
+                        child: Icon(Icons.keyboard_arrow_left_outlined),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Club', style: AppTextStyle.bold24),
+                  const SizedBox(height: 12),
+                  CarouselContainer(
+                    imagePath: AssetPath.lifeStyle3,
+                    title: "Elite Nightclubs",
+                    location: "Jumeirah Beach Residence",
+                    personIcon: AssetPath.personImage,
+                    clockIcon: AssetPath.clockImage,
+                    width: double.infinity,
+                    height: 167,
+                  ),
+                  const SizedBox(height: 25),
+                  Text('Bars', style: AppTextStyle.bold24),
+                  const SizedBox(height: 12),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(SingleNightlifeScreen());
+                    },
+                    child: CarouselSlider.builder(
+                      itemCount: multiImage.length,
+                      itemBuilder: (context, index, realIndex) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: CarouselContainer(
+                            imagePath: multiImage[index],
+                            title: 'VIP Lounge Bars',
+                            location: 'Jumeirah Beach Residence',
+                            personIcon: AssetPath.personImage,
+                            clockIcon: AssetPath.clockImage,
+                          ),
+                        );
+                      },
+                      options: CarouselOptions(
+                        height: 220,
+                        autoPlay: false,
+                        enlargeCenterPage: false,
+                        aspectRatio: 16 / 9,
+                        viewportFraction: 0.83,
+                        autoPlayInterval: const Duration(seconds: 3),
+                        onPageChanged: (index, reason) {
+                          _carouselSliderController.currentIndex.value = index;
+                        },
+                      ),
+                    ),
+                  ),
+        
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(images.length, (index) {
+                            return GestureDetector(
+                              onTap: () {
+                                _carouselSliderController.currentIndex.value;
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(2),
+                                child: Container(
+                                  width:
+                                      _carouselSliderController.currentIndex ==
+                                          index
+                                      ? 16
+                                      : 5,
+                                  height: 4,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    color:
+                                        _carouselSliderController.currentIndex ==
+                                            index
+                                        ? AppColors.primaryColor
+                                        : AppColors.lightGrey,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+final CarouselSliderControllers _carouselSliderController = Get.find();

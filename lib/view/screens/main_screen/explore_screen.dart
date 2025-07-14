@@ -1,13 +1,17 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/hotel_and_villas_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/jets_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/life_style_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/super_car_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/yacht_requesr_form_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/beach_club_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/yacht_request_form_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/massage.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/lifestyle/beach_club_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/desert_activities_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/lifestyle/dining_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/lifestyle/nightlife_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/lifestyle/wellness_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/water_sport_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_grid_item.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +22,7 @@ class ExploreScreen extends StatelessWidget {
     {
       'title': 'Dinning',
       'image': AssetPath.lifeStyle1,
-      'screen': BeachClubScreen(),
+      'screen': DiningScreen(),
     },
     {
       'title': 'Beach club',
@@ -28,12 +32,12 @@ class ExploreScreen extends StatelessWidget {
     {
       'title': 'Nightlife',
       'image': AssetPath.lifeStyle3,
-      'screen': BeachClubScreen(),
+      'screen': NightlifeScreen(),
     },
     {
       'title': 'Wellness',
       'image': AssetPath.lifeStyle4,
-      'screen': BeachClubScreen(),
+      'screen': WellnessScreen(),
     },
   ];
   final travel = [
@@ -45,7 +49,7 @@ class ExploreScreen extends StatelessWidget {
     {
       'title': 'Yacht',
       'image': AssetPath.travel2,
-      'screen': YachtRequesrFormScreen(),
+      'screen': YachtRequestFormScreen(),
     },
     {
       'title': 'Private Jets',
@@ -60,24 +64,58 @@ class ExploreScreen extends StatelessWidget {
   ];
   final entertainMent = [
     {
-      'title': 'Hotel & Villas',
+      'title': 'Desert activities',
       'image': AssetPath.travel1,
-      'screen': HotelAndVillasScreen(),
+      'screen': DesertActivitiesScreen(),
     },
     {
-      'title': 'Yacht',
+      'title': 'Water sports',
       'image': AssetPath.travel2,
-      'screen': YachtRequesrFormScreen(),
+      'screen': WaterSportScreen(),
     },
     {
-      'title': 'Private Jets',
+      'title': 'Helicopter tour',
       'image': AssetPath.travel3,
-      'screen': JetsScreen(),
+      'screen': Massage(),
     },
     {
-      'title': 'Super car',
+      'title': 'City tour',
       'image': AssetPath.travel4,
-      'screen': SuperCarScreen(),
+      'screen': Massage(),
+    },
+  ];
+  final professional = [
+    {
+      'title': 'VIP Chauffeur',
+      'image': AssetPath.travel1,
+      'screen': Massage(),
+    },
+    {
+      'title': 'Event Hostess and Models',
+      'image': AssetPath.travel2,
+      'screen': Massage(),
+    },
+    {
+      'title': 'Personal Shoppers',
+      'image': AssetPath.travel3,
+      'screen': Massage(),
+    },
+    {
+      'title': 'Luxury Real Estate Consultant Luxury Real Estate Consultant',
+      'image': AssetPath.travel4,
+      'screen': Massage(),
+    },
+  ];
+  final tripsAndExpedition  = [
+    {
+      'title': 'Arctic Exploration',
+      'image': AssetPath.travel1,
+      'screen': Massage(),
+    },
+    {
+      'title': 'Africa Safari',
+      'image': AssetPath.travel2,
+      'screen': Massage(),
     },
   ];
 
@@ -114,11 +152,11 @@ class ExploreScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 Text('Professional', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
-                CustomGridItem(gridItems: lifeStyle),
+                CustomGridItem(gridItems: professional),
                 const SizedBox(height: 10),
                 Text('Trips & expedition', style: AppTextStyle.bold24),
                 const SizedBox(height: 8),
-                CustomGridItem(gridItems: travel),
+                CustomGridItem(gridItems: tripsAndExpedition),
               ],
             ),
           ),

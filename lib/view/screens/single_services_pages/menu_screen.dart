@@ -1,5 +1,5 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 

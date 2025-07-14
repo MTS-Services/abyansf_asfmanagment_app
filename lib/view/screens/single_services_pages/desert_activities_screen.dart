@@ -1,38 +1,53 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_style.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/main_screen/massage.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../view_models/controller/carousel_controller.dart';
 
-class DesertActivitiesScreen extends StatefulWidget {
-  const DesertActivitiesScreen({super.key});
+class DesertActivitiesScreen extends StatelessWidget {
+  DesertActivitiesScreen({super.key});
 
-  @override
-  State<DesertActivitiesScreen> createState() => _DesertActivitiesScreenState();
-}
-
-class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
   final CarouselSliderControllers _carouselSliderController = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 96,
-              width: double.infinity,
-              child: Image.asset(AssetPath.image, fit: BoxFit.cover),
+            Stack(
+              children: [
+                SizedBox(
+                  height: 250,
+                  width: double.infinity,
+                  child: Image.asset(AssetPath.image, fit: BoxFit.cover),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 40, left: 10),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: CircleAvatar(
+                        radius: 18,
+                        backgroundColor: Colors.white70.withAlpha(100),
+                        child: Icon(Icons.keyboard_arrow_left_outlined),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 20),
             Padding(
@@ -40,7 +55,7 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Pools', style: AppTextStyle.bold24),
+                  Text('camp', style: AppTextStyle.bold24),
                   const SizedBox(height: 12),
                   CarouselContainer(
                     imagePath: AssetPath.image12,
@@ -54,7 +69,7 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                   const SizedBox(height: 30),
                   Row(
                     children: [
-                      Text('Beach', style: AppTextStyle.bold24),
+                      Text('Desert', style: AppTextStyle.bold24),
                       Spacer(),
                       Text(
                         'See all',
@@ -68,27 +83,32 @@ class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  CarouselSlider.builder(
-                    itemCount: 3,
-                    itemBuilder: (context, index, realIndex) {
-                      return CarouselContainer(
-                        imagePath: AssetPath.image13,
-                        title: 'Single Buggy Ride',
-                        location: 'Jumeirah Beach Residence',
-                        personIcon: AssetPath.personImage,
-                        clockIcon: AssetPath.clockImage,
-                      );
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => Massage());
                     },
-                    options: CarouselOptions(
-                      height: 220,
-                      enlargeCenterPage: false,
-                      autoPlay: false,
-                      aspectRatio: 16 / 9,
-                      autoPlayInterval: const Duration(seconds: 3),
-                      viewportFraction: 0.83,
-                      onPageChanged: (index, reason) {
-                        _carouselSliderController.currentIndex.value = index;
+                    child: CarouselSlider.builder(
+                      itemCount: 3,
+                      itemBuilder: (context, index, realIndex) {
+                        return CarouselContainer(
+                          imagePath: AssetPath.image13,
+                          title: 'Single Buggy Ride',
+                          location: 'Jumeirah Beach Residence',
+                          personIcon: AssetPath.personImage,
+                          clockIcon: AssetPath.clockImage,
+                        );
                       },
+                      options: CarouselOptions(
+                        height: 220,
+                        enlargeCenterPage: false,
+                        autoPlay: false,
+                        aspectRatio: 16 / 9,
+                        autoPlayInterval: const Duration(seconds: 3),
+                        viewportFraction: 0.83,
+                        onPageChanged: (index, reason) {
+                          _carouselSliderController.currentIndex.value = index;
+                        },
+                      ),
                     ),
                   ),
 

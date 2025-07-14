@@ -1,10 +1,8 @@
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/event_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/individual_booking_history.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/booking_history_individual_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
