@@ -15,7 +15,7 @@ void main() {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           initialBinding: AppBindings(),
-          home: ManagmentApp(),
+          home: ManagementApp(),
           theme: themeData(),
         );
       },

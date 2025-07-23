@@ -1,7 +1,7 @@
 import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_style.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/gmail_verification_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/otp_verification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

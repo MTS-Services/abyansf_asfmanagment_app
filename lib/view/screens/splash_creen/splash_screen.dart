@@ -1,4 +1,8 @@
+import 'package:abyansf_asfmanagment_app/data/state_holder/auth_controller.dart';
+import 'package:abyansf_asfmanagment_app/data/state_holder/otp_verification_controller.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/login_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../utils/style/app_color.dart';
@@ -7,6 +11,7 @@ import '../../auth/onbording_screen.dart';
 
 class SplashScreen extends GetView<SplashController>  {
   SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +70,9 @@ class SplashScreen extends GetView<SplashController>  {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     GestureDetector(
-                      onTap: () => Get.to(() => OnbordingScreen()),
+                      onTap: () {
+                        Get.to(LoginScreen());
+                      },
                       child: Text(
                         'Skip',
                         style: AppTextStyle.bold16.copyWith(

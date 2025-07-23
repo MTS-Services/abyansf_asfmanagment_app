@@ -1,3 +1,7 @@
+import 'package:abyansf_asfmanagment_app/data/state_holder/auth_controller.dart';
+import 'package:abyansf_asfmanagment_app/data/state_holder/login_controller.dart';
+import 'package:abyansf_asfmanagment_app/data/state_holder/otp_verification_controller.dart';
+import 'package:abyansf_asfmanagment_app/data/state_holder/registration_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/carousel_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/counter_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/custom_bottom_controller.dart';
@@ -19,5 +23,9 @@ class AppBindings extends Bindings {
     Get.put(VerificationController());
     Get.put(SplashController());
     Get.put(CustomBottomController());
+    Get.put(RegistrationController());
+    Get.put(OtpVerificationController());
+    Get.put(LoginController());
+    Get.put(AuthController());
   }
 }
