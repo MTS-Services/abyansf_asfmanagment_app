@@ -1,4 +1,7 @@
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+
+import 'package:abyansf_asfmanagment_app/data/state_holder/get_all_categories_controller.dart';
+import 'package:get/get.dart';
+
 
 class CustomBottomController extends GetxController {
   int selectedIndex = 0;
@@ -7,4 +10,5 @@ class CustomBottomController extends GetxController {
     selectedIndex = index;
     update();
   }
+
 }

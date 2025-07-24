@@ -1,3 +1,4 @@
+import 'package:abyansf_asfmanagment_app/data/state_holder/controller/counter_controller.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/order_place_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_date_picker.dart';
@@ -7,7 +8,6 @@ import 'package:get/get.dart';
 
 import '../../../utils/style/app_color.dart';
 import '../../../utils/style/app_text_styles.dart';
-import '../../../view_models/controller/counter_controller.dart';
 import '../../widget/increase_and_decrease.dart';
 
 class DiningForm extends StatelessWidget {

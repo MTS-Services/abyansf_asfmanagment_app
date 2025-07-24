@@ -15,21 +15,27 @@ class AuthController {
   static Future<void> setAccessToken(String token)async{
     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.setString('access_token', token);
-    // _accessToken=token;
-    // print("Access Token Saved: $_accessToken");
   }
 
-  static Future<void> getAccessToken()async{
+  static Future<void> getAccessToken() async {
     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    accessToken=sharedPreferences.getString('access_token')??'null';
-    // print("Access Token: $_accessToken");
+    accessToken = sharedPreferences.getString('access_token') ?? '';  // Set accessToken to empty string if not found
   }
-  static bool isLoggedIn(){
 
-    if(accessToken=="null"){
-      return false;
-    }else{
-      return true;
-    }
+
+  static Future<void> deleteToken() async {
+    final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.remove('access_token');  // Remove the token from SharedPreferences
+    accessToken = '';  // Reset the token in memory
+
+    // Reload the token to make sure the in-memory state is up-to-date
+    await getAccessToken();
   }
+
+
+
+  static bool isLoggedIn() {
+    return accessToken.isNotEmpty;  // If accessToken is not empty, user is logged in
+  }
+
 }

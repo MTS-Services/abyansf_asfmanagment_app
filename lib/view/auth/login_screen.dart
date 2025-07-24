@@ -1,12 +1,10 @@
+import 'package:abyansf_asfmanagment_app/data/state_holder/controller/visible_controller.dart';
 import 'package:abyansf_asfmanagment_app/data/state_holder/login_controller.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
-import 'package:abyansf_asfmanagment_app/view/widget/custom_bottom_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_style.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/recover_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signup_screen.dart';
-import 'package:abyansf_asfmanagment_app/view/widget/custom_snack_bar.dart';
-import 'package:abyansf_asfmanagment_app/view_models/controller/visible_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,8 +12,11 @@ class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
 
   final VisibleController visible = Get.put(VisibleController());
-  final TextEditingController _emailTEController = TextEditingController(text: "tlvlqwlf5vhmmh@amz.vsmailpro.com");
-  final TextEditingController _passwordTEController = TextEditingController(text: "WcWEZJXG");
+
+  final TextEditingController _emailTEController = TextEditingController(text: "remonhowlader869@gmail.com");
+
+  final TextEditingController _passwordTEController = TextEditingController(text: "oEprH13U");
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -51,11 +52,8 @@ class LoginScreen extends StatelessWidget {
                       if (value == null || value.isEmpty) {
                         return 'Enter your email';
                       }
-
-
                       return null;
                     },
-
                     decoration: InputDecoration(hintText: 'Email'),
                   ),
                   SizedBox(height: 20),
@@ -161,6 +159,7 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+
   Future<void> getLogin(LoginController loginController )async{
     loginController.userLogin(
         _emailTEController.text.trim(),

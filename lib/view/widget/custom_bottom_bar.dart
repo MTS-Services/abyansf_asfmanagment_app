@@ -5,11 +5,11 @@ import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/event_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/explore_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
-import 'package:abyansf_asfmanagment_app/view_models/controller/custom_bottom_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../../data/state_holder/controller/custom_bottom_controller.dart';
 import '../screens/profile_screen/profile_screen.dart';
 
 class CustomBottomBar extends StatelessWidget {

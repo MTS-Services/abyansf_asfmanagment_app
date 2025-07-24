@@ -24,7 +24,6 @@ class LoginController extends GetxController{
     if(response.statusCode== 200){
       Get.to(()=>CustomBottomBar());
     }else {
-      //snackbar
       customSnackBar("failed", 'Try again');
     }
   }

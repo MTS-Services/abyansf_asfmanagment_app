@@ -1,10 +1,10 @@
+import 'package:abyansf_asfmanagment_app/data/state_holder/controller/notification_controller.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../view_models/controller/notification_controller.dart';
 
 class NotificationScreen extends GetView<NotificationController> {
   NotificationScreen({super.key});

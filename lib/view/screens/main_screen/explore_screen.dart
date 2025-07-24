@@ -1,3 +1,4 @@
+import 'package:abyansf_asfmanagment_app/data/state_holder/get_all_categories_controller.dart';
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
@@ -17,7 +18,22 @@ import 'package:abyansf_asfmanagment_app/view/widget/custom_grid_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ExploreScreen extends StatelessWidget {
+class ExploreScreen extends StatefulWidget {
+  ExploreScreen({super.key});
+
+  @override
+  State<ExploreScreen> createState() => _ExploreScreenState();
+}
+
+class _ExploreScreenState extends State<ExploreScreen> {
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      Get.find<GetAllCategoriesController>().getAllCategories();
+    });
+    super.initState();
+  }
   final lifeStyle = [
     {
       'title': 'Dinning',
@@ -40,6 +56,7 @@ class ExploreScreen extends StatelessWidget {
       'screen': WellnessScreen(),
     },
   ];
+
   final travel = [
     {
       'title': 'Hotel & Villas',
@@ -62,6 +79,7 @@ class ExploreScreen extends StatelessWidget {
       'screen': SuperCarScreen(),
     },
   ];
+
   final entertainMent = [
     {
       'title': 'Desert activities',
@@ -84,6 +102,7 @@ class ExploreScreen extends StatelessWidget {
       'screen': Massage(),
     },
   ];
+
   final professional = [
     {
       'title': 'VIP Chauffeur',
@@ -106,6 +125,7 @@ class ExploreScreen extends StatelessWidget {
       'screen': Massage(),
     },
   ];
+
   final tripsAndExpedition  = [
     {
       'title': 'Arctic Exploration',
@@ -119,8 +139,6 @@ class ExploreScreen extends StatelessWidget {
     },
   ];
 
-  ExploreScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,35 +147,42 @@ class ExploreScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomAppBar(title: "Explore", showBack: false),
-                Text('LifeStyles', style: AppTextStyle.bold24),
-                const SizedBox(height: 8),
-                InkWell(
-                  onTap: () {
-                    Get.to(BeachClubScreen());
-                  },
-                  child: CustomGridItem(gridItems: lifeStyle),
-                ),
-                const SizedBox(height: 10),
-                Text('Travel', style: AppTextStyle.bold24),
-                const SizedBox(height: 8),
-                CustomGridItem(gridItems: travel),
-                const SizedBox(height: 10),
-                Text('Entertainment', style: AppTextStyle.bold24),
-                const SizedBox(height: 8),
-                CustomGridItem(gridItems: entertainMent),
-                const SizedBox(height: 10),
-                Text('Professional', style: AppTextStyle.bold24),
-                const SizedBox(height: 8),
-                CustomGridItem(gridItems: professional),
-                const SizedBox(height: 10),
-                Text('Trips & expedition', style: AppTextStyle.bold24),
-                const SizedBox(height: 8),
-                CustomGridItem(gridItems: tripsAndExpedition),
-              ],
+            child: GetBuilder<GetAllCategoriesController>(
+              builder: (allCategoriesController) {
+                if(allCategoriesController.getAllCategoriesInProgress){
+                  return Center(child: CircularProgressIndicator(),);
+                }
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomAppBar(title: "Explore", showBack: false),
+                    Text('si', style: AppTextStyle.bold24),
+                    const SizedBox(height: 8),
+                    InkWell(
+                      onTap: () {
+                        Get.to(BeachClubScreen());
+                      },
+                      child: CustomGridItem(gridItems: lifeStyle),
+                    ),
+                    const SizedBox(height: 10),
+                    Text('Travel', style: AppTextStyle.bold24),
+                    const SizedBox(height: 8),
+                    CustomGridItem(gridItems: travel),
+                    const SizedBox(height: 10),
+                    Text('Entertainment', style: AppTextStyle.bold24),
+                    const SizedBox(height: 8),
+                    CustomGridItem(gridItems: entertainMent),
+                    const SizedBox(height: 10),
+                    Text('Professional', style: AppTextStyle.bold24),
+                    const SizedBox(height: 8),
+                    CustomGridItem(gridItems: professional),
+                    const SizedBox(height: 10),
+                    Text('Trips & expedition', style: AppTextStyle.bold24),
+                    const SizedBox(height: 8),
+                    CustomGridItem(gridItems: tripsAndExpedition),
+                  ],
+                );
+              }
             ),
           ),
         ),

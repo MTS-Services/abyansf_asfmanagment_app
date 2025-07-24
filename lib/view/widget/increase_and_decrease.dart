@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../../data/state_holder/controller/counter_controller.dart';
 import '../../utils/assets_path.dart';
 import '../../utils/style/app_color.dart';
-import '../../view_models/controller/counter_controller.dart';
 
 class IncreaseAndDecrease extends StatelessWidget {
   final String type;

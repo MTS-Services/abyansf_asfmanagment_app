@@ -1,7 +1,7 @@
+import 'package:abyansf_asfmanagment_app/data/state_holder/controller/custom_bottom_controller.dart';
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_bottom_bar.dart';
-import 'package:abyansf_asfmanagment_app/view_models/controller/custom_bottom_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

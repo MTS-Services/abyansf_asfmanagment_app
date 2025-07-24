@@ -1,3 +1,4 @@
+import 'package:abyansf_asfmanagment_app/data/state_holder/controller/carousel_controller.dart';
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_style.dart';
@@ -8,8 +9,6 @@ import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../view_models/controller/carousel_controller.dart';
 
 class WaterSportScreen extends StatelessWidget {
    WaterSportScreen({super.key});

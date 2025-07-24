@@ -10,7 +10,7 @@ import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../view_models/controller/carousel_controller.dart';
+import '../../../data/state_holder/controller/carousel_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

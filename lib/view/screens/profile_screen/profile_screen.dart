@@ -1,3 +1,5 @@
+import 'package:abyansf_asfmanagment_app/data/state_holder/auth_controller.dart';
+import 'package:abyansf_asfmanagment_app/data/state_holder/controller/image_picker_controller.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/login_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/privacy_policy.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +10,14 @@ import '../../../utils/assets_path.dart';
 import '../../widget/custom_app_bar.dart';
 import '../../../utils/style/app_color.dart';
 import '../../../utils/style/app_text_styles.dart';
-import '../../../view_models/controller/image_picker_controller.dart';
 import 'booking_history_screen.dart';
 import 'edit_profile.dart';
 import 'invite_friend_show_log.dart';
 
 class ProfileScreen extends StatelessWidget {
+
+
+
   final ImagePickerController _imagePickerController = Get.find();
   final List<Map<String, dynamic>> items = [
     {
@@ -66,6 +70,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
@@ -193,6 +198,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+
                   ],
                 ),
               ),
@@ -202,21 +208,46 @@ class ProfileScreen extends StatelessWidget {
                 itemCount: items.length,
                 itemBuilder: (context, index) {
                   final item = items[index];
-                  return ListTile(
-                    leading: item['leading'],
-                    title: item['title'],
-                    trailing: item['trailing'],
-                    titleTextStyle: TextStyle(fontSize: 14.sp),
-                    onTap: () {
-                      if (item.containsKey('onTap')) {
-                        item['onTap'](context);
-                      } else {
-                        Get.to(item['route']);
-                      }
-                    },
+                    return ListTile(
+                      leading: item['leading'],
+                      title: item['title'],
+                      trailing: item['trailing'],
+                      titleTextStyle: TextStyle(fontSize: 14.sp),
+                      onTap: () {
+                        if (item.containsKey('onTap')) {
+                          item['onTap'](context);
+                        } else {
+                          Get.to(item['route']);
+                        }
+                      },
+                    );
+                  }
+              ),
+
+
+              ElevatedButton(
+                onPressed: () async {
+                  // Log the user out by deleting the token
+                  await AuthController.getAccessToken();  // Fetch token first
+                  print('The access token before logout: ${AuthController.accessToken}');
+
+                  // Delete the token from SharedPreferences
+                  await AuthController.deleteToken();
+
+                  // Print the token after deletion (should be empty string)
+                  print('The access token after logout: ${AuthController.accessToken}');
+
+                  // Navigate to the login screen
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
                   );
                 },
-              ),
+                child: Text("Logout"),
+              )
+
+
+
             ],
           ),
         ),
