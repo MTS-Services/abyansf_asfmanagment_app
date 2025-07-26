@@ -20,7 +20,7 @@ import 'package:get/get.dart';
 class ExploreScreen extends StatelessWidget {
   final lifeStyle = [
     {
-      'title': 'Dinning',
+      'title': 'Restaurants',
       'image': AssetPath.lifeStyle1,
       'screen': DiningScreen(),
     },

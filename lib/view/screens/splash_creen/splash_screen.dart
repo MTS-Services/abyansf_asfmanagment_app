@@ -33,12 +33,12 @@ class SplashScreen extends GetView<SplashController>  {
               children: [
                 Column(
                   children: [
-                    SizedBox(height: 50),
+                    SizedBox(height: 100),
                     const Text(
                       'Elevate Your World.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: AppColors.white,
+                        color: AppColors.lightGrey,
                         fontSize: 30,
                         fontFamily: 'PlayfairDisplay',
                         fontWeight: FontWeight.w600,
@@ -51,7 +51,7 @@ class SplashScreen extends GetView<SplashController>  {
                         'Supercars that turn heads. Yachts that rule the seas.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: AppColors.lightWhite5,
+                          color: AppColors.lightGrey,
                           fontSize: 16,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
