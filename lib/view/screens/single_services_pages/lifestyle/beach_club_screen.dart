@@ -1,3 +1,4 @@
+import 'package:abyansf_asfmanagment_app/data/model/all_category/all_categories_model.dart';
 import 'package:abyansf_asfmanagment_app/data/state_holder/controller/carousel_controller.dart';
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_color.dart';
@@ -10,7 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BeachClubScreen extends StatelessWidget {
-  BeachClubScreen({super.key});
+  final int id;
+  BeachClubScreen({super.key, required this.id});
   final List<String> multiImage =[
     AssetPath.image15,
     AssetPath.image14,
@@ -20,6 +22,7 @@ class BeachClubScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(id);
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SingleChildScrollView(
@@ -76,13 +79,13 @@ class BeachClubScreen extends StatelessWidget {
                       Get.to(SingleBeachClubScreen());
                     },
                     child: CarouselSlider.builder(
-                      itemCount: multiImage.length,
+                      itemCount: 6,
                       itemBuilder: (context, index, realIndex) {
                         return Padding(
                           padding: const EdgeInsets.all(8),
                           child: CarouselContainer(
                             imagePath: multiImage[index],
-                            title: 'Eva beach',
+                           // title: specificCategoriesList[index].name ?? 'now',
                             location: 'Jumeirah Beach Residence',
                             personIcon: AssetPath.personImage,
                             clockIcon: AssetPath.clockImage,

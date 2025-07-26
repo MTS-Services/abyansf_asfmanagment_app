@@ -19,125 +19,123 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ExploreScreen extends StatefulWidget {
-  ExploreScreen({super.key});
+  const ExploreScreen({super.key});
 
   @override
   State<ExploreScreen> createState() => _ExploreScreenState();
 }
 
 class _ExploreScreenState extends State<ExploreScreen> {
-
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_){
-      Get.find<GetAllCategoriesController>().getAllCategories();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final controller = Get.find<GetAllCategoriesController>()
+          .getAllCategories();
     });
     super.initState();
   }
-  final lifeStyle = [
-    {
-      'title': 'Dinning',
-      'image': AssetPath.lifeStyle1,
-      'screen': DiningScreen(),
-    },
-    {
-      'title': 'Beach club',
-      'image': AssetPath.lifeStyle2,
-      'screen': BeachClubScreen(),
-    },
-    {
-      'title': 'Nightlife',
-      'image': AssetPath.lifeStyle3,
-      'screen': NightlifeScreen(),
-    },
-    {
-      'title': 'Wellness',
-      'image': AssetPath.lifeStyle4,
-      'screen': WellnessScreen(),
-    },
-  ];
 
-  final travel = [
-    {
-      'title': 'Hotel & Villas',
-      'image': AssetPath.travel1,
-      'screen': HotelAndVillasScreen(),
-    },
-    {
-      'title': 'Yacht',
-      'image': AssetPath.travel2,
-      'screen': YachtRequestFormScreen(),
-    },
-    {
-      'title': 'Private Jets',
-      'image': AssetPath.travel3,
-      'screen': JetsScreen(),
-    },
-    {
-      'title': 'Super car',
-      'image': AssetPath.travel4,
-      'screen': SuperCarScreen(),
-    },
-  ];
-
-  final entertainMent = [
-    {
-      'title': 'Desert activities',
-      'image': AssetPath.entertainMent1,
-      'screen': DesertActivitiesScreen(),
-    },
-    {
-      'title': 'Water sports',
-      'image': AssetPath.entertainMent2,
-      'screen': WaterSportScreen(),
-    },
-    {
-      'title': 'Helicopter tour',
-      'image': AssetPath.entertainMent3,
-      'screen': Massage(),
-    },
-    {
-      'title': 'City tour',
-      'image': AssetPath.entertainMent4,
-      'screen': Massage(),
-    },
-  ];
-
-  final professional = [
-    {
-      'title': 'VIP Chauffeur',
-      'image': AssetPath.professional1,
-      'screen': Massage(),
-    },
-    {
-      'title': 'Event Hostess and Models',
-      'image': AssetPath.entertainMent1,
-      'screen': Massage(),
-    },
-    {
-      'title': 'Personal Shoppers',
-      'image': AssetPath.professional3,
-      'screen': Massage(),
-    },
-    {
-      'title': 'Luxury Real Estate Consultant Luxury Real Estate Consultant',
-      'image': AssetPath.professional4,
-      'screen': Massage(),
-    },
-  ];
-
-  final tripsAndExpedition  = [
-    {
-      'title': 'Arctic Exploration',
-      'image': AssetPath.trips1,
-      'screen': Massage(),
-    },
-    {
-      'title': 'Africa Safari',
-      'image': AssetPath.trips2,
-      'screen': Massage(),
-    },
-  ];
+  // final controller =Get.find<GetAllCategoriesController>().getAllCategories();
+  // final lifeStyle = [
+  //   {
+  //     'title': 'Dinning',
+  //     'image': AssetPath.lifeStyle1,
+  //     'screen': DiningScreen(),
+  //   },
+  //   {
+  //     'title': 'Beach club',
+  //     'image': AssetPath.lifeStyle2,
+  //     'screen': BeachClubScreen(),
+  //   },
+  //   {
+  //     'title': 'Nightlife',
+  //     'image': AssetPath.lifeStyle3,
+  //     'screen': NightlifeScreen(),
+  //   },
+  //   {
+  //     'title': 'Wellness',
+  //     'image': AssetPath.lifeStyle4,
+  //     'screen': WellnessScreen(),
+  //   },
+  // ];
+  //
+  // final travel = [
+  //   {
+  //     'title': 'Hotel & Villas',
+  //     'image': AssetPath.travel1,
+  //     'screen': HotelAndVillasScreen(),
+  //   },
+  //   {
+  //     'title': 'Yacht',
+  //     'image': AssetPath.travel2,
+  //     'screen': YachtRequestFormScreen(),
+  //   },
+  //   {
+  //     'title': 'Private Jets',
+  //     'image': AssetPath.travel3,
+  //     'screen': JetsScreen(),
+  //   },
+  //   {
+  //     'title': 'Super car',
+  //     'image': AssetPath.travel4,
+  //     'screen': SuperCarScreen(),
+  //   },
+  // ];
+  //
+  // final entertainMent = [
+  //   {
+  //     'title': 'Desert activities',
+  //     'image': AssetPath.entertainMent1,
+  //     'screen': DesertActivitiesScreen(),
+  //   },
+  //   {
+  //     'title': 'Water sports',
+  //     'image': AssetPath.entertainMent2,
+  //     'screen': WaterSportScreen(),
+  //   },
+  //   {
+  //     'title': 'Helicopter tour',
+  //     'image': AssetPath.entertainMent3,
+  //     'screen': Massage(),
+  //   },
+  //   {
+  //     'title': 'City tour',
+  //     'image': AssetPath.entertainMent4,
+  //     'screen': Massage(),
+  //   },
+  // ];
+  //
+  // final professional = [
+  //   {
+  //     'title': 'VIP Chauffeur',
+  //     'image': AssetPath.professional1,
+  //     'screen': Massage(),
+  //   },
+  //   {
+  //     'title': 'Event Hostess and Models',
+  //     'image': AssetPath.entertainMent1,
+  //     'screen': Massage(),
+  //   },
+  //   {
+  //     'title': 'Personal Shoppers',
+  //     'image': AssetPath.professional3,
+  //     'screen': Massage(),
+  //   },
+  //   {
+  //     'title': 'Luxury Real Estate Consultant Luxury Real Estate Consultant',
+  //     'image': AssetPath.professional4,
+  //     'screen': Massage(),
+  //   },
+  // ];
+  //
+  // final tripsAndExpedition = [
+  //   {
+  //     'title': 'Arctic Exploration',
+  //     'image': AssetPath.trips1,
+  //     'screen': Massage(),
+  //   },
+  //   {'title': 'Africa Safari', 'image': AssetPath.trips2, 'screen': Massage()},
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -149,40 +147,63 @@ class _ExploreScreenState extends State<ExploreScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: GetBuilder<GetAllCategoriesController>(
               builder: (allCategoriesController) {
-                if(allCategoriesController.getAllCategoriesInProgress){
-                  return Center(child: CircularProgressIndicator(),);
+                if (allCategoriesController.getAllCategoriesInProgress) {
+                  return Center(child: CircularProgressIndicator());
                 }
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomAppBar(title: "Explore", showBack: false),
-                    Text('si', style: AppTextStyle.bold24),
-                    const SizedBox(height: 8),
-                    InkWell(
-                      onTap: () {
-                        Get.to(BeachClubScreen());
+                    ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: allCategoriesController.mainCategoriesList.length,
+                      itemBuilder: (context, index) {
+                        final category = allCategoriesController.mainCategoriesList[index];
+                        final subCategories = category.subCategories ?? [];
+                        if(subCategories.isNotEmpty){
+                          print(subCategories[0].contractWhatsapp);
+                        }
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              category.name ?? 'No name added',
+                              style: AppTextStyle.bold24,
+                            ),
+                            const SizedBox(height: 8),
+                            CustomGridItem(subCategories: subCategories,),
+                            const SizedBox(height: 10),
+                          ],
+                        );
                       },
-                      child: CustomGridItem(gridItems: lifeStyle),
                     ),
-                    const SizedBox(height: 10),
-                    Text('Travel', style: AppTextStyle.bold24),
-                    const SizedBox(height: 8),
-                    CustomGridItem(gridItems: travel),
-                    const SizedBox(height: 10),
-                    Text('Entertainment', style: AppTextStyle.bold24),
-                    const SizedBox(height: 8),
-                    CustomGridItem(gridItems: entertainMent),
-                    const SizedBox(height: 10),
-                    Text('Professional', style: AppTextStyle.bold24),
-                    const SizedBox(height: 8),
-                    CustomGridItem(gridItems: professional),
-                    const SizedBox(height: 10),
-                    Text('Trips & expedition', style: AppTextStyle.bold24),
-                    const SizedBox(height: 8),
-                    CustomGridItem(gridItems: tripsAndExpedition),
+
+
+                    /* Text(
+                      allCategoriesController.mainCategoriesList.length > 1
+                          ? allCategoriesController.mainCategoriesList[1].name ?? ''
+                          : '',
+                      style: AppTextStyle.bold24,
+                    ),
+
+                    // const SizedBox(height: 8),
+                    // CustomGridItem(gridItems: travel),
+                    // const SizedBox(height: 10),
+                    // Text('Entertainment', style: AppTextStyle.bold24),
+                    // const SizedBox(height: 8),
+                    // CustomGridItem(gridItems: entertainMent),
+                    // const SizedBox(height: 10),
+                    // Text('Professional', style: AppTextStyle.bold24),
+                    // const SizedBox(height: 8),
+                    // CustomGridItem(gridItems: professional),
+                    // const SizedBox(height: 10),
+                    // Text('Trips & expedition', style: AppTextStyle.bold24),
+                    // const SizedBox(height: 8),
+                    // CustomGridItem(gridItems: tripsAndExpedition),*/
                   ],
                 );
-              }
+              },
             ),
           ),
         ),

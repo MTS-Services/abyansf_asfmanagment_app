@@ -4,4 +4,5 @@ class Urls{
   static  String otpUrl = '$_baseUrl/users/verify-email';
   static  String loginUrl = '$_baseUrl/users/login';
   static  String allCategoriesUrl = '$_baseUrl/categories/main';
+  static  String specificCategoriesUrl = '$_baseUrl/categories/specific';
 }

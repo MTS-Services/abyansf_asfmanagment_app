@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:abyansf_asfmanagment_app/data/model/all_category/all_categories_model.dart';
 import 'package:abyansf_asfmanagment_app/data/model/network_response.dart';
 import 'package:http/http.dart';
 import '../state_holder/auth_controller.dart';
@@ -12,8 +13,7 @@ class NetworkCaller {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ${AuthController.accessToken ?? ''}',
       });
-      log(response.statusCode.toString());
-      log(response.body);
+
 
       if (response.statusCode == 200) {
         return NetworkResponse(
@@ -29,6 +29,38 @@ class NetworkCaller {
     }
     return NetworkResponse(false, -1, null);
   }
+
+
+
+
+  Future<List<MainCategories>> getMainCategories(String url) async {
+    print(AuthController.accessToken);
+    try {
+      Response response = await get(Uri.parse(url), headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${AuthController.accessToken ?? ''}',
+      });
+
+     // log(response.statusCode.toString());
+     // log('This is the response ${response.body}');
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> jsonData = json.decode(response.body);
+        final List<dynamic> listingData = jsonData['data']['mainCategories'];
+
+        return listingData
+            .map((e) => MainCategories.fromJson(e))
+            .toList();
+      } else {
+        // Return empty list or throw exception depending on use-case
+        return [];
+      }
+    } catch (e) {
+      log(e.toString());
+      return [];
+    }
+  }
+
 
 
 
