@@ -1,12 +1,18 @@
+import 'package:abyansf_asfmanagment_app/models/booking_history_model/booking_history_model.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_app_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../controller/booking_history_controller/booking_history_controller.dart';
+import '../../widget/custom_bookin_event_widget.dart';
 
 class BookingHistory extends StatelessWidget {
-  const BookingHistory({super.key});
+  BookingHistory({super.key});
 
+  final BookingController _bookingController = Get.put(BookingController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,61 +28,81 @@ class BookingHistory extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.all(10),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50)
-                            )
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _bookingController.fetchUserAllBookings();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(10),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Text('All', style: AppTextStyle.regular16,)),
+                      ),
+                      child: Text('All', style: AppTextStyle.regular16),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.all(10),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50)
-                            )
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _bookingController.fetchUserAllPastBookings();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(10),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Text('Past', style: AppTextStyle.regular16,)),
+                      ),
+                      child: Text('Past', style: AppTextStyle.regular16),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.all(10),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50)
-                            )
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _bookingController.fetchUserAllActiveBookings();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(10),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Text('Active', style: AppTextStyle.regular16,)),
+                      ),
+                      child: Text('Active', style: AppTextStyle.regular16),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.all(10),
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50)
-                            )
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _bookingController.fetchUserAllCancelBookings();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.all(10),
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
                         ),
-                        child: Text('Cancel', style: AppTextStyle.regular16,)),
+                      ),
+                      child: Text('Cancel', style: AppTextStyle.regular16),
+                    ),
                   ),
                 ],
               ),
-              ListView.builder(
+              Obx(
+                () => ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: 3,
+                  itemCount: _bookingController.bookingsAll.length,
                   itemBuilder: (context, index) {
-                    return CustomEventWidget(status: true);
-                  }),
+                    final Booking bookingEvent=_bookingController.bookingsAll[index];
+                    return CustomBookingEventWidget(bookingEvent: bookingEvent,);
+                  },
+                ),
+              ),
             ],
           ),
         ),

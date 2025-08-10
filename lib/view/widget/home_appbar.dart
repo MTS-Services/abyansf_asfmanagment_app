@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:get/get.dart';
+import '../../controller/profile_controller/profile_controller.dart';
+
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showTitle;
 
-  const HomeAppBar({super.key, this.showTitle = false});
+   HomeAppBar({super.key, this.showTitle = false});
 
+  final _profileController=Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +26,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hi, Mirable",
+                _profileController.nameController.text,
                 style: TextStyle(
                   fontSize: AppStyles.fontXL,
                   fontWeight: AppStyles.weightMedium,

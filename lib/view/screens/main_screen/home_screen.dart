@@ -2,14 +2,17 @@ import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/booking_history_individual_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/event_history_individual_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../controller/event_controller/event_controller.dart';
+import '../../../controller/sub_category_controller/sub_category_controller.dart';
 import '../../../view_models/controller/carousel_controller.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,7 +29,8 @@ final List<String> images = [
 
 class _HomeScreenState extends State<HomeScreen> {
   final CarouselSliderControllers _carouselSliderController = Get.find();
-
+  final _eventController = Get.put(EventController());
+  final _subCategoryController = Get.put(SubCategoryController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,41 +41,41 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               HomeAppBar(),
+              HomeAppBar(),
               const SizedBox(height: 10),
               Text('Services', style: AppTextStyle.bold24),
               const SizedBox(height: 7),
-              SizedBox(
-                height: 145,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const CircleAvatar(
-                            radius: 40,
-                            backgroundImage: AssetImage(AssetPath.splashScreen1),
-                          ),
-                          const SizedBox(height: 6),
-                          Text('Name', style: AppTextStyle.bold14),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
+              Obx(()=> SizedBox(
+               height: 145,
+               child: ListView.builder(
+                 scrollDirection: Axis.horizontal,
+                 itemCount: _subCategoryController.subCategories.length,
+                 itemBuilder: (context, index) {
+                   return Padding(
+                     padding: const EdgeInsets.all(8),
+                     child: Column(
+                       mainAxisSize: MainAxisSize.min,
+                       children: [
+                          CircleAvatar(
+                           radius: 40,
+                           backgroundImage: NetworkImage(_subCategoryController.subCategories[index].img),
+                         ),
+                         const SizedBox(height: 6),
+                         Text(_subCategoryController.subCategories[index].name, style: AppTextStyle.bold14),
+                       ],
+                     ),
+                   );
+                 },
+               ),
+             ),),
               const SizedBox(height: 20),
               Text('Highlight', style: AppTextStyle.bold24),
               const SizedBox(height: 13),
 
               /// Carousel Section
               InkWell(
-                onTap: (){
-                  Get.to(BookingHistoryIndividualPage());
+                onTap: () {
+                  //Get.to(EventHistoryIndividualPage());
                 },
                 child: CarouselSlider.builder(
                   itemCount: images.length,
@@ -97,13 +101,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-             SizedBox(height: 8),
+              SizedBox(height: 8),
+
               /// Carousel Indicator
               Obx(() {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(images.length, (index) {
-                    final isActive = _carouselSliderController.currentIndex.value == index;
+                    final isActive =
+                        _carouselSliderController.currentIndex.value == index;
                     return AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       margin: const EdgeInsets.symmetric(horizontal: 4),
@@ -111,7 +117,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 6,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: isActive ?AppColors.primaryColor : AppColors.lightGrey,
+                        color: isActive
+                            ? AppColors.primaryColor
+                            : AppColors.lightGrey,
                       ),
                     );
                   }),
@@ -139,12 +147,24 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               /// Event List
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 2,
-                itemBuilder: (context, index) => const CustomEventWidget(),
-              ),
+              Obx((){
+
+                if(_eventController.upcomingEvents.isEmpty){
+                  return Center(child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("You have no event"),
+                  ));
+                }else{
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: _eventController.upcomingEvents.length,
+                    itemBuilder: (context, index) => CustomEventWidget(
+                      event: _eventController.upcomingEvents[index],
+                    ),
+                  );
+                }
+              }),
             ],
           ),
         ),

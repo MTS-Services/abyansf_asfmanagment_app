@@ -7,7 +7,10 @@ import 'package:abyansf_asfmanagment_app/view/screens/main_screen/explore_screen
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../../controller/sub_category_controller/sub_category_controller.dart';
 import '../screens/profile_screen/profile_screen.dart';
 
 
@@ -20,6 +23,8 @@ class CustomBottomBar extends StatefulWidget {
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
   int _selectedIndex = 0;
+
+  final subCategoryController = Get.put(SubCategoryController());
 
   final List<Widget> _pages = [
     HomeScreen(),

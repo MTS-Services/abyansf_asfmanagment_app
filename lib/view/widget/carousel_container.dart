@@ -8,6 +8,7 @@ class CarouselContainer extends StatelessWidget {
   final String? clockIcon;
   final double? height;
   final double? width;
+  final bool isNetworkImage;
 
   const CarouselContainer({
     super.key,
@@ -18,6 +19,7 @@ class CarouselContainer extends StatelessWidget {
     this.clockIcon,
     this.height = 216,
     this.width = 296,
+    this.isNetworkImage = false,
   });
 
   @override
@@ -27,7 +29,7 @@ class CarouselContainer extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),
+        image: DecorationImage(image: isNetworkImage?NetworkImage(imagePath):AssetImage(imagePath), fit: BoxFit.cover),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),

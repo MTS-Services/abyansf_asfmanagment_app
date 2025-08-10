@@ -1,7 +1,8 @@
-      import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/privacy_policy.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/privacy_policy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import '../../../controller/profile_controller/profile_controller.dart';
 import '../../../utils/assets_path.dart';
 import '../../widget/custom_app_bar.dart';
 import '../../../utils/style/appColor.dart';
@@ -12,8 +13,10 @@ import 'edit_profile.dart';
 import 'invite_friend_show_log.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final ImagePickerController _imagePickerController =
-      Get.find();
+  ProfileScreen({super.key});
+
+  final ImagePickerController _imagePickerController = Get.find();
+  final _profileController = Get.put(ProfileController());
   final List<Map<String, dynamic>> items = [
     {
       'leading': SvgPicture.asset(
@@ -74,93 +77,106 @@ class ProfileScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  CustomAppBar(
-                    title: 'My Profile',
-                    // action: InkWell(onTap:  Get.to(),child: Image.asset(AssetPath.basilEditOutline,height: 24,width: 24,)),
-                    action: IconButton(
-                      onPressed: () {
-                        Get.to(EditProfile());
-                      },
-                      icon: Image.asset(AssetPath.basilEditOutline),
+              child: Obx(
+                () => Column(
+                  children: [
+                    CustomAppBar(
+                      title: 'My Profile',
+                      // action: InkWell(onTap:  Get.to(),child: Image.asset(AssetPath.basilEditOutline,height: 24,width: 24,)),
+                      action: IconButton(
+                        onPressed: () {
+                          Get.to(EditProfile());
+                        },
+                        icon: Image.asset(AssetPath.basilEditOutline),
+                      ),
                     ),
-                  ),
-                  Row(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: AssetImage(AssetPath.profileImage),
-                            radius: 34,
-                            backgroundColor: Colors.white,
-                          ),
-                          Positioned(
-                            bottom: 5,
-                            right: 5,
-                            child: InkWell(
-                              onTap: () => _imagePickerController.pickImage(),
-                              child: Container(
-                                width: 20,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white,
-                                ),
-                                child: Icon(
-                                  Icons.camera_alt_outlined,
-                                  size: 13,
+                    Row(
+                      children: [
+                        Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CircleAvatar(
+                              backgroundImage: AssetImage(
+                                AssetPath.profileImage,
+                              ),
+                              radius: 34,
+                              backgroundColor: Colors.white,
+                            ),
+                            Positioned(
+                              bottom: 5,
+                              right: 5,
+                              child: InkWell(
+                                onTap: () => _imagePickerController.pickImage(),
+                                child: Container(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white,
+                                  ),
+                                  child: Icon(
+                                    Icons.camera_alt_outlined,
+                                    size: 13,
+                                  ),
                                 ),
                               ),
                             ),
+                          ],
+                        ),
+                        SizedBox(width: 20),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _profileController.user.value?.name ?? "Demo",
+                              style: AppTextStyle.bold24,
+                            ),
+                            Text(
+                              _profileController.user.value!.id,
+                              style: AppTextStyle.regular12,
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 5),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
                           ),
-                        ],
-                      ),
-                      SizedBox(width: 20),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Mirable Lily', style: AppTextStyle.bold24),
-                          Text('mirable123', style: AppTextStyle.regular12),
-                        ],
-                      ),
-                      SizedBox(width: 5),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFC7AE6A),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Text(
-                          'Premium',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFC7AE6A),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Text(
+                            'Premium',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  _infoRow(Icons.phone, '(319) 555-0115'),
-                  SizedBox(height: 12),
-                  _infoRow(Icons.email, 'mirable@gmail.com'),
-                ],
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    _infoRow(
+                      Icons.phone,
+                      _profileController.user.value!.whatsapp,
+                    ),
+                    SizedBox(height: 12),
+                    _infoRow(Icons.email, _profileController.user.value!.email),
+                  ],
+                ),
               ),
             ),
+
+            Divider(),
             Expanded(
               child: ListView.builder(
                 itemCount: items.length,
                 itemBuilder: (context, index) {
                   final item = items[index];
-                  print(item);
                   return ListTile(
-    
                     leading: item['leading'],
                     title: item['title'],
                     trailing: item['trailing'],

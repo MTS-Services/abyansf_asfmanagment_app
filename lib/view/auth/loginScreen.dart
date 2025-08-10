@@ -1,3 +1,4 @@
+import 'package:abyansf_asfmanagment_app/view/auth/auth_controller/login_controller/login_controller.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_bottom_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
@@ -5,10 +6,11 @@ import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+
+  final _loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                 Text(
                   'Welcome back you’ve\nbeen missed!',
                   textAlign: TextAlign.center,
-            
+
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -43,15 +45,19 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: AppStyles.heightM),
-                TextFormField(maxLines: 1,decoration: InputDecoration(
-                  hintText: 'Email'
-                ),),
+                TextFormField(
+                  controller: _loginController.emailTEController,
+                  maxLines: 1,
+                  decoration: InputDecoration(hintText: 'Email'),
+                ),
                 SizedBox(height: 20),
-                TextFormField(maxLines: 1,decoration: InputDecoration(
-                    hintText: 'Password'  
-                ),),
+                TextFormField(
+                  controller: _loginController.passwordTEController,
+                  maxLines: 1,
+                  decoration: InputDecoration(hintText: 'Password'),
+                ),
                 SizedBox(height: 20),
-            
+
                 // text button //
                 TextButton(
                   onPressed: () {
@@ -72,7 +78,13 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: ElevatedButton(
-                        onPressed: () => Get.to(() => CustomBottomBar()),
+                        onPressed: () {
+                          _loginController.login(
+                            email: _loginController.emailTEController.text,
+                            password:
+                                _loginController.passwordTEController.text,
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.primaryColor,
                           padding: const EdgeInsets.symmetric(vertical: 14),
@@ -106,7 +118,9 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SignupScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => SignupScreen(),
+                          ),
                         );
                       },
                       child: Text(
