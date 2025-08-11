@@ -134,7 +134,6 @@ class ExploreScreen extends StatelessWidget {
                                  if(subCategory.hasSpecificCategory){
                                    _specificCategoryController.fetchSubcategoryDetails(subCategory.id);
                                  }else if(subCategory.contractWhatsapp){
-                                   print("Whatsapp");
                                    _contactWhatsappController.fetchServiceDetails(subCategory.id);
                                  }else if(subCategory.hasForm){
                                    // go to form page

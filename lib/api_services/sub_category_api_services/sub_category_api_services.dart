@@ -7,7 +7,7 @@ import '../../models/sub_category_model/subcategory_model.dart';
 
 class SubCategoryApiService {
 
- static Future<SubCategoryResponse> getSubCategories() async {
+ static Future<SubCategoryModel> getSubCategories() async {
     try {
       final response = await http.get(
         Uri.parse('${ApiUrls.baseUrl}/categories/sub'),
@@ -21,7 +21,7 @@ class SubCategoryApiService {
 
       if (response.statusCode == 200) {
 
-        return SubCategoryResponse.fromJson(json.decode(response.body));
+        return SubCategoryModel.fromJson(json.decode(response.body));
       } else {
         throw Exception('Failed to load subcategories');
       }

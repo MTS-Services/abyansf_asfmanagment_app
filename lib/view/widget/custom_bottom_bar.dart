@@ -1,5 +1,6 @@
 import 'dart:core';
 
+import 'package:abyansf_asfmanagment_app/controller/event_controller/event_controller.dart';
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/main_screen/event_screen.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../controller/highlight_controller/highlight_controller.dart';
 import '../../controller/sub_category_controller/sub_category_controller.dart';
 import '../screens/profile_screen/profile_screen.dart';
 
@@ -25,6 +27,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   int _selectedIndex = 0;
 
   final subCategoryController = Get.put(SubCategoryController());
+  final highlightController = Get.put(HighlightController());
+  final eventController = Get.put(EventController());
 
   final List<Widget> _pages = [
     HomeScreen(),

@@ -9,6 +9,8 @@ class CarouselContainer extends StatelessWidget {
   final double? height;
   final double? width;
   final bool isNetworkImage;
+  final bool isLocation;
+  final VoidCallback? onTap;
 
   const CarouselContainer({
     super.key,
@@ -20,57 +22,75 @@ class CarouselContainer extends StatelessWidget {
     this.height = 216,
     this.width = 296,
     this.isNetworkImage = false,
+    this.isLocation = true,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(image: isNetworkImage?NetworkImage(imagePath):AssetImage(imagePath), fit: BoxFit.cover),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Spacer(),
-            Text(
-              title ?? '',
-              style: const TextStyle(
-                fontFamily: "Playfair Display",
-                fontSize: 20, // replace with AppStyles.fontXL if needed
-                fontWeight: FontWeight.bold, // AppStyles.weightBold
-                color: Colors.white, // AppColors.lightWhite6
-              ),
-            ),
-            const SizedBox(height: 6),
-            Row(
-              children: [
-               location!=null ? const Icon(
-                  Icons.location_on,
-                  size: 16,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          image: DecorationImage(
+            image: isNetworkImage
+                ? NetworkImage(imagePath)
+                : AssetImage(imagePath),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Spacer(),
+              Text(
+                title ?? '',
+                style: const TextStyle(
+                  fontFamily: "Playfair Display",
+                  fontSize: 20, // replace with AppStyles.fontXL if needed
+                  fontWeight: FontWeight.bold, // AppStyles.weightBold
                   color: Colors.white, // AppColors.lightWhite6
-                ): SizedBox(),
-                Text(
-                  location?? '',
-                  style: const TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 12, // AppStyles.fontS
-                    fontWeight: FontWeight.bold, // AppStyles.weightBold
-                    color: Colors.white70, // AppColors.lightWhite9
-                  ),
                 ),
-                const Spacer(),
-               personIcon != null? _iconContainer(personIcon?? ''):SizedBox(),
-                const SizedBox(width: 5),
-               clockIcon != null? _iconContainer(clockIcon?? ''): SizedBox(),
-              ],
-            ),
-            const SizedBox(height: 10),
-          ],
+              ),
+              const SizedBox(height: 6),
+              isLocation
+                  ? Row(
+                      children: [
+                        location != null
+                            ? const Icon(
+                                Icons.location_on,
+                                size: 16,
+                                color: Colors.white, // AppColors.lightWhite6
+                              )
+                            : SizedBox(),
+                        Text(
+                          location ?? '',
+                          style: const TextStyle(
+                            fontFamily: "Inter",
+                            fontSize: 12, // AppStyles.fontS
+                            fontWeight: FontWeight.bold, // AppStyles.weightBold
+                            color: Colors.white70, // AppColors.lightWhite9
+                          ),
+                        ),
+                        const Spacer(),
+                        personIcon != null
+                            ? _iconContainer(personIcon ?? '')
+                            : SizedBox(),
+                        const SizedBox(width: 5),
+                        clockIcon != null
+                            ? _iconContainer(clockIcon ?? '')
+                            : SizedBox(),
+                      ],
+                    )
+                  : SizedBox(),
+              const SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );

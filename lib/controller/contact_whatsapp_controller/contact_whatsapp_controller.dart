@@ -31,19 +31,5 @@ class ContactWhatsappController extends GetxController {
     }
   }
 
-  // Future<void> launchWhatsApp() async {
-  //   if (serviceData.value == null) return;
-  //
-  //   final whatsappLink = serviceData.value!.adminWhatsApp.mobileWhatsappLink;
-  //   if (await canLaunchUrl(Uri.parse(whatsappLink))) {
-  //     await launchUrl(Uri.parse(whatsappLink));
-  //   } else {
-  //     Get.snackbar('Error', 'Could not launch WhatsApp');
-  //   }
-  // }
 
-  Map<String, Object> getDescriptionByType(String type) {
-    if (serviceData.value == null) return {};
-    return serviceData.value!.getDescriptionByType(type);
-  }
 }
