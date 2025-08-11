@@ -2,7 +2,6 @@ import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
-import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/event_history_individual_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
@@ -12,9 +11,13 @@ import 'package:get/get.dart';
 import '../../../controller/contact_whatsapp_controller/contact_whatsapp_controller.dart';
 import '../../../controller/event_controller/event_controller.dart';
 import '../../../controller/highlight_controller/highlight_controller.dart';
+import '../../../controller/listing_controller/listing_controller.dart';
 import '../../../controller/specific_category_controller/specific_category_controller.dart';
 import '../../../controller/sub_category_controller/sub_category_controller.dart';
 import '../../../view_models/controller/carousel_controller.dart';
+import '../single_services_pages/single_beach_club_screen.dart';
+import '../single_services_pages/specific_category_details_screen.dart';
+import 'message_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,6 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final highlightController = Get.put(HighlightController());
   final _specificCategoryController = Get.put(SpecificCategoryController());
   final _contactWhatsappController = Get.put(ContactWhatsappController());
+  final _listingController=Get.put(ListingDetailController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -63,10 +68,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            CircleAvatar(
-                              radius: 40,
-                              backgroundImage: NetworkImage(
-                                _subCategoryController.subCategories[index].img,
+                            GestureDetector(
+                              onTap: (){
+                                if(_subCategoryController.subCategories[index].contractWhatsapp){
+                                  _contactWhatsappController.fetchServiceDetails(_subCategoryController.subCategories[index].id);
+                                  Get.to(()=>MassageScreen());
+                                }
+                                if(_subCategoryController.subCategories[index].hasSpecificCategory){
+                                  _specificCategoryController.fetchSubcategoryDetails(_subCategoryController.subCategories[index].id);
+                                  Get.to(()=>SpecificCategoryDetailsScreen());
+                                }
+                              },
+                              child: CircleAvatar(
+                                radius: 40,
+                                backgroundImage: NetworkImage(
+                                  _subCategoryController.subCategories[index].img,
+                                ),
                               ),
                             ),
                             const SizedBox(height: 6),
@@ -130,6 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           isLocation: false,
                           personIcon: AssetPath.personImage,
                           clockIcon: AssetPath.clockImage,
+                          onTap: (){
+                          },
                         );
                       }
                       if(highlight.listing!=null){
@@ -141,7 +160,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           personIcon: AssetPath.personImage,
                           clockIcon: AssetPath.clockImage,
                           onTap: (){
+                            if(highlight.listing!.contractWhatsapp){
 
+                            }
+                            if(highlight.listing!.contractWhatsapp!=true){
+                              _listingController.fetchListingDetails(highlight.listing!.id);
+                              Get.to(()=>SingleBeachClubScreen());
+                            }
                           },
                         );
                       }
