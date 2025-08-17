@@ -44,12 +44,12 @@ class IncreaseAndDecrease extends StatelessWidget {
                   GestureDetector(
                     child: SvgPicture.asset(AssetPath.minusIcons),
                     onTap: () {
-                      counter.decrease();
+                      counter.decrement(type);
                     },
                   ),
-                  Obx(()=>Text(counter.minus.toString()),),
+                  Obx(()=>Text(counter.counterAdultChildrenMap[type].toString())),
                   GestureDetector(onTap: (){
-                    counter.increase();
+                    counter.increment(type);
                   },child: SvgPicture.asset(AssetPath.plusIcons)),
                 ],
               ),

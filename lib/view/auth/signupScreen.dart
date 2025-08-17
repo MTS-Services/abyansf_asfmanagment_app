@@ -1,13 +1,17 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
-import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/verificationScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+
+import 'auth_controller/sign_up_controller/sign_up_controller.dart';
 
 class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+   SignupScreen({super.key});
+
+  final _signUpController = Get.put(SignUpController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,18 +38,21 @@ class SignupScreen extends StatelessWidget {
             ),
             SizedBox(height: AppStyles.heightM),
             TextFormField(
+              controller: _signUpController.nameTEController,
               decoration: InputDecoration(
                 hintText: 'Name'
               ),
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: _signUpController.emailTEController,
               decoration: InputDecoration(
                   hintText: 'Email'
               ),
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: _signUpController.whatsappTEController,
               decoration: InputDecoration(
                   hintText: 'Whats app  Number'
               ),
@@ -58,12 +65,7 @@ class SignupScreen extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Verificationscreen(),
-                        ),
-                      );
+                      _signUpController.signup();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryColor,

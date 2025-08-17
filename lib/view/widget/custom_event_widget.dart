@@ -2,6 +2,7 @@ import 'package:abyansf_asfmanagment_app/models/event_upcoming_model/event_upcom
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/constant/constans.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/event_controller/event_controller.dart';
@@ -34,7 +35,7 @@ class CustomEventWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Image.asset(AssetPath.rectangel, fit: BoxFit.cover),
+                  child: Image.network(event?.eventImg ?? AppConstants.defaultImageUrl, fit: BoxFit.cover),
                 ),
                 const SizedBox(width: 20),
                 Column(

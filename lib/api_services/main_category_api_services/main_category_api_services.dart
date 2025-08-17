@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../../models/main_category_model/main_category_model.dart';
+import '../../shared_preferences_services/auth_pref_services/auth_pref_services.dart';
 
 
 class MainCategoryApiServices{
@@ -11,11 +12,14 @@ class MainCategoryApiServices{
 
   static Future<CategoryResponse> getMainCategories() async {
     try {
+      await AuthPrefService.loadToken();
+      final token= AuthPrefService.token;
+
       final response = await http.get(
         Uri.parse(ApiUrls.getAllMainCategoriesUrl),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ${ApiUrls.token}',
+          'Authorization': 'Bearer $token',
         },
       );
 

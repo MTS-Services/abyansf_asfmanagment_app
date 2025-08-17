@@ -9,10 +9,10 @@ import 'package:get/get.dart';
 import '../../../controller/booking_history_controller/booking_history_controller.dart';
 import '../../widget/custom_bookin_event_widget.dart';
 
-class BookingHistory extends StatelessWidget {
-  BookingHistory({super.key});
+class EventBookingHistoryScreen extends StatelessWidget {
+  EventBookingHistoryScreen({super.key});
 
-  final BookingController _bookingController = Get.put(BookingController());
+  final EventBookingController _bookingController = Get.put(EventBookingController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,15 +93,25 @@ class BookingHistory extends StatelessWidget {
                 ],
               ),
               Obx(
-                () => ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: _bookingController.bookingsAll.length,
-                  itemBuilder: (context, index) {
-                    final Booking bookingEvent=_bookingController.bookingsAll[index];
-                    return CustomBookingEventWidget(bookingEvent: bookingEvent,);
-                  },
-                ),
+                (){
+                  if(_bookingController.bookingsAll.isEmpty){
+                    return Center(child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('You have no booking history'),
+                    ));
+                  }else{
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: _bookingController.bookingsAll.length,
+                      itemBuilder: (context, index) {
+                        final Booking bookingEvent =
+                        _bookingController.bookingsAll[index];
+                        return CustomBookingEventWidget(bookingEvent: bookingEvent);
+                      },
+                    );
+                  }
+                }
               ),
             ],
           ),

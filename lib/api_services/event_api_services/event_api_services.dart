@@ -3,6 +3,7 @@ import 'package:abyansf_asfmanagment_app/api_services/api_urls/api_urls.dart';
 import 'package:http/http.dart' as http;
 
 import '../../models/event_upcoming_model/event_upcoming_model.dart';
+import '../../shared_preferences_services/auth_pref_services/auth_pref_services.dart';
 
 class EventApiService {
 
@@ -11,11 +12,14 @@ class EventApiService {
     int page = 1,
     int limit = 10,
   }) async {
+    await AuthPrefService.loadToken();
+    final token= AuthPrefService.token;
+
     final response = await http.get(
       Uri.parse('${ApiUrls.baseUrl}/events/upcoming?limit=$limit'),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${ApiUrls.token}',
+        'Authorization': 'Bearer $token',
       },
     );
 
@@ -34,11 +38,14 @@ class EventApiService {
     int page = 1,
     int limit = 10,
   }) async {
+    await AuthPrefService.loadToken();
+    final token= AuthPrefService.token;
+
     final response = await http.get(
       Uri.parse('${ApiUrls.baseUrl}/events/past?limit=$limit'),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${ApiUrls.token}',
+        'Authorization': 'Bearer $token',
       },
     );
 
@@ -59,11 +66,14 @@ class EventApiService {
     required int eventId,
   }) async {
     try{
+      await AuthPrefService.loadToken();
+      final token= AuthPrefService.token;
+
       final response = await http.post(
         Uri.parse(ApiUrls.eventBookUrl),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ${ApiUrls.token}',
+          'Authorization': 'Bearer $token',
         },
         body: json.encode({'eventId': eventId,}),
       );
@@ -85,11 +95,15 @@ class EventApiService {
   }) async {
 
     try{
+
+      await AuthPrefService.loadToken();
+      final token= AuthPrefService.token;
+
       final response = await http.delete(
         Uri.parse('${ApiUrls.baseUrl}/events/booking/$eventId'),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ${ApiUrls.token}',
+          'Authorization': 'Bearer $token',
         },
       );
       print(response.statusCode);

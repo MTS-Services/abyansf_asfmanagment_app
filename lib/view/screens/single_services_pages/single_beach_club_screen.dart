@@ -2,6 +2,10 @@ import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/constant/constans.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/listing_form/beach_club_form.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/listing_form/nightlife_form.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/single_services_pages/menu_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/card_container.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/day_time_row.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
@@ -11,9 +15,12 @@ import 'package:get/get.dart';
 
 import '../../../controller/listing_controller/listing_controller.dart';
 import '../../../view_models/controller/carousel_controller.dart';
+import '../listing_form/restaurant_form.dart';
+import 'listing_sub_image_screen.dart';
 
 class SingleBeachClubScreen extends StatelessWidget {
-  SingleBeachClubScreen({super.key});
+  final int listingId;
+  SingleBeachClubScreen({super.key, required this.listingId});
 
   final CarouselSliderControllers _carouselSliderController = Get.find();
   final _listingController = Get.put(ListingDetailController());
@@ -32,7 +39,7 @@ class SingleBeachClubScreen extends StatelessWidget {
                   image: DecorationImage(
                     image: NetworkImage(
                       _listingController.listingData.value?.mainImage ??
-                          "https://img.mtscorporate.com/upload/image-1754459226284-801794957.webp",
+                          AppConstants.defaultImageUrl,
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -49,10 +56,14 @@ class SingleBeachClubScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              _listingController.listingData.value?.name ??
-                                  "Default Name",
-                              style: AppTextStyle.bold20,
+                            SizedBox(
+                              width: 250,
+                              child: Text(
+                                _listingController.listingData.value?.name ??
+                                    "Default Name",
+                                style: AppTextStyle.bold20,
+                                maxLines: 1,
+                              ),
                             ),
                             const SizedBox(height: 8),
                             Row(
@@ -87,7 +98,15 @@ class SingleBeachClubScreen extends StatelessWidget {
                             onPressed: () {},
                             child: InkWell(
                               onTap: () {
-                                //Get.to()
+                                if (_listingController.listingData.value !=
+                                    null) {
+                                  Get.to(
+                                    () => MenuScreen(
+                                      listingDetailData:
+                                          _listingController.listingData.value!,
+                                    ),
+                                  );
+                                }
                               },
                               child: Row(
                                 mainAxisAlignment:
@@ -106,59 +125,85 @@ class SingleBeachClubScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 18),
-                    Row(
+
+                    Column(
                       children: [
-                        Text("Photos", style: AppTextStyle.bold24),
-                        Spacer(),
-                        InkWell(
-                          onTap: () {},
-                          child: Text(
-                            'See all',
-                            style: TextStyle(
-                              fontFamily: "Playfair Display",
-                              fontWeight: AppStyles.weightMedium,
-                              fontSize: AppStyles.fontL,
-                              color: AppColors.primaryColor,
+                        Row(
+                          children: [
+                            Text("Photos", style: AppTextStyle.bold24),
+                            Spacer(),
+                            InkWell(
+                              onTap: () {
+                                if (_listingController.listingData.value !=
+                                    null) {
+                                  Get.to(
+                                    () => ListingSubImageScreen(
+                                      listingDetailData:
+                                          _listingController.listingData.value!,
+                                    ),
+                                  );
+                                }
+                              },
+                              child: Text(
+                                'See all',
+                                style: TextStyle(
+                                  fontFamily: "PlayfairDisplay",
+                                  fontWeight: AppStyles.weightMedium,
+                                  fontSize: AppStyles.fontL,
+                                  color: AppColors.primaryColor,
+                                ),
+                              ),
                             ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        SizedBox(
+                          height: 100,
+                          child: ListView.builder(
+                            itemCount:
+                                _listingController
+                                    .listingData
+                                    .value
+                                    ?.subImages
+                                    .length ??
+                                0,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  _listingController.indexSubImage.value =
+                                      index;
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                  ),
+                                  child: Container(
+                                    width: 146,
+                                    height: 100,
+                                    decoration: ShapeDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                          _listingController
+                                                  .listingData
+                                                  .value
+                                                  ?.subImages[index] ??
+                                              AppConstants.defaultImageUrl,
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(4),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 15),
-                    SizedBox(
-                      height: 100,
-                      child: ListView.builder(
-                        itemCount: _listingController.listingData.value?.subImages.length ?? 0,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              _listingController.indexSubImage.value = index; // ✅ ট্যাপে আপডেট
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                              child: Container(
-                                width: 146,
-                                height: 100,
-                                decoration: ShapeDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      _listingController.listingData.value?.subImages[index] ??
-                                          "https://img.mtscorporate.com/upload/image-1754459226284-801794957.webp",
-                                    ),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-
 
                     // Indicator Row
                     Row(
@@ -266,7 +311,9 @@ class SingleBeachClubScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.back();
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppColors.white,
                               shadowColor: Colors.transparent,
@@ -283,7 +330,86 @@ class SingleBeachClubScreen extends StatelessWidget {
                         SizedBox(width: 10),
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              if (_listingController
+                                      .listingData
+                                      .value
+                                      ?.hasForm ==
+                                  true) {
+                                if (_listingController
+                                        .listingData
+                                        .value
+                                        ?.fromName ==
+                                    "Restaurants") {
+                                  Get.to(
+                                    () => RestaurantFormScreen(
+                                      venueName: _listingController
+                                          .listingData
+                                          .value!
+                                          .fromName!,
+                                      listingId: _listingController
+                                          .listingData
+                                          .value!
+                                          .id,
+                                    ),
+                                  );
+                                }
+                                if (_listingController
+                                        .listingData
+                                        .value
+                                        ?.fromName ==
+                                    "Beach club") {
+                                  Get.to(
+                                    () => BeachClubForm(
+                                      venueName: _listingController
+                                          .listingData
+                                          .value!
+                                          .fromName!,
+                                      listingId: _listingController
+                                          .listingData
+                                          .value!
+                                          .id,
+                                    ),
+                                  );
+                                }
+                                if (_listingController
+                                        .listingData
+                                        .value
+                                        ?.fromName ==
+                                    "Nightlife") {
+                                  Get.to(
+                                    () => NightlifeForm(
+                                      venueName: _listingController
+                                          .listingData
+                                          .value!
+                                          .fromName!,
+                                      listingId: _listingController
+                                          .listingData
+                                          .value!
+                                          .id,
+                                    ),
+                                  );
+                                }
+                                if (_listingController
+                                        .listingData
+                                        .value
+                                        ?.fromName ==
+                                    "Wellness") {
+                                  Get.to(
+                                    () => NightlifeForm(
+                                      venueName: _listingController
+                                          .listingData
+                                          .value!
+                                          .fromName!,
+                                      listingId: _listingController
+                                          .listingData
+                                          .value!
+                                          .id,
+                                    ),
+                                  );
+                                }
+                              }
+                            },
                             style: ElevatedButton.styleFrom(
                               shadowColor: Colors.transparent,
                             ),

@@ -1,7 +1,11 @@
+import 'package:abyansf_asfmanagment_app/controller/mini_sub_category_controller/mini_sub_category_controller.dart';
 import 'package:abyansf_asfmanagment_app/utils/assets_path.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/jets_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/super_car_screen.dart';
+import 'package:abyansf_asfmanagment_app/view/screens/all_form_pages/yacht_request_form_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/home_appbar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
@@ -15,32 +19,28 @@ import '../../../controller/listing_controller/listing_controller.dart';
 import '../../../controller/specific_category_controller/specific_category_controller.dart';
 import '../../../controller/sub_category_controller/sub_category_controller.dart';
 import '../../../view_models/controller/carousel_controller.dart';
-import '../single_services_pages/single_beach_club_screen.dart';
-import '../single_services_pages/specific_category_details_screen.dart';
+import '../all_form_pages/hotel_and_villas_screeen.dart';
+import '../single_services_pages/all_upcoming_event_screen.dart';
 import 'message_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatelessWidget {
+   HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-final List<String> images = [
-  AssetPath.hotelImage,
-  AssetPath.splashScreen2,
-  AssetPath.splashScreen3,
-];
-
-class _HomeScreenState extends State<HomeScreen> {
   final CarouselSliderControllers _carouselSliderController = Get.find();
+
   final _eventController = Get.put(EventController());
+
   final _subCategoryController = Get.put(SubCategoryController());
+
   final highlightController = Get.put(HighlightController());
+
   final _specificCategoryController = Get.put(SpecificCategoryController());
+
   final _contactWhatsappController = Get.put(ContactWhatsappController());
+
   final _listingController=Get.put(ListingDetailController());
 
+  final _miniSubCategoryController=Get.put(MiniSubCategoryController());
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                 }
                                 if(_subCategoryController.subCategories[index].hasSpecificCategory){
                                   _specificCategoryController.fetchSubcategoryDetails(_subCategoryController.subCategories[index].id);
-                                  Get.to(()=>SpecificCategoryDetailsScreen());
+                                }
+                                if(_subCategoryController.subCategories[index].hasForm){
+                                  if(_subCategoryController.subCategories[index].fromName=="Jets"){
+                                    Get.to(()=>JetsScreen(
+                                      subCategoryId: _subCategoryController.subCategories[index].id,
+                                    ));
+                                  }
+                                  else if(_subCategoryController.subCategories[index].fromName=="Hotel & Villas"){
+                                    Get.to(()=>HotelAndVillasScreen(subCategoryId: _subCategoryController.subCategories[index].id));
+                                  }
+                                  else if(_subCategoryController.subCategories[index].fromName=="Yacht"){
+                                    Get.to(()=>YachtRequestFormScreen(
+                                      subCategoryId: _subCategoryController.subCategories[index].id,
+                                    ));
+                                  }
+                                  else if(_subCategoryController.subCategories[index].fromName=="Super Car"){
+                                    Get.to(()=>SuperCarScreen(
+                                      subCategoryId: _subCategoryController.subCategories[index].id,
+                                    ));
+                                  }
+
+                                }
+                                if(_subCategoryController.subCategories[index].hasMiniSubCategory){
+                                  _miniSubCategoryController.fetchMiniSubCategories(_subCategoryController.subCategories[index].id);
                                 }
                               },
                               child: CircleAvatar(
@@ -103,87 +126,121 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 13),
 
               /// Carousel Section
-              InkWell(
-                onTap: () {
-                  //Get.to(EventHistoryIndividualPage());
-                },
-                child: Obx(
-                  () => CarouselSlider.builder(
-                    itemCount: highlightController.highlightsList.length,
-                    itemBuilder: (context, index, realIndex) {
-                      final highlight =
-                          highlightController.highlightsList[index];
+              Obx(
+                    () => CarouselSlider.builder(
+                  itemCount: highlightController.highlightsList.length,
+                  itemBuilder: (context, index, realIndex) {
+                    final highlight =
+                    highlightController.highlightsList[index];
 
-                      if(highlight.subCategory!=null){
-                        return CarouselContainer(
-                          isNetworkImage: true,
-                          imagePath: highlight.subCategory!.img,
-                          title: highlight.subCategory?.name ?? "Default Name",
-                          location: "",
-                          isLocation: false,
-                          personIcon: AssetPath.personImage,
-                          clockIcon: AssetPath.clockImage,
-                          onTap: (){
-                            if(highlight.subCategory!.hasForm){
-
+                    if(highlight.subCategory!=null){
+                      return CarouselContainer(
+                        isNetworkImage: true,
+                        imagePath: highlight.subCategory!.img,
+                        title: highlight.subCategory?.name ?? "Default Name",
+                        location: "",
+                        isLocation: false,
+                        personIcon: AssetPath.personImage,
+                        clockIcon: AssetPath.clockImage,
+                        onTap: (){
+                          if(highlight.subCategory!.hasForm){
+                            if(highlight.subCategory!.fromName=="Jets"){
+                              Get.to(()=>JetsScreen(
+                                subCategoryId: highlight.subCategory!.id,
+                              ));
                             }
-                            if(highlight.subCategory!.contractWhatsapp){
-                              _contactWhatsappController.fetchServiceDetails(highlight.subCategory!.id);
-                            }
-                            if(highlight.subCategory!.hasSpecificCategory){
-                              _specificCategoryController.fetchSubcategoryDetails(highlight.subCategory!.id);
-                            }
+                            else if(highlight.subCategory!.fromName==""){}
+                            else if(highlight.subCategory!.fromName==""){}
+                          }
+                          if(highlight.subCategory!.contractWhatsapp){
+                            _contactWhatsappController.fetchServiceDetails(highlight.subCategory!.id);
+                          }
+                          if(highlight.subCategory!.hasSpecificCategory){
+                            _specificCategoryController.fetchSubcategoryDetails(highlight.subCategory!.id);
+                          }
 
-                          },
+                        },
 
-                        );
-                      }
-                      if(highlight.miniSubCategory!=null){
-                        return CarouselContainer(
-                          isNetworkImage: true,
-                          imagePath: highlight.miniSubCategory!.img,
-                          title: highlight.miniSubCategory?.name ?? "Default Name",
-                          location:"",
-                          isLocation: false,
-                          personIcon: AssetPath.personImage,
-                          clockIcon: AssetPath.clockImage,
-                          onTap: (){
-                          },
-                        );
-                      }
-                      if(highlight.listing!=null){
-                        return CarouselContainer(
-                          isNetworkImage: true,
-                          imagePath: highlight.listing!.mainImage,
-                          title: highlight.listing?.name ?? "Default Name",
-                          location: highlight.listing?.location,
-                          personIcon: AssetPath.personImage,
-                          clockIcon: AssetPath.clockImage,
-                          onTap: (){
-                            if(highlight.listing!.contractWhatsapp){
-
+                      );
+                    }
+                    if(highlight.miniSubCategory!=null){
+                      return CarouselContainer(
+                        isNetworkImage: true,
+                        imagePath: highlight.miniSubCategory!.img,
+                        title: highlight.miniSubCategory?.name ?? "Default Name",
+                        location:"",
+                        isLocation: false,
+                        personIcon: AssetPath.personImage,
+                        clockIcon: AssetPath.clockImage,
+                        onTap: (){
+                          if(highlight.miniSubCategory!.hasForm){
+                            if(highlight.miniSubCategory!.fromName=="Jets"){
+                              Get.to(()=>JetsScreen(
+                                subCategoryId: highlight.miniSubCategory!.id,
+                              ));
                             }
-                            if(highlight.listing!.contractWhatsapp!=true){
-                              _listingController.fetchListingDetails(highlight.listing!.id);
-                              Get.to(()=>SingleBeachClubScreen());
-                            }
-                          },
-                        );
-                      }
-                      return Container();
+                            else if(highlight.miniSubCategory!.fromName==""){}
+                            else if(highlight.miniSubCategory!.fromName==""){}
+                            else if(highlight.miniSubCategory!.fromName==""){}
+                            else if(highlight.miniSubCategory!.fromName==""){}
 
+                          }
+                          if(highlight.miniSubCategory!.contractWhatsapp){
+                            _contactWhatsappController.fetchServiceDetails(highlight.subCategory!.id);
+                          }
+                          if(highlight.miniSubCategory!.hasSpecificCategory){
+                            _specificCategoryController.fetchSubcategoryDetails(highlight.subCategory!.id);
+                          }
+
+                        },
+                      );
+                    }
+                    if(highlight.listing!=null){
+                      return CarouselContainer(
+                        isNetworkImage: true,
+                        imagePath: highlight.listing!.mainImage,
+                        title: highlight.listing?.name ?? "Default Name",
+                        location: highlight.listing?.location,
+                        personIcon: AssetPath.personImage,
+                        clockIcon: AssetPath.clockImage,
+                        onTap: (){
+                          if(highlight.listing!.hasForm){
+
+                            if(highlight.listing!.formName=="Jets"){
+                              Get.to(()=>JetsScreen(
+                                subCategoryId: highlight.listing!.id,
+                              ));
+                            }
+                            else if(highlight.listing?.formName==""){}
+                            else if(highlight.listing?.formName==""){}
+                            else if(highlight.listing?.formName==""){}
+                            else if(highlight.listing?.formName==""){}
+
+
+                          }
+                          if(highlight.listing!.contractWhatsapp){
+                            _contactWhatsappController.fetchServiceDetails(highlight.subCategory!.id);
+                          }else{
+                            _listingController.fetchListingDetails(highlight.listing!.id);
+
+                          }
+
+                        },
+                      );
+                    }
+                    return Container();
+
+                  },
+                  options: CarouselOptions(
+                    height: 220,
+                    autoPlay: true,
+                    enlargeCenterPage: false,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 0.83,
+                    autoPlayInterval: const Duration(seconds: 3),
+                    onPageChanged: (index, reason) {
+                      _carouselSliderController.currentIndex.value = index;
                     },
-                    options: CarouselOptions(
-                      height: 220,
-                      autoPlay: false,
-                      enlargeCenterPage: false,
-                      aspectRatio: 16 / 9,
-                      viewportFraction: 0.83,
-                      autoPlayInterval: const Duration(seconds: 3),
-                      onPageChanged: (index, reason) {
-                        _carouselSliderController.currentIndex.value = index;
-                      },
-                    ),
                   ),
                 ),
               ),
@@ -193,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Obx(() {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(images.length, (index) {
+                  children: List.generate(highlightController.highlightsList.length, (index) {
                     final isActive =
                         _carouselSliderController.currentIndex.value == index;
                     return AnimatedContainer(
@@ -218,11 +275,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text('Member Event', style: AppTextStyle.bold24),
                   const Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(()=>AllUpcomingEventScreen());
+                    },
                     child: Text(
                       'See all',
                       style: TextStyle(
-                        fontFamily: "Playfair Display",
+                        fontFamily: "PlayfairDisplay",
                         fontWeight: AppStyles.weightMedium,
                         fontSize: AppStyles.fontL,
                         color: AppColors.primaryColor,
@@ -259,3 +318,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+final List<String> images = [
+  AssetPath.hotelImage,
+  AssetPath.splashScreen2,
+  AssetPath.splashScreen3,
+];

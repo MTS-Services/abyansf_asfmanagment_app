@@ -2,7 +2,7 @@ import 'package:abyansf_asfmanagment_app/view/auth/auth_controller/login_control
 import 'package:abyansf_asfmanagment_app/view/widget/custom_bottom_bar.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
-import 'package:abyansf_asfmanagment_app/view/auth/recoverScreen.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/resendOTPScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                 // text button //
                 TextButton(
                   onPressed: () {
-                    Get.to(() => RecoverScreen());
+                    Get.to(() => ResendOTPScreen());
                   },
                   child: Text(
                     "Forgot your password?",
@@ -79,6 +79,8 @@ class LoginScreen extends StatelessWidget {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
+
+
                           _loginController.login(
                             email: _loginController.emailTEController.text,
                             password:

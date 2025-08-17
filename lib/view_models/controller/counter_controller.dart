@@ -13,4 +13,23 @@ class CounterController extends GetxController {
   void increase() {
     minus++;
   }
+
+  var counterAdultChildrenMap = <String, int>{
+    "Children": 0,
+    "Adults": 0,
+  }.obs;
+
+  void increment(String level) {
+    counterAdultChildrenMap[level] = (counterAdultChildrenMap[level]! + 1);
+    counterAdultChildrenMap.refresh();
+  }
+
+  void decrement(String level) {
+    if(counterAdultChildrenMap[level]! > 0){
+      counterAdultChildrenMap[level] = (counterAdultChildrenMap[level]! - 1);
+      counterAdultChildrenMap.refresh();
+    }
+  }
+
+
 }

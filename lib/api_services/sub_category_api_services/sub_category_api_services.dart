@@ -3,21 +3,24 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../../models/sub_category_model/subcategory_model.dart';
+import '../../shared_preferences_services/auth_pref_services/auth_pref_services.dart';
 
 
 class SubCategoryApiService {
 
  static Future<SubCategoryModel> getSubCategories() async {
     try {
+      await AuthPrefService.loadToken();
+      final token= AuthPrefService.token;
+
       final response = await http.get(
         Uri.parse('${ApiUrls.baseUrl}/categories/sub'),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ${ApiUrls.token}',
+          'Authorization': 'Bearer $token',
         },
 
       );
-      print("subcategory response ${response.statusCode}");
 
       if (response.statusCode == 200) {
 

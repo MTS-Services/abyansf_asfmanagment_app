@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:abyansf_asfmanagment_app/api_services/resend_otp_verification_screen/resend_otp_verification.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
@@ -9,8 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-class RecoverScreen extends StatelessWidget {
-  const RecoverScreen({super.key});
+class ResendOTPScreen extends StatelessWidget {
+  const ResendOTPScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +56,11 @@ class RecoverScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {
-                      Get.to(() => RecoveryVerificationScreen());
+                    onPressed: () async{
+                      final response=await ResendOTPVerificationApiService.resendOTPRequest();
+                      if(response.statusCode==200){
+                        Get.to(()=>RecoveryVerificationScreen());
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primaryColor,

@@ -15,14 +15,19 @@ class MassageScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SafeArea(
-          child: Obx(
-            () => Column(
+          child: Obx(() {
+            final serviceData = _contactWhatsappController.serviceData.value;
+
+            if (serviceData == null) {
+              return Center(child: CircularProgressIndicator());
+            }
+
+            return Column(
               children: [
+                // Header Row
                 Container(
                   padding: const EdgeInsets.only(top: 16, bottom: 8),
-                  color: Colors.transparent,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
                         onTap: () => Navigator.pop(context),
@@ -36,15 +41,15 @@ class MassageScreen extends StatelessWidget {
                           child: const Icon(Icons.keyboard_arrow_left_outlined),
                         ),
                       ),
-                      Spacer(),
-                      //Image.asset(AssetPath.maskGroup, width: 30, height: 30),
-                      SizedBox(width: 10),
-                      Text(_contactWhatsappController.serviceData.value!.name, style: AppTextStyle.bold24),
-                      Spacer(),
-                      SizedBox(),
+                      const Spacer(),
+                      Text(serviceData.name, style: AppTextStyle.bold24),
+                      const Spacer(),
+                      const SizedBox(width: 32), // Balance the row
                     ],
                   ),
                 ),
+
+                // Image Stack
                 Stack(
                   children: [
                     Container(
@@ -53,7 +58,7 @@ class MassageScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
-                          image: NetworkImage(_contactWhatsappController.serviceData.value!.img),
+                          image: NetworkImage(serviceData.img),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -62,18 +67,17 @@ class MassageScreen extends StatelessWidget {
                       left: 10,
                       bottom: 10,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            _contactWhatsappController.serviceData.value!.name,
+                            serviceData.name,
                             style: AppTextStyle.bold20.copyWith(
                               color: AppColors.white,
                             ),
                           ),
                           Row(
                             children: [
-                              Icon(Icons.location_on, color: AppColors.white),
+                              const Icon(Icons.location_on, color: AppColors.white),
                               Text(
                                 'Jumeirah Beach Residence',
                                 style: AppTextStyle.regular10.copyWith(
@@ -87,16 +91,16 @@ class MassageScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
-                SizedBox(height: 10),
+
+                const SizedBox(height: 30),
+
+                // WhatsApp Contact Card
                 Container(
                   height: 170,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+                    gradient: const LinearGradient(
                       colors: [Color(0xffDFD2A9), Color(0xffEEE9D3)],
                     ),
                   ),
@@ -114,16 +118,16 @@ class MassageScreen extends StatelessWidget {
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(elevation: 0),
                         onPressed: () {
-
+                          // WhatsApp contact functionality
                         },
-                        child: Text('Whats App'),
+                        child: const Text('WhatsApp'),
                       ),
                     ],
                   ),
                 ),
               ],
-            ),
-          ),
+            );
+          }),
         ),
       ),
     );

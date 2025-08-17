@@ -8,18 +8,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController{
-  final TextEditingController emailTEController=TextEditingController(text: "robiulsunyemon111@gmail.com");
-  final TextEditingController passwordTEController=TextEditingController(text: "JEikXUj7");
+  final TextEditingController emailTEController=TextEditingController();
+  final TextEditingController passwordTEController=TextEditingController();
 
 
   Future<void> login({required String email,required String password}) async {
     try{
+      print("login function");
+      print("email $email");
+      print("password $password");
       final response=await LoginApiServices.loginPostRequest(email: email, password: password);
       if(response.statusCode==200){
         final decodedResponse=jsonDecode(response.body);
         final String token=decodedResponse['token'];
-        AuthPrefServices.setToken(token: token);
-        AuthPrefServices.getToken();
+        AuthPrefService.saveToken(token);
+        print("auth pref token ${AuthPrefService.token}");
         Get.to(()=>CustomBottomBar());
       }
     }catch(e){

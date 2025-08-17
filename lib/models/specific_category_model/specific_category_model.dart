@@ -1,3 +1,5 @@
+
+
 class SubcategoryDetailResponse {
   final bool success;
   final SubcategoryDetailData data;
@@ -11,9 +13,9 @@ class SubcategoryDetailResponse {
 
   factory SubcategoryDetailResponse.fromJson(Map<String, dynamic> json) {
     return SubcategoryDetailResponse(
-      success: json['success'],
-      data: SubcategoryDetailData.fromJson(json['data']),
-      pagination: Pagination.fromJson(json['data']['pagination']),
+      success: json['success'] ?? false,
+      data: SubcategoryDetailData.fromJson(json['data'] ?? {}),
+      pagination: Pagination.fromJson(json['data']?['pagination'] ?? {}),
     );
   }
 }
@@ -28,14 +30,11 @@ class SubcategoryDetailData {
   });
 
   factory SubcategoryDetailData.fromJson(Map<String, dynamic> json) {
-    var specificList = json['specificCategories'] as List;
-    List<SpecificCategoryWithListings> specificCategories = specificList
-        .map((specific) => SpecificCategoryWithListings.fromJson(specific))
-        .toList();
-
     return SubcategoryDetailData(
-      subCategory: SubCategory.fromJson(json['subCategory']),
-      specificCategories: specificCategories,
+      subCategory: SubCategory.fromJson(json['subCategory'] ?? {}),
+      specificCategories: List<SpecificCategoryWithListings>.from(
+          (json['specificCategories'] ?? []).map((specific) =>
+              SpecificCategoryWithListings.fromJson(specific))),
     );
   }
 }
@@ -65,13 +64,13 @@ class SubCategory {
 
   factory SubCategory.fromJson(Map<String, dynamic> json) {
     return SubCategory(
-      id: json['id'],
-      name: json['name'],
-      img: json['img'],
-      hasSpecificCategory: json['hasSpecificCategory'],
-      mainCategoryId: json['mainCategoryId'],
-      createdAt: DateTime.parse(json['createdAt']),
-      updatedAt: DateTime.parse(json['updatedAt']),
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      img: json['img'] ?? '',
+      hasSpecificCategory: json['hasSpecificCategory'] ?? false,
+      mainCategoryId: json['mainCategoryId'] ?? 0,
+      createdAt: DateTime.parse(json['createdAt'] ?? DateTime.now().toString()),
+      updatedAt: DateTime.parse(json['updatedAt'] ?? DateTime.now().toString()),
       mainCategory: json['mainCategory'] != null
           ? MainCategory.fromJson(json['mainCategory'])
           : null,
@@ -95,10 +94,10 @@ class MainCategory {
 
   factory MainCategory.fromJson(Map<String, dynamic> json) {
     return MainCategory(
-      id: json['id'],
-      name: json['name'],
-      createdAt: DateTime.parse(json['createdAt']),
-      updatedAt: DateTime.parse(json['updatedAt']),
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      createdAt: DateTime.parse(json['createdAt'] ?? DateTime.now().toString()),
+      updatedAt: DateTime.parse(json['updatedAt'] ?? DateTime.now().toString()),
     );
   }
 }
@@ -119,17 +118,13 @@ class SpecificCategoryWithListings {
   });
 
   factory SpecificCategoryWithListings.fromJson(Map<String, dynamic> json) {
-    var listingsList = json['listings'] as List;
-    List<Listing> listings = listingsList
-        .map((listing) => Listing.fromJson(listing))
-        .toList();
-
     return SpecificCategoryWithListings(
-      id: json['id'],
-      name: json['name'],
-      createdAt: DateTime.parse(json['createdAt']),
-      updatedAt: DateTime.parse(json['updatedAt']),
-      listings: listings,
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      createdAt: DateTime.parse(json['createdAt'] ?? DateTime.now().toString()),
+      updatedAt: DateTime.parse(json['updatedAt'] ?? DateTime.now().toString()),
+      listings: List<Listing>.from(
+          (json['listings'] ?? []).map((listing) => Listing.fromJson(listing))),
     );
   }
 }
@@ -139,15 +134,15 @@ class Listing {
   final String name;
   final String mainImage;
   final List<String> subImages;
-  final String location;
+  final String? location;
   final List<dynamic> memberPrivileges;
-  final String memberPrivilegesDescription;
-  final String description;
+  final String? memberPrivilegesDescription;
+  final String? description;
   final List<String> hours;
   final int specificCategoryId;
   final DateTime createdAt;
   final DateTime updatedAt;
-  final String formName;
+  final String? formName;
   final bool isActive;
   final List<String> menuImages;
   final List<String> typeOfService;
@@ -158,15 +153,15 @@ class Listing {
     required this.name,
     required this.mainImage,
     required this.subImages,
-    required this.location,
+    this.location,
     required this.memberPrivileges,
-    required this.memberPrivilegesDescription,
-    required this.description,
+    this.memberPrivilegesDescription,
+    this.description,
     required this.hours,
     required this.specificCategoryId,
     required this.createdAt,
     required this.updatedAt,
-    required this.formName,
+    this.formName,
     required this.isActive,
     required this.menuImages,
     required this.typeOfService,
@@ -175,32 +170,32 @@ class Listing {
 
   factory Listing.fromJson(Map<String, dynamic> json) {
     return Listing(
-      id: json['id'],
-      name: json['name'],
-      mainImage: json['main_image'],
-      subImages: List<String>.from(json['sub_images']),
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      mainImage: json['main_image'] ?? '',
+      subImages: List<String>.from(json['sub_images'] ?? []),
       location: json['location'],
-      memberPrivileges: json['member_privileges'],
+      memberPrivileges: List<dynamic>.from(json['member_privileges'] ?? []),
       memberPrivilegesDescription: json['member_privileges_description'],
       description: json['description'],
-      hours: _parseHours(json['hours']),
-      specificCategoryId: json['specificCategoryId'],
-      createdAt: DateTime.parse(json['createdAt']),
-      updatedAt: DateTime.parse(json['updatedAt']),
+      hours: _parseHours(json['hours'] ?? []),
+      specificCategoryId: json['specificCategoryId'] ?? 0,
+      createdAt: DateTime.parse(json['createdAt'] ?? DateTime.now().toString()),
+      updatedAt: DateTime.parse(json['updatedAt'] ?? DateTime.now().toString()),
       formName: json['formName'],
-      isActive: json['isActive'],
-      menuImages: List<String>.from(json['menuImages']),
-      typeOfService: _parseStringList(json['typeofservice']),
-      venueName: _parseStringList(json['venueName']),
+      isActive: json['isActive'] ?? false,
+      menuImages: List<String>.from(json['menuImages'] ?? []),
+      typeOfService: _parseStringList(json['typeofservice'] ?? []),
+      venueName: _parseStringList(json['venueName'] ?? []),
     );
   }
 
   static List<String> _parseHours(List<dynamic> hours) {
-    return hours.map((hour) => hour.toString()).toList();
+    return hours.map((hour) => hour?.toString() ?? '').toList();
   }
 
   static List<String> _parseStringList(List<dynamic> list) {
-    return list.map((item) => item.toString()).toList();
+    return list.map((item) => item?.toString() ?? '').toList();
   }
 }
 
@@ -219,14 +214,10 @@ class Pagination {
 
   factory Pagination.fromJson(Map<String, dynamic> json) {
     return Pagination(
-      page: json['page'],
-      limit: json['limit'],
-      total: json['total'],
-      pages: json['pages'],
+      page: json['page'] ?? 0,
+      limit: json['limit'] ?? 0,
+      total: json['total'] ?? 0,
+      pages: json['pages'] ?? 0,
     );
   }
 }
-
-
-
-

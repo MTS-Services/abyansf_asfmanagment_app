@@ -1,0 +1,145 @@
+import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
+import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
+import 'package:flutter/material.dart';
+
+
+class CustomServiceBookingWidget extends StatelessWidget {
+  final String imageUrl;
+  final String status;
+  final String location;
+  final String title;
+  const CustomServiceBookingWidget({super.key, required this.imageUrl, required this.status, required this.location, required this.title,});
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: AppColors.greyColor,
+      child: Container(
+        width: double.infinity,
+        height: 120,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Row(
+            children: [
+              Container(
+                height: 94,
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Image.network(imageUrl, fit: BoxFit.cover),
+              ),
+              const SizedBox(width: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Status: ',
+                        style: TextStyle(
+                          fontFamily: "Inter",
+                          fontSize: AppStyles.fontXL,
+                          fontWeight: AppStyles.weightRegular,
+                          color: AppColors.lightWhite6,
+                        ),
+                      ),
+                      Text(
+                        status,
+                        style: TextStyle(
+                          fontFamily: "Inter",
+                          fontSize: AppStyles.fontXL,
+                          fontWeight: AppStyles.weightRegular,
+                          color: AppColors.lightLaserColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                            fontFamily: "Playfair Display",
+                            fontSize: AppStyles.fontL,
+                            fontWeight: AppStyles.weightBold,
+                            color: AppColors.lightWhite6,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on,
+                            size: 16,
+                            color: AppColors.lightWhite6,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            location,
+                            style: TextStyle(
+                              fontFamily: "Inter",
+                              fontSize: AppStyles.fontS,
+                              fontWeight: AppStyles.weightRegular,
+                              color: AppColors.lightWhite6,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+
+              Spacer(),
+
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment:MainAxisAlignment.end,
+                children: [
+                  Text(
+                    '9.20 AM',
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontWeight: AppStyles.weightRegular,
+                      fontSize: AppStyles.fontM,
+                      color: AppColors.lightLaserColor,
+                      decoration: TextDecoration.underline,
+                      decorationColor: AppColors.lightLaserColor,
+                      decorationThickness: 1.0,
+                      height: 1.4,
+                    ),
+                  ),
+                  Text(
+                    'Sunday',
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: AppStyles.fontXS,
+                      fontWeight: AppStyles.weightRegular,
+                      color: AppColors.lightWhite6,
+                    ),
+                  ),
+                  Text(
+                    '11 jun',
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontSize: AppStyles.fontXS,
+                      fontWeight: AppStyles.weightRegular,
+                      color: AppColors.lightWhite6,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -3,7 +3,7 @@ import '../../../../api_services/booking_history_api_services/booking_history_ap
 import '../../../../models/booking_history_model/booking_history_model.dart';
 
 
-class BookingController extends GetxController {
+class EventBookingController extends GetxController {
 
 
   var isLoading = false.obs;
@@ -21,7 +21,7 @@ class BookingController extends GetxController {
     try {
       isLoading(true);
       errorMessage('');
-      final result = await BookingApiService.getUserBookings();
+      final result = await EventBookingApiService.getUserBookings();
       if (result.success) {
         bookingsAll.value = result.data.bookings;
       } else {
@@ -40,7 +40,7 @@ class BookingController extends GetxController {
     try {
       isLoading(true);
       errorMessage('');
-      final result = await BookingApiService.getPastBookingsHistory();
+      final result = await EventBookingApiService.getPastBookingsHistory();
       if (result.success) {
         bookingsAll.clear();
         bookingsAll.value = result.data.bookings;
@@ -61,7 +61,7 @@ class BookingController extends GetxController {
     try {
       isLoading(true);
       errorMessage('');
-      final result = await BookingApiService.getCancelBookingsHistory();
+      final result = await EventBookingApiService.getCancelBookingsHistory();
       if (result.success) {
         bookingsAll.clear();
         bookingsAll.value = result.data.bookings;
@@ -82,7 +82,7 @@ class BookingController extends GetxController {
     try {
       isLoading(true);
       errorMessage('');
-      final result = await BookingApiService.getActiveBookingsHistory();
+      final result = await EventBookingApiService.getActiveBookingsHistory();
       if (result.success) {
         bookingsAll.clear();
         bookingsAll.value = result.data.bookings;

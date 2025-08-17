@@ -24,7 +24,7 @@ class SpecificCategoryController extends GetxController {
     try {
       isLoading(true);
       errorMessage('');
-
+      print("fetchsubcategoryDetails");
       final response = await SpecificCategoryApiServices.getSubcategoryDetails(subcategoryId);
       subcategory.value = response.data.subCategory;
       specificCategories.assignAll(response.data.specificCategories);
@@ -38,6 +38,7 @@ class SpecificCategoryController extends GetxController {
       Get.to(()=> SpecificCategoryDetailsScreen());
     } catch (e) {
       errorMessage(e.toString());
+      print(e.toString());
       Get.snackbar('Error', 'Failed to fetch subcategory details: $e');
     } finally {
       isLoading(false);

@@ -21,10 +21,8 @@ class SubCategoryController extends GetxController {
       isLoading(true);
       errorMessage('');
 
-      print("Fetching subcategories...");
       final response = await SubCategoryApiService.getSubCategories();
 
-      print("Received ${response.data.subCategories.length} subcategories");
 
       // Clear existing data
       subCategories.clear();
@@ -32,9 +30,8 @@ class SubCategoryController extends GetxController {
       // Add new data - using spread operator for safety
       subCategories.addAll(response.data.subCategories);
 
-      print("Successfully loaded ${subCategories.length} subcategories");
     } catch (e) {
-      print("Error in fetchSubCategories: $e");
+
       errorMessage(e.toString());
       Get.snackbar(
         'Error',

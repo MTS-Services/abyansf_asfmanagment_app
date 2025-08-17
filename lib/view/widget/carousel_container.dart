@@ -4,8 +4,8 @@ class CarouselContainer extends StatelessWidget {
   final String imagePath;
   final String? title;
   final String? location;
-  final String? personIcon;
-  final String? clockIcon;
+  final String personIcon;
+  final String clockIcon;
   final double? height;
   final double? width;
   final bool isNetworkImage;
@@ -17,8 +17,8 @@ class CarouselContainer extends StatelessWidget {
     required this.imagePath,
     this.title,
     this.location,
-    this.personIcon,
-    this.clockIcon,
+    required this.personIcon,
+    required this.clockIcon,
     this.height = 216,
     this.width = 296,
     this.isNetworkImage = false,
@@ -51,10 +51,10 @@ class CarouselContainer extends StatelessWidget {
               Text(
                 title ?? '',
                 style: const TextStyle(
-                  fontFamily: "Playfair Display",
-                  fontSize: 20, // replace with AppStyles.fontXL if needed
-                  fontWeight: FontWeight.bold, // AppStyles.weightBold
-                  color: Colors.white, // AppColors.lightWhite6
+                  fontFamily: "PlayfairDisplay",
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
               const SizedBox(height: 6),
@@ -72,19 +72,20 @@ class CarouselContainer extends StatelessWidget {
                           location ?? '',
                           style: const TextStyle(
                             fontFamily: "Inter",
-                            fontSize: 12, // AppStyles.fontS
-                            fontWeight: FontWeight.bold, // AppStyles.weightBold
-                            color: Colors.white70, // AppColors.lightWhite9
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white70,
                           ),
                         ),
-                        const Spacer(),
-                        personIcon != null
-                            ? _iconContainer(personIcon ?? '')
-                            : SizedBox(),
-                        const SizedBox(width: 5),
-                        clockIcon != null
-                            ? _iconContainer(clockIcon ?? '')
-                            : SizedBox(),
+                        //const Spacer(),
+                        // personIcon != null
+                        //     ? _iconContainer(personIcon ?? '')
+                        //     : SizedBox(),
+                        // const SizedBox(width: 5),
+                        // clockIcon != null
+                        //     ? _iconContainer(clockIcon ?? '')
+                        //     : SizedBox(),
+
                       ],
                     )
                   : SizedBox(),

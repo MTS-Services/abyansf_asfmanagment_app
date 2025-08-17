@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../shared_preferences_services/auth_pref_services/auth_pref_services.dart';
 import '../../../view_models/controller/carousel_controller.dart';
 
 class DesertActivitiesScreen extends StatefulWidget {
@@ -19,6 +20,8 @@ class DesertActivitiesScreen extends StatefulWidget {
 }
 class _DesertActivitiesScreenState extends State<DesertActivitiesScreen> {
   final CarouselSliderControllers _carouselSliderController = Get.find();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

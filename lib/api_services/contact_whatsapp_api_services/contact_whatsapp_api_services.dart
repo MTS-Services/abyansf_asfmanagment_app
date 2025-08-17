@@ -2,18 +2,23 @@ import 'package:abyansf_asfmanagment_app/api_services/api_urls/api_urls.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../../models/contact_whats_model/contact_whatsapp_model.dart';
+import '../../shared_preferences_services/auth_pref_services/auth_pref_services.dart';
 
 
 class ContactWhatsappApiService {
 
 
   static Future<ContactWhatsappResponse> getServiceDetails(int subCategoryId) async {
+
+    await AuthPrefService.loadToken();
+    final token= AuthPrefService.token;
+
     try {
       final response = await http.get(
         Uri.parse('${ApiUrls.baseUrl}/categories/sub/$subCategoryId'),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ${ApiUrls.token}',
+          'Authorization': 'Bearer $token',
         },
       );
 

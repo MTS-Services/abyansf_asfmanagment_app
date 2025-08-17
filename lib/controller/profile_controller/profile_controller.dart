@@ -1,27 +1,26 @@
-import 'dart:convert';
 
-import 'package:abyansf_asfmanagment_app/api_services/profile_api_services/profile_api_services.dart';
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
+import 'package:abyansf_asfmanagment_app/view/widget/custom_bottom_bar.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../models/user_profile_models/user_model.dart';
+import '../../api_services/profile_api_services/profile_api_services.dart';
+import '../../models/user_profile_models/user_model.dart';
 
 class ProfileController extends GetxController {
   final Rx<UserModel?> user = Rx<UserModel?>(null);
   final RxBool isLoading = false.obs;
   final RxString errorMessage = ''.obs;
 
-
-
-
-  late TextEditingController nameController;
-  late TextEditingController emailController;
-  late TextEditingController phoneController;
-  late TextEditingController imageController;
-
-
+  // Initialize controllers immediately with empty values
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final phoneController = TextEditingController();
+  final imageController = TextEditingController();
 
   @override
   void onInit() {
+    // Initialize with empty values first
+    _resetControllers();
     fetchUserProfile();
     super.onInit();
   }
@@ -32,48 +31,61 @@ class ProfileController extends GetxController {
       errorMessage('');
       final response = await ProfileApiServices.getUserProfile();
       if (response.statusCode == 200) {
-        final userResponse= UserResponse.fromJson(json.decode(response.body));
-        final userResponseData=userResponse.data;
+        final userResponse = UserResponse.fromJson(json.decode(response.body));
+        final userResponseData = userResponse.data;
         user(userResponseData);
+
+        // Update controllers with new values
+        phoneController.text = userResponseData.whatsapp ?? '';
+        emailController.text = userResponseData.email ?? '';
+        nameController.text = userResponseData.name ?? '';
+        imageController.text = userResponseData.profilePic ?? '';
         update();
-
-        phoneController=TextEditingController(text: userResponseData.whatsapp);
-        emailController=TextEditingController(text: userResponseData.email);
-        nameController=TextEditingController(text: userResponseData.name);
-        imageController=TextEditingController(text: userResponseData.profilePic);
-
-
+        Get.to(CustomBottomBar());
       } else {
         throw Exception('Failed to load user profile');
       }
     } catch (e) {
       errorMessage(e.toString());
       Get.snackbar('Error', 'Failed to fetch profile: ${e.toString()}');
+      // Reset to empty values on error
+      _resetControllers();
     } finally {
       isLoading(false);
     }
   }
 
+  // Helper method to reset controllers
+  void _resetControllers() {
+    phoneController.text = '';
+    emailController.text = '';
+    nameController.text = '';
+    imageController.text = '';
+  }
 
   Future<void> updateUserProfile() async {
     try {
       isLoading(true);
       errorMessage('');
-      final response = await ProfileApiServices.updateUserProfile(name: nameController.text, phone: phoneController.text);
-      fetchUserProfile();
-  }catch (e) {
-      print(e.toString());
+      await ProfileApiServices.updateUserProfile(
+          name: nameController.text,
+          phone: phoneController.text
+      );
+      await fetchUserProfile(); // Refresh data after update
+    } catch (e) {
+      errorMessage(e.toString());
+      Get.snackbar('Error', 'Failed to update profile: ${e.toString()}');
+    } finally {
+      isLoading(false);
     }
   }
 
-
   @override
-  void dispose() {
-    // TODO: implement dispose
+  void onClose() {
     nameController.dispose();
     emailController.dispose();
     phoneController.dispose();
     imageController.dispose();
-    super.dispose();
+    super.onClose();
   }
 }

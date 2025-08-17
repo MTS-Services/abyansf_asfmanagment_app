@@ -1,3 +1,4 @@
+import 'package:abyansf_asfmanagment_app/shared_preferences_services/auth_pref_services/auth_pref_services.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/themdata.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/splash_creen/splash_screen.dart';
@@ -10,13 +11,14 @@ import 'managementApp.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await AuthPrefService.init();
   await ScreenUtil.ensureScreenSize();
   runApp(
       GetMaterialApp(
         debugShowCheckedModeBanner: false,
         initialBinding: AppBindings(),
         theme: themeData(),
-        home: ManagementApp()
+        home: AuthPrefService.hasToken() ? ManagementApp(widget: CustomBottomBar()) : ManagementApp(widget: SplashScreen()),
       )
   );
 }
