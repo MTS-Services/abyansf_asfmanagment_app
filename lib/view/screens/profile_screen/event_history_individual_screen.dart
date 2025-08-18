@@ -5,16 +5,18 @@ import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/app_text_styles.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_event_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:intl/intl.dart';
 
 import '../../../controller/event_controller/event_controller.dart';
 
 class EventHistoryIndividualPage extends StatelessWidget {
   final Event event;
   final List<Event> eventList;
-   EventHistoryIndividualPage({
+  EventHistoryIndividualPage({
     super.key,
     required this.event,
     required this.eventList,
@@ -23,6 +25,9 @@ class EventHistoryIndividualPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    DateTime parsedDateTime = DateTime.parse(event.createdAt.toString());
+
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
@@ -33,10 +38,10 @@ class EventHistoryIndividualPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 10,
               children: [
-                CustomAppBar(title: 'Event History'),
+                CustomAppBar(title: 'Event Details'),
                 Container(
                   width: double.infinity,
-                  height: 228,
+                  height: 228.h,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.fill,
@@ -48,7 +53,7 @@ class EventHistoryIndividualPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      event.createdAt.toString(),
+                      DateFormat('MMMM dd, yyyy').format(parsedDateTime),
                       style: TextStyle(
                         color: const Color(0xFF333333),
                         fontSize: 12,
@@ -94,13 +99,20 @@ class EventHistoryIndividualPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(event.title, style: AppTextStyle.bold20),
+                        SizedBox(
+                          width: 250.w,
+                          child: Text(
+                            event.title,
+                            style: AppTextStyle.bold20,
+                            maxLines: 1,
+                          ),
+                        ),
                         Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Container(
-                              width: 20,
-                              height: 20,
+                              width: 20.w,
+                              height: 20.h,
                               decoration: const BoxDecoration(),
                               child: Icon(
                                 Icons.location_on,
@@ -140,19 +152,22 @@ class EventHistoryIndividualPage extends StatelessWidget {
                 ),
                 Text('About This Event', style: AppTextStyle.bold20),
                 Text(event.description),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Skip",
-                      style: TextStyle(
-                        color: AppColors.lightLaserColor,
-                        fontSize: 25,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w600,
+                    InkWell(
+                      onTap: (){
+                        Get.back();
+                      },
+                      child: Text(
+                        "Skip",
+                        style: TextStyle(
+                          color: AppColors.lightLaserColor,
+                          fontSize: 25.sp,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -170,7 +185,7 @@ class EventHistoryIndividualPage extends StatelessWidget {
                 SizedBox(height: 10),
                 Text('Upcoming Event', style: AppTextStyle.bold24),
                 SizedBox(
-                  height: 200,
+                  height: 200.h,
                   child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: eventList.length,

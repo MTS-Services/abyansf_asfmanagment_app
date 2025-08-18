@@ -2,26 +2,33 @@ import 'package:abyansf_asfmanagment_app/models/booking_history_model/booking_hi
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 
 class CustomBookingEventWidget extends StatelessWidget {
   final Booking bookingEvent;
   const CustomBookingEventWidget({super.key,required this.bookingEvent,});
+
+
   @override
   Widget build(BuildContext context) {
+
+    DateTime parsedDateTime = DateTime.parse(bookingEvent.createdAt.toString());
+
     return Card(
       color: AppColors.greyColor,
       child: Container(
         width: double.infinity,
-        height: 120,
+        height: 100,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
         child: Padding(
           padding: const EdgeInsets.all(14),
           child: Row(
             children: [
               Container(
-                height: 94,
-                width: 100,
+                height: 70.h,
+                width: 70.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -57,11 +64,11 @@ class CustomBookingEventWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 100,
+                        width: 100.w,
                         child: Text(
                           bookingEvent.event.title,
                           style: TextStyle(
-                            fontFamily: "Playfair Display",
+                            fontFamily: "PlayfairDisplay",
                             fontSize: AppStyles.fontL,
                             fontWeight: AppStyles.weightBold,
                             color: AppColors.lightWhite6,
@@ -102,7 +109,7 @@ class CustomBookingEventWidget extends StatelessWidget {
                 mainAxisAlignment:MainAxisAlignment.end,
                 children: [
                   Text(
-                    '9.20 AM',
+                    DateFormat('hh:mm a').format(parsedDateTime),
                     style: TextStyle(
                       fontFamily: "Inter",
                       fontWeight: AppStyles.weightRegular,
@@ -115,7 +122,7 @@ class CustomBookingEventWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Sunday',
+                    DateFormat('EEEE').format(parsedDateTime),
                     style: TextStyle(
                       fontFamily: "Inter",
                       fontSize: AppStyles.fontXS,
@@ -124,7 +131,7 @@ class CustomBookingEventWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '11 jun',
+                    DateFormat('d MMMM').format(parsedDateTime),
                     style: TextStyle(
                       fontFamily: "Inter",
                       fontSize: AppStyles.fontXS,

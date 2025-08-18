@@ -22,8 +22,9 @@ class LoginController extends GetxController{
         final decodedResponse=jsonDecode(response.body);
         final String token=decodedResponse['token'];
         AuthPrefService.saveToken(token);
-        print("auth pref token ${AuthPrefService.token}");
-        Get.to(()=>CustomBottomBar());
+        if(AuthPrefService.token.value.trim().isNotEmpty){
+          Get.offAll(CustomBottomBar());
+        }
       }
     }catch(e){
       print(e.toString());

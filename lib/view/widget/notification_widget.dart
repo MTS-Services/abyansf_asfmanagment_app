@@ -1,16 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NotificationCardWidget extends StatelessWidget {
   final String title;
   final String description;
   final String time;
-  const NotificationCardWidget({super.key, required this.title, required this.description, required this.time});
+  const NotificationCardWidget({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.time,
+  });
+
+  String _formatTimeAgo(String timeStamp) {
+    try {
+      DateTime pastTime = DateTime.parse(timeStamp).toUtc();
+      DateTime now = DateTime.now().toUtc();
+      Duration difference = now.difference(pastTime);
+
+      if (difference.inMinutes < 60) {
+        return "${difference.inMinutes}min ago";
+      } else if (difference.inHours < 24) {
+        return "${difference.inHours}h ago";
+      } else {
+        return "${difference.inDays}d ago";
+      }
+    } catch (e) {
+      return "Just now";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final formattedTime = _formatTimeAgo(time);
+
     return Container(
-      width: 400,
-      height: 96,
+      width: double.infinity,
+      height: 100.h,
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(
@@ -18,32 +44,33 @@ class NotificationCardWidget extends StatelessWidget {
         ),
         shadows: [
           BoxShadow(
-            color: Color(0x14000000),
+            color: const Color(0x14000000),
             blurRadius: 30,
-            offset: Offset(0, 4),
+            offset: const Offset(0, 4),
             spreadRadius: 0,
           ),
         ],
       ),
       child: Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              width: 48,
-              height: 48,
-              decoration: ShapeDecoration(
-                color: const Color(0xFFF8F6EE) /* Laser-50 */,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(100),
-                ),
+          Container(
+            width: 30.w,
+            height: 30.h,
+            decoration: ShapeDecoration(
+              color: const Color(0xFFF8F6EE),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100),
               ),
-              child: Icon(Icons.notifications_none_outlined,color: Theme.of(context).primaryColor,size: 30,),
+            ),
+            child: Icon(
+              Icons.notifications_none_outlined,
+              color: Theme.of(context).primaryColor,
+              size: 30,
             ),
           ),
-          SizedBox(width: 15,),
+          SizedBox(width: 15.w),
           SizedBox(
-            width: 280,
+            width: 250.w,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -52,13 +79,13 @@ class NotificationCardWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: 150,
+                      width: 160.h,
                       child: Text(
                         title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16,
-                          fontFamily: 'Playfair Display',
+                          fontFamily: 'PlayfairDisplay',
                           fontWeight: FontWeight.w500,
                         ),
                         maxLines: 1,
@@ -66,10 +93,10 @@ class NotificationCardWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '9min ago',
+                      formattedTime,
                       textAlign: TextAlign.right,
-                      style: TextStyle(
-                        color: const Color(0xFF888888) /* Woodsmoke-400 */,
+                      style: const TextStyle(
+                        color: Color(0xFF888888),
                         fontSize: 10,
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
@@ -77,17 +104,16 @@ class NotificationCardWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 8,
-                ),
+                SizedBox(height: 8.h),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: 200,
+                      width: 180.w,
                       child: Text(
                         description,
-                        style: TextStyle(
-                          color: const Color(0xFF6D6D6D) /* Woodsmoke-500 */,
+                        style: const TextStyle(
+                          color: Color(0xFF6D6D6D),
                           fontSize: 12,
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
@@ -96,12 +122,11 @@ class NotificationCardWidget extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    Spacer(),
                     Container(
                       width: 12,
                       height: 12,
                       decoration: ShapeDecoration(
-                        color: const Color(0xFFBD9B52) /* Laser-400 */,
+                        color: const Color(0xFFBD9B52),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(68),
                         ),

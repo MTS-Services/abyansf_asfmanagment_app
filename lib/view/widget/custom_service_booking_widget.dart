@@ -1,6 +1,8 @@
 import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 
 class CustomServiceBookingWidget extends StatelessWidget {
@@ -8,22 +10,24 @@ class CustomServiceBookingWidget extends StatelessWidget {
   final String status;
   final String location;
   final String title;
-  const CustomServiceBookingWidget({super.key, required this.imageUrl, required this.status, required this.location, required this.title,});
+  final String createdDate;
+  const CustomServiceBookingWidget({super.key, required this.imageUrl, required this.status, required this.location, required this.title, required this.createdDate,});
   @override
   Widget build(BuildContext context) {
+    DateTime parsedDateTime = DateTime.parse(createdDate.toString());
     return Card(
       color: AppColors.greyColor,
       child: Container(
         width: double.infinity,
-        height: 120,
+        height: 100.h,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
         child: Padding(
           padding: const EdgeInsets.all(14),
           child: Row(
             children: [
               Container(
-                height: 94,
-                width: 100,
+                height: 60.h,
+                width: 60.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -63,7 +67,7 @@ class CustomServiceBookingWidget extends StatelessWidget {
                         child: Text(
                           title,
                           style: TextStyle(
-                            fontFamily: "Playfair Display",
+                            fontFamily: "PlayfairDisplay",
                             fontSize: AppStyles.fontL,
                             fontWeight: AppStyles.weightBold,
                             color: AppColors.lightWhite6,
@@ -104,7 +108,7 @@ class CustomServiceBookingWidget extends StatelessWidget {
                 mainAxisAlignment:MainAxisAlignment.end,
                 children: [
                   Text(
-                    '9.20 AM',
+                    DateFormat('hh:mm a').format(parsedDateTime),
                     style: TextStyle(
                       fontFamily: "Inter",
                       fontWeight: AppStyles.weightRegular,
@@ -117,7 +121,7 @@ class CustomServiceBookingWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Sunday',
+                    DateFormat('EEEE').format(parsedDateTime),
                     style: TextStyle(
                       fontFamily: "Inter",
                       fontSize: AppStyles.fontXS,
@@ -126,7 +130,7 @@ class CustomServiceBookingWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '11 jun',
+                    DateFormat('d MMMM').format(parsedDateTime),
                     style: TextStyle(
                       fontFamily: "Inter",
                       fontSize: AppStyles.fontXS,

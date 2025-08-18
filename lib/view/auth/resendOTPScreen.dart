@@ -9,6 +9,7 @@ import 'package:abyansf_asfmanagment_app/view/auth/recovery_verification_screen.
 import 'package:abyansf_asfmanagment_app/view/auth/signupScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/auth/verificationScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -29,11 +30,11 @@ class ResendOTPScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.blackColor,
-                fontSize: 40,
+                fontSize: 30.sp,
                 fontWeight: AppStyles.weightBold,
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             Text(
               'Enter the Email Address that you used when\nregister to recover your password, You will receive a\nVerification code.',
               textAlign: TextAlign.center,
@@ -50,7 +51,7 @@ class ResendOTPScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             // login button //
             Row(
               children: [
@@ -71,7 +72,6 @@ class ResendOTPScreen extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
-
                         fontWeight: FontWeight.w500,
                       ),
                     ),

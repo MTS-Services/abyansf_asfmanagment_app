@@ -1,3 +1,7 @@
+import 'package:abyansf_asfmanagment_app/controller/event_controller/event_controller.dart';
+import 'package:abyansf_asfmanagment_app/controller/listing_controller/listing_controller.dart';
+import 'package:abyansf_asfmanagment_app/controller/profile_controller/profile_controller.dart';
+import 'package:abyansf_asfmanagment_app/controller/sub_category_controller/sub_category_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/carousel_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/counter_controller.dart';
 import 'package:abyansf_asfmanagment_app/view_models/controller/date_controller.dart';
@@ -15,5 +19,9 @@ class AppBindings extends Bindings {
     Get.put(CounterController());
     Get.put(RecoveryVerificationController());
     Get.put(VerificationController());
+    Get.put(ProfileController());
+    Get.put(SubCategoryController());
+    Get.put(EventController());
+    Get.put(ListingDetailController());
   }
 }

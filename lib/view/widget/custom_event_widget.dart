@@ -4,7 +4,9 @@ import 'package:abyansf_asfmanagment_app/utils/style/appColor.dart';
 import 'package:abyansf_asfmanagment_app/utils/style/appStyle.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/constant/constans.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import '../../controller/event_controller/event_controller.dart';
 import '../screens/profile_screen/event_history_individual_screen.dart';
 
@@ -15,6 +17,9 @@ class CustomEventWidget extends StatelessWidget {
   final _eventController = Get.put(EventController());
   @override
   Widget build(BuildContext context) {
+
+    DateTime parsedDateTime = DateTime.parse(event?.createdAt.toString() ?? DateTime.now().toString());
+
     return Card(
       color: AppColors.greyColor,
       child: GestureDetector(
@@ -23,15 +28,15 @@ class CustomEventWidget extends StatelessWidget {
         },
         child: Container(
           width: double.infinity,
-          height: 120,
+          height: 112.h,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
           child: Padding(
             padding: const EdgeInsets.all(14),
             child: Row(
               children: [
                 Container(
-                  height: 94,
-                  width: 100,
+                  height: 70.h,
+                  width: 70.w,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -45,11 +50,11 @@ class CustomEventWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: 100,
+                          width: 100.w,
                           child: Text(
                             event?.title ?? "Breakfast",
                             style: TextStyle(
-                              fontFamily: "Playfair Display",
+                              fontFamily: "PlayfairDisplay",
                               fontSize: AppStyles.fontL,
                               fontWeight: AppStyles.weightBold,
                               color: AppColors.lightWhite6,
@@ -80,7 +85,7 @@ class CustomEventWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 12),
+                     SizedBox(height: 12.h),
                     Row(
                       children: [
                         Text(
@@ -92,7 +97,7 @@ class CustomEventWidget extends StatelessWidget {
                             color: AppColors.lightWhite6,
                           ),
                         ),
-                        const SizedBox(width: 8),
+                         SizedBox(width: 8.w),
                         InkWell(
                           onTap: () {},
                           child: Text(
@@ -119,7 +124,7 @@ class CustomEventWidget extends StatelessWidget {
                       : MainAxisAlignment.start,
                   children: [
                     Text(
-                      '9.20 AM',
+                      DateFormat('hh:mm a').format(parsedDateTime),
                       style: TextStyle(
                         fontFamily: "Inter",
                         fontWeight: AppStyles.weightRegular,
@@ -132,7 +137,7 @@ class CustomEventWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Sunday',
+                      DateFormat('EEEE').format(parsedDateTime),
                       style: TextStyle(
                         fontFamily: "Inter",
                         fontSize: AppStyles.fontXS,
@@ -141,7 +146,7 @@ class CustomEventWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '11 jun',
+                      DateFormat('d MMMM').format(parsedDateTime),
                       style: TextStyle(
                         fontFamily: "Inter",
                         fontSize: AppStyles.fontXS,

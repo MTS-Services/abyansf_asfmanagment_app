@@ -11,6 +11,7 @@ import 'package:abyansf_asfmanagment_app/view/widget/day_time_row.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/carousel_container.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/listing_controller/listing_controller.dart';
@@ -47,17 +48,18 @@ class SingleBeachClubScreen extends StatelessWidget {
               ),
               const SizedBox(height: 4),
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(14),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              width: 250,
+                              width: 180.w,
                               child: Text(
                                 _listingController.listingData.value?.name ??
                                     "Default Name",
@@ -65,7 +67,6 @@ class SingleBeachClubScreen extends StatelessWidget {
                                 maxLines: 1,
                               ),
                             ),
-                            const SizedBox(height: 8),
                             Row(
                               children: [
                                 Icon(
@@ -74,64 +75,69 @@ class SingleBeachClubScreen extends StatelessWidget {
                                   color: AppColors.blackColor,
                                 ),
                                 const SizedBox(width: 4),
-                                Text(
-                                  _listingController
-                                          .listingData
-                                          .value
-                                          ?.location ??
-                                      "Default Location",
-                                  style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontSize: AppStyles.fontXS,
-                                    fontWeight: AppStyles.weightRegular,
-                                    color: AppColors.blackColor,
+                                SizedBox(
+                                  width: 130.w,
+                                  child: Text(
+                                    _listingController
+                                            .listingData
+                                            .value
+                                            ?.location ??
+                                        "Default Location",
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontFamily: "Inter",
+                                      fontSize: AppStyles.fontXS,
+                                      fontWeight: AppStyles.weightRegular,
+                                      color: AppColors.blackColor,
+                                    ),
                                   ),
                                 ),
                               ],
                             ),
                           ],
                         ),
-                        Spacer(),
+
                         SizedBox(
-                          width: 100,
+                          width: 100.w,
+                          height: 50.h,
                           child: ElevatedButton(
-                            onPressed: () {},
-                            child: InkWell(
-                              onTap: () {
-                                if (_listingController.listingData.value !=
-                                    null) {
-                                  Get.to(
-                                    () => MenuScreen(
-                                      listingDetailData:
-                                          _listingController.listingData.value!,
-                                    ),
-                                  );
-                                }
-                              },
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text("Menu"),
-                                  Icon(
-                                    Icons.arrow_circle_right_outlined,
-                                    color: AppColors.blackColor,
+                            onPressed: () {
+                              if (_listingController.listingData.value !=
+                                  null) {
+                                Get.to(
+                                      () => MenuScreen(
+                                    listingDetailData:
+                                    _listingController.listingData.value!,
                                   ),
-                                ],
-                              ),
+                                );
+                              }
+                            },
+                            child: Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Menu"),
+                                Icon(
+                                  Icons.arrow_circle_right_outlined,
+                                  color: AppColors.blackColor,
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ],
                     ),
+
+
                     const SizedBox(height: 18),
 
                     Column(
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text("Photos", style: AppTextStyle.bold24),
-                            Spacer(),
                             InkWell(
                               onTap: () {
                                 if (_listingController.listingData.value !=

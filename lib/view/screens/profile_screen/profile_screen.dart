@@ -216,6 +216,8 @@
 //   );
 // }
 
+import 'package:abyansf_asfmanagment_app/shared_preferences_services/auth_pref_services/auth_pref_services.dart';
+import 'package:abyansf_asfmanagment_app/view/auth/loginScreen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/constant/constans.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/event_booking_history_screen.dart';
 import 'package:abyansf_asfmanagment_app/view/screens/profile_screen/privacy_policy.dart';
@@ -403,7 +405,21 @@ class ProfileScreen extends StatelessWidget {
                         SizedBox(height: 12.h),
                         buildRowItem(
                           icon: Icons.logout,
-                          onTap: () {},
+                          onTap: () async{
+                            await AuthPrefService.clearToken();
+                            if(AuthPrefService.token.value.trim().isEmpty){
+                              if(context.mounted){
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => LoginScreen(),),
+                                      (route) => false,
+                                );
+                              }
+                            }else{
+                              print("else");
+                            }
+
+                          },
                           text: 'Log Out',
                           isArrowTrue: true,
                         ),
@@ -461,8 +477,8 @@ class ProfileScreen extends StatelessWidget {
         return AlertDialog(
           backgroundColor: Colors.white,
           content: SizedBox(
-            height: 200,
-            width: 200,
+            height: 200.h,
+            width: 200.w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

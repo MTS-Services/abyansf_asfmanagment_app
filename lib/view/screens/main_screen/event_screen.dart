@@ -49,7 +49,10 @@ class EventScreen extends StatelessWidget {
                        final Event upcomingEvent=_eventController.upcomingEvents[index];
                        return InkWell(
                            onTap: (){
-                             Get.to(EventHistoryIndividualPage(event: upcomingEvent,eventList: _eventController.upcomingEvents,));
+
+
+
+                             Get.to(()=>EventHistoryIndividualPage(event: upcomingEvent,eventList: _eventController.upcomingEvents,));
                            },
                            child: CustomEventWidget(event: upcomingEvent,));
                      },

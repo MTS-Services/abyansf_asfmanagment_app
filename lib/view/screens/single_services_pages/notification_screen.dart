@@ -24,7 +24,6 @@ class NotificationScreen extends StatelessWidget {
                 return SliverList.builder(
                   itemCount: _notificationController.notifications.length,
                   itemBuilder: (context, index) {
-                    print("notification response ${_notificationController.notifications.length}");
                     return Padding(
                       padding: const EdgeInsets.all(7),
                       child: NotificationCardWidget(

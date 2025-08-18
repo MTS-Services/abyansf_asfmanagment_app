@@ -16,10 +16,10 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: SafeArea(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                 Text(
                   'Welcome back you’ve\nbeen missed!',
                   textAlign: TextAlign.center,
-
+        
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                   decoration: InputDecoration(hintText: 'Password'),
                 ),
                 SizedBox(height: 20),
-
+        
                 // text button //
                 TextButton(
                   onPressed: () {
@@ -79,8 +79,8 @@ class LoginScreen extends StatelessWidget {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-
-
+        
+        
                           _loginController.login(
                             email: _loginController.emailTEController.text,
                             password:
@@ -96,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
-                            fontFamily: 'Playfair Display',
+                            fontFamily: 'PlayfairDisplay',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -126,7 +126,7 @@ class LoginScreen extends StatelessWidget {
                         );
                       },
                       child: Text(
-                        "Request an account",
+                        "Sign Up",
                         style: TextStyle(
                           color: Color(0xffAD8945),
                           fontSize: AppStyles.fontL,

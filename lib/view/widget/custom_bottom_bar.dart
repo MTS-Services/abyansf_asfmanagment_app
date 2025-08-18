@@ -12,8 +12,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../controller/contact_whatsapp_controller/contact_whatsapp_controller.dart';
 import '../../controller/highlight_controller/highlight_controller.dart';
+import '../../controller/listing_controller/listing_controller.dart';
+import '../../controller/main_category_controller/main_category_controller.dart';
+import '../../controller/mini_sub_category_controller/mini_sub_category_controller.dart';
+import '../../controller/specific_category_controller/specific_category_controller.dart';
 import '../../controller/sub_category_controller/sub_category_controller.dart';
+import '../../view_models/controller/image_picker_controller.dart';
 import '../screens/profile_screen/profile_screen.dart';
 
 
@@ -27,10 +33,21 @@ class CustomBottomBar extends StatefulWidget {
 class _CustomBottomBarState extends State<CustomBottomBar> {
   int _selectedIndex = 0;
 
-  final subCategoryController = Get.put(SubCategoryController());
-  final highlightController = Get.put(HighlightController());
-  final eventController = Get.put(EventController());
-  final _profileController= Get.put(ProfileController());
+@override
+  void initState() {
+  Get.put(EventController());
+  Get.put(SubCategoryController());
+  Get.put(HighlightController());
+  Get.put(SpecificCategoryController());
+  Get.put(ContactWhatsappController());
+  Get.put(ListingDetailController());
+  Get.put(MiniSubCategoryController());
+  Get.put(MainCategoryController());
+  Get.put(ProfileController());
+
+
+  super.initState();
+  }
 
   final List<Widget> _pages = [
     HomeScreen(),

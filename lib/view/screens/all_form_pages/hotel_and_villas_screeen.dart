@@ -3,6 +3,7 @@ import 'package:abyansf_asfmanagment_app/view/widget/cancel_button.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_bottom_bar.dart';
 import 'package:abyansf_asfmanagment_app/view/widget/custom_text_editing_form_field_with_suffix.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import '../../widget/custom_app_bar.dart';
@@ -32,8 +33,6 @@ class _HotelAndVillasScreenState extends State<HotelAndVillasScreen> {
   late DateTime checkInDateController;
   String checkOutDate = "01/02/2026";
   late DateTime checkOutDateController;
-
-
 
 
 
@@ -84,9 +83,10 @@ class _HotelAndVillasScreenState extends State<HotelAndVillasScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
-                  spacing: 5,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
+                    SizedBox(
+                      width: 165.w,
                       child: CustomTextFormFieldLevel(
                         onTap: () async {
                           final picked = await showDatePicker(
@@ -108,7 +108,8 @@ class _HotelAndVillasScreenState extends State<HotelAndVillasScreen> {
                         levelText: "Check in",
                       ),
                     ),
-                    Expanded(
+                    SizedBox(
+                      width: 165.w,
                       child: CustomTextFormFieldLevel(
                         onTap: () async {
                           final picked = await showDatePicker(
@@ -151,9 +152,10 @@ class _HotelAndVillasScreenState extends State<HotelAndVillasScreen> {
                       ),
                     ),
                     Row(
-                      spacing: 5,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        SizedBox(
+                          width: 165.w,
                           child: SelectCounterCard(
                             counterText: adultNumber.toString(),
                             hintText: "Adults",
@@ -171,7 +173,8 @@ class _HotelAndVillasScreenState extends State<HotelAndVillasScreen> {
                             },
                           ),
                         ),
-                        Expanded(
+                        SizedBox(
+                          width: 165.w,
                           child: SelectCounterCard(
                             counterText: childrenNumber.toString(),
                             hintText: "Child",
@@ -207,18 +210,20 @@ class _HotelAndVillasScreenState extends State<HotelAndVillasScreen> {
             ),
             SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 10),
                 child: Row(
-                  spacing: 5,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
+                    SizedBox(
+                      width: 165.w,
                       child: CancelButton(
                         onTap: () {
                           Get.back();
                         },
                       ),
                     ),
-                    Expanded(
+                    SizedBox(
+                      width: 165.w,
                       child: RequestButton(
                         onTap: () async {
                           // Validation Logic
