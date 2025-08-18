@@ -19,6 +19,7 @@ import '../../controller/main_category_controller/main_category_controller.dart'
 import '../../controller/mini_sub_category_controller/mini_sub_category_controller.dart';
 import '../../controller/specific_category_controller/specific_category_controller.dart';
 import '../../controller/sub_category_controller/sub_category_controller.dart';
+import '../../view_models/controller/carousel_controller.dart';
 import '../../view_models/controller/image_picker_controller.dart';
 import '../screens/profile_screen/profile_screen.dart';
 
@@ -44,6 +45,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   Get.put(MiniSubCategoryController());
   Get.put(MainCategoryController());
   Get.put(ProfileController());
+  Get.put(ImagePickerController());
+  Get.put(CarouselSliderControllers());
 
 
   super.initState();

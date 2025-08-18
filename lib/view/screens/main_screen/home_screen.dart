@@ -26,7 +26,7 @@ import 'message_screen.dart';
 class HomeScreen extends StatelessWidget {
    HomeScreen({super.key});
 
-  final CarouselSliderControllers _carouselSliderController = Get.find();
+  final CarouselSliderControllers _carouselSliderController = Get.put(CarouselSliderControllers());
 
   final _eventController = Get.put(EventController());
 
