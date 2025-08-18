@@ -13,13 +13,17 @@ class LoginController extends GetxController{
   Future<void> login({required String email,required String password}) async {
     try{
       final response=await LoginApiServices.loginPostRequest(email: email, password: password);
+
+      print(response.statusCode);
+
       if(response.statusCode==200){
         final decodedResponse=jsonDecode(response.body);
         final String token=decodedResponse['token'];
         AuthPrefService.saveToken(token);
-        if(AuthPrefService.token.value.trim().isNotEmpty){
-          Get.offAll(CustomBottomBar());
-        }
+        Get.offAll(()=>CustomBottomBar());
+      }
+      else{
+        Get.snackbar("Error", "Your Password or Email is wrong");
       }
     }catch(e){
       print(e.toString());

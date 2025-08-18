@@ -33,11 +33,9 @@ class ProfileApiServices {
     }
   }
 
-
-
   static Future<dynamic> updateUserProfile({
     required String name,
-    required String phone,
+    required String whatsapp,
   }) async {
     await AuthPrefService.loadToken();
     await AuthPrefService.loadUid();
@@ -50,19 +48,19 @@ class ProfileApiServices {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer $token',
         },
-        body: json.encode({'name': name, 'whatsapp': phone}),
+        body: json.encode({'name': name, 'whatsapp': whatsapp}),
       );
+      print("update body: ${jsonEncode({"name": name, "whatsapp": whatsapp})}");
+      print("profile update response body ${response.body}");
+      print("profile update response status code ${response.statusCode}");
       return response;
     } catch (e) {
       print(e.toString());
     }
   }
 
-
-
-static  Future<bool> uploadImage({File? imageFile}) async {
+  static Future<bool> uploadImage({File? imageFile}) async {
     if (imageFile == null) return false;
-
 
     await AuthPrefService.loadToken();
     await AuthPrefService.loadUid();
@@ -96,6 +94,4 @@ static  Future<bool> uploadImage({File? imageFile}) async {
       print('Error uploading image: ${response.reasonPhrase}');
     }
   }
-
-
 }

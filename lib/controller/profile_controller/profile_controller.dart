@@ -63,15 +63,59 @@ class ProfileController extends GetxController {
     imageController.text = '';
   }
 
+  // Future<void> updateUserProfile() async {
+  //   try {
+  //     isLoading(true);
+  //     errorMessage('');
+  //     final response= await ProfileApiServices.updateUserProfile(
+  //         name: nameController.text,
+  //         phone: phoneController.text
+  //     );
+  //
+  //     if(response.statusCode==200){
+  //       await fetchUserProfile();
+  //       Get.snackbar('Success', 'Profile updated successfully');
+  //     }else{
+  //      Get.snackbar('Error', 'Failed to update profile');
+  //     }
+  //
+  //
+  //   } catch (e) {
+  //     errorMessage(e.toString());
+  //     Get.snackbar('Error', 'Failed to update profile: ${e.toString()}');
+  //   } finally {
+  //     isLoading(false);
+  //   }
+  // }
+
   Future<void> updateUserProfile() async {
     try {
       isLoading(true);
       errorMessage('');
-      await ProfileApiServices.updateUserProfile(
-          name: nameController.text,
-          phone: phoneController.text
+
+      print(nameController.text);
+      print(phoneController.text);
+
+      final response = await ProfileApiServices.updateUserProfile(
+        name: nameController.text,
+        whatsapp: phoneController.text,
+
       );
-      await fetchUserProfile(); // Refresh data after update
+
+      if (response.statusCode == 200) {
+        final responseData = jsonDecode(response.body);
+
+        if (responseData['success'] == true) {
+          // যেহেতু update response এ data নাই, তাই আবার profile fetch করব
+          await fetchUserProfile();
+
+          Get.snackbar('Success', responseData['message'] ?? 'Profile updated successfully');
+        } else {
+          Get.snackbar('Error', responseData['message'] ?? 'Failed to update profile');
+        }
+      } else {
+        Get.snackbar('Error', 'Failed to update profile');
+      }
     } catch (e) {
       errorMessage(e.toString());
       Get.snackbar('Error', 'Failed to update profile: ${e.toString()}');
@@ -79,6 +123,8 @@ class ProfileController extends GetxController {
       isLoading(false);
     }
   }
+
+
 
   @override
   void onClose() {

@@ -183,12 +183,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       children: [
         SizedBox(
           width: 100,
-          child: Text(
-            _profileController.nameController.text,
+          child: Obx(()=>Text(
+            _profileController.user.value?.name?? "known",
             style: _nameTextStyle(),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-          ),
+          ),)
         ),
         const SizedBox(height: 2),
         Text(
@@ -209,12 +209,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         const SizedBox(width: 8),
         SizedBox(
           width: 70,
-          child: Text(
-            _profileController.nameController.text,
+          child: Obx(()=>Text(
+            _profileController.user.value?.name??"known",
             style: _nameTextStyle(fontSize: AppStyles.fontL),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-          ),
+          ),),
         ),
       ],
     );

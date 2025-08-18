@@ -262,7 +262,7 @@ class ProfileScreen extends StatelessWidget {
                         title: 'My Profile',
                         action: IconButton(
                           onPressed: () {
-                            Get.to(EditProfile());
+                            Get.to(()=>EditProfile());
                           },
                           icon: Image.asset(AssetPath.basilEditOutline),
                         ),
@@ -274,7 +274,7 @@ class ProfileScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 180.h), // উপরে স্পেস দেবার জন্য
+                        SizedBox(height: 180.h),
                         Row(
                           children: [
                             Obx(()=>CircleAvatar(
@@ -484,6 +484,7 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
+                    Get.back();
                     Get.to(() => EventBookingHistoryScreen());
                   },
                   child: Text("Event Booking History"),
@@ -491,6 +492,7 @@ class ProfileScreen extends StatelessWidget {
                 SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
+                    Get.back();
                     Get.to(() => ServiceBookingHistoryScreen());
                   },
                   child: Text("Service Booking History"),
