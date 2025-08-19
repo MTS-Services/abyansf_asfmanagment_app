@@ -33,24 +33,21 @@ class ProfileApiServices {
     }
   }
 
-  static Future<dynamic> updateUserProfile({
-    required String name,
-    required String whatsapp,
-  }) async {
+  static Future<dynamic> updateUserProfile({required Map<String,dynamic> data}) async {
     await AuthPrefService.loadToken();
     await AuthPrefService.loadUid();
     final uid = AuthPrefService.uid;
     final token = AuthPrefService.token;
     try {
       final response = await http.put(
-        Uri.parse("${ApiUrls.baseUrl}/users/$uid"),
+        Uri.parse("${ApiUrls.baseUrl}/users"),
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer $token',
         },
-        body: json.encode({'name': name, 'whatsapp': whatsapp}),
+        body: json.encode(data),
       );
-      print("update body: ${jsonEncode({"name": name, "whatsapp": whatsapp})}");
+      print("update body: ${jsonEncode({"name": data["name"], "whatsapp": data["whatsapp"]})}");
       print("profile update response body ${response.body}");
       print("profile update response status code ${response.statusCode}");
       return response;
@@ -69,7 +66,7 @@ class ProfileApiServices {
 
     var request = http.MultipartRequest(
       'PUT',
-      Uri.parse('${ApiUrls.baseUrl}/users/$uid'),
+      Uri.parse('${ApiUrls.baseUrl}/users'),
     );
 
     // Add headers if needed
