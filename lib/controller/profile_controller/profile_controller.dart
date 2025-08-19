@@ -93,28 +93,38 @@ class ProfileController extends GetxController {
       isLoading(true);
       errorMessage('');
 
-      print(nameController.text);
-      print(phoneController.text);
+      // Create a map to hold only the changed fields
+      Map<String, dynamic> updatedFields = {};
 
-      final response = await ProfileApiServices.updateUserProfile(
-        name: nameController.text,
-        whatsapp: phoneController.text,
+      // Check which fields have changed compared to the original user data
+      if (user.value != null) {
+        if (nameController.text != user.value!.name) {
+          updatedFields['name'] = nameController.text;
+        }
+        if (phoneController.text != user.value!.whatsapp) {
+          updatedFields['whatsapp'] = phoneController.text;
+        }
+        // Add other fields similarly if needed
+      }
 
-      );
+      // Only proceed if there are actually any changes
+      if (updatedFields.isNotEmpty) {
+        final response = await ProfileApiServices.updateUserProfile(data: updatedFields);
 
-      if (response.statusCode == 200) {
-        final responseData = jsonDecode(response.body);
+        if (response.statusCode == 200) {
+          final responseData = jsonDecode(response.body);
 
-        if (responseData['success'] == true) {
-          // যেহেতু update response এ data নাই, তাই আবার profile fetch করব
-          await fetchUserProfile();
-
-          Get.snackbar('Success', responseData['message'] ?? 'Profile updated successfully');
+          if (responseData['success'] == true) {
+            await fetchUserProfile();
+            Get.snackbar('Success', responseData['message'] ?? 'Profile updated successfully');
+          } else {
+            Get.snackbar('Error', responseData['message'] ?? 'Failed to update profile');
+          }
         } else {
-          Get.snackbar('Error', responseData['message'] ?? 'Failed to update profile');
+          Get.snackbar('Error', 'Failed to update profile');
         }
       } else {
-        Get.snackbar('Error', 'Failed to update profile');
+        Get.snackbar('Info', 'No changes detected to update');
       }
     } catch (e) {
       errorMessage(e.toString());
